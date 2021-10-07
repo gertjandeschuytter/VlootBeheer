@@ -8,6 +8,8 @@ namespace BusinessLayer.Model
 {
     public class Adres
     {
-
+        public string Straat { get; }
+        public string Stad { get; }
+        public int Postcode { get; }
     }
 }

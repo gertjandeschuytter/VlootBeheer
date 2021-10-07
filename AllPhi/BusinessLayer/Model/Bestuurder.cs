@@ -10,14 +10,14 @@ namespace BusinessLayer.Model
     public class Bestuurder
     {
         #region Constructors
-        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, int rijksRegisterNr, TypeRijbewijs type, Voertuig voertuig, TankKaart tankKaart) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr, type)
+        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, long rijksRegisterNr, TypeRijbewijs type, Voertuig voertuig, TankKaart tankKaart) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr, type)
         {
             Adres = adres;
             Voertuig = voertuig;
             TankKaart = tankKaart;
         }
 
-        public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, int rijksRegisterNr, TypeRijbewijs type)
+        public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, long rijksRegisterNr, TypeRijbewijs type)
         {
             ZetNaam(naam);
             ZetVoorNaam(voorNaam);
@@ -26,38 +26,38 @@ namespace BusinessLayer.Model
             ZetRijbewijs(type);
         }
 
-        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, int rijksRegisterNr, TypeRijbewijs type) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr, type)
+        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, long rijksRegisterNr, TypeRijbewijs type) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr, type)
         {
             Adres = adres;
         }
 
-        public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, int rijksRegisterNr, TypeRijbewijs type, Voertuig voertuig) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr, type)
+        public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, long rijksRegisterNr, TypeRijbewijs type, Voertuig voertuig) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr, type)
         {
 
             Voertuig = voertuig;
         }
 
-        public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, int rijksRegisterNr, TypeRijbewijs type, TankKaart tankKaart) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr, type)
+        public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, long rijksRegisterNr, TypeRijbewijs type, TankKaart tankKaart) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr, type)
         {
 
             TankKaart = tankKaart;
         }
 
-        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, int rijksRegisterNr, TypeRijbewijs type, Voertuig voertuig) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr, type)
+        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, long rijksRegisterNr, TypeRijbewijs type, Voertuig voertuig) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr, type)
         {
 
             Adres = adres;
             Voertuig = voertuig;
         }
 
-        public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, int rijksRegisterNr, TypeRijbewijs type, Voertuig voertuig, TankKaart tankKaart) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr, type)
+        public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, long rijksRegisterNr, TypeRijbewijs type, Voertuig voertuig, TankKaart tankKaart) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr, type)
         {
 
             Voertuig = voertuig;
             TankKaart = tankKaart;
         }
 
-        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, int rijksRegisterNr, TypeRijbewijs type, TankKaart tankKaart) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr, type)
+        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, long rijksRegisterNr, TypeRijbewijs type, TankKaart tankKaart) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr, type)
         {
 
             Adres = adres;
@@ -70,7 +70,7 @@ namespace BusinessLayer.Model
         public string VoorNaam { get; private set; }
         public Adres Adres { get; }
         public DateTime GeboorteDatum { get; private set; }
-        public int RijksRegisterNr { get; private set; }
+        public long RijksRegisterNr { get; private set; }
         public TypeRijbewijs Type { get; private set; }
         public Voertuig Voertuig { get; }
         public TankKaart TankKaart { get; }
