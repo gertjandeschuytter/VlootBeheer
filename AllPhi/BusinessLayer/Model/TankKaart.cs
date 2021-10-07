@@ -11,11 +11,15 @@ namespace BusinessLayer.Model
         #region Constructors
         public TankKaart()
         {
-
+            public TankKaart()
         }
         #endregion
 
         #region Properties
+        public long Kaartnr { get; set; }
+        public string Geldigheidsdatum { get; set; }
+        public int Pincode { get; set; }
+        public int MyProperty { get; set; }
         #endregion
 
         #region Methods
