@@ -9,17 +9,24 @@ namespace BusinessLayer.Model
     public class TankKaart
     {
         #region Constructors
-        public TankKaart()
+        public TankKaart(long kaartnr, DateTime geldigheidsdatum, int pincode, List<string> mogelijkeBrandstoffen, Bestuurder bestuurder, bool geblokkeerd)
         {
-            public TankKaart()
+            Kaartnr = kaartnr;
+            Geldigheidsdatum = geldigheidsdatum;
+            Pincode = pincode;
+            MogelijkeBrandstoffen = mogelijkeBrandstoffen;
+            Bestuurder = bestuurder;
+            Geblokkeerd = geblokkeerd;
         }
         #endregion
 
         #region Properties
         public long Kaartnr { get; set; }
-        public string Geldigheidsdatum { get; set; }
+        public DateTime Geldigheidsdatum { get; set; }
         public int Pincode { get; set; }
-        public int MyProperty { get; set; }
+        public List<string> MogelijkeBrandstoffen { get; set; } = new List<string>();
+        public Bestuurder Bestuurder { get; set; }
+        public bool Geblokkeerd { get; set; }
         #endregion
 
         #region Methods
