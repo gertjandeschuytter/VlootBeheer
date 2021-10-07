@@ -98,7 +98,7 @@ namespace BusinessLayer.Model
             GeboorteDatum = geboorte;
         }
 
-        public void ZetRijksRegisterNummer(int rijksRegisterNr)
+        public void ZetRijksRegisterNummer(long rijksRegisterNr)
         {
             if (rijksRegisterNr == 0) throw new BestuurderException("Bestuurder: ZetRijksRegisterNummer - invalid rijksregisternummer: rijksregisternummer mag niet leeg zijn");
             if (rijksRegisterNr.ToString().Length != 11) throw new BestuurderException("Bestuurder: ZetRijksRegisterNummer - invalid rijksregisternummer: rijksregisternummer moet 11 cijfers lang zijn.");
@@ -115,7 +115,7 @@ namespace BusinessLayer.Model
         }
         #endregion
 
-        private bool ControleerEerste6Cijfers(int rijksRegisterNr)
+        private bool ControleerEerste6Cijfers(long rijksRegisterNr)
         {
             string cijfers6_Str = string.Empty;
 
@@ -126,7 +126,7 @@ namespace BusinessLayer.Model
             return false;
         }
 
-        private bool ControleerLaatste2Cijfers(int rijksRegisterNr)
+        private bool ControleerLaatste2Cijfers(long rijksRegisterNr)
         {
             int cijfers9;
             string cijfersLaatste2_str = string.Empty ;
