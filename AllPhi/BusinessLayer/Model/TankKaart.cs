@@ -8,7 +8,28 @@ namespace BusinessLayer.Model
 {
     public class TankKaart
     {
+
         #region Constructors
+        public TankKaart(long kaartnr, DateTime geldigheidsdatum)
+        {
+            Kaartnr = kaartnr;
+            Geldigheidsdatum = geldigheidsdatum;
+        }
+
+        public TankKaart(long kaartnr, DateTime geldigheidsdatum, int pincode)
+        {
+            Kaartnr = kaartnr;
+            Geldigheidsdatum = geldigheidsdatum;
+            Pincode = pincode;
+        }
+
+        public TankKaart(long kaartnr, DateTime geldigheidsdatum, List<string> mogelijkeBrandstoffen)
+        {
+            Kaartnr = kaartnr;
+            Geldigheidsdatum = geldigheidsdatum;
+            MogelijkeBrandstoffen = mogelijkeBrandstoffen;
+        }
+
         public TankKaart(long kaartnr, DateTime geldigheidsdatum, int pincode, List<string> mogelijkeBrandstoffen, Bestuurder bestuurder, bool geblokkeerd)
         {
             Kaartnr = kaartnr;
