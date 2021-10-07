@@ -17,7 +17,7 @@ namespace BusinessLayer.Model
         #endregion
 
         #region fields
-        private readonly List<string> Merken = new List<string>();
+        private readonly List<string> Merken = new();
         #endregion
 
         #region Constructors
