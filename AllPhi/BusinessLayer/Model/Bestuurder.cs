@@ -137,7 +137,7 @@ namespace BusinessLayer.Model
             
             RijksRegisterNr = rijksRegisterNr;
         }
-        //test
+
         public void ZetRijbewijs(TypeRijbewijs type)
         {
             if (!Enum.IsDefined(type)) throw new BestuurderException("Bestuurder: ZetRijbewijs - invalid type rijbewijs: rijbewijs moet ingevuld worden");
@@ -149,10 +149,7 @@ namespace BusinessLayer.Model
         {
             string cijfers6_Str = string.Empty;
 
-            for(int i = 0; i < 6; i++)
-            {
-                cijfers6_Str += rijksRegisterNr.ToString()[i];
-            }
+            cijfers6_Str = rijksRegisterNr.ToString()[0..5];
             string geboorte = GeboorteDatum.ToString("yyMMdd");
 
             if (cijfers6_Str == geboorte) return true;
@@ -164,13 +161,11 @@ namespace BusinessLayer.Model
             int cijfers9;
             string cijfersLaatste2_str = string.Empty ;
             if (int.Parse(GeboorteDatum.ToString("yyyy")) < 2000)
-                cijfers9 = rijksRegisterNr.ToString()[0 - 8];
+                cijfers9 = int.Parse(rijksRegisterNr.ToString()[0..8]);
             else
-                cijfers9 = int.Parse("2" + rijksRegisterNr.ToString()[0 - 8]);
-            for(int i = 9; i <= 10; i++)
-            {
-                cijfersLaatste2_str += rijksRegisterNr.ToString()[i];
-            }
+                cijfers9 = int.Parse("2" + rijksRegisterNr.ToString()[0..8]);
+
+            cijfersLaatste2_str = rijksRegisterNr.ToString()[9..];
             int cijfersLaatste2 = int.Parse(cijfersLaatste2_str);
             int controleGetal = 97 - (cijfers9 % 97);
             if (cijfersLaatste2 == controleGetal) return true;
