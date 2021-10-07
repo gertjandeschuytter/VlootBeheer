@@ -10,7 +10,7 @@ namespace BusinessLayer.Model
     public class Bestuurder
     {
         #region Constructors
-        public Bestuurder(string naam, string voorNaam, string adres, DateTime geboorteDatum, int rijksRegisterNr, TypeRijbewijs type, Voertuig voertuig, TankKaart tankKaart)
+        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, int rijksRegisterNr, TypeRijbewijs type, Voertuig voertuig, TankKaart tankKaart)
         {
             ZetNaam(naam);
             ZetVoorNaam(voorNaam);
@@ -31,7 +31,7 @@ namespace BusinessLayer.Model
             ZetRijbewijs(type);
         }
 
-        public Bestuurder(string naam, string voorNaam, string adres, DateTime geboorteDatum, int rijksRegisterNr, TypeRijbewijs type)
+        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, int rijksRegisterNr, TypeRijbewijs type)
         {
             ZetNaam(naam);
             ZetVoorNaam(voorNaam);
@@ -61,7 +61,7 @@ namespace BusinessLayer.Model
             TankKaart = tankKaart;
         }
 
-        public Bestuurder(string naam, string voorNaam, string adres, DateTime geboorteDatum, int rijksRegisterNr, TypeRijbewijs type, Voertuig voertuig)
+        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, int rijksRegisterNr, TypeRijbewijs type, Voertuig voertuig)
         {
             ZetNaam(naam);
             ZetVoorNaam(voorNaam);
@@ -83,7 +83,7 @@ namespace BusinessLayer.Model
             TankKaart = tankKaart;
         }
 
-        public Bestuurder(string naam, string voorNaam, string adres, DateTime geboorteDatum, int rijksRegisterNr, TypeRijbewijs type, TankKaart tankKaart)
+        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, int rijksRegisterNr, TypeRijbewijs type, TankKaart tankKaart)
         {
             ZetNaam(naam);
             ZetVoorNaam(voorNaam);
@@ -98,7 +98,7 @@ namespace BusinessLayer.Model
         #region Properties
         public string Naam { get; private set; }
         public string VoorNaam { get; private set; }
-        public string Adres { get; }
+        public Adres Adres { get; }
         public DateTime GeboorteDatum { get; private set; }
         public int RijksRegisterNr { get; private set; }
         public TypeRijbewijs Type { get; private set; }
