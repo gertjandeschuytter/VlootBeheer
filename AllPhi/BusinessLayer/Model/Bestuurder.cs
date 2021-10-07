@@ -10,14 +10,9 @@ namespace BusinessLayer.Model
     public class Bestuurder
     {
         #region Constructors
-        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, int rijksRegisterNr, TypeRijbewijs type, Voertuig voertuig, TankKaart tankKaart)
+        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, int rijksRegisterNr, TypeRijbewijs type, Voertuig voertuig, TankKaart tankKaart) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr, type)
         {
-            ZetNaam(naam);
-            ZetVoorNaam(voorNaam);
             Adres = adres;
-            ZetGeboorteDatum(geboorteDatum);
-            ZetRijksRegisterNummer(rijksRegisterNr);
-            ZetRijbewijs(type);
             Voertuig = voertuig;
             TankKaart = tankKaart;
         }
@@ -31,65 +26,40 @@ namespace BusinessLayer.Model
             ZetRijbewijs(type);
         }
 
-        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, int rijksRegisterNr, TypeRijbewijs type)
+        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, int rijksRegisterNr, TypeRijbewijs type) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr, type)
         {
-            ZetNaam(naam);
-            ZetVoorNaam(voorNaam);
-            ZetGeboorteDatum(geboorteDatum);
-            ZetRijksRegisterNummer(rijksRegisterNr);
-            ZetRijbewijs(type);
             Adres = adres;
         }
 
-        public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, int rijksRegisterNr, TypeRijbewijs type, Voertuig voertuig)
+        public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, int rijksRegisterNr, TypeRijbewijs type, Voertuig voertuig) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr, type)
         {
-            ZetNaam(naam);
-            ZetVoorNaam(voorNaam);
-            ZetGeboorteDatum(geboorteDatum);
-            ZetRijksRegisterNummer(rijksRegisterNr);
-            ZetRijbewijs(type);
+
             Voertuig = voertuig;
         }
 
-        public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, int rijksRegisterNr, TypeRijbewijs type, TankKaart tankKaart)
+        public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, int rijksRegisterNr, TypeRijbewijs type, TankKaart tankKaart) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr, type)
         {
-            ZetNaam(naam);
-            ZetVoorNaam(voorNaam);
-            ZetGeboorteDatum(geboorteDatum);
-            ZetRijksRegisterNummer(rijksRegisterNr);
-            ZetRijbewijs(type);
+
             TankKaart = tankKaart;
         }
 
-        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, int rijksRegisterNr, TypeRijbewijs type, Voertuig voertuig)
+        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, int rijksRegisterNr, TypeRijbewijs type, Voertuig voertuig) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr, type)
         {
-            ZetNaam(naam);
-            ZetVoorNaam(voorNaam);
-            ZetGeboorteDatum(geboorteDatum);
-            ZetRijksRegisterNummer(rijksRegisterNr);
-            ZetRijbewijs(type);
+
             Adres = adres;
             Voertuig = voertuig;
         }
 
-        public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, int rijksRegisterNr, TypeRijbewijs type, Voertuig voertuig, TankKaart tankKaart)
+        public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, int rijksRegisterNr, TypeRijbewijs type, Voertuig voertuig, TankKaart tankKaart) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr, type)
         {
-            ZetNaam(naam);
-            ZetVoorNaam(voorNaam);
-            ZetGeboorteDatum(geboorteDatum);
-            ZetRijksRegisterNummer(rijksRegisterNr);
-            ZetRijbewijs(type);
+
             Voertuig = voertuig;
             TankKaart = tankKaart;
         }
 
-        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, int rijksRegisterNr, TypeRijbewijs type, TankKaart tankKaart)
+        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, int rijksRegisterNr, TypeRijbewijs type, TankKaart tankKaart) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr, type)
         {
-            ZetNaam(naam);
-            ZetVoorNaam(voorNaam);
-            ZetGeboorteDatum(geboorteDatum);
-            ZetRijksRegisterNummer(rijksRegisterNr);
-            ZetRijbewijs(type);
+
             Adres = adres;
             TankKaart = tankKaart;
         }
