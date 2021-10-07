@@ -137,7 +137,7 @@ namespace BusinessLayer.Model
             
             RijksRegisterNr = rijksRegisterNr;
         }
-
+        //test
         public void ZetRijbewijs(TypeRijbewijs type)
         {
             if (!Enum.IsDefined(type)) throw new BestuurderException("Bestuurder: ZetRijbewijs - invalid type rijbewijs: rijbewijs moet ingevuld worden");
