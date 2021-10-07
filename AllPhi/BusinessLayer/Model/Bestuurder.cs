@@ -10,19 +10,14 @@ namespace BusinessLayer.Model
     public class Bestuurder
     {
         #region Constructors
-        public Bestuurder(string naam, string voorNaam, string adres, DateTime geboorteDatum, int rijksRegisterNr, TypeRijbewijs type, Voertuig voertuig, TankKaart tankKaart)
+        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, long rijksRegisterNr, TypeRijbewijs type, Voertuig voertuig, TankKaart tankKaart) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr, type)
         {
-            ZetNaam(naam);
-            ZetVoorNaam(voorNaam);
             Adres = adres;
-            ZetGeboorteDatum(geboorteDatum);
-            ZetRijksRegisterNummer(rijksRegisterNr);
-            ZetRijbewijs(type);
             Voertuig = voertuig;
             TankKaart = tankKaart;
         }
 
-        public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, int rijksRegisterNr, TypeRijbewijs type)
+        public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, long rijksRegisterNr, TypeRijbewijs type)
         {
             ZetNaam(naam);
             ZetVoorNaam(voorNaam);
@@ -31,65 +26,40 @@ namespace BusinessLayer.Model
             ZetRijbewijs(type);
         }
 
-        public Bestuurder(string naam, string voorNaam, string adres, DateTime geboorteDatum, int rijksRegisterNr, TypeRijbewijs type)
+        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, long rijksRegisterNr, TypeRijbewijs type) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr, type)
         {
-            ZetNaam(naam);
-            ZetVoorNaam(voorNaam);
-            ZetGeboorteDatum(geboorteDatum);
-            ZetRijksRegisterNummer(rijksRegisterNr);
-            ZetRijbewijs(type);
             Adres = adres;
         }
 
-        public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, int rijksRegisterNr, TypeRijbewijs type, Voertuig voertuig)
+        public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, long rijksRegisterNr, TypeRijbewijs type, Voertuig voertuig) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr, type)
         {
-            ZetNaam(naam);
-            ZetVoorNaam(voorNaam);
-            ZetGeboorteDatum(geboorteDatum);
-            ZetRijksRegisterNummer(rijksRegisterNr);
-            ZetRijbewijs(type);
+
             Voertuig = voertuig;
         }
 
-        public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, int rijksRegisterNr, TypeRijbewijs type, TankKaart tankKaart)
+        public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, long rijksRegisterNr, TypeRijbewijs type, TankKaart tankKaart) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr, type)
         {
-            ZetNaam(naam);
-            ZetVoorNaam(voorNaam);
-            ZetGeboorteDatum(geboorteDatum);
-            ZetRijksRegisterNummer(rijksRegisterNr);
-            ZetRijbewijs(type);
+
             TankKaart = tankKaart;
         }
 
-        public Bestuurder(string naam, string voorNaam, string adres, DateTime geboorteDatum, int rijksRegisterNr, TypeRijbewijs type, Voertuig voertuig)
+        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, long rijksRegisterNr, TypeRijbewijs type, Voertuig voertuig) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr, type)
         {
-            ZetNaam(naam);
-            ZetVoorNaam(voorNaam);
-            ZetGeboorteDatum(geboorteDatum);
-            ZetRijksRegisterNummer(rijksRegisterNr);
-            ZetRijbewijs(type);
+
             Adres = adres;
             Voertuig = voertuig;
         }
 
-        public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, int rijksRegisterNr, TypeRijbewijs type, Voertuig voertuig, TankKaart tankKaart)
+        public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, long rijksRegisterNr, TypeRijbewijs type, Voertuig voertuig, TankKaart tankKaart) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr, type)
         {
-            ZetNaam(naam);
-            ZetVoorNaam(voorNaam);
-            ZetGeboorteDatum(geboorteDatum);
-            ZetRijksRegisterNummer(rijksRegisterNr);
-            ZetRijbewijs(type);
+
             Voertuig = voertuig;
             TankKaart = tankKaart;
         }
 
-        public Bestuurder(string naam, string voorNaam, string adres, DateTime geboorteDatum, int rijksRegisterNr, TypeRijbewijs type, TankKaart tankKaart)
+        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, long rijksRegisterNr, TypeRijbewijs type, TankKaart tankKaart) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr, type)
         {
-            ZetNaam(naam);
-            ZetVoorNaam(voorNaam);
-            ZetGeboorteDatum(geboorteDatum);
-            ZetRijksRegisterNummer(rijksRegisterNr);
-            ZetRijbewijs(type);
+
             Adres = adres;
             TankKaart = tankKaart;
         }
@@ -98,9 +68,9 @@ namespace BusinessLayer.Model
         #region Properties
         public string Naam { get; private set; }
         public string VoorNaam { get; private set; }
-        public string Adres { get; }
+        public Adres Adres { get; }
         public DateTime GeboorteDatum { get; private set; }
-        public int RijksRegisterNr { get; private set; }
+        public long RijksRegisterNr { get; private set; }
         public TypeRijbewijs Type { get; private set; }
         public Voertuig Voertuig { get; }
         public TankKaart TankKaart { get; }
@@ -128,7 +98,7 @@ namespace BusinessLayer.Model
             GeboorteDatum = geboorte;
         }
 
-        public void ZetRijksRegisterNummer(int rijksRegisterNr)
+        public void ZetRijksRegisterNummer(long rijksRegisterNr)
         {
             if (rijksRegisterNr == 0) throw new BestuurderException("Bestuurder: ZetRijksRegisterNummer - invalid rijksregisternummer: rijksregisternummer mag niet leeg zijn");
             if (rijksRegisterNr.ToString().Length != 11) throw new BestuurderException("Bestuurder: ZetRijksRegisterNummer - invalid rijksregisternummer: rijksregisternummer moet 11 cijfers lang zijn.");
@@ -145,7 +115,7 @@ namespace BusinessLayer.Model
         }
         #endregion
 
-        private bool ControleerEerste6Cijfers(int rijksRegisterNr)
+        private bool ControleerEerste6Cijfers(long rijksRegisterNr)
         {
             string cijfers6_Str = string.Empty;
 
@@ -156,7 +126,7 @@ namespace BusinessLayer.Model
             return false;
         }
 
-        private bool ControleerLaatste2Cijfers(int rijksRegisterNr)
+        private bool ControleerLaatste2Cijfers(long rijksRegisterNr)
         {
             int cijfers9;
             string cijfersLaatste2_str = string.Empty ;

@@ -1,0 +1,12 @@
+C:\Users\Ruben\Source\Repos\ProjectGraduaat\AllPhi\BusinessLayer\bin\Debug\net5.0\BusinessLayer.deps.json
+C:\Users\Ruben\Source\Repos\ProjectGraduaat\AllPhi\BusinessLayer\bin\Debug\net5.0\BusinessLayer.dll
+C:\Users\Ruben\Source\Repos\ProjectGraduaat\AllPhi\BusinessLayer\bin\Debug\net5.0\ref\BusinessLayer.dll
+C:\Users\Ruben\Source\Repos\ProjectGraduaat\AllPhi\BusinessLayer\bin\Debug\net5.0\BusinessLayer.pdb
+C:\Users\Ruben\Source\Repos\ProjectGraduaat\AllPhi\BusinessLayer\obj\Debug\net5.0\BusinessLayer.csproj.AssemblyReference.cache
+C:\Users\Ruben\Source\Repos\ProjectGraduaat\AllPhi\BusinessLayer\obj\Debug\net5.0\BusinessLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ruben\Source\Repos\ProjectGraduaat\AllPhi\BusinessLayer\obj\Debug\net5.0\BusinessLayer.AssemblyInfoInputs.cache
+C:\Users\Ruben\Source\Repos\ProjectGraduaat\AllPhi\BusinessLayer\obj\Debug\net5.0\BusinessLayer.AssemblyInfo.cs
+C:\Users\Ruben\Source\Repos\ProjectGraduaat\AllPhi\BusinessLayer\obj\Debug\net5.0\BusinessLayer.csproj.CoreCompileInputs.cache
+C:\Users\Ruben\Source\Repos\ProjectGraduaat\AllPhi\BusinessLayer\obj\Debug\net5.0\BusinessLayer.dll
+C:\Users\Ruben\Source\Repos\ProjectGraduaat\AllPhi\BusinessLayer\obj\Debug\net5.0\ref\BusinessLayer.dll
+C:\Users\Ruben\Source\Repos\ProjectGraduaat\AllPhi\BusinessLayer\obj\Debug\net5.0\BusinessLayer.pdb
