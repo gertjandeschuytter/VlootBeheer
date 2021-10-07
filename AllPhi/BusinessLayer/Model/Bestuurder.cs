@@ -123,7 +123,8 @@ namespace BusinessLayer.Model
 
         public void ZetGeboorteDatum(DateTime geboorte)
         {
-            if () throw new BestuurderException("Bestuurder: ZetGeboorteDatum - invalid geboortedatum: geboortedatum mag niet null/ongeldig zijn");
+            DateTime standaard = new();
+            if (geboorte == standaard) throw new BestuurderException("Bestuurder: ZetGeboorteDatum - invalid geboortedatum: geboortedatum mag niet null/ongeldig zijn");
             GeboorteDatum = geboorte;
         }
 
@@ -131,7 +132,7 @@ namespace BusinessLayer.Model
         {
             if (rijksRegisterNr == 0) throw new BestuurderException("Bestuurder: ZetRijksRegisterNummer - invalid rijksregisternummer: rijksregisternummer mag niet leeg zijn");
             if (rijksRegisterNr.ToString().Length != 11) throw new BestuurderException("Bestuurder: ZetRijksRegisterNummer - invalid rijksregisternummer: rijksregisternummer moet 11 cijfers lang zijn.");
-            if (!Controleer6Cijfers(rijksRegisterNr)) throw new BestuurderException("Bestuurder: ZetRijksRegisterNummer - invalid rijksregisternummer: De eerste 6 cijfers moeten dezelfde zijn als de geboortedatum komen");
+            if (!ControleerEerste6Cijfers(rijksRegisterNr)) throw new BestuurderException("Bestuurder: ZetRijksRegisterNummer - invalid rijksregisternummer: De eerste 6 cijfers moeten dezelfde zijn als de geboortedatum komen");
             if (!ControleerLaatste2Cijfers(rijksRegisterNr)) throw new BestuurderException("Bestuurder: ZetRijksRegisterNummer - invalid rijksregisternummer: De laatste 2 cijfers zijn een controle voor de andere 9");
             
             RijksRegisterNr = rijksRegisterNr;
@@ -144,7 +145,7 @@ namespace BusinessLayer.Model
         }
         #endregion
 
-        private bool Controleer6Cijfers(int rijksRegisterNr)
+        private bool ControleerEerste6Cijfers(int rijksRegisterNr)
         {
             string cijfers6_Str = string.Empty;
 
