@@ -140,7 +140,7 @@ namespace BusinessLayer.Model
 
         public void ZetRijbewijs(TypeRijbewijs type)
         {
-            if () throw new BestuurderException("Bestuurder: ZetRijbewijs - invalid type rijbewijs: rijbewijs moet ingevuld worden");
+            if (!Enum.IsDefined(type)) throw new BestuurderException("Bestuurder: ZetRijbewijs - invalid type rijbewijs: rijbewijs moet ingevuld worden");
             Type = type;
         }
         #endregion
