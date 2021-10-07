@@ -30,6 +30,25 @@ namespace BusinessLayer.Model
             MogelijkeBrandstoffen = mogelijkeBrandstoffen;
         }
 
+        public TankKaart(long kaartnr, DateTime geldigheidsdatum, int pincode, List<string> mogelijkeBrandstoffen, Bestuurder bestuurder)
+        {
+            Kaartnr = kaartnr;
+            Geldigheidsdatum = geldigheidsdatum;
+            Pincode = pincode;
+            MogelijkeBrandstoffen = mogelijkeBrandstoffen;
+            Bestuurder = bestuurder;
+        }
+
+        public TankKaart(long kaartnr, DateTime geldigheidsdatum, int pincode, List<string> mogelijkeBrandstoffen, Bestuurder bestuurder, bool geblokkeerd)
+        {
+            Kaartnr = kaartnr;
+            Geldigheidsdatum = geldigheidsdatum;
+            Pincode = pincode;
+            MogelijkeBrandstoffen = mogelijkeBrandstoffen;
+            Bestuurder = bestuurder;
+            Geblokkeerd = geblokkeerd;
+        }
+
         public TankKaart(long kaartnr, DateTime geldigheidsdatum, int pincode, List<string> mogelijkeBrandstoffen, Bestuurder bestuurder, bool geblokkeerd)
         {
             Kaartnr = kaartnr;
