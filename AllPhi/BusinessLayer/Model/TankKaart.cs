@@ -83,7 +83,6 @@ namespace BusinessLayer.Model
         #region Setters
         public void ZetBestuurder(string naam, string voorNaam, DateTime geboorteDatum, long rijksRegisterNr, TypeRijbewijs type)
         {
-            if (string.IsNullOrWhiteSpace(naam) && string.IsNullOrWhiteSpace(voorNaam) && string.IsNullOrWhiteSpace(geboorteDatum) && string.IsNullOrWhiteSpace(rijksRegisterNr) && string.IsNullOrWhiteSpace(type)) throw new BestuurderException("Bestuurder: ZetBestuurder - invalid bestuurder: niks mag leeg zijn");
             Bestuurder = new Bestuurder(naam, voorNaam, geboorteDatum, rijksRegisterNr, type);
         }
         #endregion
