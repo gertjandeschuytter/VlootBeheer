@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BusinessLayer.Exceptions;
+using BusinessLayer.Utilities;
 
 namespace BusinessLayer.Model
 {
@@ -102,8 +103,8 @@ namespace BusinessLayer.Model
         {
             if (rijksRegisterNr == 0) throw new BestuurderException("Bestuurder: ZetRijksRegisterNummer - invalid rijksregisternummer: rijksregisternummer mag niet leeg zijn");
             if (rijksRegisterNr.ToString().Length != 11) throw new BestuurderException("Bestuurder: ZetRijksRegisterNummer - invalid rijksregisternummer: rijksregisternummer moet 11 cijfers lang zijn.");
-            if (!ControleerEerste6Cijfers(rijksRegisterNr)) throw new BestuurderException("Bestuurder: ZetRijksRegisterNummer - invalid rijksregisternummer: De eerste 6 cijfers moeten dezelfde zijn als de geboortedatum komen");
-            if (!ControleerLaatste2Cijfers(rijksRegisterNr)) throw new BestuurderException("Bestuurder: ZetRijksRegisterNummer - invalid rijksregisternummer: De laatste 2 cijfers zijn een controle voor de andere 9");
+            if (!RijksRegisterNummerValidator.ControleerEerste6Cijfers(this, rijksRegisterNr)) throw new BestuurderException("Bestuurder: ZetRijksRegisterNummer - invalid rijksregisternummer: De eerste 6 cijfers moeten dezelfde zijn als de geboortedatum komen");
+            if (!RijksRegisterNummerValidator.ControleerLaatste2Cijfers(this, rijksRegisterNr)) throw new BestuurderException("Bestuurder: ZetRijksRegisterNummer - invalid rijksregisternummer: De laatste 2 cijfers zijn een controle voor de andere 9");
             
             RijksRegisterNr = rijksRegisterNr;
         }
@@ -115,32 +116,7 @@ namespace BusinessLayer.Model
         }
         #endregion
 
-        private bool ControleerEerste6Cijfers(long rijksRegisterNr)
-        {
-            string cijfers6_Str = string.Empty;
 
-            cijfers6_Str = rijksRegisterNr.ToString()[0..5];
-            string geboorte = GeboorteDatum.ToString("yyMMdd");
-
-            if (cijfers6_Str == geboorte) return true;
-            return false;
-        }
-
-        private bool ControleerLaatste2Cijfers(long rijksRegisterNr)
-        {
-            int cijfers9;
-            string cijfersLaatste2_str = string.Empty ;
-            if (int.Parse(GeboorteDatum.ToString("yyyy")) < 2000)
-                cijfers9 = int.Parse(rijksRegisterNr.ToString()[0..8]);
-            else
-                cijfers9 = int.Parse("2" + rijksRegisterNr.ToString()[0..8]);
-
-            cijfersLaatste2_str = rijksRegisterNr.ToString()[9..];
-            int cijfersLaatste2 = int.Parse(cijfersLaatste2_str);
-            int controleGetal = 97 - (cijfers9 % 97);
-            if (cijfersLaatste2 == controleGetal) return true;
-            return false;
-        }
         #endregion
 
     }
