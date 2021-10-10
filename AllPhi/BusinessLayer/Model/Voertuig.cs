@@ -1,4 +1,5 @@
 ﻿using System;
+using BusinessLayer.Exceptions;
 using System.Collections.Generic;
 
 namespace BusinessLayer.Model
@@ -17,53 +18,34 @@ namespace BusinessLayer.Model
         #endregion
 
         #region fields
-        private readonly List<string> Merken = new();
+        private readonly List<string> MerkenEnModellen = new List<string>();
         #endregion
 
         #region Constructors
-
-        public Voertuig(string merkEnModel, string chassisNummer, string nummerPlaat, Brandstoftype brandstofType, Typewagen typeWagen, string kleur, int aantalDeuren, Bestuurder bestuurder) {
-            MerkEnModel = merkEnModel;
-            ChassisNummer = chassisNummer;
-            NummerPlaat = nummerPlaat;
-            BrandstofType = brandstofType;
-            TypeWagen = typeWagen;
-            Kleur = kleur;
-            AantalDeuren = aantalDeuren;
-            Bestuurder = bestuurder;
-        }
-
-        public Voertuig(string merkEnModel, string chassisNummer, string nummerPlaat, Brandstoftype brandstofType, Typewagen typeWagen) {
-            MerkEnModel = merkEnModel;
-            ChassisNummer = chassisNummer;
-            NummerPlaat = nummerPlaat;
-            BrandstofType = brandstofType;
-            TypeWagen = typeWagen;
-        }
-
-        public Voertuig(string merkEnModel, string chassisNummer, string nummerPlaat, Brandstoftype brandstofType, Typewagen typeWagen, string kleur) : this(merkEnModel, chassisNummer, nummerPlaat, brandstofType, typeWagen) {
-            Kleur = kleur;
-        }
-
-        public Voertuig(string merkEnModel, string chassisNummer, string nummerPlaat, Brandstoftype brandstofType, Typewagen typeWagen, string kleur, int aantalDeuren) : this(merkEnModel, chassisNummer, nummerPlaat, brandstofType, typeWagen, kleur) {
-            AantalDeuren = aantalDeuren;
-        }
-
-        public Voertuig(string merkEnModel, string chassisNummer, string nummerPlaat, Brandstoftype brandstofType, Typewagen typeWagen, string kleur, Bestuurder bestuurder) : this(merkEnModel, chassisNummer, nummerPlaat, brandstofType, typeWagen, kleur) {
-            Bestuurder = bestuurder;
-        }
-
-        public Voertuig(string merkEnModel, string chassisNummer, string nummerPlaat, Brandstoftype brandstofType, Typewagen typeWagen, int aantalDeuren, Bestuurder bestuurder) : this(merkEnModel, chassisNummer, nummerPlaat, brandstofType, typeWagen) {
-            AantalDeuren = aantalDeuren;
-            Bestuurder = bestuurder;
-        }
-
-
-
-
+        
         #endregion
 
         #region Methods
+        public void ZetMerkEnModel (string merkEnModel) {
+            if(string.IsNullOrEmpty(merkEnModel)) throw new VoertuigException("merk mag niet leeg of null zijn");
+            this.MerkEnModel = merkEnModel;
+            MerkenEnModellen.Add(merkEnModel);
+        }
+        public void ZetChassisNummer (string chassisNummer) {
+            if(string.IsNullOrEmpty(ChassisNummer)) throw new VoertuigException("chassisnummer mag niet leeg of null zijn");
+            else if(ChassisNummer.Length < 17) throw new VoertuigException("chassisnummer moet minstens 17 karakters bevatten");
+            this.ChassisNummer = chassisNummer;
+        }
+        //nummerplaat methode nog maken
+        public void ZetKleur(string kleur) {
+            if(string.IsNullOrEmpty(kleur)) throw new VoertuigException("kleur mag niet leeg of null zijn");
+            this.Kleur = kleur;
+        }
+        public void ZetAantalDeuren(int aantalDeuren) {
+            if(aantalDeuren < 3) throw new VoertuigException("een auto heeft minstens 3 deuren");
+            this.AantalDeuren = aantalDeuren;
+        }
+
         #endregion
     }
 }
