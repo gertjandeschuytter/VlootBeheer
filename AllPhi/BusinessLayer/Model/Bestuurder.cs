@@ -11,17 +11,19 @@ namespace BusinessLayer.Model
     public class Bestuurder
     {
         #region Constructors
-        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, long rijksRegisterNr) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr)
+        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, long rijksRegisterNr, Voertuig voertuig, TankKaart tankKaart) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr, voertuig, tankKaart)
         {
             Adres = adres;
         }
 
-        public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, long rijksRegisterNr)
+        public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, long rijksRegisterNr, Voertuig voertuig, TankKaart tankKaart)
         {
             ZetNaam(naam);
             ZetVoorNaam(voorNaam);
             ZetGeboorteDatum(geboorteDatum);
             ZetRijksRegisterNummer(rijksRegisterNr);
+            ZetVoertuig(voertuig);
+            ZetTankKaart(tankKaart);
             Types = new List<TypeRijbewijs>();
         }
 
