@@ -13,6 +13,18 @@ namespace BusinessLayer.Utilities
         {
         }
 
+        public static bool ContorleerEmpty(long rijksRegisterNr)
+        {
+            if (rijksRegisterNr == 0) return true;
+            return false;
+        }
+
+        public static bool ControleerLengte(long rijksRegisterNr)
+        {
+            if (rijksRegisterNr.ToString().Length != 11) return false;
+            return true;
+        }
+
         public static bool ControleerEerste6Cijfers(Bestuurder bestuurder, long rijksRegisterNr)
         {
             string cijfers6_Str = string.Empty;
