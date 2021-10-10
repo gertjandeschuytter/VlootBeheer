@@ -1,7 +1,16 @@
 {
   "ExpandedNodes": [
+<<<<<<< HEAD
     ""
   ],
   "SelectedNode": "\\AllPhi.sln",
+=======
+    "",
+    "\\AllPhi",
+    "\\AllPhi\\BusinessLayer",
+    "\\AllPhi\\BusinessLayer\\Model"
+  ],
+  "SelectedNode": "\\AllPhi",
+>>>>>>> 200c93fbfcf19ae061202f7c9fc2caba7dd6e5d8
   "PreviewInSolutionExplorer": false
 }

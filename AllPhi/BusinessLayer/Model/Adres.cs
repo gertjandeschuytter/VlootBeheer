@@ -11,5 +11,6 @@ namespace BusinessLayer.Model
         public string Straat { get; }
         public string Stad { get; }
         public int Postcode { get; }
+        public int Nummer { get; }
     }
 }
