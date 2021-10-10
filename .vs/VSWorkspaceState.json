@@ -3,8 +3,8 @@
     "",
     "\\AllPhi",
     "\\AllPhi\\BusinessLayer",
-    "\\AllPhi\\BusinessLayer\\Exceptions",
     "\\AllPhi\\BusinessLayer\\Model"
   ],
+  "SelectedNode": "\\AllPhi",
   "PreviewInSolutionExplorer": false
 }
