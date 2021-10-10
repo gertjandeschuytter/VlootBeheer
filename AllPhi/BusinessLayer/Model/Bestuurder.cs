@@ -11,59 +11,20 @@ namespace BusinessLayer.Model
     public class Bestuurder
     {
         #region Constructors
-        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, long rijksRegisterNr, TypeRijbewijs type, Voertuig voertuig, TankKaart tankKaart) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr, type)
+        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, long rijksRegisterNr) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr)
         {
             Adres = adres;
-            Voertuig = voertuig;
-            TankKaart = tankKaart;
         }
 
-        public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, long rijksRegisterNr, TypeRijbewijs type)
+        public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, long rijksRegisterNr)
         {
             ZetNaam(naam);
             ZetVoorNaam(voorNaam);
             ZetGeboorteDatum(geboorteDatum);
             ZetRijksRegisterNummer(rijksRegisterNr);
-            ZetRijbewijs(type);
+            Types = new List<TypeRijbewijs>();
         }
 
-        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, long rijksRegisterNr, TypeRijbewijs type) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr, type)
-        {
-            Adres = adres;
-        }
-
-        public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, long rijksRegisterNr, TypeRijbewijs type, Voertuig voertuig) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr, type)
-        {
-
-            Voertuig = voertuig;
-        }
-
-        public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, long rijksRegisterNr, TypeRijbewijs type, TankKaart tankKaart) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr, type)
-        {
-
-            TankKaart = tankKaart;
-        }
-
-        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, long rijksRegisterNr, TypeRijbewijs type, Voertuig voertuig) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr, type)
-        {
-
-            Adres = adres;
-            Voertuig = voertuig;
-        }
-
-        public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, long rijksRegisterNr, TypeRijbewijs type, Voertuig voertuig, TankKaart tankKaart) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr, type)
-        {
-
-            Voertuig = voertuig;
-            TankKaart = tankKaart;
-        }
-
-        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, long rijksRegisterNr, TypeRijbewijs type, TankKaart tankKaart) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr, type)
-        {
-
-            Adres = adres;
-            TankKaart = tankKaart;
-        }
         #endregion
 
         #region Properties
@@ -72,9 +33,9 @@ namespace BusinessLayer.Model
         public Adres Adres { get; }
         public DateTime GeboorteDatum { get; private set; }
         public long RijksRegisterNr { get; private set; }
-        public TypeRijbewijs Type { get; private set; }
-        public Voertuig Voertuig { get; }
-        public TankKaart TankKaart { get; }
+        public List<TypeRijbewijs> Types { get; private set; }
+        public Voertuig Voertuig { get; private set; }
+        public TankKaart TankKaart { get; private set; }
         #endregion
 
         #region Methods
@@ -108,15 +69,44 @@ namespace BusinessLayer.Model
             
             RijksRegisterNr = rijksRegisterNr;
         }
-
-        public void ZetRijbewijs(TypeRijbewijs type)
-        {
-            if (!Enum.IsDefined(type)) throw new BestuurderException("Bestuurder: ZetRijbewijs - invalid type rijbewijs: rijbewijs moet ingevuld worden");
-            Type = type;
-        }
         #endregion
 
+        public void VoegRijbewijsToe(TypeRijbewijs type)
+        {
+            if (Types.Contains(type)) throw new BestuurderException("Bestuurder: VoegRijbewijsToe - Deze bestuurder heeft dit type rijbewijs al");
+            Types.Add(type);
+        }
 
+        public void VerwijderRijbewijs(TypeRijbewijs type)
+        {
+            if (!Types.Contains(type)) throw new BestuurderException("Bestuurder: VoegRijbewijsToe - Deze bestuurder heeft dit rijbewijs niet.");
+            Types.Remove(type);
+        }
+
+        public void ZetVoertuig(Voertuig voertuig)
+        {
+            if (Voertuig == voertuig) throw new BestuurderException("Bestuurder: ZetVoertuig - Dit voertuig is al ingesteld voor deze bestuurder.");
+            Voertuig = voertuig;
+        }
+
+        public void VerwijderVoertuig(Voertuig voertuig)
+        {
+            if (Voertuig != voertuig) throw new BestuurderException("Bestuurder: VerwijderVoertuig - Dit voertuig is niet het voertuig van deze bestuurder.");
+            Voertuig = null;
+        }
+
+        public void ZetTankKaart(TankKaart tankKaart)
+        {
+            if (TankKaart == tankKaart) throw new BestuurderException("Bestuurder: ZetTankKaart - Deze tankkaart is al ingesteld voor deze bestuurder.");
+            TankKaart = tankKaart;
+        }
+
+        public void VerwijderTankKaart(TankKaart tankKaart)
+        {
+            if (TankKaart != tankKaart) throw new BestuurderException("Bestuurder: VerwijderTankKaart - Deze tankkaart is niet van deze bestuurder.");
+
+            TankKaart = null;
+        }
         #endregion
 
     }
