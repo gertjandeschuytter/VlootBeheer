@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Exceptions
 {
-    class TankKaartException : Exception
+    public class TankKaartException : Exception
     {
         public TankKaartException(string message) : base(message)
         {

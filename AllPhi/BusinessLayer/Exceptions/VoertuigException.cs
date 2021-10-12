@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace BusinessLayer.Exceptions {
-    class VoertuigException : Exception {
+    public class VoertuigException : Exception {
 
         public VoertuigException(string message) : base(message) {
         }
