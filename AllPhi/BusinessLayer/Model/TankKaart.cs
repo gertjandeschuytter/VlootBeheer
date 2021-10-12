@@ -111,7 +111,7 @@ namespace BusinessLayer.Model
         #endregion
 
         #region Properties
-        public long Kaartnr { get; set; }
+        public long KaartNr { get; set; }
 
         public DateTime Geldigheidsdatum { get; set; }
 
@@ -133,7 +133,7 @@ namespace BusinessLayer.Model
         }
         public void ZetKaartNr(long kaartNr)
         {
-            if(kaartNr == null) throw new TankKaartException("Tankkaart: ZetKaartNr - kaartNr is null");
+            if(kaartNr == 0) throw new TankKaartException("Tankkaart: ZetKaartNr - kaartNr is null");
             KaartNr = kaartNr;
         }
         public void ZetGeldigheidsdatum(DateTime geldigheidsdatum)
@@ -147,11 +147,6 @@ namespace BusinessLayer.Model
             Pincode = pincode;
         }
         //public void ZetMogelijkeBrandstoffen()
-        public void ZetGeblokkeerd(bool geblokkeerd)
-        {
-            if(geblokkeerd == null) throw new TankKaartException("Tankkaart: ZetKaartNr - geblokkeerd is null");
-            Geblokkeerd = geblokkeerd;
-        }
         #endregion
         #endregion
     }
