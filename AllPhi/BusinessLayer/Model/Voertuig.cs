@@ -60,7 +60,10 @@ namespace BusinessLayer.Model
 
         #region Methods
         //refactor nodig voor controle op nnummerplaat, kleur moet in orde
-
+        public void ZetBestuurder(Bestuurder bestuurder) {
+            Bestuurder = bestuurder;
+            Bestuurder.ZetVoertuig(this);
+        }
         public void ZetKleur(string kleur) {
             if(string.IsNullOrEmpty(kleur)) throw new VoertuigException("kleur mag niet leeg zijn");
             this.Kleur = kleur;
@@ -82,7 +85,6 @@ namespace BusinessLayer.Model
             if(aantalDeuren < 3) throw new VoertuigException("een auto heeft minstens 3 deuren");
             this.AantalDeuren = aantalDeuren;
         }
-
         #endregion
     }
 }

@@ -114,12 +114,17 @@ namespace BusinessLayer.Model
             TankKaart = tankKaart;
             TankKaart.ZetBestuurder(this);
         }
-
         public void VerwijderTankKaart(TankKaart tankKaart)
         {
             if (TankKaart != tankKaart) throw new BestuurderException("Bestuurder: VerwijderTankKaart - Deze tankkaart is niet van deze bestuurder.");
 
             TankKaart = null;
+        }
+
+        public void ZetVoertuig(Voertuig voertuig) {
+            if (Voertuig == voertuig) throw new BestuurderException("Bestuurder: ZetVoertuig - Dit voertuig is al ingesteld voor deze bestuurder.");
+            Voertuig = voertuig;
+            Voertuig.ZetBestuurder(this);
         }
         #endregion
 
