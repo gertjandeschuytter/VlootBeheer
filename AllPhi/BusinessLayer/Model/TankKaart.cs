@@ -60,7 +60,7 @@ namespace BusinessLayer.Model
             Geblokkeerd = geblokkeerd;
         }
 
-        public TankKaart(long kaartnr, DateTime geldigheidsdatum, string pincode, List<string> mogelijkeBrandstoffen, bool geblokkeerd) : this(kaartnr, geldigheidsdatum)
+        public TankKaartlong kaartnr, DateTime geldigheidsdatum, string pincode, List<string> mogelijkeBrandstoffen, bool geblokkeerd) : this(kaartnr, geldigheidsdatum)
         {
             Kaartnr = kaartnr;
             Geldigheidsdatum = geldigheidsdatum;
@@ -85,6 +85,27 @@ namespace BusinessLayer.Model
         {
             Bestuurder = bestuurder;
             Bestuurder.ZetTankKaart(this);
+        }
+        public void ZetKaartNr(long kaartNr)
+        {
+            if(kaartNr == null) throw new TankKaartException("Tankkaart: ZetKaartNr - kaartNr is null");
+            KaartNr = kaartNr;
+        }
+        public void ZetGeldigheidsdatum(DateTime geldigheidsdatum)
+        {
+            if(geldigheidsdatum == null) throw new TankKaartException("Tankkaart: ZetGeldigheidsdatum - geldigheidsdatum is null");
+            Geldigheidsdatum = geldigheidsdatum;
+        }
+        public void ZetPincode(string pincode)
+        {
+            if(pincode == null) throw new TankKaartException("Tankkaart: ZetPincode - pincode is null");
+            Pincode = pincode;
+        }
+        //public void ZetMogelijkeBrandstoffen()
+        public void ZetGeblokkeerd(bool geblokkeerd)
+        {
+            if(geblokkeerd == null) throw new TankKaartException("Tankkaart: ZetKaartNr - geblokkeerd is null");
+            Geblokkeerd = geblokkeerd;
         }
         #endregion
         #endregion
