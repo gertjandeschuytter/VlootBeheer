@@ -4,8 +4,10 @@
     "\\AllPhi",
     "\\AllPhi\\BusinessLayer",
     "\\AllPhi\\BusinessLayer\\Exceptions",
-    "\\AllPhi\\BusinessLayer\\Model"
+    "\\AllPhi\\BusinessLayer\\Model",
+    "\\AllPhi\\BusinessLayer\\obj\\Debug\\net5.0\\ref",
+    "\\AllPhi\\BusinessLayer\\Utilities"
   ],
-  "SelectedNode": "\\AllPhi\\BusinessLayer\\Model\\TankKaart.cs",
+  "SelectedNode": "\\AllPhi\\BusinessLayer\\Utilities\\NummerplaatValidator.cs",
   "PreviewInSolutionExplorer": false
 }

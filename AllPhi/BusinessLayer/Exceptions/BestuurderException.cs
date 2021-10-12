@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Exceptions
 {
-    class BestuurderException : Exception
+    public class BestuurderException : Exception
     {
         public BestuurderException(string message) : base(message)
         {

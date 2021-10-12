@@ -68,9 +68,6 @@ namespace BusinessLayer.Model
             if(string.IsNullOrEmpty(kleur)) throw new VoertuigException("kleur mag niet leeg zijn");
             this.Kleur = kleur;
         }
-        public void ZetNummerPlaat(string nummerplaat) {
-            this.NummerPlaat = nummerplaat;
-        }
         public void ZetMerkEnModel (string merkEnModel) {
             if(string.IsNullOrEmpty(merkEnModel)) throw new VoertuigException("merk mag niet leeg of null zijn");
             this.MerkEnModel = merkEnModel;
@@ -84,6 +81,9 @@ namespace BusinessLayer.Model
         public void ZetAantalDeuren(int aantalDeuren) {
             if(aantalDeuren < 3) throw new VoertuigException("een auto heeft minstens 3 deuren");
             this.AantalDeuren = aantalDeuren;
+        }
+        public void ZetNummerPlaat(string nummerplaat) {
+
         }
         #endregion
     }

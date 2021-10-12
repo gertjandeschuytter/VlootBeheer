@@ -46,9 +46,13 @@ namespace BusinessLayer.Utilities
                 cijfers9 = int.Parse("2" + rijksRegisterNr.ToString()[0..9]);
 
             cijfersLaatste2_str = rijksRegisterNr.ToString()[9..];
-            int cijfersLaatste2 = int.Parse(cijfersLaatste2_str);
             int controleGetal = 97 - (cijfers9 % 97);
-            if (cijfersLaatste2 == controleGetal) return true;
+            string controleGetal_Str = controleGetal.ToString();
+            if(controleGetal_Str.Length < 2)
+            {
+                controleGetal_Str = "0" + controleGetal;
+            }
+            if (cijfersLaatste2_str == controleGetal_Str) return true;
             return false;
         }
     }
