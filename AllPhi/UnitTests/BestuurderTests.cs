@@ -36,6 +36,6 @@ namespace UnitTests
         }
 
         [Theory]
-        [InlineData]
+        [InlineData(?)]
     }
 }

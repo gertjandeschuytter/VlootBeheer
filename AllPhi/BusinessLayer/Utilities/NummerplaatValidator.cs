@@ -1,12 +1,12 @@
 ﻿using System;
+using System.Linq;
 
 public class NummerplaatValidator {
     public NummerplaatValidator() {
 
     }
     public static bool ControleerLengte(string nummerplaat) {
-        bool output = true;
-        if (nummerplaat.Trim().Length = 7) {
+        if (nummerplaat.Trim().Length == 7) {
             return true;
         }
         return false;
@@ -20,10 +20,11 @@ public class NummerplaatValidator {
             }
             return true;
         }
+        return false;
     }
     public static bool ControleerTweedeStuk(string nummerplaat) {
         string secondPart = nummerplaat.Substring(1, 3);
-        bool isIntString = nummerplaat.All(char.IsDigit)
+        bool isIntString = nummerplaat.All(char.IsDigit);
         if (isIntString) {
             return false;
         } else {
@@ -32,7 +33,7 @@ public class NummerplaatValidator {
     }
     public static bool ControleerDerdeStuk(string nummerplaat) {
         string secondPart = nummerplaat.Substring(4, 6);
-        bool isIntString = nummerplaat.All(char.IsDigit)
+        bool isIntString = nummerplaat.All(char.IsDigit);
         if (isIntString) {
             return true;
         } else {

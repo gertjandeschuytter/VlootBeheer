@@ -82,7 +82,7 @@ namespace BusinessLayer.Model
             if(aantalDeuren < 3) throw new VoertuigException("een auto heeft minstens 3 deuren");
             this.AantalDeuren = aantalDeuren;
         }
-        public void ZetNummerplaat(string nummerplaat) {
+        public void ZetNummerPlaat(string nummerplaat) {
 
         }
         #endregion
