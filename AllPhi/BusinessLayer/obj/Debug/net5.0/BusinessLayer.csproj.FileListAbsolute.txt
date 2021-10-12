@@ -10,3 +10,11 @@ C:\Users\Ruben\Source\Repos\ProjectGraduaat\AllPhi\BusinessLayer\obj\Debug\net5.
 C:\Users\Ruben\Source\Repos\ProjectGraduaat\AllPhi\BusinessLayer\obj\Debug\net5.0\BusinessLayer.dll
 C:\Users\Ruben\Source\Repos\ProjectGraduaat\AllPhi\BusinessLayer\obj\Debug\net5.0\ref\BusinessLayer.dll
 C:\Users\Ruben\Source\Repos\ProjectGraduaat\AllPhi\BusinessLayer\obj\Debug\net5.0\BusinessLayer.pdb
+C:\Users\Gertj\Source\Repos\JarneOph\ProjectGraduaat\AllPhi\BusinessLayer\obj\Debug\net5.0\BusinessLayer.csprojAssemblyReference.cache
+C:\Users\Gertj\Source\Repos\JarneOph\ProjectGraduaat\AllPhi\BusinessLayer\obj\Debug\net5.0\BusinessLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Gertj\Source\Repos\JarneOph\ProjectGraduaat\AllPhi\BusinessLayer\obj\Debug\net5.0\BusinessLayer.AssemblyInfoInputs.cache
+C:\Users\Gertj\Source\Repos\JarneOph\ProjectGraduaat\AllPhi\BusinessLayer\obj\Debug\net5.0\BusinessLayer.AssemblyInfo.cs
+C:\Users\Gertj\Source\Repos\JarneOph\ProjectGraduaat\AllPhi\BusinessLayer\obj\Debug\net5.0\BusinessLayer.csproj.CoreCompileInputs.cache
+C:\Users\Gertj\Source\Repos\JarneOph\ProjectGraduaat\AllPhi\BusinessLayer\obj\Debug\net5.0\BusinessLayer.dll
+C:\Users\Gertj\Source\Repos\JarneOph\ProjectGraduaat\AllPhi\BusinessLayer\obj\Debug\net5.0\ref\BusinessLayer.dll
+C:\Users\Gertj\Source\Repos\JarneOph\ProjectGraduaat\AllPhi\BusinessLayer\obj\Debug\net5.0\BusinessLayer.pdb
