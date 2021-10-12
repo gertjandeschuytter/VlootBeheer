@@ -38,7 +38,6 @@ namespace BusinessLayer.Model
             ZetRijksRegisterNummer(rijksRegisterNr);
             Types = new List<TypeRijbewijs>();
         }
-
         #endregion
 
         #region Properties
