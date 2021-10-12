@@ -29,7 +29,7 @@ namespace BusinessLayer.Utilities
         {
             string cijfers6_Str = string.Empty;
 
-            cijfers6_Str = rijksRegisterNr.ToString()[0..5];
+            cijfers6_Str = rijksRegisterNr.ToString()[0..6];
             string geboorte = bestuurder.GeboorteDatum.ToString("yyMMdd");
 
             if (cijfers6_Str == geboorte) return true;
@@ -41,9 +41,9 @@ namespace BusinessLayer.Utilities
             int cijfers9;
             string cijfersLaatste2_str = string.Empty;
             if (int.Parse(bestuurder.GeboorteDatum.ToString("yyyy")) < 2000)
-                cijfers9 = int.Parse(rijksRegisterNr.ToString()[0..8]);
+                cijfers9 = int.Parse(rijksRegisterNr.ToString()[0..9]);
             else
-                cijfers9 = int.Parse("2" + rijksRegisterNr.ToString()[0..8]);
+                cijfers9 = int.Parse("2" + rijksRegisterNr.ToString()[0..9]);
 
             cijfersLaatste2_str = rijksRegisterNr.ToString()[9..];
             int cijfersLaatste2 = int.Parse(cijfersLaatste2_str);

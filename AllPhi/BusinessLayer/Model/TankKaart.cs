@@ -13,27 +13,18 @@ namespace BusinessLayer.Model
         #region Constructors
         public TankKaart(long kaartnr, DateTime geldigheidsdatum)
         {
-            Kaartnr = kaartnr;
-            Geldigheidsdatum = geldigheidsdatum;
+            ZetKaartNr(kaartnr);
+            ZetGeldigheidsdatum(geldigheidsdatum);
+            MogelijkeBrandstoffen = new List<string>();
         }
 
         public TankKaart(long kaartnr, DateTime geldigheidsdatum, string pincode) : this(kaartnr, geldigheidsdatum)
         {
-            Kaartnr = kaartnr;
-            Geldigheidsdatum = geldigheidsdatum;
-            Pincode = pincode;
-        }
-
-        public TankKaart(long kaartnr, DateTime geldigheidsdatum, List<string> mogelijkeBrandstoffen) : this(kaartnr, geldigheidsdatum)
-        {
-            Kaartnr = kaartnr;
-            Geldigheidsdatum = geldigheidsdatum;
+            ZetPincode(pincode);
         }
 
         public TankKaart(long kaartnr, DateTime geldigheidsdatum, bool geblokkeerd) : this(kaartnr, geldigheidsdatum)
         {
-            Kaartnr = kaartnr;
-            Geldigheidsdatum = geldigheidsdatum;
             Geblokkeerd = geblokkeerd;
         }
 
@@ -42,37 +33,14 @@ namespace BusinessLayer.Model
             ZetBestuurder(bestuurder);
         }
 
-        public TankKaart(long kaartnr, DateTime geldigheidsdatum, string pincode, List<string> mogelijkeBrandstoffen) : this(kaartnr, geldigheidsdatum, pincode)
-        {
-            Kaartnr = kaartnr;
-            Geldigheidsdatum = geldigheidsdatum;
-            Pincode = pincode;
-            MogelijkeBrandstoffen = mogelijkeBrandstoffen;
-        }
-
         public TankKaart(long kaartnr, DateTime geldigheidsdatum, string pincode, bool geblokkeerd) : this(kaartnr, geldigheidsdatum, pincode)
         {
-            Kaartnr = kaartnr;
-            Geldigheidsdatum = geldigheidsdatum;
-            Pincode = pincode;
-            Geblokkeerd = geblokkeerd;
-        }
-
-        public TankKaart(long kaartnr, DateTime geldigheidsdatum, List<string> mogelijkeBrandstoffen, bool geblokkeerd) : this(kaartnr, geldigheidsdatum, mogelijkeBrandstoffen)
-        {
-            Kaartnr = kaartnr;
-            Geldigheidsdatum = geldigheidsdatum;
             Geblokkeerd = geblokkeerd;
         }
 
         public TankKaart(long kaartnr, DateTime geldigheidsdatum, string pincode, Bestuurder bestuurder) : this(kaartnr, geldigheidsdatum, pincode)
         {
-            Bestuurder = bestuurder;
-        }
-
-        public TankKaart(long kaartnr, DateTime geldigheidsdatum, List<string> mogelijkeBrandstoffen, Bestuurder bestuurder) : this(kaartnr, geldigheidsdatum, mogelijkeBrandstoffen)
-        {
-            Bestuurder = bestuurder;
+            ZetBestuurder(bestuurder);
         }
 
         public TankKaart(long kaartnr, DateTime geldigheidsdatum, Bestuurder bestuurder, bool geblokkeerd) : this(kaartnr, geldigheidsdatum, bestuurder)
@@ -80,32 +48,8 @@ namespace BusinessLayer.Model
             Geblokkeerd = geblokkeerd;
         }
 
-        public TankKaart(long kaartnr, DateTime geldigheidsdatum, string pincode, List<string> mogelijkeBrandstoffen, Bestuurder bestuurder) : this(kaartnr, geldigheidsdatum, pincode, mogelijkeBrandstoffen)
-        {
-            Bestuurder = bestuurder;
-        }
-
-        public TankKaart(long kaartnr, DateTime geldigheidsdatum, string pincode, List<string> mogelijkeBrandstoffen, bool geblokkeerd) : this(kaartnr, geldigheidsdatum, pincode, mogelijkeBrandstoffen)
-        {
-            Geblokkeerd = geblokkeerd;
-        }
-
         public TankKaart(long kaartnr, DateTime geldigheidsdatum, string pincode, Bestuurder bestuurder, bool geblokkeerd) : this(kaartnr, geldigheidsdatum, pincode, bestuurder)
         {
-            Geblokkeerd = geblokkeerd;
-        }
-
-        public TankKaart(long kaartnr, DateTime geldigheidsdatum, List<string> mogelijkeBrandstoffen, Bestuurder bestuurder, bool geblokkeerd) : this(kaartnr, geldigheidsdatum, mogelijkeBrandstoffen, bestuurder)
-        {
-            Geblokkeerd = geblokkeerd;
-        }
-
-        public TankKaart(long kaartnr, DateTime geldigheidsdatum, string pincode, List<string> mogelijkeBrandstoffen, bool geblokkeerd, Bestuurder bestuurder) : this(kaartnr, geldigheidsdatum, pincode, mogelijkeBrandstoffen)
-        {
-            Kaartnr = kaartnr;
-            Geldigheidsdatum = geldigheidsdatum;
-            Pincode = pincode;
-            MogelijkeBrandstoffen = mogelijkeBrandstoffen;
             Geblokkeerd = geblokkeerd;
         }
         #endregion
@@ -117,7 +61,7 @@ namespace BusinessLayer.Model
 
         public string Pincode { get; set; }
 
-        public List<string> MogelijkeBrandstoffen { get; set; } = new List<string>();
+        public List<string> MogelijkeBrandstoffen { get; set; }
 
         public Bestuurder Bestuurder { get; set; }
 
@@ -143,8 +87,7 @@ namespace BusinessLayer.Model
         }
         public void ZetPincode(string pincode)
         {
-            if(pincode == null) throw new TankKaartException("Tankkaart: ZetPincode - pincode is null");
-            Pincode = pincode;
+            Pincode = pincode ?? throw new TankKaartException("Tankkaart: ZetPincode - pincode is null");
         }
         //public void ZetMogelijkeBrandstoffen()
         #endregion
