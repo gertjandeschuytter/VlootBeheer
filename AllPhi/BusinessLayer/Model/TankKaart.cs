@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BusinessLayer.Exceptions
+using BusinessLayer.Exceptions;
 
 namespace BusinessLayer.Model
 {
@@ -17,27 +17,27 @@ namespace BusinessLayer.Model
             Geldigheidsdatum = geldigheidsdatum;
         }
 
-        public TankKaart(long kaartnr, DateTime geldigheidsdatum, string pincode)
+        public TankKaart(long kaartnr, DateTime geldigheidsdatum, string pincode) : this(kaartnr, geldigheidsdatum)
         {
             Kaartnr = kaartnr;
             Geldigheidsdatum = geldigheidsdatum;
             Pincode = pincode;
         }
 
-        public TankKaart(long kaartnr, DateTime geldigheidsdatum, List<string> mogelijkeBrandstoffen)
+        public TankKaart(long kaartnr, DateTime geldigheidsdatum, List<string> mogelijkeBrandstoffen) : this(kaartnr, geldigheidsdatum)
         {
             Kaartnr = kaartnr;
             Geldigheidsdatum = geldigheidsdatum;
         }
 
-        public TankKaart(long kaartnr, DateTime geldigheidsdatum, bool geblokkeerd)
+        public TankKaart(long kaartnr, DateTime geldigheidsdatum, bool geblokkeerd) : this(kaartnr, geldigheidsdatum)
         {
             Kaartnr = kaartnr;
             Geldigheidsdatum = geldigheidsdatum;
             Geblokkeerd = geblokkeerd;
         }
 
-        public TankKaart(long kaartnr, DateTime geldigheidsdatum, string pincode, List<string> mogelijkeBrandstoffen)
+        public TankKaart(long kaartnr, DateTime geldigheidsdatum, string pincode, List<string> mogelijkeBrandstoffen) : this(kaartnr, geldigheidsdatum)
         {
             Kaartnr = kaartnr;
             Geldigheidsdatum = geldigheidsdatum;
@@ -45,7 +45,7 @@ namespace BusinessLayer.Model
             MogelijkeBrandstoffen = mogelijkeBrandstoffen;
         }
 
-        public TankKaart(long kaartnr, DateTime geldigheidsdatum, string pincode, bool geblokkeerd)
+        public TankKaart(long kaartnr, DateTime geldigheidsdatum, string pincode, bool geblokkeerd) : this(kaartnr, geldigheidsdatum)
         {
             Kaartnr = kaartnr;
             Geldigheidsdatum = geldigheidsdatum;
@@ -53,14 +53,14 @@ namespace BusinessLayer.Model
             Geblokkeerd = geblokkeerd;
         }
 
-        public TankKaart(long kaartnr, DateTime geldigheidsdatum, List<string> mogelijkeBrandstoffen, bool geblokkeerd)
+        public TankKaart(long kaartnr, DateTime geldigheidsdatum, List<string> mogelijkeBrandstoffen, bool geblokkeerd) : this(kaartnr, geldigheidsdatum)
         {
             Kaartnr = kaartnr;
             Geldigheidsdatum = geldigheidsdatum;
             Geblokkeerd = geblokkeerd;
         }
 
-        public TankKaart(long kaartnr, DateTime geldigheidsdatum, string pincode, List<string> mogelijkeBrandstoffen, bool geblokkeerd)
+        public TankKaart(long kaartnr, DateTime geldigheidsdatum, string pincode, List<string> mogelijkeBrandstoffen, bool geblokkeerd) : this(kaartnr, geldigheidsdatum)
         {
             Kaartnr = kaartnr;
             Geldigheidsdatum = geldigheidsdatum;
@@ -81,10 +81,10 @@ namespace BusinessLayer.Model
 
         #region Methods
         #region Setters
-        public void ZetBestuurder(string naam, string voorNaam, DateTime geboorteDatum, long rijksRegisterNr, TypeRijbewijs type)
+        public void ZetBestuurder(Bestuurder bestuurder)
         {
-            if (string.IsNullOrWhiteSpace(naam) && string.IsNullOrWhiteSpace(voorNaam) && string.IsNullOrWhiteSpace(geboorteDatum) && string.IsNullOrWhiteSpace(rijksRegisterNr) && string.IsNullOrWhiteSpace(type)) throw new BestuurderException("Bestuurder: ZetBestuurder - invalid bestuurder: niks mag leeg zijn");
-            Bestuurder = new Bestuurder(naam, voorNaam, geboorteDatum, rijksRegisterNr, type);
+            Bestuurder = bestuurder;
+            Bestuurder.ZetTankKaart(this);
         }
         #endregion
         #endregion

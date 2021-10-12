@@ -11,22 +11,33 @@ namespace BusinessLayer.Model
     public class Bestuurder
     {
         #region Constructors
-        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, long rijksRegisterNr, Voertuig voertuig, TankKaart tankKaart) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr, voertuig, tankKaart)
+        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, long rijksRegisterNr, Voertuig voertuig, TankKaart tankKaart) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr)
         {
+            ZetVoertuig(voertuig);
+            ZetTankKaart(tankKaart);
             Adres = adres;
         }
 
-        public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, long rijksRegisterNr, Voertuig voertuig, TankKaart tankKaart)
+        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, long rijksRegisterNr, Voertuig voertuig) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr)
+        {
+            ZetVoertuig(voertuig);
+            Adres = adres;
+        }
+
+        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, long rijksRegisterNr, TankKaart tankKaart) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr)
+        {
+            ZetTankKaart(tankKaart);
+            Adres = adres;
+        }
+
+        public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, long rijksRegisterNr)
         {
             ZetNaam(naam);
             ZetVoorNaam(voorNaam);
             ZetGeboorteDatum(geboorteDatum);
             ZetRijksRegisterNummer(rijksRegisterNr);
-            ZetVoertuig(voertuig);
-            ZetTankKaart(tankKaart);
             Types = new List<TypeRijbewijs>();
         }
-
         #endregion
 
         #region Properties
@@ -68,7 +79,7 @@ namespace BusinessLayer.Model
             if (!RijksRegisterNummerValidator.ControleerLengte(rijksRegisterNr)) throw new BestuurderException("Bestuurder: ZetRijksRegisterNummer - invalid rijksregisternummer: rijksregisternummer moet 11 cijfers lang zijn.");
             if (!RijksRegisterNummerValidator.ControleerEerste6Cijfers(this, rijksRegisterNr)) throw new BestuurderException("Bestuurder: ZetRijksRegisterNummer - invalid rijksregisternummer: De eerste 6 cijfers moeten dezelfde zijn als de geboortedatum komen");
             if (!RijksRegisterNummerValidator.ControleerLaatste2Cijfers(this, rijksRegisterNr)) throw new BestuurderException("Bestuurder: ZetRijksRegisterNummer - invalid rijksregisternummer: De laatste 2 cijfers zijn een controle voor de andere 9");
-            
+
             RijksRegisterNr = rijksRegisterNr;
         }
         #endregion
@@ -101,6 +112,7 @@ namespace BusinessLayer.Model
         {
             if (TankKaart == tankKaart) throw new BestuurderException("Bestuurder: ZetTankKaart - Deze tankkaart is al ingesteld voor deze bestuurder.");
             TankKaart = tankKaart;
+            TankKaart.ZetBestuurder(this);
         }
 
         public void VerwijderTankKaart(TankKaart tankKaart)
