@@ -17,27 +17,27 @@ namespace BusinessLayer.Model
             Geldigheidsdatum = geldigheidsdatum;
         }
 
-        public TankKaart(long kaartnr, DateTime geldigheidsdatum, string pincode)
+        public TankKaart(long kaartnr, DateTime geldigheidsdatum, string pincode) : this(kaartnr, geldigheidsdatum)
         {
             Kaartnr = kaartnr;
             Geldigheidsdatum = geldigheidsdatum;
             Pincode = pincode;
         }
 
-        public TankKaart(long kaartnr, DateTime geldigheidsdatum, List<string> mogelijkeBrandstoffen)
+        public TankKaart(long kaartnr, DateTime geldigheidsdatum, List<string> mogelijkeBrandstoffen) : this(kaartnr, geldigheidsdatum)
         {
             Kaartnr = kaartnr;
             Geldigheidsdatum = geldigheidsdatum;
         }
 
-        public TankKaart(long kaartnr, DateTime geldigheidsdatum, bool geblokkeerd)
+        public TankKaart(long kaartnr, DateTime geldigheidsdatum, bool geblokkeerd) : this(kaartnr, geldigheidsdatum)
         {
             Kaartnr = kaartnr;
             Geldigheidsdatum = geldigheidsdatum;
             Geblokkeerd = geblokkeerd;
         }
 
-        public TankKaart(long kaartnr, DateTime geldigheidsdatum, string pincode, List<string> mogelijkeBrandstoffen)
+        public TankKaart(long kaartnr, DateTime geldigheidsdatum, string pincode, List<string> mogelijkeBrandstoffen) : this(kaartnr, geldigheidsdatum)
         {
             Kaartnr = kaartnr;
             Geldigheidsdatum = geldigheidsdatum;
@@ -45,7 +45,7 @@ namespace BusinessLayer.Model
             MogelijkeBrandstoffen = mogelijkeBrandstoffen;
         }
 
-        public TankKaart(long kaartnr, DateTime geldigheidsdatum, string pincode, bool geblokkeerd)
+        public TankKaart(long kaartnr, DateTime geldigheidsdatum, string pincode, bool geblokkeerd) : this(kaartnr, geldigheidsdatum)
         {
             Kaartnr = kaartnr;
             Geldigheidsdatum = geldigheidsdatum;
@@ -53,14 +53,14 @@ namespace BusinessLayer.Model
             Geblokkeerd = geblokkeerd;
         }
 
-        public TankKaart(long kaartnr, DateTime geldigheidsdatum, List<string> mogelijkeBrandstoffen, bool geblokkeerd)
+        public TankKaart(long kaartnr, DateTime geldigheidsdatum, List<string> mogelijkeBrandstoffen, bool geblokkeerd) : this(kaartnr, geldigheidsdatum)
         {
             Kaartnr = kaartnr;
             Geldigheidsdatum = geldigheidsdatum;
             Geblokkeerd = geblokkeerd;
         }
 
-        public TankKaart(long kaartnr, DateTime geldigheidsdatum, string pincode, List<string> mogelijkeBrandstoffen, bool geblokkeerd)
+        public TankKaart(long kaartnr, DateTime geldigheidsdatum, string pincode, List<string> mogelijkeBrandstoffen, bool geblokkeerd) : this(kaartnr, geldigheidsdatum)
         {
             Kaartnr = kaartnr;
             Geldigheidsdatum = geldigheidsdatum;
