@@ -18,7 +18,7 @@ namespace BusinessLayer.Model
         #endregion
 
         #region fields
-        private readonly List<string> MerkenEnModellen = new List<string>();
+        private readonly List<string> MerkenEnModellen = new();
         #endregion
 
         #region Constructors
@@ -55,11 +55,19 @@ namespace BusinessLayer.Model
         public Voertuig(string merkEnModel, string chassisNummer, string nummerPlaat, Brandstoftype brandstofType, Typewagen typeWagen, int aantalDeuren, Bestuurder bestuurder) : this(merkEnModel, chassisNummer, nummerPlaat, brandstofType, typeWagen, aantalDeuren) {
             Bestuurder = bestuurder;
         }
+        public Voertuig(string merkEnModel, string chassisNummer, string nummerPlaat, Brandstoftype brandstofType, Typewagen typeWagen)
+        {
+            MerkEnModel = merkEnModel;
+            ChassisNummer = chassisNummer;
+            NummerPlaat = nummerPlaat;
+            BrandstofType = brandstofType;
+            TypeWagen = typeWagen;
+        }
 
         #endregion
 
         #region Methods
-        //refactor nodig voor controle op nnummerplaat, kleur moet in orde
+        //refactor nodig voor controle op nummerplaat, kleur moet in orde
         public void ZetBestuurder(Bestuurder bestuurder) {
             Bestuurder = bestuurder;
             Bestuurder.ZetVoertuig(this);
