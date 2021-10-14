@@ -58,10 +58,10 @@ namespace BusinessLayer.Model
         }
         public Voertuig(string merk, string model, string chassisNummer, string nummerPlaat, Brandstoftype brandstofType, Typewagen typeWagen)
         {
-            Merk = merk;
-            Model = model;
-            ChassisNummer = chassisNummer;
-            NummerPlaat = nummerPlaat;
+            ZetMerk(merk);
+            ZetModel(model);
+            ZetChassisNummer(chassisNummer);
+            ZetNummerPlaat(nummerPlaat);
             BrandstofType = brandstofType;
             TypeWagen = typeWagen;
         }

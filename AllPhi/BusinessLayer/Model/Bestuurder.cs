@@ -11,29 +11,26 @@ namespace BusinessLayer.Model
     public class Bestuurder
     {
         #region Constructors
-        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, long rijksRegisterNr, Voertuig voertuig, TankKaart tankKaart) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr)
+        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, long rijksRegisterNr, Voertuig voertuig, TankKaart tankKaart) : this(naam, voorNaam, adres, geboorteDatum, rijksRegisterNr)
         {
             ZetVoertuig(voertuig);
             ZetTankKaart(tankKaart);
-            Adres = adres;
         }
 
-        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, long rijksRegisterNr, Voertuig voertuig) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr)
+        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, long rijksRegisterNr, Voertuig voertuig) : this(naam, voorNaam,adres, geboorteDatum, rijksRegisterNr)
         {
             ZetVoertuig(voertuig);
-            Adres = adres;
         }
 
         public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, long rijksRegisterNr, Voertuig voertuig, TankKaart tankKaart) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr)
         {
-            Voertuig = voertuig;
-            TankKaart = tankKaart;
+            ZetVoertuig(voertuig);
+            ZetTankKaart(tankKaart);
         }
 
-        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, long rijksRegisterNr, TankKaart tankKaart) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr)
+        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, long rijksRegisterNr, TankKaart tankKaart) : this(naam, voorNaam,adres, geboorteDatum, rijksRegisterNr)
         {
             ZetTankKaart(tankKaart);
-            Adres = adres;
         }
 
         public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, long rijksRegisterNr) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr)
@@ -43,12 +40,12 @@ namespace BusinessLayer.Model
 
         public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, long rijksRegisterNr, Voertuig voertuig) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr)
         {
-            Voertuig = voertuig;
+            ZetVoertuig(voertuig);
         }
 
         public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, long rijksRegisterNr, TankKaart tankKaart) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr)
         {
-            TankKaart = tankKaart;
+            ZetTankKaart(tankKaart);
         }
 
         public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, long rijksRegisterNr)
