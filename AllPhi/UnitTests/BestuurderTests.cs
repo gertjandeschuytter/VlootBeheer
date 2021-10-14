@@ -116,7 +116,7 @@ namespace UnitTests
         [Fact]
         public void Test_Ctor_TankKaart_Valid()
         {
-            TankKaart t = new(01234567891234567, new DateTime(2022, 08, 01));
+            TankKaart t = new("01234567891234567", new DateTime(2022, 08, 01));
             Bestuurder bestuurder = new("De Smet", "Ruben", new DateTime(1999, 08, 04), 99080455307, t);
             Assert.Equal("De Smet", bestuurder.Naam);
             Assert.Equal("Ruben", bestuurder.VoorNaam);
