@@ -101,3 +101,12 @@ C:\School\2de Jaar\Semester 1\Graduaats Project\Git\AllPhi\UnitTests\obj\Debug\n
 C:\School\2de Jaar\Semester 1\Graduaats Project\Git\AllPhi\UnitTests\obj\Debug\net5.0\ref\UnitTests.dll
 C:\School\2de Jaar\Semester 1\Graduaats Project\Git\AllPhi\UnitTests\obj\Debug\net5.0\UnitTests.pdb
 C:\School\2de Jaar\Semester 1\Graduaats Project\Git\AllPhi\UnitTests\obj\Debug\net5.0\UnitTests.genruntimeconfig.cache
+C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\UnitTests\bin\Debug\net5.0\CoverletSourceRootsMapping
+C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\UnitTests\obj\Debug\net5.0\UnitTests.csproj.AssemblyReference.cache
+C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\UnitTests\obj\Debug\net5.0\UnitTests.GeneratedMSBuildEditorConfig.editorconfig
+C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\UnitTests\obj\Debug\net5.0\UnitTests.AssemblyInfoInputs.cache
+C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\UnitTests\obj\Debug\net5.0\UnitTests.AssemblyInfo.cs
+C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\UnitTests\obj\Debug\net5.0\UnitTests.csproj.CoreCompileInputs.cache
+C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\UnitTests\obj\Debug\net5.0\UnitTests.dll
+C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\UnitTests\obj\Debug\net5.0\ref\UnitTests.dll
+C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\UnitTests\obj\Debug\net5.0\UnitTests.pdb

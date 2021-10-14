@@ -5938,11 +5938,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\Git\\AllPhi\\UnitTests\\UnitTests.csproj",
+      "projectUniqueName": "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\UnitTests\\UnitTests.csproj",
       "projectName": "UnitTests",
-      "projectPath": "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\Git\\AllPhi\\UnitTests\\UnitTests.csproj",
+      "projectPath": "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\UnitTests\\UnitTests.csproj",
       "packagesPath": "C:\\Users\\Jarne\\.nuget\\packages\\",
-      "outputPath": "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\Git\\AllPhi\\UnitTests\\obj\\",
+      "outputPath": "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\UnitTests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Jarne\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5959,8 +5959,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\Git\\AllPhi\\BusinessLayer\\BusinessLayer.csproj": {
-              "projectPath": "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\Git\\AllPhi\\BusinessLayer\\BusinessLayer.csproj"
+            "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\BusinessLayer\\BusinessLayer.csproj": {
+              "projectPath": "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\BusinessLayer\\BusinessLayer.csproj"
             }
           }
         }
@@ -6011,7 +6011,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }
