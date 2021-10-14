@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\AllPhi",
+    "\\AllPhi\\UnitTests"
   ],
-  "SelectedNode": "\\AllPhi.sln",
+  "SelectedNode": "\\AllPhi\\UnitTests\\BestuurderTests.cs",
   "PreviewInSolutionExplorer": false
 }
