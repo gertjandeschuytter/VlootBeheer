@@ -72,8 +72,7 @@ namespace BusinessLayer.Model
         #region Setters
         public void ZetBestuurder(Bestuurder bestuurder)
         {
-            if(bestuurder == null) throw new TankKaartException("Tankkaart: ZetBestuurder - bestuurder is null");
-            Bestuurder = bestuurder;
+            Bestuurder = bestuurder ?? throw new TankKaartException("Tankkaart: ZetBestuurder - bestuurder is null");
             Bestuurder.ZetTankKaart(this);
         }
         public void ZetKaartNr(long kaartNr)
@@ -89,7 +88,7 @@ namespace BusinessLayer.Model
         }
         public void ZetPincode(string pincode)
         {
-            if(pincode.Length != 4) throw new TankKaartException("Tankkaart: ZetPincode - pincode moet 4 cijfers lang zijn")
+            if (pincode.Length != 4) throw new TankKaartException("Tankkaart: ZetPincode - pincode moet 4 cijfers lang zijn");
             Pincode = pincode ?? throw new TankKaartException("Tankkaart: ZetPincode - pincode is null");
         }
         //public void ZetMogelijkeBrandstoffen()
