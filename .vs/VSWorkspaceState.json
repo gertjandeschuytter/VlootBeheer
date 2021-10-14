@@ -1,19 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\AllPhi",
-    "\\AllPhi\\BusinessLayer",
-    "\\AllPhi\\BusinessLayer\\Exceptions",
-    "\\AllPhi\\BusinessLayer\\Model",
-<<<<<<< HEAD
-    "\\AllPhi\\UnitTests"
+    ""
   ],
-  "SelectedNode": "\\AllPhi\\AllPhi.sln",
-=======
-    "\\AllPhi\\BusinessLayer\\UnitTests",
-    "\\AllPhi\\UnitTests"
-  ],
-  "SelectedNode": "\\AllPhi\\UnitTests\\BestuurderTests.cs",
->>>>>>> 0bada9b6fd0fbcd689f216b93c2e9f3796c8fdb6
+  "SelectedNode": "\\AllPhi.sln",
   "PreviewInSolutionExplorer": false
 }
