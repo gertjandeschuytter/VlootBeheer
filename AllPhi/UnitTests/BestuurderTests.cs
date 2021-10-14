@@ -100,7 +100,7 @@ namespace UnitTests
         [Fact]
         public void Test_Ctor_Voertuig_Valid()
         {
-            Voertuig v = new("Toyota", "01234567891234567", "1ABC123", Brandstoftype.Diesel, Typewagen.personenwagen);
+            Voertuig v = new("Toyota", "randomModel","01234567891234567", "1ABC123", Brandstoftype.Diesel, Typewagen.personenwagen);
             Bestuurder bestuurder = new("De Smet", "Ruben", new DateTime(1999, 08, 04), 99080455307, v);
             Assert.Equal("De Smet", bestuurder.Naam);
             Assert.Equal("Ruben", bestuurder.VoorNaam);
