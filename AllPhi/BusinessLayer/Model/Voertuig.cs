@@ -19,10 +19,6 @@ namespace BusinessLayer.Model
         public Bestuurder Bestuurder { get; private set; }
         #endregion
 
-        #region fields
-        private readonly List<string> MerkenEnModellen = new();
-        #endregion
-
         #region Constructors
         public Voertuig(string merk, string model, string chassisNummer, string nummerPlaat, Brandstoftype brandstofType, Typewagen typeWagen, string kleur) {
             ZetMerk(merk);
