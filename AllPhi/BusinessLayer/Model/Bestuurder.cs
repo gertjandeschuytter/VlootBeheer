@@ -62,6 +62,7 @@ namespace BusinessLayer.Model
         #endregion
 
         #region Properties
+        public int ID { get; }
         public string Naam { get; private set; }
         public string VoorNaam { get; private set; }
         public Adres Adres { get; private set; }
@@ -106,8 +107,7 @@ namespace BusinessLayer.Model
 
         public void ZetAdres(Adres adres)
         {
-            if (adres == null) throw new BestuurderException("Bestuurder: ZetAdres - Adres mag niet null zijn.");
-            Adres = adres;
+            Adres = adres ?? throw new BestuurderException("Bestuurder: ZetAdres - Adres mag niet null zijn.");
         }
         #endregion
 
