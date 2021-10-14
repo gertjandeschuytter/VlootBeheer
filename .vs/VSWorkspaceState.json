@@ -5,8 +5,8 @@
     "\\AllPhi\\BusinessLayer",
     "\\AllPhi\\BusinessLayer\\Exceptions",
     "\\AllPhi\\BusinessLayer\\Model",
-    "\\AllPhi\\BusinessLayer\\UnitTests"
+    "\\AllPhi\\UnitTests"
   ],
-  "SelectedNode": "\\AllPhi\\BusinessLayer\\Model\\TankKaart.cs",
+  "SelectedNode": "\\AllPhi\\AllPhi.sln",
   "PreviewInSolutionExplorer": false
 }
