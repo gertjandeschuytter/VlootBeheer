@@ -87,7 +87,7 @@ namespace BusinessLayer.Model
         }
         public void ZetChassisNummer (string chassisNummer) {
             if(string.IsNullOrEmpty(chassisNummer)) throw new VoertuigException("chassisnummer mag niet leeg of null zijn");
-            if(ChassisNummer.Length == 17) throw new VoertuigException("chassisnummer moet 17 karakters bevatten");
+            if(!ChassisNummer.Length == 17) throw new VoertuigException("chassisnummer moet 17 karakters bevatten");
             if (ChassisnummerValidator.BevatChassisnummerSpeciaalKarakter(chassisNummer)) throw new VoertuigException("voertuig mag geen speciale karakters bevatten");
             this.ChassisNummer = chassisNummer;
         }
