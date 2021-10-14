@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Linq;
 
+namespace BusinessLayer.Utilities
+{
 public class NummerplaatValidator {
     public NummerplaatValidator() {
 
@@ -40,4 +42,6 @@ public class NummerplaatValidator {
             return false;
         }
     }
+}
+
 }
