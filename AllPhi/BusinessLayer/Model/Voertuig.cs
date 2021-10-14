@@ -19,10 +19,6 @@ namespace BusinessLayer.Model
         public Bestuurder Bestuurder { get; private set; }
         #endregion
 
-        #region fields
-        private readonly List<string> MerkenEnModellen = new();
-        #endregion
-
         #region Constructors
         public Voertuig(string merk, string model, string chassisNummer, string nummerPlaat, Brandstoftype brandstofType, Typewagen typeWagen, string kleur) {
             ZetMerk(merk);
@@ -90,8 +86,8 @@ namespace BusinessLayer.Model
             this.Model = model;
         }
         public void ZetChassisNummer (string chassisNummer) {
-            if(string.IsNullOrEmpty(ChassisNummer)) throw new VoertuigException("chassisnummer mag niet leeg of null zijn");
-            if(ChassisNummer.Length < 17) throw new VoertuigException("chassisnummer moet minstens 17 karakters bevatten");
+            if(string.IsNullOrEmpty(chassisNummer)) throw new VoertuigException("chassisnummer mag niet leeg of null zijn");
+            if(ChassisNummer.Length != 17) throw new VoertuigException("chassisnummer moet 17 karakters bevatten");
             if (ChassisnummerValidator.BevatChassisnummerSpeciaalKarakter(chassisNummer)) throw new VoertuigException("voertuig mag geen speciale karakters bevatten");
             this.ChassisNummer = chassisNummer;
         }
