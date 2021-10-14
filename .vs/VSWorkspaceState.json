@@ -1,12 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\AllPhi",
-    "\\AllPhi\\BusinessLayer",
-    "\\AllPhi\\BusinessLayer\\Exceptions",
-    "\\AllPhi\\BusinessLayer\\Model",
-    "\\AllPhi\\BusinessLayer\\UnitTests"
+    ""
   ],
-  "SelectedNode": "\\AllPhi\\BusinessLayer\\Model\\TankKaart.cs",
+  "SelectedNode": "\\AllPhi.sln",
   "PreviewInSolutionExplorer": false
 }
