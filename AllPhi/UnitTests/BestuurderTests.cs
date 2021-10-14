@@ -58,11 +58,11 @@ namespace UnitTests
         [Fact]
         public void Test_Ctor_All_Valid()
         {
-            Adres a = new Adres("DiepenBroekStraat", "Balegem", 9860, 1);
-            Voertuig v = new Voertuig("Toyota", "Fiesta", "01234567891234567","1ABC123", Brandstoftype.Benzine, Typewagen.personenwagen);
-            TankKaart t = new TankKaart(0123456789, new DateTime(2022, 08, 01));
+            Adres a = new("DiepenBroekStraat", "Balegem", 9860, 1);
+            Voertuig v = new("Toyota", "Fiesta", "01234567891234567","1ABC123", Brandstoftype.Benzine, Typewagen.personenwagen);
+            TankKaart t = new(0123456789, new DateTime(2022, 08, 01));
 
-            Bestuurder bestuurder = new Bestuurder("Ophalvens", "Jarne", a, new DateTime(1999, 08, 04), 99080455307, v, t);
+            Bestuurder bestuurder = new("Ophalvens", "Jarne", a, new DateTime(1999, 08, 04), 99080455307, v, t);
             Assert.Equal("Ophalvens", bestuurder.Naam);
             Assert.Equal("Jarne", bestuurder.VoorNaam);
             Assert.Equal(a, bestuurder.Adres);
