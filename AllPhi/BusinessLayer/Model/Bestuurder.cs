@@ -24,10 +24,31 @@ namespace BusinessLayer.Model
             Adres = adres;
         }
 
+        public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, long rijksRegisterNr, Voertuig voertuig, TankKaart tankKaart) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr)
+        {
+            Voertuig = voertuig;
+            TankKaart = tankKaart;
+        }
+
         public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, long rijksRegisterNr, TankKaart tankKaart) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr)
         {
             ZetTankKaart(tankKaart);
             Adres = adres;
+        }
+
+        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, long rijksRegisterNr) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr)
+        {
+            ZetAdres(adres);
+        }
+
+        public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, long rijksRegisterNr, Voertuig voertuig) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr)
+        {
+            Voertuig = voertuig;
+        }
+
+        public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, long rijksRegisterNr, TankKaart tankKaart) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr)
+        {
+            TankKaart = tankKaart;
         }
 
         public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, long rijksRegisterNr)
@@ -43,7 +64,7 @@ namespace BusinessLayer.Model
         #region Properties
         public string Naam { get; private set; }
         public string VoorNaam { get; private set; }
-        public Adres Adres { get; }
+        public Adres Adres { get; private set; }
         public DateTime GeboorteDatum { get; private set; }
         public long RijksRegisterNr { get; private set; }
         public List<TypeRijbewijs> Types { get; private set; }
@@ -81,6 +102,12 @@ namespace BusinessLayer.Model
             if (!RijksRegisterNummerValidator.ControleerLaatste2Cijfers(this, rijksRegisterNr)) throw new BestuurderException("Bestuurder: ZetRijksRegisterNummer - invalid rijksregisternummer: De laatste 2 cijfers zijn een controle voor de andere 9");
 
             RijksRegisterNr = rijksRegisterNr;
+        }
+
+        public void ZetAdres(Adres adres)
+        {
+            if (adres == null) throw new BestuurderException("Bestuurder: ZetAdres - Adres mag niet null zijn.");
+            Adres = adres;
         }
         #endregion
 

@@ -7,4 +7,8 @@ build_property.PublishSingleFile =
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
 build_property.RootNamespace = BusinessLayer
+<<<<<<< HEAD
 build_property.ProjectDir = C:\Users\Ruben\Source\Repos\Opdracht_Projectwerk\AllPhi\BusinessLayer\
+=======
+build_property.ProjectDir = C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\BusinessLayer\
+>>>>>>> 0bada9b6fd0fbcd689f216b93c2e9f3796c8fdb6
