@@ -55,6 +55,7 @@ namespace UnitTests
         #endregion
 
         #region Tests_Ctor_Ess+1
+        #region Adres
         [Fact]
         public void Test_Ctor_Adres_Valid()
         {
@@ -67,10 +68,39 @@ namespace UnitTests
             Assert.Equal(99080455307, bestuurder.RijksRegisterNr);
         }
 
+        [Theory]
+        [InlineData("")]
+        [InlineData(" ")]
+        [InlineData(null)]
+        public void Test_Ctor_Adres_InvalidNaam(string naam)
+        {
+            Adres a = new("Valhalla", "Asgard", 6996, 1);
+            Assert.Throws<BestuurderException>(() => new Bestuurder(naam, "Ruben", a, new DateTime(1999, 08, 04), 99080455307));
+        }
+
+        [Theory]
+        [InlineData("")]
+        [InlineData(" ")]
+        [InlineData(null)]
+        public void Test_Ctor_Adres_InvalidVoorNaam(string voorNaam)
+        {
+            Adres a = new("Valhalla", "Asgard", 6996, 1);
+            Assert.Throws<BestuurderException>(() => new Bestuurder("Ophalvens", voorNaam, a, new DateTime(1999, 08, 04), 99080455307));
+        }
+
+        [Theory]
+        [InlineData(null)]
+        public void Test_Ctor_Adres_InvalidAdres(Adres adres)
+        {
+            Assert.Throws<BestuurderException>(() => new Bestuurder("Ophalvens", "Jarne", adres, new DateTime(1999, 08, 04), 99080455307));
+        }
+        #endregion
+
+        #region Voertuig
         [Fact]
         public void Test_Ctor_Voertuig_Valid()
         {
-            Voertuig v = new(/*help*/);
+            Voertuig v = new("Toyota", "01234567891234567", "1ABC123", Brandstoftype.Diesel, Typewagen.personenwagen);
             Bestuurder bestuurder = new("De Smet", "Ruben", new DateTime(1999, 08, 04), 99080455307, v);
             Assert.Equal("De Smet", bestuurder.Naam);
             Assert.Equal("Ruben", bestuurder.VoorNaam);
@@ -79,10 +109,14 @@ namespace UnitTests
             Assert.Equal(v, bestuurder.Voertuig);
         }
 
+
+        #endregion
+
+        #region Tankkaart
         [Fact]
         public void Test_Ctor_TankKaart_Valid()
         {
-            TankKaart t = new(/*help*/);
+            TankKaart t = new(01234567891234567, new DateTime(2022, 08, 01));
             Bestuurder bestuurder = new("De Smet", "Ruben", new DateTime(1999, 08, 04), 99080455307, t);
             Assert.Equal("De Smet", bestuurder.Naam);
             Assert.Equal("Ruben", bestuurder.VoorNaam);
@@ -90,6 +124,7 @@ namespace UnitTests
             Assert.Equal(99080455307, bestuurder.RijksRegisterNr);
             Assert.Equal(t, bestuurder.TankKaart);
         }
+        #endregion
         #endregion
 
         #region Tests_Ctor_Ess+2

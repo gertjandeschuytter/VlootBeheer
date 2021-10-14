@@ -8,9 +8,15 @@ namespace UnitTests
     public class TankkaartTests
     {
         [Fact]
-        public void Test_ctor_InValid()
+        public void Test_ctor_InValidKaartNr()
         {
-            TankKaart tankaart = new(/*Ge hoort hier mee te geven wa de waarden zijn niet de types*/);
+            Assert.Throws<TankKaartException>(() => new TankKaart(0, new DateTime(2022, 08, 01)));
+        }
+
+        [Fact]
+        public void Test_ctor_InValidGeldigheidsDatum()
+        {
+            Assert.Throws<TankKaartException>(() => new TankKaart(1, DateTime.Today));
         }
     }
 }
