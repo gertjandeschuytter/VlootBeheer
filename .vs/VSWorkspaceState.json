@@ -2,8 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\AllPhi",
+    "\\AllPhi\\BusinessLayer",
+    "\\AllPhi\\BusinessLayer\\Utilities",
     "\\AllPhi\\UnitTests"
   ],
-  "SelectedNode": "\\AllPhi\\UnitTests\\BestuurderTests.cs",
+  "SelectedNode": "\\AllPhi\\BusinessLayer\\Utilities\\NummerplaatValidator.cs",
   "PreviewInSolutionExplorer": false
 }
