@@ -2,9 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\AllPhi",
+<<<<<<< HEAD
     "\\AllPhi\\BusinessLayer",
     "\\AllPhi\\BusinessLayer\\Exceptions",
     "\\AllPhi\\BusinessLayer\\Model",
+=======
+>>>>>>> 7ca372ad035add383ccea94833a30924e5e80318
     "\\AllPhi\\UnitTests"
   ],
   "SelectedNode": "\\AllPhi\\UnitTests\\BestuurderTests.cs",

@@ -14,11 +14,12 @@ namespace UnitTests
         [Fact]
         public void Test_ctor_Valid()
         {
-            TankKaart tankkaart = new TankKaart("125678934512687620", new DateTime(2021, 12, 6), "2564", new Bestuurder("kjsdhfskj", "Jarne", new DateTime(1999, 8, 4), 99080455307), true);
+            Bestuurder b = new Bestuurder("kjsdhfskj", "Jarne", new DateTime(1999, 8, 4), "99080455307");
+            TankKaart tankkaart = new("125678934512687620", new DateTime(2021, 12, 6), "2564", b, true);
             Assert.Equal("125678934512687620", tankkaart.KaartNr);
             Assert.Equal(new DateTime(2021, 12, 6), tankkaart.Geldigheidsdatum);
             Assert.Equal("2564", tankkaart.Pincode);
-            Assert.Equal(new Bestuurder("kjsdhfskj", "Jarne", new DateTime(1999, 8, 4), 99080455307), tankkaart.Bestuurder);
+            Assert.Equal(b, tankkaart.Bestuurder);
             Assert.True(tankkaart.Geblokkeerd);
         }
         [Theory]
@@ -27,8 +28,10 @@ namespace UnitTests
         [InlineData(null)]
         public void Test_ctor_InvalidKaartnr(string kaartnr)
         {
-            Assert.Throws<TankKaartException>(() => new TankKaart(kaartnr, new DateTime(2021, 12, 6), "2564", new Bestuurder("kjsdhfskj", "Jarne", new DateTime(1999, 8, 4), 99080455307), true));
+            Assert.Throws<TankKaartException>(() => new TankKaart(kaartnr, new DateTime(2021, 12, 6), "2564", new Bestuurder("kjsdhfskj", "Jarne", new DateTime(1999, 8, 4), "99080455307"), true));
         }
+
+        [Fact]
         public void Test_ZetBestuurder_Valid()
         {
 

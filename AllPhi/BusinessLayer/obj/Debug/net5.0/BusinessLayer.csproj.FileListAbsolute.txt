@@ -30,15 +30,11 @@ C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\BusinessLayer
 C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\BusinessLayer\bin\Debug\net5.0\BusinessLayer.dll
 C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\BusinessLayer\bin\Debug\net5.0\ref\BusinessLayer.dll
 C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\BusinessLayer\bin\Debug\net5.0\BusinessLayer.pdb
-C:\Users\Ruben\Source\Repos\Opdracht_Projectwerk\AllPhi\BusinessLayer\bin\Debug\net5.0\BusinessLayer.deps.json
-C:\Users\Ruben\Source\Repos\Opdracht_Projectwerk\AllPhi\BusinessLayer\bin\Debug\net5.0\BusinessLayer.dll
-C:\Users\Ruben\Source\Repos\Opdracht_Projectwerk\AllPhi\BusinessLayer\bin\Debug\net5.0\ref\BusinessLayer.dll
-C:\Users\Ruben\Source\Repos\Opdracht_Projectwerk\AllPhi\BusinessLayer\bin\Debug\net5.0\BusinessLayer.pdb
-C:\Users\Ruben\Source\Repos\Opdracht_Projectwerk\AllPhi\BusinessLayer\obj\Debug\net5.0\BusinessLayer.csproj.AssemblyReference.cache
-C:\Users\Ruben\Source\Repos\Opdracht_Projectwerk\AllPhi\BusinessLayer\obj\Debug\net5.0\BusinessLayer.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Ruben\Source\Repos\Opdracht_Projectwerk\AllPhi\BusinessLayer\obj\Debug\net5.0\BusinessLayer.AssemblyInfoInputs.cache
-C:\Users\Ruben\Source\Repos\Opdracht_Projectwerk\AllPhi\BusinessLayer\obj\Debug\net5.0\BusinessLayer.AssemblyInfo.cs
-C:\Users\Ruben\Source\Repos\Opdracht_Projectwerk\AllPhi\BusinessLayer\obj\Debug\net5.0\BusinessLayer.csproj.CoreCompileInputs.cache
-C:\Users\Ruben\Source\Repos\Opdracht_Projectwerk\AllPhi\BusinessLayer\obj\Debug\net5.0\BusinessLayer.dll
-C:\Users\Ruben\Source\Repos\Opdracht_Projectwerk\AllPhi\BusinessLayer\obj\Debug\net5.0\ref\BusinessLayer.dll
-C:\Users\Ruben\Source\Repos\Opdracht_Projectwerk\AllPhi\BusinessLayer\obj\Debug\net5.0\BusinessLayer.pdb
+C:\Users\Gertj\Source\Repos\Opdracht_Projectwerk\AllPhi\BusinessLayer\obj\Debug\net5.0\BusinessLayer.csproj.AssemblyReference.cache
+C:\Users\Gertj\Source\Repos\Opdracht_Projectwerk\AllPhi\BusinessLayer\obj\Debug\net5.0\BusinessLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Gertj\Source\Repos\Opdracht_Projectwerk\AllPhi\BusinessLayer\obj\Debug\net5.0\BusinessLayer.AssemblyInfoInputs.cache
+C:\Users\Gertj\Source\Repos\Opdracht_Projectwerk\AllPhi\BusinessLayer\obj\Debug\net5.0\BusinessLayer.AssemblyInfo.cs
+C:\Users\Gertj\Source\Repos\Opdracht_Projectwerk\AllPhi\BusinessLayer\obj\Debug\net5.0\BusinessLayer.csproj.CoreCompileInputs.cache
+C:\Users\Gertj\Source\Repos\Opdracht_Projectwerk\AllPhi\BusinessLayer\obj\Debug\net5.0\BusinessLayer.dll
+C:\Users\Gertj\Source\Repos\Opdracht_Projectwerk\AllPhi\BusinessLayer\obj\Debug\net5.0\ref\BusinessLayer.dll
+C:\Users\Gertj\Source\Repos\Opdracht_Projectwerk\AllPhi\BusinessLayer\obj\Debug\net5.0\BusinessLayer.pdb

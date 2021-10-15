@@ -70,8 +70,14 @@ namespace BusinessLayer.Model
 
         #region Methods
         public void ZetBestuurder(Bestuurder bestuurder) {
+            if (bestuurder == null) throw new VoertuigException("");
+            if (Bestuurder == bestuurder) throw new VoertuigException("");
+            if (Bestuurder != null)
+                if (Bestuurder.HeeftVoertuig(this))
+                    Bestuurder.VerwijderVoertuig(this);
             Bestuurder = bestuurder;
-            Bestuurder.ZetVoertuig(this);
+            if (bestuurder.Voertuig != this)
+                bestuurder.ZetVoertuig(this);
         }
         public void ZetKleur(string kleur) {
             if(string.IsNullOrEmpty(kleur)) throw new VoertuigException("kleur mag niet leeg zijn");
@@ -96,11 +102,23 @@ namespace BusinessLayer.Model
             this.AantalDeuren = aantalDeuren;
         }
         public void ZetNummerPlaat(string nummerplaat) {
-            if (!NummerplaatValidator.ControleerLengte(nummerplaat)) throw new VoertuigException("een nummerplaat mag maximum uit 7 karakters bestaan");
-            if (!NummerplaatValidator.ControleerEersteCijfer(nummerplaat)) throw new VoertuigException("Eerste nummer moet lager zijn dan 3");
-            if (!NummerplaatValidator.ControleerTweedeStuk(nummerplaat)) throw new VoertuigException("2de deel van het nummerplaat moeten letters zijn");
-            if (!NummerplaatValidator.ControleerDerdeStuk(nummerplaat)) throw new VoertuigException("3de deel van het nummerplaat moeten cijfers zijn");
+            if (!NummerplaatValidator.IsLengteCorrect(nummerplaat)) throw new VoertuigException("een nummerplaat mag maximum uit 7 karakters bestaan");
+            if (!NummerplaatValidator.IsEersteCijferCorrect(nummerplaat)) throw new VoertuigException("Eerste nummer moet lager zijn dan 3");
+            if (!NummerplaatValidator.IsTweedeDeelCorrect(nummerplaat)) throw new VoertuigException("2de deel van het nummerplaat mag enkel uit letters bestaan");
+            if (!NummerplaatValidator.IsDerdeDeelCorrect(nummerplaat)) throw new VoertuigException("3de deel van het nummerplaat mag enkel uit cijfers bestaan");
             this.NummerPlaat = nummerplaat;
+        }
+
+        internal bool HeeftBestuurder(Bestuurder bestuurder)
+        {
+            if (Bestuurder == bestuurder) return true;
+            return false;
+        }
+
+        internal void VerwijderBestuurder(Bestuurder bestuurder)
+        {
+            if (Bestuurder != bestuurder) throw new VoertuigException("Voertuig: VerwijderBestuurder - deze bestuurder is niet ingesteld voor dit voertuig");
+            Bestuurder = null;
         }
         #endregion
     }
