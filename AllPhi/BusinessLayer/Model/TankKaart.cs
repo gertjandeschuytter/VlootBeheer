@@ -72,18 +72,18 @@ namespace BusinessLayer.Model
         #region Setters
         public void ZetBestuurder(Bestuurder bestuurder)
         {
-            if (bestuurder == null) throw new VoertuigException("");
-            if (Bestuurder == bestuurder) throw new VoertuigException("");
+            if (bestuurder == null) throw new TankKaartException("");
+            if (Bestuurder == bestuurder) throw new TankKaartException("");
             if (Bestuurder != null)
                 if (Bestuurder.HeeftTankKaart(this))
                     Bestuurder.VerwijderTankKaart(this);
-            if (!bestuurder.HeeftTankKaart(this))
-                bestuurder.ZetTankKaart(this);
             Bestuurder = bestuurder;
+            if (bestuurder.TankKaart != this)
+                bestuurder.ZetTankKaart(this);
         }
         public void ZetKaartNr(string kaartNr)
         {
-            if(kaartNr == null) throw new TankKaartException("Tankkaart: ZetKaartNr - kaartNr is null");
+            if(string.IsNullOrWhiteSpace(kaartNr)) throw new TankKaartException("Tankkaart: ZetKaartNr - kaartNr is null");
             KaartNr = kaartNr;
         }
         public void ZetGeldigheidsdatum(DateTime geldigheidsdatum)

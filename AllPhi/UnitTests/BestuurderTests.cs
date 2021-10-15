@@ -60,7 +60,7 @@ namespace UnitTests
         {
             Adres a = new("DiepenBroekStraat", "Balegem", 9860, 1);
             Voertuig v = new("Toyota", "Fiesta", "01234567891234567","1ABC123", Brandstoftype.Benzine, Typewagen.personenwagen);
-            TankKaart t = new(0123456789, new DateTime(2022, 08, 01));
+            TankKaart t = new("0123456789", new DateTime(2022, 08, 01));
 
             Bestuurder bestuurder = new("Ophalvens", "Jarne", a, new DateTime(1999, 08, 04), "99080455307", v, t);
             Assert.Equal("Ophalvens", bestuurder.Naam);

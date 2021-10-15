@@ -106,42 +106,17 @@ namespace BusinessLayer.Model
         {
             Adres = adres ?? throw new BestuurderException("Bestuurder: ZetAdres - Adres mag niet null zijn.");
         }
-        #endregion
-
-        internal bool HeeftVoertuig(Voertuig voertuig)
-        {
-            if (Voertuig == voertuig) return true;
-            return false;
-        }
-
-        public void VoegRijbewijsToe(TypeRijbewijs type)
-        {
-            if (Types.Contains(type)) throw new BestuurderException("Bestuurder: VoegRijbewijsToe - Deze bestuurder heeft dit type rijbewijs al");
-            Types.Add(type);
-        }
-
-        public void VerwijderRijbewijs(TypeRijbewijs type)
-        {
-            if (!Types.Contains(type)) throw new BestuurderException("Bestuurder: VoegRijbewijsToe - Deze bestuurder heeft dit rijbewijs niet.");
-            Types.Remove(type);
-        }
 
         public void ZetVoertuig(Voertuig voertuig)
         {
             if (voertuig == null) throw new BestuurderException("Bestuurder: ZetVoertuig - voertuig mag niet null zijn");
             if (Voertuig == voertuig) throw new BestuurderException("Bestuurder: ZetVoertuig - Dit voertuig is al ingesteld voor deze bestuurder.");
-            if(Voertuig != null)
+            if (Voertuig != null)
                 if (Voertuig.HeeftBestuurder(this))
                     Voertuig.VerwijderBestuurder(this);
+            Voertuig = voertuig;
             if (!voertuig.HeeftBestuurder(this))
                 voertuig.ZetBestuurder(this);
-            Voertuig = voertuig;
-        }
-
-        public void VerwijderVoertuig(Voertuig voertuig)
-        {
-            if (Voertuig != voertuig) throw new BestuurderException("Bestuurder: VerwijderVoertuig - Dit voertuig is niet het voertuig van deze bestuurder.");
-            Voertuig = null;
         }
 
         public void ZetTankKaart(TankKaart tankKaart)
@@ -151,9 +126,35 @@ namespace BusinessLayer.Model
             if (TankKaart != null)
                 if (TankKaart.HeeftBestuurder(this))
                     TankKaart.VerwijderBestuurder(this);
-            if (!tankKaart.HeeftBestuurder(this))
+            TankKaart = tankKaart;
+            if (tankKaart.Bestuurder != this)
                 tankKaart.ZetBestuurder(this);
         }
+        #endregion
+
+        public void VoegRijbewijsToe(TypeRijbewijs type)
+        {
+            if (Types.Contains(type)) throw new BestuurderException("Bestuurder: VoegRijbewijsToe - Deze bestuurder heeft dit type rijbewijs al");
+            Types.Add(type);
+        }
+        public void VerwijderRijbewijs(TypeRijbewijs type)
+        {
+            if (!Types.Contains(type)) throw new BestuurderException("Bestuurder: VoegRijbewijsToe - Deze bestuurder heeft dit rijbewijs niet.");
+            Types.Remove(type);
+        }
+
+
+        public void VerwijderVoertuig(Voertuig voertuig)
+        {
+            if (Voertuig != voertuig) throw new BestuurderException("Bestuurder: VerwijderVoertuig - Dit voertuig is niet het voertuig van deze bestuurder.");
+            Voertuig = null;
+        }
+        internal bool HeeftVoertuig(Voertuig voertuig)
+        {
+            if (Voertuig == voertuig) return true;
+            return false;
+        }
+
         public void VerwijderTankKaart(TankKaart tankKaart)
         {
             if (TankKaart != tankKaart) throw new BestuurderException("Bestuurder: VerwijderTankKaart - Deze tankkaart is niet van deze bestuurder.");

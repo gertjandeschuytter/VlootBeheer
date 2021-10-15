@@ -7,11 +7,11 @@ namespace UnitTests {
     public class VoertuigTests {
         [Fact]
         public void Test_Ctor_Valid() {
-            Voertuig v = new Voertuig("peugot", "308", "A15KSLSK124ND523", "1ABC3253", Brandstoftype.Benzine, Typewagen.personenwagen);
+            Voertuig v = new("peugot", "308", "A15KSLSK124ND523A", "1ABC325", Brandstoftype.Benzine, Typewagen.personenwagen);
             Assert.Equal("peugot", v.Merk);
             Assert.Equal("308", v.Model);
-            Assert.Equal("A15KSLSK124ND523", v.ChassisNummer);
-            Assert.Equal("1ABC3253", v.NummerPlaat);
+            Assert.Equal("A15KSLSK124ND523A", v.ChassisNummer);
+            Assert.Equal("1ABC325", v.NummerPlaat);
             Assert.Equal(Brandstoftype.Benzine, v.BrandstofType);
             Assert.Equal(Typewagen.personenwagen, v.TypeWagen);
         }

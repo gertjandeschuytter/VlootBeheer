@@ -75,9 +75,9 @@ namespace BusinessLayer.Model
             if (Bestuurder != null)
                 if (Bestuurder.HeeftVoertuig(this))
                     Bestuurder.VerwijderVoertuig(this);
-            if (!bestuurder.HeeftVoertuig(this))
-                bestuurder.ZetVoertuig(this);
             Bestuurder = bestuurder;
+            if (bestuurder.Voertuig != this)
+                bestuurder.ZetVoertuig(this);
         }
         public void ZetKleur(string kleur) {
             if(string.IsNullOrEmpty(kleur)) throw new VoertuigException("kleur mag niet leeg zijn");
