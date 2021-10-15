@@ -11,11 +11,11 @@ namespace UnitTests
         [Fact]
         public void Test_CtorEssential_Valid()
         {
-            Bestuurder bestuurder = new("De Smet", "Ruben", new DateTime(1999, 08, 04), 99080455307);
+            Bestuurder bestuurder = new("De Smet", "Ruben", new DateTime(1999, 08, 04), "99080455307");
             Assert.Equal("De Smet", bestuurder.Naam);
             Assert.Equal("Ruben", bestuurder.VoorNaam);
             Assert.Equal(new DateTime(1999, 08, 04), bestuurder.GeboorteDatum);
-            Assert.Equal(99080455307, bestuurder.RijksRegisterNr);
+            Assert.Equal("99080455307", bestuurder.RijksRegisterNr);
         }
 
         [Theory]
@@ -24,7 +24,7 @@ namespace UnitTests
         [InlineData(null)]
         public void Test_CtorEssential_NameInValid(string name)
         {
-            Assert.Throws<BestuurderException>(() => new Bestuurder(name, "Ruben", new DateTime(1999, 08, 04), 99080455307));
+            Assert.Throws<BestuurderException>(() => new Bestuurder(name, "Ruben", new DateTime(1999, 08, 04), "99080455307"));
         }
 
         [Theory]
@@ -33,7 +33,7 @@ namespace UnitTests
         [InlineData(null)]
         public void Test_CtorEssential_VoornaamInValid(string voornaam)
         {
-            Assert.Throws<BestuurderException>(() => new Bestuurder("Vermeire", voornaam, new DateTime(1999, 08, 04), 99080455307));
+            Assert.Throws<BestuurderException>(() => new Bestuurder("Vermeire", voornaam, new DateTime(1999, 08, 04), "99080455307"));
         }
 
         [Theory]
@@ -41,14 +41,14 @@ namespace UnitTests
         public void Test_CtorEssential_DatumInValid(string datum_str)
         {
             DateTime datum = DateTime.Parse(datum_str);
-            Assert.Throws<BestuurderException>(() => new Bestuurder("Vermeire", "GertJan", datum, 99080455307));
+            Assert.Throws<BestuurderException>(() => new Bestuurder("Vermeire", "GertJan", datum, "99080455307"));
         }
 
         [Theory]
-        [InlineData(1)]
-        [InlineData(01234567891)]
-        [InlineData(99080455308)]
-        public void Test_CtorEssential_RijksRegisterNrInValid(long rijksregister)
+        [InlineData("1")]
+        [InlineData("01234567891")]
+        [InlineData("99080455308")]
+        public void Test_CtorEssential_RijksRegisterNrInValid(string rijksregister)
         {
             Assert.Throws<BestuurderException>(() => new Bestuurder("Vermeire", "GertJan", DateTime.Today, rijksregister));
         }
@@ -62,12 +62,12 @@ namespace UnitTests
             Voertuig v = new("Toyota", "Fiesta", "01234567891234567","1ABC123", Brandstoftype.Benzine, Typewagen.personenwagen);
             TankKaart t = new(0123456789, new DateTime(2022, 08, 01));
 
-            Bestuurder bestuurder = new("Ophalvens", "Jarne", a, new DateTime(1999, 08, 04), 99080455307, v, t);
+            Bestuurder bestuurder = new("Ophalvens", "Jarne", a, new DateTime(1999, 08, 04), "99080455307", v, t);
             Assert.Equal("Ophalvens", bestuurder.Naam);
             Assert.Equal("Jarne", bestuurder.VoorNaam);
             Assert.Equal(a, bestuurder.Adres);
             Assert.Equal(new DateTime(1999, 08, 04), bestuurder.GeboorteDatum);
-            Assert.Equal(99080455307, bestuurder.RijksRegisterNr);
+            Assert.Equal("99080455307", bestuurder.RijksRegisterNr);
             Assert.Equal(v, bestuurder.Voertuig);
             Assert.Equal(t, bestuurder.TankKaart);
         }

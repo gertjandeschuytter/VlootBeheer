@@ -3,10 +3,8 @@ using System.Linq;
 
 namespace BusinessLayer.Utilities
 {
-public class NummerplaatValidator {
-    public NummerplaatValidator() {
+public static class NummerplaatValidator {
 
-    }
     public static bool ControleerLengte(string nummerplaat) {
         if (nummerplaat.Trim().Length == 7) {
             return true;
