@@ -11,44 +11,44 @@ namespace BusinessLayer.Model
     public class Bestuurder
     {
         #region Constructors
-        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, long rijksRegisterNr, Voertuig voertuig, TankKaart tankKaart) : this(naam, voorNaam, adres, geboorteDatum, rijksRegisterNr)
+        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, string rijksRegisterNr, Voertuig voertuig, TankKaart tankKaart) : this(naam, voorNaam, adres, geboorteDatum, rijksRegisterNr)
         {
             ZetVoertuig(voertuig);
             ZetTankKaart(tankKaart);
         }
 
-        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, long rijksRegisterNr, Voertuig voertuig) : this(naam, voorNaam,adres, geboorteDatum, rijksRegisterNr)
+        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, string rijksRegisterNr, Voertuig voertuig) : this(naam, voorNaam,adres, geboorteDatum, rijksRegisterNr)
         {
             ZetVoertuig(voertuig);
         }
 
-        public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, long rijksRegisterNr, Voertuig voertuig, TankKaart tankKaart) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr)
+        public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, string rijksRegisterNr, Voertuig voertuig, TankKaart tankKaart) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr)
         {
             ZetVoertuig(voertuig);
             ZetTankKaart(tankKaart);
         }
 
-        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, long rijksRegisterNr, TankKaart tankKaart) : this(naam, voorNaam,adres, geboorteDatum, rijksRegisterNr)
+        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, string rijksRegisterNr, TankKaart tankKaart) : this(naam, voorNaam,adres, geboorteDatum, rijksRegisterNr)
         {
             ZetTankKaart(tankKaart);
         }
 
-        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, long rijksRegisterNr) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr)
+        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, string rijksRegisterNr) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr)
         {
             ZetAdres(adres);
         }
 
-        public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, long rijksRegisterNr, Voertuig voertuig) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr)
+        public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, string rijksRegisterNr, Voertuig voertuig) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr)
         {
             ZetVoertuig(voertuig);
         }
 
-        public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, long rijksRegisterNr, TankKaart tankKaart) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr)
+        public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, string rijksRegisterNr, TankKaart tankKaart) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr)
         {
             ZetTankKaart(tankKaart);
         }
 
-        public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, long rijksRegisterNr)
+        public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, string rijksRegisterNr)
         {
             ZetNaam(naam);
             ZetVoorNaam(voorNaam);
@@ -64,7 +64,7 @@ namespace BusinessLayer.Model
         public string VoorNaam { get; private set; }
         public Adres Adres { get; private set; }
         public DateTime GeboorteDatum { get; private set; }
-        public long RijksRegisterNr { get; private set; }
+        public string RijksRegisterNr { get; private set; }
         public List<TypeRijbewijs> Types { get; private set; }
         public Voertuig Voertuig { get; private set; }
         public TankKaart TankKaart { get; private set; }
@@ -92,7 +92,7 @@ namespace BusinessLayer.Model
             GeboorteDatum = geboorte;
         }
 
-        public void ZetRijksRegisterNummer(long rijksRegisterNr)
+        public void ZetRijksRegisterNummer(string rijksRegisterNr)
         {
             if (RijksRegisterNummerValidator.ContorleerEmpty(rijksRegisterNr)) throw new BestuurderException("Bestuurder: ZetRijksRegisterNummer - invalid rijksregisternummer: rijksregisternummer mag niet leeg zijn.");
             if (!RijksRegisterNummerValidator.ControleerLengte(rijksRegisterNr)) throw new BestuurderException("Bestuurder: ZetRijksRegisterNummer - invalid rijksregisternummer: rijksregisternummer moet 11 cijfers lang zijn.");
@@ -106,6 +106,30 @@ namespace BusinessLayer.Model
         {
             Adres = adres ?? throw new BestuurderException("Bestuurder: ZetAdres - Adres mag niet null zijn.");
         }
+
+        public void ZetVoertuig(Voertuig voertuig)
+        {
+            if (voertuig == null) throw new BestuurderException("Bestuurder: ZetVoertuig - voertuig mag niet null zijn");
+            if (Voertuig == voertuig) throw new BestuurderException("Bestuurder: ZetVoertuig - Dit voertuig is al ingesteld voor deze bestuurder.");
+            if (Voertuig != null)
+                if (Voertuig.HeeftBestuurder(this))
+                    Voertuig.VerwijderBestuurder(this);
+            Voertuig = voertuig;
+            if (!voertuig.HeeftBestuurder(this))
+                voertuig.ZetBestuurder(this);
+        }
+
+        public void ZetTankKaart(TankKaart tankKaart)
+        {
+            if (tankKaart == null) throw new BestuurderException("Bestuurder: ZetTankKaart - tankkaart mag niet null zijn.");
+            if (TankKaart == tankKaart) throw new BestuurderException("Bestuurder: ZetTankKaart - tankkaart is al ingesteld");
+            if (TankKaart != null)
+                if (TankKaart.HeeftBestuurder(this))
+                    TankKaart.VerwijderBestuurder(this);
+            TankKaart = tankKaart;
+            if (tankKaart.Bestuurder != this)
+                tankKaart.ZetBestuurder(this);
+        }
         #endregion
 
         public void VoegRijbewijsToe(TypeRijbewijs type)
@@ -113,36 +137,33 @@ namespace BusinessLayer.Model
             if (Types.Contains(type)) throw new BestuurderException("Bestuurder: VoegRijbewijsToe - Deze bestuurder heeft dit type rijbewijs al");
             Types.Add(type);
         }
-
         public void VerwijderRijbewijs(TypeRijbewijs type)
         {
             if (!Types.Contains(type)) throw new BestuurderException("Bestuurder: VoegRijbewijsToe - Deze bestuurder heeft dit rijbewijs niet.");
             Types.Remove(type);
         }
 
-        public void ZetVoertuig(Voertuig voertuig)
-        {
-            if (Voertuig == voertuig) throw new BestuurderException("Bestuurder: ZetVoertuig - Dit voertuig is al ingesteld voor deze bestuurder.");
-            Voertuig = voertuig;
-        }
 
         public void VerwijderVoertuig(Voertuig voertuig)
         {
             if (Voertuig != voertuig) throw new BestuurderException("Bestuurder: VerwijderVoertuig - Dit voertuig is niet het voertuig van deze bestuurder.");
             Voertuig = null;
         }
-
-        public void ZetTankKaart(TankKaart tankKaart)
+        internal bool HeeftVoertuig(Voertuig voertuig)
         {
-            if (TankKaart == tankKaart) throw new BestuurderException("Bestuurder: ZetTankKaart - Deze tankkaart is al ingesteld voor deze bestuurder.");
-            TankKaart = tankKaart;
-            TankKaart.ZetBestuurder(this);
+            if (Voertuig == voertuig) return true;
+            return false;
         }
+
         public void VerwijderTankKaart(TankKaart tankKaart)
         {
             if (TankKaart != tankKaart) throw new BestuurderException("Bestuurder: VerwijderTankKaart - Deze tankkaart is niet van deze bestuurder.");
-
             TankKaart = null;
+        }
+        internal bool HeeftTankKaart(TankKaart tankKaart)
+        {
+            if (TankKaart == tankKaart) return true;
+            return false;
         }
         #endregion
 

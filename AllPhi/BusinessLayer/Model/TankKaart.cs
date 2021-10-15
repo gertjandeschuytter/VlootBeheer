@@ -72,14 +72,18 @@ namespace BusinessLayer.Model
         #region Setters
         public void ZetBestuurder(Bestuurder bestuurder)
         {
-            if (bestuurder == null) throw new TankKaartException("Tankkaart: ZetBestuurder - bestuurder is null");
-            if (Bestuurder == bestuurder) throw new TankKaartException("Tankkaart: ZetBestuurder - bestuurder is al ingesteld");
+            if (bestuurder == null) throw new TankKaartException("");
+            if (Bestuurder == bestuurder) throw new TankKaartException("");
+            if (Bestuurder != null)
+                if (Bestuurder.HeeftTankKaart(this))
+                    Bestuurder.VerwijderTankKaart(this);
             Bestuurder = bestuurder;
-            Bestuurder.ZetTankKaart(this);
+            if (bestuurder.TankKaart != this)
+                bestuurder.ZetTankKaart(this);
         }
         public void ZetKaartNr(string kaartNr)
         {
-            if(kaartNr == null) throw new TankKaartException("Tankkaart: ZetKaartNr - kaartNr is null");
+            if(string.IsNullOrWhiteSpace(kaartNr)) throw new TankKaartException("Tankkaart: ZetKaartNr - kaartNr is null");
             KaartNr = kaartNr;
         }
         public void ZetGeldigheidsdatum(DateTime geldigheidsdatum)
@@ -95,6 +99,17 @@ namespace BusinessLayer.Model
         }
         //public void ZetMogelijkeBrandstoffen()
         #endregion
+        internal bool HeeftBestuurder(Bestuurder bestuurder)
+        {
+            if (Bestuurder == bestuurder) return true;
+            return false;
+        }
+
+        internal void VerwijderBestuurder(Bestuurder bestuurder)
+        {
+            if (Bestuurder != bestuurder) throw new VoertuigException("Voertuig: VerwijderBestuurder - deze bestuurder is niet ingesteld voor dit voertuig");
+            Bestuurder = null;
+        }
         #endregion
     }
 }

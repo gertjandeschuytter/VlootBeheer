@@ -13,39 +13,39 @@ namespace BusinessLayer.Utilities
         {
         }
 
-        public static bool ContorleerEmpty(long rijksRegisterNr)
+        public static bool ContorleerEmpty(string rijksRegisterNr)
         {
-            if (rijksRegisterNr == 0) return true;
+            if (string.IsNullOrWhiteSpace(rijksRegisterNr)) return true;
             return false;
         }
 
-        public static bool ControleerLengte(long rijksRegisterNr)
+        public static bool ControleerLengte(string rijksRegisterNr)
         {
-            if (rijksRegisterNr.ToString().Length != 11) return false;
+            if (rijksRegisterNr.Length != 11) return false;
             return true;
         }
 
-        public static bool ControleerEerste6Cijfers(Bestuurder bestuurder, long rijksRegisterNr)
+        public static bool ControleerEerste6Cijfers(Bestuurder bestuurder, string rijksRegisterNr)
         {
             string cijfers6_Str = string.Empty;
 
-            cijfers6_Str = rijksRegisterNr.ToString()[0..6];
+            cijfers6_Str = rijksRegisterNr[0..6];
             string geboorte = bestuurder.GeboorteDatum.ToString("yyMMdd");
 
             if (cijfers6_Str == geboorte) return true;
             return false;
         }
 
-        public static bool ControleerLaatste2Cijfers(Bestuurder bestuurder, long rijksRegisterNr)
+        public static bool ControleerLaatste2Cijfers(Bestuurder bestuurder, string rijksRegisterNr)
         {
             int cijfers9;
             string cijfersLaatste2_str = string.Empty;
             if (int.Parse(bestuurder.GeboorteDatum.ToString("yyyy")) < 2000)
-                cijfers9 = int.Parse(rijksRegisterNr.ToString()[0..9]);
+                cijfers9 = int.Parse(rijksRegisterNr[0..9]);
             else
-                cijfers9 = int.Parse("2" + rijksRegisterNr.ToString()[0..9]);
+                cijfers9 = int.Parse("2" + rijksRegisterNr[0..9]);
 
-            cijfersLaatste2_str = rijksRegisterNr.ToString()[9..];
+            cijfersLaatste2_str = rijksRegisterNr[9..];
             int controleGetal = 97 - (cijfers9 % 97);
             string controleGetal_Str = controleGetal.ToString();
             if(controleGetal_Str.Length < 2)

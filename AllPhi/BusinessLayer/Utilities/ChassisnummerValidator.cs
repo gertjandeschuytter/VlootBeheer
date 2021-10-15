@@ -6,8 +6,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace BusinessLayer.Utilities {
-    public class ChassisnummerValidator {
-        public ChassisnummerValidator() { }
+    public static class ChassisnummerValidator {
         public static bool BevatChassisnummerSpeciaalKarakter(string chassisNummer) {
             Regex rgx = new("[^A-Za-z0-9]");
             bool containsSpecialCharacter = rgx.IsMatch(chassisNummer);
