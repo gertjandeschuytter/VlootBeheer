@@ -102,10 +102,10 @@ namespace BusinessLayer.Model
             this.AantalDeuren = aantalDeuren;
         }
         public void ZetNummerPlaat(string nummerplaat) {
-            if (!NummerplaatValidator.ControleerLengte(nummerplaat)) throw new VoertuigException("een nummerplaat mag maximum uit 7 karakters bestaan");
-            if (!NummerplaatValidator.ControleerEersteCijfer(nummerplaat)) throw new VoertuigException("Eerste nummer moet lager zijn dan 3");
-            if (!NummerplaatValidator.ControleerTweedeStuk(nummerplaat)) throw new VoertuigException("2de deel van het nummerplaat moeten letters zijn");
-            if (!NummerplaatValidator.ControleerDerdeStuk(nummerplaat)) throw new VoertuigException("3de deel van het nummerplaat moeten cijfers zijn");
+            if (!NummerplaatValidator.IsLengteCorrect(nummerplaat)) throw new VoertuigException("een nummerplaat mag maximum uit 7 karakters bestaan");
+            if (!NummerplaatValidator.IsEersteCijferCorrect(nummerplaat)) throw new VoertuigException("Eerste nummer moet lager zijn dan 3");
+            if (!NummerplaatValidator.IsTweedeDeelCorrect(nummerplaat)) throw new VoertuigException("2de deel van het nummerplaat mag enkel uit letters bestaan");
+            if (!NummerplaatValidator.IsDerdeDeelCorrect(nummerplaat)) throw new VoertuigException("3de deel van het nummerplaat mag enkel uit cijfers bestaan");
             this.NummerPlaat = nummerplaat;
         }
 
