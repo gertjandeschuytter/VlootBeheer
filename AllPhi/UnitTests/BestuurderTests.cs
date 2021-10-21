@@ -58,8 +58,8 @@ namespace UnitTests
         [Fact]
         public void Test_Ctor_All_Valid()
         {
-            Adres a = new("DiepenBroekStraat", "Balegem", 9860, 1);
-            Voertuig v = new("Toyota", "Fiesta", "01234567891234567","1ABC123", Brandstoftype.Benzine, Typewagen.personenwagen);
+            Adres a = new("DiepenBroekStraat", "Balegem", "9860", 1);
+            Voertuig v = new("Toyota", "Fiesta", "01234567891234567", "1ABC123", Brandstoftype.Benzine, Typewagen.personenwagen);
             TankKaart t = new("0123456789", new DateTime(2022, 08, 01));
 
             Bestuurder bestuurder = new("Ophalvens", "Jarne", a, new DateTime(1999, 08, 04), "99080455307", v, t);
@@ -71,6 +71,86 @@ namespace UnitTests
             Assert.Equal(v, bestuurder.Voertuig);
             Assert.Equal(t, bestuurder.TankKaart);
         }
+
+        [Theory]
+        [InlineData("")]
+        [InlineData(" ")]
+        [InlineData(null)]
+        public void Test_Ctor_All_InvalidNaam(string naam)
+        {
+            Adres a = new("DiepenBroekStraat", "Balegem", "9860", 1);
+            Voertuig v = new("Toyota", "Fiesta", "01234567891234567", "1ABC123", Brandstoftype.Benzine, Typewagen.personenwagen);
+            TankKaart t = new("0123456789", new DateTime(2022, 08, 01));
+
+            Assert.Throws<BestuurderException>(() => new Bestuurder(naam, "Jarne", a, new DateTime(1999, 08, 04), "99080455307", v, t));
+        }
+
+        [Theory]
+        [InlineData("")]
+        [InlineData(" ")]
+        [InlineData(null)]
+        public void Test_Ctor_All_InvalidVoornaam(string voornaam)
+        {
+            Adres a = new("DiepenBroekStraat", "Balegem", "9860", 1);
+            Voertuig v = new("Toyota", "Fiesta", "01234567891234567", "1ABC123", Brandstoftype.Benzine, Typewagen.personenwagen);
+            TankKaart t = new("0123456789", new DateTime(2022, 08, 01));
+
+            Assert.Throws<BestuurderException>(() => new Bestuurder("Ophalvens", voornaam, a, new DateTime(1999, 08, 04), "99080455307", v, t));
+        }
+
+        [Fact]
+        public void Test_Ctor_All_InvalidAdres()
+        {
+            Voertuig v = new("Toyota", "Fiesta", "01234567891234567", "1ABC123", Brandstoftype.Benzine, Typewagen.personenwagen);
+            TankKaart t = new("0123456789", new DateTime(2022, 08, 01));
+            Assert.Throws<BestuurderException>(() => new Bestuurder("Ophalvens", "Harry", null, new DateTime(1999, 08, 04), "99080455307", v, t));
+        }
+
+        [Fact]
+        public void Test_Ctor_All_InvalidDatum()
+        {
+            Adres a = new("DiepenBroekStraat", "Balegem", "9860", 1);
+            Voertuig v = new("Toyota", "Fiesta", "01234567891234567", "1ABC123", Brandstoftype.Benzine, Typewagen.personenwagen);
+            TankKaart t = new("0123456789", new DateTime(2022, 08, 01));
+
+            Assert.Throws<BestuurderException>(() => new Bestuurder("Ophalvens", "Jarne", a, new DateTime(1, 1, 1), "99080555307", v, t));
+        }
+
+        [Theory]
+        [InlineData("")]
+        [InlineData(" ")]
+        [InlineData(null)]
+        [InlineData("9908045530")]
+        [InlineData("20073155307")]
+        [InlineData("99080455309")]
+        public void Test_Ctor_All_InvalidRijksRegisterNummer(string rijks)
+        {
+            Adres a = new("DiepenBroekStraat", "Balegem", "9860", 1);
+            Voertuig v = new("Toyota", "Fiesta", "01234567891234567", "1ABC123", Brandstoftype.Benzine, Typewagen.personenwagen);
+            TankKaart t = new("0123456789", new DateTime(2022, 08, 01));
+
+            Assert.Throws<BestuurderException>(() => new Bestuurder("Ophalvens", "Jarne", a, new DateTime(1999,8,4), rijks, v, t));
+        }
+
+        [Fact]
+        public void Test_Ctor_All_InvalidVoertuig()
+        {
+            Adres a = new("DiepenBroekStraat", "Balegem", "9860", 1);
+            TankKaart t = new("0123456789", new DateTime(2022, 08, 01));
+
+            Assert.Throws<BestuurderException>(() => new Bestuurder("Ophalvens", "Jarne", a, new DateTime(1999, 8, 4), "99080455307", null, t));
+        }
+
+        [Fact]
+        public void Test_Ctor_All_InvalidTankKaart()
+        {
+            Adres a = new("DiepenBroekStraat", "Balegem", "9860", 1);
+            Voertuig v = new("Toyota", "Fiesta", "01234567891234567", "1ABC123", Brandstoftype.Benzine, Typewagen.personenwagen);
+
+            Assert.Throws<BestuurderException>(() => new Bestuurder("Ophalvens", "Jarne", a, new DateTime(1999, 8, 4), "99080455307", v, null));
+        }
         #endregion
+
+
     }
 }
