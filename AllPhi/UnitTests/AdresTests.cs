@@ -57,7 +57,87 @@ namespace UnitTests
         #endregion
 
         #region Methods
+        #region ZetStraat
+        [Fact]
+        public void Test_ZetStraat_Valid()
+        {
+            Adres a = new("boerestraat", "Balegem", "9860", 1);
+            a.ZetStraat("elenestraat");
+            Assert.Equal("elenestraat", a.Straat);
+        }
 
+        [Theory]
+        [InlineData("")]
+        [InlineData(" ")]
+        [InlineData(null)]
+        public void Test_ZetStraat_Invalid(string straat)
+        {
+            Adres a = new("boerestraat", "Balegem", "9860", 1);
+            Assert.Throws<AdresException>(() => a.ZetStraat(straat));
+        }
+        #endregion
+
+        #region ZetStad
+        [Fact]
+        public void Test_ZetStad_Valid()
+        {
+            Adres a = new("boerestraat", "Balegem", "9860", 1);
+            a.ZetStad("Zottegem");
+            Assert.Equal("Zottegem", a.Stad);
+        }
+
+        [Theory]
+        [InlineData("")]
+        [InlineData(" ")]
+        [InlineData(null)]
+        public void Test_ZetStad_Invalid(string stad)
+        {
+            Adres a = new("boerestraat", "Balegem", "9860", 1);
+            Assert.Throws<AdresException>(() => a.ZetStad(stad));
+        }
+        #endregion
+
+        #region ZetPostcode
+        [Fact]
+        public void Test_ZetPostcode_Valid()
+        {
+            Adres a = new("boerestraat", "Balegem", "9860", 1);
+            a.ZetPostcode("9998");
+            Assert.Equal("9998", a.Postcode);
+        }
+
+        [Theory]
+        [InlineData("")]
+        [InlineData(" ")]
+        [InlineData(null)]
+        [InlineData("999")]
+        [InlineData("99999")]
+        public void Test_ZetPostcode_Invalid(string postcode)
+        {
+            Adres a = new("boerestraat", "Balegem", "9860", 1);
+            Assert.Throws<AdresException>(() => a.ZetPostcode(postcode));
+        }
+
+        #endregion
+
+        #region ZetNummer
+        [Fact]
+        public void Test_ZetNummer_Valid()
+        {
+            Adres a = new("boerestraat", "Balegem", "9860", 1);
+            a.ZetNummer(2);
+            Assert.Equal(2, a.Nummer);
+        }
+
+        [Theory]
+        [InlineData(-1)]
+        [InlineData(0)]
+        public void Test_ZetNummer_Invalid(int nummer)
+        {
+            Adres a = new("boerestraat", "Balegem", "9860", 1);
+            Assert.Throws<AdresException>(() => a.ZetNummer(nummer));
+        }
+        #endregion
         #endregion
     }
 }
