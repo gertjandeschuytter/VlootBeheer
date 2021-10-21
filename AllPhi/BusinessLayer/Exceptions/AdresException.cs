@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Exceptions
 {
-    class AdresException : Exception
+    public class AdresException : Exception
     {
         public AdresException(string message) : base(message)
         {
