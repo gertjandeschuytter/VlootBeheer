@@ -38,3 +38,7 @@ C:\Users\Gertj\Source\Repos\Opdracht_Projectwerk\AllPhi\BusinessLayer\obj\Debug\
 C:\Users\Gertj\Source\Repos\Opdracht_Projectwerk\AllPhi\BusinessLayer\obj\Debug\net5.0\BusinessLayer.dll
 C:\Users\Gertj\Source\Repos\Opdracht_Projectwerk\AllPhi\BusinessLayer\obj\Debug\net5.0\ref\BusinessLayer.dll
 C:\Users\Gertj\Source\Repos\Opdracht_Projectwerk\AllPhi\BusinessLayer\obj\Debug\net5.0\BusinessLayer.pdb
+C:\Users\Gertj\Source\Repos\Opdracht_Projectwerk\AllPhi\BusinessLayer\bin\Debug\net5.0\BusinessLayer.deps.json
+C:\Users\Gertj\Source\Repos\Opdracht_Projectwerk\AllPhi\BusinessLayer\bin\Debug\net5.0\BusinessLayer.dll
+C:\Users\Gertj\Source\Repos\Opdracht_Projectwerk\AllPhi\BusinessLayer\bin\Debug\net5.0\ref\BusinessLayer.dll
+C:\Users\Gertj\Source\Repos\Opdracht_Projectwerk\AllPhi\BusinessLayer\bin\Debug\net5.0\BusinessLayer.pdb
