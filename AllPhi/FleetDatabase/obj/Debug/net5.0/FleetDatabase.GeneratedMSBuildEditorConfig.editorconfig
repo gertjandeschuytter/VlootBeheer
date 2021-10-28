@@ -6,5 +6,5 @@ build_property.ProjectTypeGuids =
 build_property.PublishSingleFile = 
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
-build_property.RootNamespace = BusinessLayer
-build_property.ProjectDir = C:\Users\Gertj\Source\Repos\Opdracht_Projectwerk\AllPhi\BusinessLayer\
+build_property.RootNamespace = FleetDatabase
+build_property.ProjectDir = C:\Users\Gertj\source\repos\Opdracht_Projectwerk\AllPhi\FleetDatabase\
