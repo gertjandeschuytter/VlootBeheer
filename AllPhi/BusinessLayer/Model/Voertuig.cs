@@ -70,8 +70,8 @@ namespace BusinessLayer.Model
 
         #region Methods
         public void ZetBestuurder(Bestuurder bestuurder) {
-            if (bestuurder == null) throw new VoertuigException("");
-            if (Bestuurder == bestuurder) throw new VoertuigException("");
+            if (bestuurder == null) throw new VoertuigException("Bestuurder mag niet null zijn");
+            if (Bestuurder == bestuurder) throw new VoertuigException("Deze bestuurder is al ingesteld voor dit voertuig.");
             if (Bestuurder != null)
                 if (Bestuurder.HeeftVoertuig(this))
                     Bestuurder.VerwijderVoertuig(this);
@@ -79,6 +79,7 @@ namespace BusinessLayer.Model
             if (bestuurder.Voertuig != this)
                 bestuurder.ZetVoertuig(this);
         }
+
         public void ZetKleur(string kleur) {
             if(string.IsNullOrEmpty(kleur)) throw new VoertuigException("kleur mag niet leeg zijn");
             this.Kleur = kleur;

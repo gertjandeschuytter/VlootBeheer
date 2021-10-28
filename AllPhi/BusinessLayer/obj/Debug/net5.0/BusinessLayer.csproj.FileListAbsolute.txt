@@ -38,6 +38,7 @@ C:\Users\Gertj\Source\Repos\Opdracht_Projectwerk\AllPhi\BusinessLayer\obj\Debug\
 C:\Users\Gertj\Source\Repos\Opdracht_Projectwerk\AllPhi\BusinessLayer\obj\Debug\net5.0\BusinessLayer.dll
 C:\Users\Gertj\Source\Repos\Opdracht_Projectwerk\AllPhi\BusinessLayer\obj\Debug\net5.0\ref\BusinessLayer.dll
 C:\Users\Gertj\Source\Repos\Opdracht_Projectwerk\AllPhi\BusinessLayer\obj\Debug\net5.0\BusinessLayer.pdb
+<<<<<<< HEAD
 C:\Users\Ruben\Source\Repos\Opdracht_Projectwerk\AllPhi\BusinessLayer\bin\Debug\net5.0\BusinessLayer.deps.json
 C:\Users\Ruben\Source\Repos\Opdracht_Projectwerk\AllPhi\BusinessLayer\bin\Debug\net5.0\BusinessLayer.dll
 C:\Users\Ruben\Source\Repos\Opdracht_Projectwerk\AllPhi\BusinessLayer\bin\Debug\net5.0\ref\BusinessLayer.dll
@@ -50,3 +51,9 @@ C:\Users\Ruben\Source\Repos\Opdracht_Projectwerk\AllPhi\BusinessLayer\obj\Debug\
 C:\Users\Ruben\Source\Repos\Opdracht_Projectwerk\AllPhi\BusinessLayer\obj\Debug\net5.0\BusinessLayer.dll
 C:\Users\Ruben\Source\Repos\Opdracht_Projectwerk\AllPhi\BusinessLayer\obj\Debug\net5.0\ref\BusinessLayer.dll
 C:\Users\Ruben\Source\Repos\Opdracht_Projectwerk\AllPhi\BusinessLayer\obj\Debug\net5.0\BusinessLayer.pdb
+=======
+C:\Users\Gertj\Source\Repos\Opdracht_Projectwerk\AllPhi\BusinessLayer\bin\Debug\net5.0\BusinessLayer.deps.json
+C:\Users\Gertj\Source\Repos\Opdracht_Projectwerk\AllPhi\BusinessLayer\bin\Debug\net5.0\BusinessLayer.dll
+C:\Users\Gertj\Source\Repos\Opdracht_Projectwerk\AllPhi\BusinessLayer\bin\Debug\net5.0\ref\BusinessLayer.dll
+C:\Users\Gertj\Source\Repos\Opdracht_Projectwerk\AllPhi\BusinessLayer\bin\Debug\net5.0\BusinessLayer.pdb
+>>>>>>> a284aa37a778d995252f0fd7400cc3cac4bd4c7e

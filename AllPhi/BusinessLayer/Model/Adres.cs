@@ -4,7 +4,7 @@ namespace BusinessLayer.Model
 {
     public class Adres
     {
-        public Adres(string straat, string stad, int postcode, int nummer)
+        public Adres(string straat, string stad, string postcode, int nummer)
         {
             ZetStraat(straat);
             ZetStad(stad);
@@ -14,7 +14,7 @@ namespace BusinessLayer.Model
 
         public string Straat { get; private set; }
         public string Stad { get; private set; }
-        public int Postcode { get; private set; }
+        public string Postcode { get; private set; }
         public int Nummer { get; private set; }
 
         public void ZetStraat(string straat)
@@ -29,9 +29,10 @@ namespace BusinessLayer.Model
             Stad = stad;
         }
 
-        public void ZetPostcode(int postcode)
+        public void ZetPostcode(string postcode)
         {
-            if (postcode == 0) throw new AdresException("Adres: ZetPostcode - postcode mag niet 0 zijn.");
+            if (string.IsNullOrWhiteSpace(postcode)) throw new AdresException("Adres: ZetPostcode - postcode mag niet leeg zijn.");
+            if (postcode.Length != 4) throw new AdresException("Adres: ZetPostcode - postcode moet 4 cijfers lang zijn");
             Postcode = postcode;
         }
 
