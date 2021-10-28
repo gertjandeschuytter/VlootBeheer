@@ -13,5 +13,7 @@ namespace BusinessLayer.Interfaces
         void VerwijderBestuurder(Bestuurder bestuurder);
         void WijzigBestuurder(Bestuurder bestuurder);
         bool HeeftBestuurder(Bestuurder bestuurder);
+        Bestuurder GeefBestuurder(int id);
+        IEnumerable<Bestuurder> GeefBestuurders(string naam, string voornaam, Func<string> toString, DateTime datum, string rijksregister, List<TypeRijbewijs> types, Voertuig v, TankKaart t);
     }
 }

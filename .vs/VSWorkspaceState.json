@@ -3,9 +3,11 @@
     "",
     "\\AllPhi",
     "\\AllPhi\\BusinessLayer",
-    "\\AllPhi\\BusinessLayer\\Utilities",
+    "\\AllPhi\\BusinessLayer\\Exceptions",
+    "\\AllPhi\\BusinessLayer\\Managers",
+    "\\AllPhi\\BusinessLayer\\Model",
     "\\AllPhi\\UnitTests"
   ],
-  "SelectedNode": "\\AllPhi\\BusinessLayer\\Utilities\\NummerplaatValidator.cs",
+  "SelectedNode": "\\AllPhi\\AllPhi.sln",
   "PreviewInSolutionExplorer": false
 }

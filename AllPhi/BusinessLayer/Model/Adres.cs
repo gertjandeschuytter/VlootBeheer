@@ -41,5 +41,10 @@ namespace BusinessLayer.Model
             if (nummer <= 0) throw new AdresException("Adres: ZetNummer - nummer mag niet kleiner zijn dan 1.");
             Nummer = nummer;
         }
+
+        public override string ToString()
+        {
+            return $"{Straat} {Nummer}, {Postcode} {Stad}";
+        }
     }
 }

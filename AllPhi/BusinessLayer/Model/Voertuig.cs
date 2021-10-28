@@ -85,11 +85,11 @@ namespace BusinessLayer.Model
             this.Kleur = kleur;
         }
         public void ZetMerk (string merk) {
-            if(string.IsNullOrEmpty(merk)) throw new VoertuigException("merk mag niet leeg of null zijn");
+            if(string.IsNullOrWhiteSpace(merk)) throw new VoertuigException("merk mag niet leeg of null zijn");
             this.Merk = merk;
         }
         public void ZetModel(string model) {
-            if (string.IsNullOrEmpty(model)) throw new VoertuigException("model mag niet leeg of null zijn");
+            if (string.IsNullOrWhiteSpace(model)) throw new VoertuigException("model mag niet leeg of null zijn");
             this.Model = model;
         }
         public void ZetChassisNummer (string chassisNummer) {
