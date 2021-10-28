@@ -53,7 +53,11 @@ namespace UnitTests
         {
             Assert.Throws<TankKaartException>(() => new TankKaart("125678934512687620", new DateTime(2021, 12, 6), pincode, new Bestuurder("kjsdhfskj", "Jarne", new DateTime(1999, 8, 4), "99080455307"), true));
         }
-        
-
+        [Theory]
+        [InlineData(null)]
+        public void Test_ctor_InvalidBestuurder(Bestuurder bestuurder)
+        {
+            Assert.Throws<TankKaartException>(() => new TankKaart("125678934512687620", new DateTime(2021, 12, 6), "2564", bestuurder, true));
+        }
     }
 }
