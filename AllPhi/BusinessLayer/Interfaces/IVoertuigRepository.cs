@@ -11,6 +11,7 @@ namespace BusinessLayer.Interfaces {
         void UpdateVoertuig(Voertuig voertuig);
         void VerwijderVoertuig(Voertuig voertuig);
         bool BestaatVoertuig(string chassisNummer);
-        Voertuig Geefvoertuig(int? chassisNummer, string Model, string Merk);
+        bool BestaatVoertuig(Voertuig voertuig);
+        Voertuig Geefvoertuig(string chassisNummer);
     }
 }

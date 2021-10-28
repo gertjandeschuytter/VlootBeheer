@@ -7,6 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLayer", "BusinessLa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests", "UnitTests\UnitTests.csproj", "{6D43EB5F-59EE-4531-9FAD-9F0140101109}"
 EndProject
+<<<<<<< HEAD
+=======
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FleetDatabase", "FleetDatabase\FleetDatabase.csproj", "{6875BDB3-13E8-4FD6-80D8-75AB4833AC6F}"
+EndProject
+>>>>>>> d59ca5be0116123517b4437a41093f6db6505b81
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +26,13 @@ Global
 		{6D43EB5F-59EE-4531-9FAD-9F0140101109}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D43EB5F-59EE-4531-9FAD-9F0140101109}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D43EB5F-59EE-4531-9FAD-9F0140101109}.Release|Any CPU.Build.0 = Release|Any CPU
+<<<<<<< HEAD
+=======
+		{6875BDB3-13E8-4FD6-80D8-75AB4833AC6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6875BDB3-13E8-4FD6-80D8-75AB4833AC6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6875BDB3-13E8-4FD6-80D8-75AB4833AC6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6875BDB3-13E8-4FD6-80D8-75AB4833AC6F}.Release|Any CPU.Build.0 = Release|Any CPU
+>>>>>>> d59ca5be0116123517b4437a41093f6db6505b81
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
