@@ -12,6 +12,7 @@
           "Microsoft.NET.Test.Sdk": "16.9.4",
           "coverlet.collector": "3.0.2",
           "xunit": "2.4.1",
+          "xunit.extensibility.core": "2.4.1",
           "xunit.runner.visualstudio": "2.4.3"
         },
         "runtime": {
