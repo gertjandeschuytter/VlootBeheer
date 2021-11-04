@@ -15,7 +15,6 @@ namespace BusinessLayer.Model
         {
             ZetKaartNr(kaartnr);
             ZetGeldigheidsdatum(geldigheidsdatum);
-            MogelijkeBrandstoffen = new List<string>();
         }
 
         public TankKaart(string kaartnr, DateTime geldigheidsdatum, string pincode) : this(kaartnr, geldigheidsdatum)
