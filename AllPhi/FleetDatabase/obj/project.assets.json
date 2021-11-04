@@ -2,6 +2,7 @@
   "version": 3,
   "targets": {
     "net5.0": {
+<<<<<<< HEAD
       "Microsoft.NETCore.Platforms/3.1.0": {
         "type": "package",
         "compile": {
@@ -131,6 +132,8 @@
           }
         }
       },
+=======
+>>>>>>> 6498e7ae325f5c5d2dce903dff250804c1064ad1
       "BusinessLayer/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
@@ -144,6 +147,7 @@
     }
   },
   "libraries": {
+<<<<<<< HEAD
     "Microsoft.NETCore.Platforms/3.1.0": {
       "sha512": "z7aeg8oHln2CuNulfhiLYxCVMPEwBl3rzicjvIX+4sUuCwvXw5oXQEtbiU2c0z4qYL5L3Kmx0mMA/+t/SbY67w==",
       "type": "package",
@@ -457,6 +461,8 @@
         "version.txt"
       ]
     },
+=======
+>>>>>>> 6498e7ae325f5c5d2dce903dff250804c1064ad1
     "BusinessLayer/1.0.0": {
       "type": "project",
       "path": "../BusinessLayer/BusinessLayer.csproj",
@@ -465,30 +471,37 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+<<<<<<< HEAD
       "BusinessLayer >= 1.0.0",
       "System.Data.SqlClient >= 4.8.3"
+=======
+      "BusinessLayer >= 1.0.0"
+>>>>>>> 6498e7ae325f5c5d2dce903dff250804c1064ad1
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Gertj\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\Jarne\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\Gertj\\Source\\Repos\\Opdracht_Projectwerk\\AllPhi\\FleetDatabase\\FleetDatabase.csproj",
       "projectName": "FleetDatabase",
       "projectPath": "C:\\Users\\Gertj\\Source\\Repos\\Opdracht_Projectwerk\\AllPhi\\FleetDatabase\\FleetDatabase.csproj",
       "packagesPath": "C:\\Users\\Gertj\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Gertj\\Source\\Repos\\Opdracht_Projectwerk\\AllPhi\\FleetDatabase\\obj\\",
+=======
+      "projectUniqueName": "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\FleetDatabase\\FleetDatabase.csproj",
+      "projectName": "FleetDatabase",
+      "projectPath": "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\FleetDatabase\\FleetDatabase.csproj",
+      "packagesPath": "C:\\Users\\Jarne\\.nuget\\packages\\",
+      "outputPath": "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\FleetDatabase\\obj\\",
+>>>>>>> 6498e7ae325f5c5d2dce903dff250804c1064ad1
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Gertj\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\Jarne\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -501,8 +514,13 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
+<<<<<<< HEAD
             "C:\\Users\\Gertj\\Source\\Repos\\Opdracht_Projectwerk\\AllPhi\\BusinessLayer\\BusinessLayer.csproj": {
               "projectPath": "C:\\Users\\Gertj\\Source\\Repos\\Opdracht_Projectwerk\\AllPhi\\BusinessLayer\\BusinessLayer.csproj"
+=======
+            "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\BusinessLayer\\BusinessLayer.csproj": {
+              "projectPath": "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\BusinessLayer\\BusinessLayer.csproj"
+>>>>>>> 6498e7ae325f5c5d2dce903dff250804c1064ad1
             }
           }
         }

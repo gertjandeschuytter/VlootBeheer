@@ -31,7 +31,7 @@ namespace BusinessLayer.Managers
 
                 return list;
             }
-            catch(Exception ex) { throw new BestuurderManagerException("Er liep iets mis: ", ex); }
+            catch(Exception ex) { throw new BestuurderManagerException("BestuurderManager - Er liep iets mis: ", ex); }
         }
 
         public void VoegBestuurderToe(Bestuurder bestuurder)
@@ -41,7 +41,7 @@ namespace BusinessLayer.Managers
                 if (repo.HeeftBestuurder(bestuurder)) throw new BestuurderManagerException("Bestuurder al gekend");
                 repo.VoegBestuurderToe(bestuurder);
             }
-            catch(Exception ex) { throw new BestuurderManagerException("Er liep iets mis: ", ex); }
+            catch(Exception ex) { throw new BestuurderManagerException("BestuurderManager - Er liep iets mis: ", ex); }
         }
 
         public void VerwijderBestuurder(Bestuurder bestuurder)
@@ -51,7 +51,7 @@ namespace BusinessLayer.Managers
                 if (!repo.HeeftBestuurder(bestuurder)) throw new BestuurderManagerException("Bestuurder bestaat niet");
                 repo.VerwijderBestuurder(bestuurder);
             }
-            catch(Exception ex) { throw new BestuurderManagerException("Er liep iets mis: ", ex); }
+            catch(Exception ex) { throw new BestuurderManagerException("BestuurderManager - Er liep iets mis: ", ex); }
         }
 
         public void WijzigBestuurder(Bestuurder bestuurder)
@@ -61,7 +61,7 @@ namespace BusinessLayer.Managers
                 if (!repo.HeeftBestuurder(bestuurder)) throw new BestuurderManagerException("Bestuurder bestaat niet");
                 repo.WijzigBestuurder(bestuurder);
             }
-            catch (Exception ex) { throw new BestuurderManagerException("Er liep iets mis: ", ex); }
+            catch (Exception ex) { throw new BestuurderManagerException("BestuurderManager - Er liep iets mis: ", ex); }
         }
     }
 }

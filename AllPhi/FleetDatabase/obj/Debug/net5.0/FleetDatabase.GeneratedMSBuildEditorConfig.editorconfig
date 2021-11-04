@@ -7,4 +7,8 @@ build_property.PublishSingleFile =
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
 build_property.RootNamespace = FleetDatabase
+<<<<<<< HEAD
 build_property.ProjectDir = C:\Users\Gertj\Source\Repos\Opdracht_Projectwerk\AllPhi\FleetDatabase\
+=======
+build_property.ProjectDir = C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\FleetDatabase\
+>>>>>>> 6498e7ae325f5c5d2dce903dff250804c1064ad1

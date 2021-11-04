@@ -1,5 +1,6 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "lFe2tX7e7kNSct7Fi4zu0rn33emC5s/mhfRWmrkPU/vPPzZjcx2Be/4zp9En0lcUBHKjzrEcBWKVyeg0KjwUnQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Gertj\\Source\\Repos\\Opdracht_Projectwerk\\AllPhi\\FleetDatabase\\FleetDatabase.csproj",
@@ -14,5 +15,11 @@
     "C:\\Users\\Gertj\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
     "C:\\Users\\Gertj\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512"
   ],
+=======
+  "dgSpecHash": "QB5eV+z15Yu/dHM8/WUpETaiZXSBeRFvKLuOWOiRt4x+hbvpF5RnFFX66fEq/K45vP43qwnPulbkQw2xpQR/Bg==",
+  "success": true,
+  "projectFilePath": "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\FleetDatabase\\FleetDatabase.csproj",
+  "expectedPackageFiles": [],
+>>>>>>> 6498e7ae325f5c5d2dce903dff250804c1064ad1
   "logs": []
 }
