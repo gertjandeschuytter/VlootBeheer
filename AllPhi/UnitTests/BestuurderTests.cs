@@ -2,6 +2,7 @@ using System;
 using BusinessLayer.Model;
 using BusinessLayer.Exceptions;
 using Xunit;
+using NPOI.SS.Formula.Functions;
 
 namespace UnitTests
 {
