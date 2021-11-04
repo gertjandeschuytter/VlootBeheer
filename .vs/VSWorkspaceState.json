@@ -4,8 +4,10 @@
     "\\AllPhi",
     "\\AllPhi\\BusinessLayer",
     "\\AllPhi\\BusinessLayer\\Exceptions",
+    "\\AllPhi\\BusinessLayer\\Interfaces",
     "\\AllPhi\\BusinessLayer\\Managers",
     "\\AllPhi\\BusinessLayer\\Model",
+    "\\AllPhi\\BusinessLayer\\Utilities",
     "\\AllPhi\\UnitTests"
   ],
   "SelectedNode": "\\AllPhi\\AllPhi.sln",
