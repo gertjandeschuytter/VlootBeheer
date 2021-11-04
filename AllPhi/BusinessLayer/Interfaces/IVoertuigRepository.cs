@@ -7,11 +7,8 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Interfaces {
     public interface IVoertuigRepository {
-        void VoegVoertuigToe(Voertuig voertuig);
-        void UpdateVoertuig(Voertuig voertuig);
-        void VerwijderVoertuig(Voertuig voertuig);
-        bool BestaatVoertuig(string chassisNummer);
-        bool BestaatVoertuig(Voertuig voertuig);
-        Voertuig Geefvoertuig(string chassisNummer);
+        public void VoegVoertuigToe(Voertuig voertuig);
+        public void VerwijderVoertuig(Voertuig voertuig);
+        public void UpdateVoertuig(Voertuig voertuig);
     }
 }
