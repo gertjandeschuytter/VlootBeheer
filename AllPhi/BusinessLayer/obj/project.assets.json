@@ -8,46 +8,20 @@
     "net5.0": []
   },
   "packageFolders": {
-<<<<<<< HEAD
-    "C:\\Users\\Ruben\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-=======
-    "C:\\Users\\Gertj\\.nuget\\packages\\": {},
->>>>>>> efc5c843bf6f8a177d0cd33f025be77881bd9a69
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\Jarne\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
-      "projectUniqueName": "C:\\Users\\Ruben\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\BusinessLayer\\BusinessLayer.csproj",
+      "projectUniqueName": "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\BusinessLayer\\BusinessLayer.csproj",
       "projectName": "BusinessLayer",
-      "projectPath": "C:\\Users\\Ruben\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\BusinessLayer\\BusinessLayer.csproj",
-      "packagesPath": "C:\\Users\\Ruben\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ruben\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\BusinessLayer\\obj\\",
+      "projectPath": "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\BusinessLayer\\BusinessLayer.csproj",
+      "packagesPath": "C:\\Users\\Jarne\\.nuget\\packages\\",
+      "outputPath": "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\BusinessLayer\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Ruben\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-=======
-      "projectUniqueName": "C:\\Users\\Gertj\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\BusinessLayer\\BusinessLayer.csproj",
-      "projectName": "BusinessLayer",
-      "projectPath": "C:\\Users\\Gertj\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\BusinessLayer\\BusinessLayer.csproj",
-      "packagesPath": "C:\\Users\\Gertj\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Gertj\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\BusinessLayer\\obj\\",
-      "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-      ],
-      "configFilePaths": [
-        "C:\\Users\\Gertj\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> efc5c843bf6f8a177d0cd33f025be77881bd9a69
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\Jarne\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -89,17 +63,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
       }
     }
-<<<<<<< HEAD
   }
-=======
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\Gertj\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\BusinessLayer\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
->>>>>>> efc5c843bf6f8a177d0cd33f025be77881bd9a69
 }
