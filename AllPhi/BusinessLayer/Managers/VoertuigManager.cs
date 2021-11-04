@@ -24,10 +24,9 @@ namespace BusinessLayer.Managers {
             if (!repo.BestaatVoertuig(voertuig.ChassisNummer)) throw new VoertuigManagerException("Voertuig bestaat niet");
             repo.UpdateVoertuig(voertuig);
         }
+        public IEnumerable<Voertuig>GeefVoertuigen(Bestuurder bestuurder) {
+            return repo.GeefVoertuigen(bestuurder);
+        }
 
-        //public void ZoekVoertuig(string chassisNummer) {
-        //    if (!repo.BestaatVoertuig(chassisNummer)) throw new VoertuigManagerException("Voertuig bestaat niet");
-        //    repo.Geefvoertuig(chassisNummer);
-        //}
     }
 }

@@ -10,5 +10,8 @@ namespace BusinessLayer.Interfaces {
         public void VoegVoertuigToe(Voertuig voertuig);
         public void VerwijderVoertuig(Voertuig voertuig);
         public void UpdateVoertuig(Voertuig voertuig);
+        bool BestaatVoertuig(string chassisNummer);
+        bool BestaatVoertuig(Voertuig voertuig);
+        IEnumerable<Voertuig> GeefVoertuigen(Bestuurder bestuurder);
     }
 }
