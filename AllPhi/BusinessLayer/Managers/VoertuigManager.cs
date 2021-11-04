@@ -24,9 +24,10 @@ namespace BusinessLayer.Managers {
             if (!repo.BestaatVoertuig(voertuig.ChassisNummer)) throw new VoertuigManagerException("Voertuig bestaat niet");
             repo.UpdateVoertuig(voertuig);
         }
-        public void ZoekVoertuig(string chassisNummer) {
-            if (!repo.BestaatVoertuig(chassisNummer)) throw new VoertuigManagerException("Voertuig bestaat niet");
-            repo.Geefvoertuig(chassisNummer);
-        }
+
+        //public void ZoekVoertuig(string chassisNummer) {
+        //    if (!repo.BestaatVoertuig(chassisNummer)) throw new VoertuigManagerException("Voertuig bestaat niet");
+        //    repo.Geefvoertuig(chassisNummer);
+        //}
     }
 }
