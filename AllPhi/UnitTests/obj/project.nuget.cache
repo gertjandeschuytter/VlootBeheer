@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "JqJNM1Wt/OLNaswAoQzN8gd1vUS2jBIVOz9plxSNp+KpHF+7k6YPtD/gEi9G3XcYDG2yz9t5dutiOU63efJCsQ==",
   "success": true,
   "projectFilePath": "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\UnitTests\\UnitTests.csproj",
+=======
+  "dgSpecHash": "UKPVGDnnbydSaBZgnm16RfyeKRKZqIeL7TF3mPgzDSGZLJBa+mrqGdgLFF0Jj+SICPbkiTadhtpY8EEbLHFblQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Ruben\\Source\\Repos\\Opdracht\\AllPhi\\UnitTests\\UnitTests.csproj",
+>>>>>>> 50ce64a721b530e8ae15499c0583937fc9b25a23
   "expectedPackageFiles": [
     "C:\\Users\\Jarne\\.nuget\\packages\\coverlet.collector\\3.0.2\\coverlet.collector.3.0.2.nupkg.sha512",
     "C:\\Users\\Jarne\\.nuget\\packages\\microsoft.codecoverage\\16.9.4\\microsoft.codecoverage.16.9.4.nupkg.sha512",

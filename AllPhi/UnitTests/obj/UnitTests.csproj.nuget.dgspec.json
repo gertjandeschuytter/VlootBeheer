@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\UnitTests\\UnitTests.csproj": {}
   },
   "projects": {
@@ -12,6 +13,19 @@
         "projectPath": "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\BusinessLayer\\BusinessLayer.csproj",
         "packagesPath": "C:\\Users\\Jarne\\.nuget\\packages\\",
         "outputPath": "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\BusinessLayer\\obj\\",
+=======
+    "C:\\Users\\Ruben\\Source\\Repos\\Opdracht\\AllPhi\\UnitTests\\UnitTests.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Ruben\\Source\\Repos\\Opdracht\\AllPhi\\BusinessLayer\\BusinessLayer.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Ruben\\Source\\Repos\\Opdracht\\AllPhi\\BusinessLayer\\BusinessLayer.csproj",
+        "projectName": "BusinessLayer",
+        "projectPath": "C:\\Users\\Ruben\\Source\\Repos\\Opdracht\\AllPhi\\BusinessLayer\\BusinessLayer.csproj",
+        "packagesPath": "C:\\Users\\Ruben\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Ruben\\Source\\Repos\\Opdracht\\AllPhi\\BusinessLayer\\obj\\",
+>>>>>>> 50ce64a721b530e8ae15499c0583937fc9b25a23
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Jarne\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -58,6 +72,7 @@
         }
       }
     },
+<<<<<<< HEAD
     "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\UnitTests\\UnitTests.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -66,6 +81,16 @@
         "projectPath": "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\UnitTests\\UnitTests.csproj",
         "packagesPath": "C:\\Users\\Jarne\\.nuget\\packages\\",
         "outputPath": "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\UnitTests\\obj\\",
+=======
+    "C:\\Users\\Ruben\\Source\\Repos\\Opdracht\\AllPhi\\UnitTests\\UnitTests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Ruben\\Source\\Repos\\Opdracht\\AllPhi\\UnitTests\\UnitTests.csproj",
+        "projectName": "UnitTests",
+        "projectPath": "C:\\Users\\Ruben\\Source\\Repos\\Opdracht\\AllPhi\\UnitTests\\UnitTests.csproj",
+        "packagesPath": "C:\\Users\\Ruben\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Ruben\\Source\\Repos\\Opdracht\\AllPhi\\UnitTests\\obj\\",
+>>>>>>> 50ce64a721b530e8ae15499c0583937fc9b25a23
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Jarne\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -82,8 +107,13 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
+<<<<<<< HEAD
               "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\BusinessLayer\\BusinessLayer.csproj": {
                 "projectPath": "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\BusinessLayer\\BusinessLayer.csproj"
+=======
+              "C:\\Users\\Ruben\\Source\\Repos\\Opdracht\\AllPhi\\BusinessLayer\\BusinessLayer.csproj": {
+                "projectPath": "C:\\Users\\Ruben\\Source\\Repos\\Opdracht\\AllPhi\\BusinessLayer\\BusinessLayer.csproj"
+>>>>>>> 50ce64a721b530e8ae15499c0583937fc9b25a23
               }
             }
           }

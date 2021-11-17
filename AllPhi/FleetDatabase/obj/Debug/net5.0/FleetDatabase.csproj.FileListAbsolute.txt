@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\FleetDatabase\bin\Debug\net5.0\FleetDatabase.deps.json
 C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\FleetDatabase\bin\Debug\net5.0\FleetDatabase.dll
 C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\FleetDatabase\bin\Debug\net5.0\ref\FleetDatabase.dll
@@ -12,3 +13,18 @@ C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\FleetDatabase
 C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\FleetDatabase\obj\Debug\net5.0\FleetDatabase.dll
 C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\FleetDatabase\obj\Debug\net5.0\ref\FleetDatabase.dll
 C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\FleetDatabase\obj\Debug\net5.0\FleetDatabase.pdb
+=======
+C:\Users\Ruben\Source\Repos\Opdracht\AllPhi\FleetDatabase\bin\Debug\net5.0\FleetDatabase.deps.json
+C:\Users\Ruben\Source\Repos\Opdracht\AllPhi\FleetDatabase\bin\Debug\net5.0\FleetDatabase.dll
+C:\Users\Ruben\Source\Repos\Opdracht\AllPhi\FleetDatabase\bin\Debug\net5.0\ref\FleetDatabase.dll
+C:\Users\Ruben\Source\Repos\Opdracht\AllPhi\FleetDatabase\bin\Debug\net5.0\FleetDatabase.pdb
+C:\Users\Ruben\Source\Repos\Opdracht\AllPhi\FleetDatabase\bin\Debug\net5.0\BusinessLayer.dll
+C:\Users\Ruben\Source\Repos\Opdracht\AllPhi\FleetDatabase\bin\Debug\net5.0\BusinessLayer.pdb
+C:\Users\Ruben\Source\Repos\Opdracht\AllPhi\FleetDatabase\obj\Debug\net5.0\FleetDatabase.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ruben\Source\Repos\Opdracht\AllPhi\FleetDatabase\obj\Debug\net5.0\FleetDatabase.AssemblyInfoInputs.cache
+C:\Users\Ruben\Source\Repos\Opdracht\AllPhi\FleetDatabase\obj\Debug\net5.0\FleetDatabase.AssemblyInfo.cs
+C:\Users\Ruben\Source\Repos\Opdracht\AllPhi\FleetDatabase\obj\Debug\net5.0\FleetDatabase.csproj.CoreCompileInputs.cache
+C:\Users\Ruben\Source\Repos\Opdracht\AllPhi\FleetDatabase\obj\Debug\net5.0\FleetDatabase.dll
+C:\Users\Ruben\Source\Repos\Opdracht\AllPhi\FleetDatabase\obj\Debug\net5.0\ref\FleetDatabase.dll
+C:\Users\Ruben\Source\Repos\Opdracht\AllPhi\FleetDatabase\obj\Debug\net5.0\FleetDatabase.pdb
+>>>>>>> 50ce64a721b530e8ae15499c0583937fc9b25a23
