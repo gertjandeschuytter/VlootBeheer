@@ -28,6 +28,10 @@ namespace BusinessLayer.Managers
                 {
                     list.AddRange(repo.GeefBestuurders(naam, voornaam, adres.ToString, datum, rijksregister, types, v, t));
                 }
+                else
+                {
+                    throw new BestuurderManagerException("Geen zoekcriteria gegeven");
+                }
 
                 return list;
             }
