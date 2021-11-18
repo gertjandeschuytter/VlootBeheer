@@ -1,14 +1,8 @@
 {
   "version": 2,
-<<<<<<< HEAD
   "dgSpecHash": "li8TMOtuuSEaKc4jdMkrMGO2EfN9iaa9uzuL1HWhUW35nViZsho+pzKrqRIGDnhNXOMRlA57sSXQnKSva0M3jQ==",
   "success": true,
   "projectFilePath": "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\FleetDatabase\\FleetDatabase.csproj",
-=======
-  "dgSpecHash": "MIbbR7resSV/NFAUrCud344cAq2POR0ZDOa0li6b34a4k16K9VCkEKTiQNqaiNjIOG6GM17w+yA/Yxpg0+vaoQ==",
-  "success": true,
-  "projectFilePath": "C:\\Users\\Gertj\\Source\\Repos\\Opdracht_Projectwerk\\AllPhi\\FleetDatabase\\FleetDatabase.csproj",
->>>>>>> 16587d93878a1370fc16612303d49186dab7a718
   "expectedPackageFiles": [
     "C:\\Users\\Jarne\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Jarne\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

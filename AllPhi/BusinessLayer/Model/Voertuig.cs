@@ -8,11 +8,12 @@ namespace BusinessLayer.Model
     public class Voertuig
     {
         #region Properties
+        public int ID { get; private set; }
         public string Merk { get; private set; }
         public string Model { get; private set; }
         public string ChassisNummer { get; private set; }
         public string NummerPlaat { get; private set; }
-        public Brandstoftype BrandstofType { get; private set; }
+        public Brandstoftype_voertuig BrandstofType { get; private set; }
         public Typewagen TypeWagen { get; private set; }
         public string Kleur { get; private set; }
         public int AantalDeuren { get; private set; }
@@ -20,7 +21,7 @@ namespace BusinessLayer.Model
         #endregion
 
         #region Constructors
-        public Voertuig(string merk, string model, string chassisNummer, string nummerPlaat, Brandstoftype brandstofType, Typewagen typeWagen, string kleur) {
+        public Voertuig(string merk, string model, string chassisNummer, string nummerPlaat, Brandstoftype_voertuig brandstofType, Typewagen typeWagen, string kleur) {
             ZetMerk(merk);
             ZetModel(model);
             ZetChassisNummer(chassisNummer);
@@ -29,7 +30,7 @@ namespace BusinessLayer.Model
             TypeWagen = typeWagen;
             ZetKleur(kleur);
         }
-        public Voertuig(string merk, string model, string chassisNummer, string nummerPlaat, Brandstoftype brandstofType, Typewagen typeWagen, int aantalDeuren) {
+        public Voertuig(string merk, string model, string chassisNummer, string nummerPlaat, Brandstoftype_voertuig brandstofType, Typewagen typeWagen, int aantalDeuren) {
             ZetMerk(merk);
             ZetModel(model);
             ZetChassisNummer(chassisNummer);
@@ -38,7 +39,7 @@ namespace BusinessLayer.Model
             TypeWagen = typeWagen;
             ZetAantalDeuren(aantalDeuren);
         }
-        public Voertuig(string merk, string model, string chassisNummer, string nummerPlaat, Brandstoftype brandstofType, Typewagen typeWagen, Bestuurder bestuurder) {
+        public Voertuig(string merk, string model, string chassisNummer, string nummerPlaat, Brandstoftype_voertuig brandstofType, Typewagen typeWagen, Bestuurder bestuurder) {
             ZetMerk(merk);
             ZetModel(model);
             ZetChassisNummer(chassisNummer);
@@ -47,16 +48,16 @@ namespace BusinessLayer.Model
             TypeWagen = typeWagen;
             Bestuurder = bestuurder;
         }
-        public Voertuig(string merk, string model, string chassisNummer, string nummerPlaat, Brandstoftype brandstofType, Typewagen typeWagen, string kleur, int aantalDeuren) : this(merk, model, chassisNummer, nummerPlaat, brandstofType, typeWagen, kleur) {
+        public Voertuig(string merk, string model, string chassisNummer, string nummerPlaat, Brandstoftype_voertuig brandstofType, Typewagen typeWagen, string kleur, int aantalDeuren) : this(merk, model, chassisNummer, nummerPlaat, brandstofType, typeWagen, kleur) {
             ZetAantalDeuren(aantalDeuren);
         }
-        public Voertuig(string merk, string model, string chassisNummer, string nummerPlaat, Brandstoftype brandstofType, Typewagen typeWagen, string kleur, Bestuurder bestuurder) : this(merk, model, chassisNummer, nummerPlaat, brandstofType, typeWagen, kleur) {
+        public Voertuig(string merk, string model, string chassisNummer, string nummerPlaat, Brandstoftype_voertuig brandstofType, Typewagen typeWagen, string kleur, Bestuurder bestuurder) : this(merk, model, chassisNummer, nummerPlaat, brandstofType, typeWagen, kleur) {
             Bestuurder = bestuurder;
         }
-        public Voertuig(string merk, string model, string chassisNummer, string nummerPlaat, Brandstoftype brandstofType, Typewagen typeWagen, int aantalDeuren, Bestuurder bestuurder) : this(merk, model, chassisNummer, nummerPlaat, brandstofType, typeWagen, aantalDeuren) {
+        public Voertuig(string merk, string model, string chassisNummer, string nummerPlaat, Brandstoftype_voertuig brandstofType, Typewagen typeWagen, int aantalDeuren, Bestuurder bestuurder) : this(merk, model, chassisNummer, nummerPlaat, brandstofType, typeWagen, aantalDeuren) {
             Bestuurder = bestuurder;
         }
-        public Voertuig(string merk, string model, string chassisNummer, string nummerPlaat, Brandstoftype brandstofType, Typewagen typeWagen)
+        public Voertuig(string merk, string model, string chassisNummer, string nummerPlaat, Brandstoftype_voertuig brandstofType, Typewagen typeWagen)
         {
             ZetMerk(merk);
             ZetModel(model);

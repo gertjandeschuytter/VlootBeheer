@@ -26,7 +26,7 @@ namespace BusinessLayer.Managers
                 if(id.HasValue) list.Add(repo.GeefBestuurder((int)id));
                 if(!string.IsNullOrWhiteSpace(naam) || !string.IsNullOrWhiteSpace(voornaam) || adres != null || datum != new DateTime(1,1,1) || !string.IsNullOrWhiteSpace(rijksregister) || types.Count != 0 || v != null || t != null)
                 {
-                    list.AddRange(repo.GeefBestuurders(naam, voornaam, adres.ToString(), datum, rijksregister, types, v, t));
+                    list.AddRange(repo.GeefBestuurders(naam, voornaam, adres, datum, rijksregister, types, v, t));
                 }
                 else
                 {

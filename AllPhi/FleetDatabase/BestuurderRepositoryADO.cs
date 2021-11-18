@@ -29,21 +29,97 @@ namespace FleetDatabase
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Bestuurder> GeefBestuurders(string naam, string voornaam, string adres, DateTime datum, string rijksregister, List<TypeRijbewijs> types, Voertuig v, TankKaart t)
+        public IEnumerable<Bestuurder> GeefBestuurders(string naam, string voornaam, Adres adres, DateTime datum, string rijksregister, List<TypeRijbewijs> types, Voertuig v, TankKaart t)
         {
-            IReadOnlyList<Bestuurder> bestuurders;
-            SqlConnection connection = GetConnection();
+            List<Bestuurder> bestuurders = new();
             string query = "SELECT * FROM dbo.bestuurder"
-                + "WHERE voornaam = @voornaam" 
+                + "WHERE voornaam = @voornaam"
                 + "AND naam = @naam"
-                + "AND geboortedatum = @datum" 
-                + "AND adres = @adres" 
-                + "AND rijksregister = @rijksregister" 
-                + "AND rijbewijs = @types"
+                + "AND geboortedatum = @datum"
+                + "AND rijksregister = @rijksregister"
                 + "AND Voertuig = @v"
-                + "AND tankkaart = @t;";
+                + "AND tankkaart = @t"
+                + "IER MOET NEN JOIN;";
 
-            throw new NotImplementedException();
+            SqlConnection connection = GetConnection();
+            using (SqlCommand command = connection.CreateCommand())
+            {
+                connection.Open();
+                try
+                {
+                    command.Parameters.Add(new SqlParameter("@voornaam", SqlDbType.NVarChar));
+                    command.Parameters.Add(new SqlParameter("@naam", SqlDbType.NVarChar));
+                    command.Parameters.Add(new SqlParameter("@datum", SqlDbType.Date));
+                    command.Parameters.Add(new SqlParameter("@adres", SqlDbType.NVarChar));
+                    command.Parameters.Add(new SqlParameter("@rijksregister", SqlDbType.NVarChar));
+                    command.Parameters.Add(new SqlParameter("@types", SqlDbType.NVarChar));
+                    command.Parameters.Add(new SqlParameter("@v", SqlDbType.Int));
+                    command.Parameters.Add(new SqlParameter("@t", SqlDbType.NVarChar));
+                    command.CommandText = query;
+                    command.Parameters["@voornaam"].Value = voornaam;
+                    command.Parameters["@naam"].Value = naam;
+                    command.Parameters["@datum"].Value = datum;
+                    command.Parameters["@adres"].Value = adres;
+                    command.Parameters["@rijksregister"].Value = rijksregister;
+                    command.Parameters["@rijbewijs"].Value = types;
+                    command.Parameters["@v"].Value = v.ID;
+                    command.Parameters["@t"].Value = t.KaartNr;
+
+                    Adres adres_null = null;
+                    Voertuig v_null = null;
+                    TankKaart t_null = null;
+
+                    Adres adresdb;
+                    Voertuig voertuigdb;
+                    TankKaart tankkaartdb;
+
+                    SqlDataReader sqlDataReader = command.ExecuteReader();
+                    while (sqlDataReader.Read())
+                    {
+                        string voornaamdb = (string)sqlDataReader["voornaam"];
+                        string naamdb = (string)sqlDataReader["naam"];
+                        DateTime datumdb = (DateTime)sqlDataReader["geboortedatum"];
+                        if (!sqlDataReader.IsDBNull(sqlDataReader.GetOrdinal("adres")))
+                        {
+                            adresdb = new((string)sqlDataReader["straat"], (string)sqlDataReader["stad"], (string)sqlDataReader["postcode"], (int)sqlDataReader["nummer"]);
+                        }
+                        else
+                        {
+                            adresdb = adres_null;
+                        }
+                        string rijksregisterdb = (string)sqlDataReader["rijksregister"];
+                        if (!sqlDataReader.IsDBNull(sqlDataReader.GetOrdinal("voertuig")))
+                        {
+                            voertuigdb = new();
+                        }
+                        else
+                        {
+                            voertuigdb = v_null;
+                        }
+                        if (!sqlDataReader.IsDBNull(sqlDataReader.GetOrdinal("voertuig")))
+                        {
+                            tankkaartdb = new();
+                        }
+                        else
+                        {
+                            tankkaartdb = t_null;
+                        }
+
+                        Bestuurder b = new Bestuurder(naamdb, voornaamdb, adresdb, datumdb, rijksregisterdb, voertuigdb, tankkaartdb);
+                        bestuurders.Add(b);
+                    }
+
+                    return bestuurders;
+                }
+                catch (Exception ex)
+                {
+                    throw new("BestuurderRepositoryADO - GeefBestuurders: Er liep iets mis -> ", ex);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
         }
 
         public bool HeeftBestuurder(Bestuurder bestuurder)
