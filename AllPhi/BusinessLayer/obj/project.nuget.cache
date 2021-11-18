@@ -1,15 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9oNKsB2EJgmX7MZVulEwmf2k8L3wqowp3Lai9jfJiluBXBXiLpkKg1V4cEO1cNnFe/m3BHUs1hXChrW7F6j1xQ==",
+  "dgSpecHash": "92mpvkTrfp0vhcledumSByH2C+nAZdwChjzzhkd19qMWjy5CnIcklGgxC0NRxBLEraFBze9jUH57evJw1yqVKw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Gertj\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\BusinessLayer\\BusinessLayer.csproj",
+  "projectFilePath": "C:\\Users\\Gertj\\Source\\Repos\\Opdracht_Projectwerk\\AllPhi\\BusinessLayer\\BusinessLayer.csproj",
   "expectedPackageFiles": [],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\Gertj\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\BusinessLayer\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }
