@@ -80,7 +80,24 @@ namespace BusinessLayer.Managers
         }
         public IReadOnlyList<TankKaart> ZoekTankkaarten(string kaartNr, DateTime geldigheidsdatum, string pincode, Bestuurder bestuurder, bool geblokkeerd)
         {
+            List<TankKaart> tankkaarten = new List<TankKaart>();
 
+            try
+            {
+                if(!string.IsNullOrWhiteSpace(kaartNr) || geldigheidsdatum != DateTime.MinValue || !string.IsNullOrWhiteSpace(pincode) || bestuurder != null)
+                {
+                    tankkaarten.AddRange(Repo.GeefTankkaarten(kaartNr, geldigheidsdatum, pincode, bestuurder, geblokkeerd));
+                }
+                else
+                {
+                    throw new TankkaartManagerException("TankkaartManager: ZoekTankkaarten - geen zoekcriteria");
+                }
+                return tankkaarten;
+            }
+            catch(Exception ex)
+            {
+                throw new TankkaartManagerException("TankkaartManager: ZoekTankkaarten", ex);
+            }
         }
     }
 }
