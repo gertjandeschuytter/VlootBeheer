@@ -7,8 +7,4 @@ build_property.PublishSingleFile =
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
 build_property.RootNamespace = UnitTests
-<<<<<<< HEAD
 build_property.ProjectDir = C:\Users\Gertj\Source\Repos\Opdracht_Projectwerk\AllPhi\UnitTests\
-=======
-build_property.ProjectDir = C:\Users\Ruben\Source\Repos\Opdracht\AllPhi\UnitTests\
->>>>>>> eb12cd53d17aabca42d60161298b4270f258eea4
