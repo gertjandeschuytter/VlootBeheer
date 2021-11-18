@@ -1,12 +1,8 @@
 {
   "version": 2,
-<<<<<<< HEAD
   "dgSpecHash": "i6wS9csw+Ql/TU0PymeB2Z1e9cPa17pzSZ+BKonEOf3IIWDWH4ocupb4XQQgoTFr8RjfsauskNBTd8s1vscyfw==",
-=======
-  "dgSpecHash": "KUf3pcMLSk3B/Mm3YqdAJVHDO5eWhE1WtXvJ2H4VyB4oy1UPaf18wQpYdKa6GixsSGs5Psg8Yb9Uh3xz51Iw0g==",
->>>>>>> 50ce64a721b530e8ae15499c0583937fc9b25a23
   "success": true,
-  "projectFilePath": "C:\\Users\\Ruben\\Source\\Repos\\Opdracht\\AllPhi\\FleetDatabase\\FleetDatabase.csproj",
+  "projectFilePath": "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\FleetDatabase\\FleetDatabase.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
