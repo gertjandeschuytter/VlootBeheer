@@ -15,7 +15,6 @@ namespace BusinessLayer.Model
         {
             ZetKaartNr(kaartnr);
             ZetGeldigheidsdatum(geldigheidsdatum);
-            MogelijkeBrandstoffen = new List<string>();
         }
 
         public TankKaart(string kaartnr, DateTime geldigheidsdatum, string pincode) : this(kaartnr, geldigheidsdatum)
@@ -61,8 +60,6 @@ namespace BusinessLayer.Model
 
         public string Pincode { get; set; }
 
-        public List<string> MogelijkeBrandstoffen { get; set; }
-
         public Bestuurder Bestuurder { get; set; }
 
         public bool Geblokkeerd { get; set; }
@@ -98,7 +95,6 @@ namespace BusinessLayer.Model
             if (pincode.Length != 4) throw new TankKaartException("Tankkaart: ZetPincode - pincode moet 4 cijfers lang zijn");
             Pincode = pincode;
         }
-        //public void ZetMogelijkeBrandstoffen()
         #endregion
         internal bool HeeftBestuurder(Bestuurder bestuurder)
         {
