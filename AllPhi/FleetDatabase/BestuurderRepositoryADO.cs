@@ -72,6 +72,7 @@ namespace FleetDatabase
                     Adres adresdb;
                     Voertuig voertuigdb;
                     TankKaart tankkaartdb;
+                    List<TypeRijbewijs> typesdb;
 
                     SqlDataReader sqlDataReader = command.ExecuteReader();
                     while (sqlDataReader.Read())
@@ -96,7 +97,7 @@ namespace FleetDatabase
                         {
                             voertuigdb = v_null;
                         }
-                        if (!sqlDataReader.IsDBNull(sqlDataReader.GetOrdinal("voertuig")))
+                        if (!sqlDataReader.IsDBNull(sqlDataReader.GetOrdinal("tankkaart")))
                         {
                             tankkaartdb = new();
                         }
@@ -104,8 +105,17 @@ namespace FleetDatabase
                         {
                             tankkaartdb = t_null;
                         }
+                        if (!sqlDataReader.IsDBNull(sqlDataReader.GetOrdinal("rijbewijs")))
+                        {
+                            
+                        }
+                        else
+                        {
+                            typesdb = new();
+                        }
+                        
 
-                        Bestuurder b = new Bestuurder(naamdb, voornaamdb, adresdb, datumdb, rijksregisterdb, voertuigdb, tankkaartdb);
+                        Bestuurder b = new Bestuurder(naamdb, voornaamdb, adresdb, datumdb, rijksregisterdb, voertuigdb, tankkaartdb, typesdb);
                         bestuurders.Add(b);
                     }
 
