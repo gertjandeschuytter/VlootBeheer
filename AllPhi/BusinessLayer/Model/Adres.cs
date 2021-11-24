@@ -12,6 +12,7 @@ namespace BusinessLayer.Model
             ZetNummer(nummer);
         }
 
+        public int ID { get; private set; }
         public string Straat { get; private set; }
         public string Stad { get; private set; }
         public string Postcode { get; private set; }
