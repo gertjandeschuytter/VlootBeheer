@@ -5,9 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FleetDatabase {
     public class VoertuigRepositoryADO : IVoertuigRepository {
@@ -122,11 +119,35 @@ namespace FleetDatabase {
         //}
 
         public void UpdateVoertuig(Voertuig voertuig) {
-            throw new NotImplementedException();
+            SqlConnection conn = GetConnection();
+            string sql = "UPDATE [dbo].voertuig SET merk = @merk, model = @model, chassisNummer = @chassisNummer, nummerplaat = @nummerplaat, brandstofType =@brandstofType," +
+                " typeWagen =@typeWagen, aantalDeuren=@aantalDeuren, kleur=@kleur WHERE Id = @Id";
+            using (SqlCommand cmd = conn.CreateCommand()) {
+                try {
+                    conn.Open();
+                    //nog af te werken
+                } catch (Exception ex) {
+                    throw new BestuurderRepositoryADOException("UpdateVoertuig ", ex);
+                } finally {
+                    conn.Close();
+                }
+            }
         }
-
-        public void VerwijderVoertuig(Voertuig voertuig) {
-            throw new NotImplementedException();
+        public void VerwijderVoertuig(int Id) {
+            SqlConnection conn = GetConnection();
+            string sql = "DELETE FROM [dbo].voertuig WHERE Id = @Id";
+            using (SqlCommand cmd = conn.CreateCommand()) {
+                try {
+                    conn.Open();
+                    cmd.CommandText = sql;
+                    cmd.Parameters.AddWithValue("@Id", Id);
+                    cmd.ExecuteNonQuery();
+                } catch (Exception ex) {
+                    throw new BestuurderRepositoryADOException("VerwijderVoertuig ", ex);
+                } finally {
+                    conn.Close();
+                }
+            }
         }
 
         public Voertuig VoegVoertuigToe(Voertuig voertuig) {
@@ -145,25 +166,28 @@ namespace FleetDatabase {
                     cmd.Parameters.Add("@typeWagen", SqlDbType.NVarChar);
                     cmd.Parameters.Add("@aantalDeuren", SqlDbType.NVarChar);
                     cmd.Parameters.Add("@kleur", SqlDbType.NVarChar);
-                    cmd.Parameters["@merk"].Value = voertuig.;
-                    cmd.Parameters["@model"].Value = klant.Adres;
-                    cmd.Parameters["@chassisNummer"].Value = klant.Adres;
-                    cmd.Parameters["@nummerplaat"].Value = klant.Adres;
-                    cmd.Parameters["@brandstofType"].Value = klant.Adres;
-                    cmd.Parameters["@typeWagen"].Value = klant.Adres;
-                    cmd.Parameters["@aantalDeuren"].Value = klant.Adres;
-                    cmd.Parameters["@kleur"].Value = klant.Adres;
-
+                    var merkDb = cmd.Parameters["@merk"].Value = voertuig.Merk;
+                    var modelDB = cmd.Parameters["@model"].Value = voertuig.Model;
+                    var chassisNummerDB =  cmd.Parameters["@chassisNummer"].Value = voertuig.ChassisNummer;
+                    var nummerplaatDB = cmd.Parameters["@nummerplaat"].Value = voertuig.NummerPlaat;
+                    var brandstofTypeDB = cmd.Parameters["@brandstofType"].Value = Enum.GetName(typeof(Brandstoftype_voertuig), voertuig.BrandstofType);
+                    var typeWagenDB = cmd.Parameters["@typeWagen"].Value = Enum.GetName(typeof(Typewagen), voertuig.TypeWagen);
+                    var aantalDeurenDB =  cmd.Parameters["@aantalDeuren"].Value = voertuig.AantalDeuren;
+                    var kleurDB = cmd.Parameters["@kleur"].Value = voertuig.Kleur;
                     int id = (int)cmd.ExecuteScalar();
-                    Klant k = new Klant(klant.Name, klant.Adres);
-                    k.ZetKlantId(id);
-                    return k;
+                    Voertuig v = new Voertuig(voertuig.Merk, voertuig.Model, voertuig.ChassisNummer, voertuig.NummerPlaat, voertuig.BrandstofType, voertuig.TypeWagen);
+                    v.ZetId(id);
+                    return v;
                 } catch (Exception ex) {
                     throw new VoertuigRepositoryADOExceptions("KlantToevoegen ", ex);
                 } finally {
                     conn.Close();
                 }
             }
+        }
+
+        void IVoertuigRepository.VoegVoertuigToe(Voertuig voertuig) {
+            throw new NotImplementedException();
         }
     }
 }
