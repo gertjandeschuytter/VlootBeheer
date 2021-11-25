@@ -31,8 +31,7 @@ namespace FleetDatabase {
                     cmd.CommandText = query;
                     cmd.Parameters["@chassisNummer"].Value = chassisNummer;
                     int n = (int)cmd.ExecuteScalar();
-                    if (n > 0) return true;
-                    else return false;
+                    if (n > 0) return true;else return false;
                 } catch (Exception ex) {
                     throw new VoertuigRepositoryADOExceptions("bestaatVoertuig", ex);
                 } finally {
@@ -130,8 +129,41 @@ namespace FleetDatabase {
             throw new NotImplementedException();
         }
 
-        public void VoegVoertuigToe(Voertuig voertuig) {
-            throw new NotImplementedException();
+        public Voertuig VoegVoertuigToe(Voertuig voertuig) {
+            SqlConnection conn = GetConnection();
+            string sql = "INSERT INTO [dbo].voertuig (merk, model, chassisNummer,nummerplaat,brandstofType,typeWagen, aantalDeuren, kleur) " +
+                "OUTPUT INSERTED.ID VALUES (@merk, @model, @chassisNummer, @nummerplaat, @brandstofType, @typeWagen, @aantalDeuren, @kleur)";
+            using (SqlCommand cmd = conn.CreateCommand()) {
+                try {
+                    conn.Open();
+                    cmd.CommandText = sql;
+                    cmd.Parameters.Add("@merk", SqlDbType.NVarChar);
+                    cmd.Parameters.Add("@model", SqlDbType.NVarChar);
+                    cmd.Parameters.Add("@chassisNummer", SqlDbType.NVarChar);
+                    cmd.Parameters.Add("@nummerplaat", SqlDbType.NVarChar);
+                    cmd.Parameters.Add("@brandstofType", SqlDbType.NVarChar);
+                    cmd.Parameters.Add("@typeWagen", SqlDbType.NVarChar);
+                    cmd.Parameters.Add("@aantalDeuren", SqlDbType.NVarChar);
+                    cmd.Parameters.Add("@kleur", SqlDbType.NVarChar);
+                    cmd.Parameters["@merk"].Value = voertuig.;
+                    cmd.Parameters["@model"].Value = klant.Adres;
+                    cmd.Parameters["@chassisNummer"].Value = klant.Adres;
+                    cmd.Parameters["@nummerplaat"].Value = klant.Adres;
+                    cmd.Parameters["@brandstofType"].Value = klant.Adres;
+                    cmd.Parameters["@typeWagen"].Value = klant.Adres;
+                    cmd.Parameters["@aantalDeuren"].Value = klant.Adres;
+                    cmd.Parameters["@kleur"].Value = klant.Adres;
+
+                    int id = (int)cmd.ExecuteScalar();
+                    Klant k = new Klant(klant.Name, klant.Adres);
+                    k.ZetKlantId(id);
+                    return k;
+                } catch (Exception ex) {
+                    throw new VoertuigRepositoryADOExceptions("KlantToevoegen ", ex);
+                } finally {
+                    conn.Close();
+                }
+            }
         }
     }
 }
