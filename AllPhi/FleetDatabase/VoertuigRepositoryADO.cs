@@ -67,7 +67,7 @@ namespace FleetDatabase {
                     command.Parameters["@model"].Value = voertuig.Model;
                     command.Parameters["@chassisNummer"].Value = voertuig.ChassisNummer;
                     command.Parameters["@nummerplaat"].Value = voertuig.NummerPlaat;
-                    command.Parameters["@brandstofType"].Value = Enum.GetName(typeof(Brandstoftype), voertuig.BrandstofType);
+                    command.Parameters["@brandstofType"].Value = Enum.GetName(typeof(Brandstoftype_voertuig), voertuig.BrandstofType);
                     command.Parameters["@typeWagen"].Value = Enum.GetName(typeof(Typewagen), voertuig.TypeWagen);
                     command.Parameters["@aantalDeuren"].Value = voertuig.AantalDeuren;
                     command.Parameters["@kleur"].Value = voertuig.Kleur;

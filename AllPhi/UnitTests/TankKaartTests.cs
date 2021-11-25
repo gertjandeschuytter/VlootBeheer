@@ -22,7 +22,9 @@ namespace UnitTests
         [Fact]
         public void Test_ctor_Valid()
         {
-            Bestuurder b = new Bestuurder("kjsdhfskj", "Jarne", new DateTime(1999, 8, 4), "99080455307");
+            List<TypeRijbewijs> types = new List<TypeRijbewijs>();
+            types.Add(TypeRijbewijs.C);
+            Bestuurder b = new Bestuurder("kjsdhfskj", "Jarne", new DateTime(1999, 8, 4), "99080455307", types);
             TankKaart tankkaart = new("125678934512687620", new DateTime(2021, 12, 6), "2564", b, true);
             Assert.Equal("125678934512687620", tankkaart.KaartNr);
             Assert.Equal(new DateTime(2021, 12, 6), tankkaart.Geldigheidsdatum);
@@ -36,22 +38,28 @@ namespace UnitTests
         [InlineData(null)]
         public void Test_ctor_InvalidKaartnr(string kaartnr)
         {
-            Assert.Throws<TankKaartException>(() => new TankKaart(kaartnr, new DateTime(2021, 12, 6), "2564", new Bestuurder("kjsdhfskj", "Jarne", new DateTime(1999, 8, 4), "99080455307"), true));
+            List<TypeRijbewijs> types = new List<TypeRijbewijs>();
+            types.Add(TypeRijbewijs.C);
+            Assert.Throws<TankKaartException>(() => new TankKaart(kaartnr, new DateTime(2021, 12, 6), "2564", new Bestuurder("kjsdhfskj", "Jarne", new DateTime(1999, 8, 4), "99080455307", types), true));
         }
         [Theory]
         [InlineData("1/1/1")]
         [MemberData(nameof(Data))]
         public void Test_ctor_InvalidGeldigheidsdatum(string geldigheidsdatum_str)
         {
+            List<TypeRijbewijs> types = new List<TypeRijbewijs>();
+            types.Add(TypeRijbewijs.C);
             DateTime geldigheidsdatum = DateTime.Parse(geldigheidsdatum_str);
-            Assert.Throws<TankKaartException>(() => new TankKaart("125678934512687620", geldigheidsdatum, "2564", new Bestuurder("kjsdhfskj", "Jarne", new DateTime(1999, 8, 4), "99080455307"), true));
+            Assert.Throws<TankKaartException>(() => new TankKaart("125678934512687620", geldigheidsdatum, "2564", new Bestuurder("kjsdhfskj", "Jarne", new DateTime(1999, 8, 4), "99080455307", types), true));
         }
         [Theory]
         [InlineData("21")]
         [InlineData(null)]
         public void Test_ctor_InvalidPincode(string pincode)
         {
-            Assert.Throws<TankKaartException>(() => new TankKaart("125678934512687620", new DateTime(2021, 12, 6), pincode, new Bestuurder("kjsdhfskj", "Jarne", new DateTime(1999, 8, 4), "99080455307"), true));
+            List<TypeRijbewijs> types = new List<TypeRijbewijs>();
+            types.Add(TypeRijbewijs.C);
+            Assert.Throws<TankKaartException>(() => new TankKaart("125678934512687620", new DateTime(2021, 12, 6), pincode, new Bestuurder("kjsdhfskj", "Jarne", new DateTime(1999, 8, 4), "99080455307", types), true));
         }
         [Theory]
         [InlineData(null)]

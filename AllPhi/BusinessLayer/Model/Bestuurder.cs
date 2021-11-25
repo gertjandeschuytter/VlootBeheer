@@ -8,50 +8,50 @@ namespace BusinessLayer.Model
     public class Bestuurder
     {
         #region Constructors
-        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, string rijksRegisterNr, Voertuig voertuig, TankKaart tankKaart) : this(naam, voorNaam, adres, geboorteDatum, rijksRegisterNr)
+        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, string rijksRegisterNr, Voertuig voertuig, TankKaart tankKaart, List<TypeRijbewijs> types) : this(naam, voorNaam, adres, geboorteDatum, rijksRegisterNr, types)
         {
             ZetVoertuig(voertuig);
             ZetTankKaart(tankKaart);
         }
 
-        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, string rijksRegisterNr, Voertuig voertuig) : this(naam, voorNaam,adres, geboorteDatum, rijksRegisterNr)
+        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, string rijksRegisterNr, Voertuig voertuig, List<TypeRijbewijs> types) : this(naam, voorNaam,adres, geboorteDatum, rijksRegisterNr, types)
         {
             ZetVoertuig(voertuig);
         }
 
-        public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, string rijksRegisterNr, Voertuig voertuig, TankKaart tankKaart) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr)
+        public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, string rijksRegisterNr, Voertuig voertuig, TankKaart tankKaart, List<TypeRijbewijs> types) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr, types)
         {
             ZetVoertuig(voertuig);
             ZetTankKaart(tankKaart);
         }
 
-        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, string rijksRegisterNr, TankKaart tankKaart) : this(naam, voorNaam,adres, geboorteDatum, rijksRegisterNr)
+        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, string rijksRegisterNr, TankKaart tankKaart, List<TypeRijbewijs> types) : this(naam, voorNaam,adres, geboorteDatum, rijksRegisterNr, types)
         {
             ZetTankKaart(tankKaart);
         }
 
-        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, string rijksRegisterNr) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr)
+        public Bestuurder(string naam, string voorNaam, Adres adres, DateTime geboorteDatum, string rijksRegisterNr, List<TypeRijbewijs> types) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr, types)
         {
             ZetAdres(adres);
         }
 
-        public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, string rijksRegisterNr, Voertuig voertuig) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr)
+        public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, string rijksRegisterNr, List<TypeRijbewijs> types, Voertuig voertuig) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr, types)
         {
             ZetVoertuig(voertuig);
         }
 
-        public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, string rijksRegisterNr, TankKaart tankKaart) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr)
+        public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, string rijksRegisterNr, List<TypeRijbewijs> types, TankKaart tankKaart) : this(naam, voorNaam, geboorteDatum, rijksRegisterNr, types)
         {
             ZetTankKaart(tankKaart);
         }
 
-        public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, string rijksRegisterNr)
+        public Bestuurder(string naam, string voorNaam, DateTime geboorteDatum, string rijksRegisterNr, List<TypeRijbewijs> types)
         {
             ZetNaam(naam);
             ZetVoorNaam(voorNaam);
             ZetGeboorteDatum(geboorteDatum);
             ZetRijksRegisterNummer(rijksRegisterNr);
-            Types = new List<TypeRijbewijs>();
+            VoegRijbewijzenToe(types);
         }
         #endregion
 
@@ -128,6 +128,15 @@ namespace BusinessLayer.Model
                 tankKaart.ZetBestuurder(this);
         }
         #endregion
+
+        public void VoegRijbewijzenToe(List<TypeRijbewijs> types)
+        {
+            foreach(TypeRijbewijs type in types)
+            {
+                if (Types.Contains(type)) throw new BestuurderException("Bestuurder: VoegRijbewijsToe - Deze bestuurder heeft dit type rijbewijs al");
+                Types.Add(type);
+            }
+        }
 
         public void VoegRijbewijsToe(TypeRijbewijs type)
         {
