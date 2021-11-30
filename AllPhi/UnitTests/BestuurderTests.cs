@@ -271,6 +271,16 @@ namespace UnitTests
         }
 
         [Fact]
+        public void Test_VoegRijbewijzenToe_Valid()
+        {
+            List<TypeRijbewijs> types = new List<TypeRijbewijs>();
+            types.Add(TypeRijbewijs.C);
+            types.Add(TypeRijbewijs.A);
+            Bestuurder b = new("Ophalvens", "Jarne", new DateTime(1999, 08, 04), "99080455307", types);
+            Assert.Contains(TypeRijbewijs.A, b.Types);
+        }
+
+        [Fact]
         public void Test_VerwijderRijbewijs_Valid()
         {
             List<TypeRijbewijs> types = new List<TypeRijbewijs>();

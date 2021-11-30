@@ -51,7 +51,7 @@ namespace BusinessLayer.Model
             ZetVoorNaam(voorNaam);
             ZetGeboorteDatum(geboorteDatum);
             ZetRijksRegisterNummer(rijksRegisterNr);
-            Types = new List<TypeRijbewijs>();
+            VoegRijbewijzenToe(types);
         }
         #endregion
 
@@ -128,6 +128,15 @@ namespace BusinessLayer.Model
                 tankKaart.ZetBestuurder(this);
         }
         #endregion
+
+        public void VoegRijbewijzenToe(List<TypeRijbewijs> types)
+        {
+            foreach(TypeRijbewijs type in types)
+            {
+                if (Types.Contains(type)) throw new BestuurderException("Bestuurder: VoegRijbewijsToe - Deze bestuurder heeft dit type rijbewijs al");
+                Types.Add(type);
+            }
+        }
 
         public void VoegRijbewijsToe(TypeRijbewijs type)
         {

@@ -21,23 +21,13 @@ namespace BusinessLayer.Model
         #endregion
 
         #region Constructors
-        public Voertuig(string merk, string model, string chassisNummer, string nummerPlaat, Brandstoftype_voertuig brandstofType, Typewagen typeWagen, string kleur) {
+        public Voertuig(string merk, string model, string chassisNummer, string nummerPlaat, Brandstoftype_voertuig brandstofType, Typewagen typeWagen) {
             ZetMerk(merk);
             ZetModel(model);
             ZetChassisNummer(chassisNummer);
             ZetNummerPlaat(nummerPlaat);
             BrandstofType = brandstofType;
             TypeWagen = typeWagen;
-            ZetKleur(kleur);
-        }
-        public Voertuig(string merk, string model, string chassisNummer, string nummerPlaat, Brandstoftype_voertuig brandstofType, Typewagen typeWagen, int aantalDeuren) {
-            ZetMerk(merk);
-            ZetModel(model);
-            ZetChassisNummer(chassisNummer);
-            ZetNummerPlaat(nummerPlaat);
-            BrandstofType = brandstofType;
-            TypeWagen = typeWagen;
-            ZetAantalDeuren(aantalDeuren);
         }
         public Voertuig(string merk, string model, string chassisNummer, string nummerPlaat, Brandstoftype_voertuig brandstofType, Typewagen typeWagen, Bestuurder bestuurder) {
             ZetMerk(merk);
@@ -57,19 +47,15 @@ namespace BusinessLayer.Model
         public Voertuig(string merk, string model, string chassisNummer, string nummerPlaat, Brandstoftype_voertuig brandstofType, Typewagen typeWagen, int aantalDeuren, Bestuurder bestuurder) : this(merk, model, chassisNummer, nummerPlaat, brandstofType, typeWagen, aantalDeuren) {
             Bestuurder = bestuurder;
         }
-        public Voertuig(string merk, string model, string chassisNummer, string nummerPlaat, Brandstoftype_voertuig brandstofType, Typewagen typeWagen)
-        {
-            ZetMerk(merk);
-            ZetModel(model);
-            ZetChassisNummer(chassisNummer);
-            ZetNummerPlaat(nummerPlaat);
-            BrandstofType = brandstofType;
-            TypeWagen = typeWagen;
-        }
+
 
         #endregion
 
         #region Methods
+        public void ZetId(int id) {
+            if (id < 1) throw new VoertuigException("id mag niet kleiner zijn dan 0");
+            this.ID = id;
+        }
         public void ZetBestuurder(Bestuurder bestuurder) {
             if (bestuurder == null) throw new VoertuigException("Bestuurder mag niet null zijn");
             if (Bestuurder == bestuurder) throw new VoertuigException("Deze bestuurder is al ingesteld voor dit voertuig.");
