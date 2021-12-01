@@ -245,6 +245,7 @@ namespace UnitTests
             Voertuig v = new("Toyota", "308", "01234567891234567", "1ABC123", Brandstoftype_voertuig.Benzine, Typewagen.personenwagen);
             b.ZetVoertuig(v);
             Assert.Equal(v, b.Voertuig);
+            Assert.Equal(b, v.Bestuurder);
         }
 
         [Fact]
@@ -256,6 +257,7 @@ namespace UnitTests
             TankKaart t = new("012345678912345", new DateTime(2022, 10, 30));
             b.ZetTankKaart(t);
             Assert.Equal(t, b.TankKaart);
+            Assert.Equal(b, t.Bestuurder);
         }
         #endregion
 
@@ -300,6 +302,7 @@ namespace UnitTests
             b.ZetVoertuig(v);
             b.VerwijderVoertuig(v);
             Assert.Null(b.Voertuig);
+            Assert.Null(v.Bestuurder);
         }
 
         [Fact]
@@ -312,6 +315,7 @@ namespace UnitTests
             b.ZetTankKaart(t);
             b.VerwijderTankKaart(t);
             Assert.Null(b.TankKaart);
+            Assert.Null(t.Bestuurder);
         }
         #endregion
         #endregion
