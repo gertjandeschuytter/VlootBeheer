@@ -51,18 +51,18 @@ namespace BusinessLayer.Model
             ZetVoorNaam(voorNaam);
             ZetGeboorteDatum(geboorteDatum);
             ZetRijksRegisterNummer(rijksRegisterNr);
-            VoegRijbewijzenToe(types);
+            Lijst = new RijbewijsLijst(types);
         }
         #endregion
 
         #region Properties
-        public int ID { get; }
+        public int ID { get; private set; }
         public string Naam { get; private set; }
         public string VoorNaam { get; private set; }
         public Adres Adres { get; private set; }
         public DateTime GeboorteDatum { get; private set; }
         public string RijksRegisterNr { get; private set; }
-        public List<TypeRijbewijs> Types { get; private set; }
+        public RijbewijsLijst Lijst { get; private set; }
         public Voertuig Voertuig { get; private set; }
         public TankKaart TankKaart { get; private set; }
         #endregion
@@ -70,6 +70,12 @@ namespace BusinessLayer.Model
         #region Methods
 
         #region Setters
+
+        public void ZetID(int ID)
+        {
+            if (ID <= 0) throw new BestuurderException("Bestuurder: ZetID - ID mag niet 0 of kleiner zijn.");
+            this.ID = ID;
+        }
         public void ZetNaam(string naam)
         {
             if (string.IsNullOrWhiteSpace(naam)) throw new BestuurderException("Bestuurder: ZetNaam - invalid naam: naam mag niet leeg zijn");
@@ -128,27 +134,6 @@ namespace BusinessLayer.Model
                 tankKaart.ZetBestuurder(this);
         }
         #endregion
-
-        public void VoegRijbewijzenToe(List<TypeRijbewijs> types)
-        {
-            foreach(TypeRijbewijs type in types)
-            {
-                if (Types.Contains(type)) throw new BestuurderException("Bestuurder: VoegRijbewijsToe - Deze bestuurder heeft dit type rijbewijs al");
-                Types.Add(type);
-            }
-        }
-
-        public void VoegRijbewijsToe(TypeRijbewijs type)
-        {
-            if (Types.Contains(type)) throw new BestuurderException("Bestuurder: VoegRijbewijsToe - Deze bestuurder heeft dit type rijbewijs al");
-            Types.Add(type);
-        }
-        public void VerwijderRijbewijs(TypeRijbewijs type)
-        {
-            if (!Types.Contains(type)) throw new BestuurderException("Bestuurder: VoegRijbewijsToe - Deze bestuurder heeft dit rijbewijs niet.");
-            Types.Remove(type);
-        }
-
 
         public void VerwijderVoertuig(Voertuig voertuig)
         {

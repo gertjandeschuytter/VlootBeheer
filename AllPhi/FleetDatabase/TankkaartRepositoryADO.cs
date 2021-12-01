@@ -6,12 +6,11 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace FleetDatabase
 {
-    class TankkaartRepositoryADO : ITankkaartRepository
+    public class TankkaartRepositoryADO : ITankkaartRepository
     {
         private readonly string connectionString;
 
@@ -26,32 +25,6 @@ namespace FleetDatabase
             return connection;
         }
 
-        //Nodig of niet?
-        //public bool BestaatTankaart(string kaartNr)
-        //{
-        //    SqlConnection conn = GetConnection();
-        //    string query = "SELECT (*) FROM [dbo].tankkaart WHERE kaartnummer=@kaartnummer";
-        //    using (SqlCommand cmd = conn.CreateCommand())
-        //    {
-        //        try
-        //        {
-        //            cmd.Parameters.Add(new SqlParameter("@kaartnummer", SqlDbType.NVarChar));
-        //            cmd.CommandText = query;
-        //            cmd.Parameters["@kaartnummer"].Value = kaartNr;
-        //            int n = (int)cmd.ExecuteScalar();
-        //            if (n > 0) return true;
-        //            else return false;
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            throw new TankkaartRepositoryADOException("bestaatTankkaart", ex);
-        //        }
-        //        finally
-        //        {
-        //            conn.Close();
-        //        }
-        //    }
-        //}
         public bool BestaatTankkaart(TankKaart tankkaart)
         {
             SqlConnection connection = GetConnection();
@@ -95,7 +68,41 @@ namespace FleetDatabase
 
         public void VoegTankkaartToe(TankKaart tankkaart)
         {
-            throw new NotImplementedException();
+            SqlConnection connection = GetConnection();
+            string query = "INSERT INTO [dbo].tankkaart (kaartnummer, geldigheidsdatum, pincode, bestuurder, geblokkeerd) " +
+                "VALUES (@kaartnummer, @geldigheidsdatum, @pincode, @bestuurder, @geblokkeerd)";
+            using (SqlCommand cmd = connection.CreateCommand())
+            {
+                try
+                {
+                    connection.Open();
+                    cmd.CommandText = query;
+                    cmd.Parameters.Add("@kaartnummer", SqlDbType.NVarChar);
+                    cmd.Parameters.Add("@geldigheidsdatum", SqlDbType.DateTime);
+                    cmd.Parameters.Add("@pincode", SqlDbType.NVarChar);
+                    cmd.Parameters.Add("@bestuurder", SqlDbType.NVarChar);
+                    cmd.Parameters.Add("@geblokkeerd", SqlDbType.TinyInt);
+                    var kaartnummerDb = cmd.Parameters["@kaartnummer"].Value = tankkaart.KaartNr;
+                    var geldigheidsdatumDB = cmd.Parameters["@geldigheidsdatum"].Value = tankkaart.Geldigheidsdatum;
+                    var pincodeDB = cmd.Parameters["@pincode"].Value = tankkaart.Pincode;
+                    var bestuurderDB = cmd.Parameters["@bestuurder"].Value = tankkaart.Bestuurder;
+                    var geblokkeerdDB = cmd.Parameters["@geblokkeerd"].Value = tankkaart.Geblokkeerd;
+                    cmd.Parameters["@kaartnummer"].Value = tankkaart.KaartNr;
+                    cmd.Parameters["@geldigheidsdatum"].Value = tankkaart.Geldigheidsdatum;
+                    cmd.Parameters["@pincode"].Value = tankkaart.Pincode;
+                    cmd.Parameters["@bestuurder"].Value = tankkaart.Bestuurder;
+                    cmd.Parameters["@geblokkeerd"].Value = tankkaart.Geblokkeerd;
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    throw new TankkaartRepositoryADOException("VoegTankkaartToe ", ex);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
         }
 
         public void VerwijderTankkaart(TankKaart tankkaart)
@@ -108,7 +115,7 @@ namespace FleetDatabase
                 connection.Open();
                 try
                 {
-                    command.Parameters.Add(new SqlParameter("@kaartnummer", SqlDbType.Int));
+                    command.Parameters.Add(new SqlParameter("@kaartnummer", SqlDbType.NVarChar));
                     command.CommandText = query;
                     command.Parameters["@kaartnummer"].Value = tankkaart.KaartNr;
                     command.ExecuteNonQuery();
@@ -124,14 +131,37 @@ namespace FleetDatabase
             }
         }
 
-        public void UpdateTankkaart(TankKaart tankkaart, SqlConnection sqlconnection = null, SqlTransaction transaction = null)
+        public void UpdateTankkaart(TankKaart tankkaart)
         {
-            SqlConnection connection;
-            if (sqlconnection is null)
-                connection = GetConnection();
-            else connection = sqlconnection;
-            string query = "UPDATE tankkaart SET kaartnummer=@kaartnummer, geldigheidsdatum=@geldigheidsdatum, pincode=@pincode, bestuurder=@bestuurder, geblokkeerd=@geblokkeerd";
-
+            SqlConnection connection = GetConnection();
+            string query = "UPDATE tankkaart SET geldigheidsdatum=@geldigheidsdatum, pincode=@pincode, bestuurder=@bestuurder, geblokkeerd=@geblokkeerd WHERE kaartnummer=@kaartnummer";
+            using (SqlCommand cmd = connection.CreateCommand())
+            {
+                connection.Open();
+                try
+                {
+                    cmd.Parameters.Add("@kaartnummer", SqlDbType.NVarChar);
+                    cmd.Parameters.Add("@geldigheidsdatum", SqlDbType.DateTime);
+                    cmd.Parameters.Add("@pincode", SqlDbType.NVarChar);
+                    cmd.Parameters.Add("@bestuurder", SqlDbType.NVarChar);
+                    cmd.Parameters.Add("@geblokkeerd", SqlDbType.TinyInt);
+                    cmd.CommandText = query;
+                    cmd.Parameters["@kaartnummer"].Value = tankkaart.KaartNr;
+                    cmd.Parameters["@geldigheidsdatum"].Value = tankkaart.Geldigheidsdatum;
+                    cmd.Parameters["@pincode"].Value = tankkaart.Pincode;
+                    cmd.Parameters["@bestuurder"].Value = tankkaart.Bestuurder;
+                    cmd.Parameters["@geblokkeerd"].Value = tankkaart.Geblokkeerd;
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    throw new TankkaartRepositoryADOException("UpdateTankkaart", ex);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
         }
 
         public TankKaart GeefTankkaart(string kaartNr)

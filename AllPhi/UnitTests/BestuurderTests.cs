@@ -20,7 +20,7 @@ namespace UnitTests
             Assert.Equal("Ruben", bestuurder.VoorNaam);
             Assert.Equal(new DateTime(1999, 08, 04), bestuurder.GeboorteDatum);
             Assert.Equal("99080455307", bestuurder.RijksRegisterNr);
-            Assert.Equal(types, bestuurder.Types);
+            Assert.Equal(types, bestuurder.Lijst.Types.Keys);
         }
 
         [Theory]
@@ -85,7 +85,7 @@ namespace UnitTests
             Assert.Equal("99080455307", bestuurder.RijksRegisterNr);
             Assert.Equal(v, bestuurder.Voertuig);
             Assert.Equal(t, bestuurder.TankKaart);
-            Assert.Equal(types, bestuurder.Types);
+            Assert.Equal(types, bestuurder.Lijst.Types.Keys);
         }
 
         [Theory]
@@ -245,6 +245,7 @@ namespace UnitTests
             Voertuig v = new("Toyota", "308", "01234567891234567", "1ABC123", Brandstoftype_voertuig.Benzine, Typewagen.personenwagen);
             b.ZetVoertuig(v);
             Assert.Equal(v, b.Voertuig);
+            Assert.Equal(b, v.Bestuurder);
         }
 
         [Fact]
@@ -256,6 +257,7 @@ namespace UnitTests
             TankKaart t = new("012345678912345", new DateTime(2022, 10, 30));
             b.ZetTankKaart(t);
             Assert.Equal(t, b.TankKaart);
+            Assert.Equal(b, t.Bestuurder);
         }
         #endregion
 
@@ -266,8 +268,8 @@ namespace UnitTests
             List<TypeRijbewijs> types = new List<TypeRijbewijs>();
             types.Add(TypeRijbewijs.C);
             Bestuurder b = new("Ophalvens", "Jarne", new DateTime(1999, 08, 04), "99080455307", types);
-            b.VoegRijbewijsToe(TypeRijbewijs.A);
-            Assert.Contains(TypeRijbewijs.A, b.Types);
+            b.Lijst.VoegRijbewijsToe(TypeRijbewijs.A);
+            Assert.Contains(TypeRijbewijs.A, b.Lijst.Types.Keys);
         }
 
         [Fact]
@@ -277,7 +279,7 @@ namespace UnitTests
             types.Add(TypeRijbewijs.C);
             types.Add(TypeRijbewijs.A);
             Bestuurder b = new("Ophalvens", "Jarne", new DateTime(1999, 08, 04), "99080455307", types);
-            Assert.Contains(TypeRijbewijs.A, b.Types);
+            Assert.Contains(TypeRijbewijs.A, b.Lijst.Types.Keys);
         }
 
         [Fact]
@@ -286,8 +288,8 @@ namespace UnitTests
             List<TypeRijbewijs> types = new List<TypeRijbewijs>();
             types.Add(TypeRijbewijs.C);
             Bestuurder b = new("Ophalvens", "Jarne", new DateTime(1999, 08, 04), "99080455307", types);
-            b.VerwijderRijbewijs(TypeRijbewijs.C);
-            Assert.Empty(b.Types);
+            b.Lijst.VerwijderRijbewijs(TypeRijbewijs.C);
+            Assert.Empty(b.Lijst.Types.Keys);
         }
 
         [Fact]
@@ -300,6 +302,7 @@ namespace UnitTests
             b.ZetVoertuig(v);
             b.VerwijderVoertuig(v);
             Assert.Null(b.Voertuig);
+            Assert.Null(v.Bestuurder);
         }
 
         [Fact]
@@ -312,6 +315,7 @@ namespace UnitTests
             b.ZetTankKaart(t);
             b.VerwijderTankKaart(t);
             Assert.Null(b.TankKaart);
+            Assert.Null(t.Bestuurder);
         }
         #endregion
         #endregion
@@ -402,8 +406,8 @@ namespace UnitTests
             List<TypeRijbewijs> types = new List<TypeRijbewijs>();
             types.Add(TypeRijbewijs.C);
             Bestuurder b = new("Ophalvens", "Jarne", new DateTime(1999, 08, 04), "99080455307", types);
-            b.VoegRijbewijsToe(TypeRijbewijs.C);
-            Assert.Throws<BestuurderException>(() => b.VoegRijbewijsToe(TypeRijbewijs.C));
+            b.Lijst.VoegRijbewijsToe(TypeRijbewijs.C);
+            Assert.Throws<BestuurderException>(() => b.Lijst.VoegRijbewijsToe(TypeRijbewijs.C));
         }
 
         [Fact]
@@ -412,7 +416,7 @@ namespace UnitTests
             List<TypeRijbewijs> types = new List<TypeRijbewijs>();
             types.Add(TypeRijbewijs.A);
             Bestuurder b = new("Ophalvens", "Jarne", new DateTime(1999, 08, 04), "99080455307", types);
-            Assert.Throws<BestuurderException>(() => b.VerwijderRijbewijs(TypeRijbewijs.C));
+            Assert.Throws<BestuurderException>(() => b.Lijst.VerwijderRijbewijs(TypeRijbewijs.C));
         }
 
         [Fact]
