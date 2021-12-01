@@ -111,62 +111,60 @@ namespace FleetDatabase
 
         public void VoegBestuurderToe(Bestuurder bestuurder)
         {
-            string query = "INSERT INTO bestuurder(ID, voornaam, naam, geboortedatum, adresID, rijksregister, rijbewijslijstID, voertuigID, tankkaartnummer)OUTPUT INSERTED.ID VALUES (@voornaam, @naam, @datum, @adres, @rijksregister, @types, @v, @t);";
+            int BestuurderId;
+            var rijbewijzen = bestuurder.Lijst;
+            SqlTransaction trans = null;
+            string query = "INSERT INTO bestuurder(voornaam, naam, geboortedatum, adresID, rijksregister, voertuigID, tankkaartnummer)" +
+                "OUTPUT INSERTED.ID VALUES (@voornaam, @naam, @datum, @adres, @rijksregister, @voertuigID, @tankkaartnummer);";
 
             SqlConnection connection = GetConnection();
             using (SqlCommand command = connection.CreateCommand())
-            {
+            using (SqlCommand command2 = connection.CreateCommand()) {
                 connection.Open();
                 try
                 {
+                    trans = connection.BeginTransaction();
+                    command.Transaction = trans;
                     command.Parameters.Add(new SqlParameter("@voornaam", SqlDbType.NVarChar));
                     command.Parameters.Add(new SqlParameter("@naam", SqlDbType.NVarChar));
                     command.Parameters.Add(new SqlParameter("@datum", SqlDbType.Date));
                     command.Parameters.Add(new SqlParameter("@adres", SqlDbType.Int));
                     command.Parameters.Add(new SqlParameter("@rijksregister", SqlDbType.NVarChar));
-                    command.Parameters.Add(new SqlParameter("@types", SqlDbType.Int));
-                    command.Parameters.Add(new SqlParameter("@v", SqlDbType.Int));
-                    command.Parameters.Add(new SqlParameter("@t", SqlDbType.Int));
+                    //command.Parameters.Add(new SqlParameter("@types", SqlDbType.Int));
+                    command.Parameters.Add(new SqlParameter("@voertuigID", SqlDbType.Int));
+                    command.Parameters.Add(new SqlParameter("@tankkaartnummer", SqlDbType.Int));
                     command.CommandText = query;
                     command.Parameters["@voornaam"].Value = bestuurder.VoorNaam;
                     command.Parameters["@naam"].Value = bestuurder.Naam;
                     command.Parameters["@datum"].Value = bestuurder.GeboorteDatum;
-
-
-                    /*HOE THE **** MOETEN WE DIT DOEN?!?
-
-                    if(bestuurder.Adres == null)
-                    {
+                    if (bestuurder.Adres == null) {
                         command.Parameters["@adres"].Value = null;
-                    }
-                    else
-                    {
+                    } else {
                         command.Parameters["@adres"].Value = bestuurder.Adres.ID;
                     }
-                    
                     command.Parameters["@rijksregister"].Value = bestuurder.RijksRegisterNr;
-                    command.Parameters["@types"].Value = bestuurder.ID;
-                    if(bestuurder.Voertuig == null)
-                    {
-                        command.Parameters["@v"].Value = null;
+                    //command.Parameters["@types"].Value = bestuurder.ID;
+                    if (bestuurder.Voertuig == null) {
+                        command.Parameters["@voertuigID"].Value = null;
+                    } else {
+                        command.Parameters["@voertuigID"].Value = bestuurder.Voertuig.ID;
                     }
-                    else
-                    {
-                        command.Parameters["@v"].Value = bestuurder.Voertuig.ID;
+                    if (bestuurder.TankKaart == null) {
+                        command.Parameters["@tankkaartnummer"].Value = null;
+                    } else {
+                        command.Parameters["@tankkaartnummer"].Value = bestuurder.TankKaart.KaartNr;
                     }
-                    if(bestuurder.TankKaart == null)
-                    {
-                        command.Parameters["@t"].Value = null;
+                    BestuurderId = (int)command.ExecuteScalar();
+                    bestuurder.ZetID(BestuurderId);
+                    foreach (var item in bestuurder._Types) {
+                        string sql2 = "INSERT INTO [dbo].BestuurderRijbewijs (BestuurderId, RijbewijsType) VALUES (@BestuurderId, @RijbewijsType)";
+                        command2.Transaction = trans;
+                        command2.CommandText = sql2;
+                        command2.Parameters.AddWithValue("@RijbewijsType", item.Key);
+                        command2.Parameters.AddWithValue("@BestuurderId", item.Value);
                     }
-                    else
-                    {
-                        command.Parameters["@t"].Value = bestuurder.TankKaart.KaartNr;
-                    }                    
-                    int ID = (int)command.ExecuteScalar();
-                    bestuurder.ZetID(ID);
-                    bestuurder.Lijst.ZetID(ID); */
-                }
-                catch (Exception ex)
+
+                } catch (Exception ex)
                 {
                     throw new("BestuurderRepositoryADO - GeefBestuurders: Er liep iets mis -> ", ex);
                 }
