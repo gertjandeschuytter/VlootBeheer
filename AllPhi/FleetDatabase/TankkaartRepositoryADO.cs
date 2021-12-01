@@ -6,11 +6,6 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-<<<<<<< HEAD
-using System.Text;  
-=======
-using System.Text;
->>>>>>> 17484a5f21dbf674e2a3f53e77d0a41a7f1a1e2f
 using System.Threading.Tasks;
 
 namespace FleetDatabase
@@ -87,19 +82,16 @@ namespace FleetDatabase
                     cmd.Parameters.Add("@pincode", SqlDbType.NVarChar);
                     cmd.Parameters.Add("@bestuurder", SqlDbType.NVarChar);
                     cmd.Parameters.Add("@geblokkeerd", SqlDbType.TinyInt);
-<<<<<<< HEAD
                     var kaartnummerDb = cmd.Parameters["@kaartnummer"].Value = tankkaart.KaartNr;
                     var geldigheidsdatumDB = cmd.Parameters["@geldigheidsdatum"].Value = tankkaart.Geldigheidsdatum;
                     var pincodeDB = cmd.Parameters["@pincode"].Value = tankkaart.Pincode;
                     var bestuurderDB = cmd.Parameters["@bestuurder"].Value = tankkaart.Bestuurder;
                     var geblokkeerdDB = cmd.Parameters["@geblokkeerd"].Value = tankkaart.Geblokkeerd;
-=======
                     cmd.Parameters["@kaartnummer"].Value = tankkaart.KaartNr;
                     cmd.Parameters["@geldigheidsdatum"].Value = tankkaart.Geldigheidsdatum;
                     cmd.Parameters["@pincode"].Value = tankkaart.Pincode;
                     cmd.Parameters["@bestuurder"].Value = tankkaart.Bestuurder;
                     cmd.Parameters["@geblokkeerd"].Value = tankkaart.Geblokkeerd;
->>>>>>> 17484a5f21dbf674e2a3f53e77d0a41a7f1a1e2f
                     cmd.ExecuteNonQuery();
                 }
                 catch (Exception ex)
