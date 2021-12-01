@@ -42,10 +42,19 @@ namespace BusinessLayer.Model
             ZetAantalDeuren(aantalDeuren);
             ZetKleur(kleur);
         }
+<<<<<<< HEAD
         public Voertuig(string merk, string model, string chassisNummer, string nummerPlaat, Brandstoftype_voertuig brandstofType, Typewagen typeWagen, string kleur, Bestuurder bestuurder) : this(merk, model, chassisNummer, nummerPlaat, brandstofType, typeWagen, bestuurder) {
             ZetKleur(kleur);
         }
         public Voertuig(string merk, string model, string chassisNummer, string nummerPlaat, Brandstoftype_voertuig brandstofType, Typewagen typeWagen, int aantalDeuren, Bestuurder bestuurder) : this(merk, model, chassisNummer, nummerPlaat, brandstofType, typeWagen, bestuurder) {
+=======
+        public Voertuig(string merk, string model, string chassisNummer, string nummerPlaat, Brandstoftype_voertuig brandstofType, Typewagen typeWagen, string kleur, Bestuurder bestuurder) : this(merk, model, chassisNummer, nummerPlaat, brandstofType, typeWagen) {
+            Bestuurder = bestuurder;
+            ZetKleur(kleur);
+        }
+        public Voertuig(string merk, string model, string chassisNummer, string nummerPlaat, Brandstoftype_voertuig brandstofType, Typewagen typeWagen, int aantalDeuren, Bestuurder bestuurder) : this(merk, model, chassisNummer, nummerPlaat, brandstofType, typeWagen) {
+            Bestuurder = bestuurder;
+>>>>>>> 17484a5f21dbf674e2a3f53e77d0a41a7f1a1e2f
             ZetAantalDeuren(aantalDeuren);
         }
 
