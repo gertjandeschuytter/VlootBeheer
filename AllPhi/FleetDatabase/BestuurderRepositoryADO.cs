@@ -160,8 +160,8 @@ namespace FleetDatabase
                         string sql2 = "INSERT INTO [dbo].BestuurderRijbewijs (BestuurderId, RijbewijsType) VALUES (@BestuurderId, @RijbewijsType)";
                         command2.Transaction = trans;
                         command2.CommandText = sql2;
-                        command2.Parameters.AddWithValue("@RijbewijsType", item.Key);
-                        command2.Parameters.AddWithValue("@BestuurderId", item.Value);
+                        command2.Parameters.AddWithValue("@BestuurderId", BestuurderId);
+                        command2.Parameters.AddWithValue("@RijbewijsType", item.Value);
                     }
 
                 } catch (Exception ex)
