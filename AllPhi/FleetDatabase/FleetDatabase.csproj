@@ -5,11 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj" />
+    <Compile Remove="FleetDatabase\**" />
+    <EmbeddedResource Remove="FleetDatabase\**" />
+    <None Remove="FleetDatabase\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="FleetDatabase\" />
+    <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj" />
   </ItemGroup>
 
   <ItemGroup>

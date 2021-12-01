@@ -131,12 +131,40 @@ namespace FleetDatabase
                     command.Parameters["@voornaam"].Value = bestuurder.VoorNaam;
                     command.Parameters["@naam"].Value = bestuurder.Naam;
                     command.Parameters["@datum"].Value = bestuurder.GeboorteDatum;
-                    command.Parameters["@adres"].Value = bestuurder.Adres.ID;
+
+
+                    /*HOE THE **** MOETEN WE DIT DOEN?!?
+
+                    if(bestuurder.Adres == null)
+                    {
+                        command.Parameters["@adres"].Value = null;
+                    }
+                    else
+                    {
+                        command.Parameters["@adres"].Value = bestuurder.Adres.ID;
+                    }
+                    
                     command.Parameters["@rijksregister"].Value = bestuurder.RijksRegisterNr;
-                    command.Parameters["@rijbewijs"].Value = bestuurder.ID;
-                    command.Parameters["@v"].Value = bestuurder.Voertuig.ID;
-                    command.Parameters["@t"].Value = bestuurder.TankKaart.KaartNr;
+                    command.Parameters["@types"].Value = bestuurder.ID;
+                    if(bestuurder.Voertuig == null)
+                    {
+                        command.Parameters["@v"].Value = null;
+                    }
+                    else
+                    {
+                        command.Parameters["@v"].Value = bestuurder.Voertuig.ID;
+                    }
+                    if(bestuurder.TankKaart == null)
+                    {
+                        command.Parameters["@t"].Value = null;
+                    }
+                    else
+                    {
+                        command.Parameters["@t"].Value = bestuurder.TankKaart.KaartNr;
+                    }                    
                     int ID = (int)command.ExecuteScalar();
+                    bestuurder.ZetID(ID);
+                    bestuurder.Lijst.ZetID(ID); */
                 }
                 catch (Exception ex)
                 {

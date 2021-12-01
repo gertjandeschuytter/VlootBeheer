@@ -13,10 +13,8 @@ namespace AllPhiConsoleApp {
 
             b.VoegBestuurderToe(bestuurder);
 
-            bestuurder.VoegRijbewijsToe(TypeRijbewijs.C);
-
+            bestuurder.Lijst.VoegRijbewijsToe(TypeRijbewijs.C);
             Voertuig v = new Voertuig("Toyota", "393", "12345678911234567", "1ABC123", Brandstoftype_voertuig.Diesel, Typewagen.personenwagen);
-
             bestuurder.ZetVoertuig(v);
 
             b.WijzigBestuurder(bestuurder);
