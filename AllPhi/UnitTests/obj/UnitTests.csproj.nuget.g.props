@@ -5,12 +5,21 @@
     <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
     <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">$(MSBuildThisFileDirectory)project.assets.json</ProjectAssetsFile>
     <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
+<<<<<<< HEAD
     <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\Jarne\.nuget\packages\</NuGetPackageFolders>
+=======
+    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\Gertj\.nuget\packages\;C:\Program Files (x86)\Microsoft\Xamarin\NuGet\</NuGetPackageFolders>
+>>>>>>> 409fbd67ad032cda82291da7b2f04b7fcc3b59a2
     <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
     <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">5.11.1</NuGetToolVersion>
   </PropertyGroup>
   <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+<<<<<<< HEAD
     <SourceRoot Include="C:\Users\Jarne\.nuget\packages\" />
+=======
+    <SourceRoot Include="C:\Users\Gertj\.nuget\packages\" />
+    <SourceRoot Include="C:\Program Files (x86)\Microsoft\Xamarin\NuGet\" />
+>>>>>>> 409fbd67ad032cda82291da7b2f04b7fcc3b59a2
   </ItemGroup>
   <PropertyGroup>
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
@@ -23,7 +32,12 @@
     <Import Project="$(NuGetPackageRoot)microsoft.net.test.sdk\16.9.4\build\netcoreapp2.1\Microsoft.NET.Test.Sdk.props" Condition="Exists('$(NuGetPackageRoot)microsoft.net.test.sdk\16.9.4\build\netcoreapp2.1\Microsoft.NET.Test.Sdk.props')" />
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+<<<<<<< HEAD
     <Pkgxunit_analyzers Condition=" '$(Pkgxunit_analyzers)' == '' ">C:\Users\Jarne\.nuget\packages\xunit.analyzers\0.10.0</Pkgxunit_analyzers>
     <PkgNewtonsoft_Json Condition=" '$(PkgNewtonsoft_Json)' == '' ">C:\Users\Jarne\.nuget\packages\newtonsoft.json\9.0.1</PkgNewtonsoft_Json>
+=======
+    <Pkgxunit_analyzers Condition=" '$(Pkgxunit_analyzers)' == '' ">C:\Users\Gertj\.nuget\packages\xunit.analyzers\0.10.0</Pkgxunit_analyzers>
+    <PkgNewtonsoft_Json Condition=" '$(PkgNewtonsoft_Json)' == '' ">C:\Users\Gertj\.nuget\packages\newtonsoft.json\9.0.1</PkgNewtonsoft_Json>
+>>>>>>> 409fbd67ad032cda82291da7b2f04b7fcc3b59a2
   </PropertyGroup>
 </Project>

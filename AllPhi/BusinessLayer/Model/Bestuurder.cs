@@ -51,7 +51,6 @@ namespace BusinessLayer.Model
             ZetVoorNaam(voorNaam);
             ZetGeboorteDatum(geboorteDatum);
             ZetRijksRegisterNummer(rijksRegisterNr);
-            Lijst = new RijbewijsLijst(types);
         }
         #endregion
 
@@ -65,6 +64,8 @@ namespace BusinessLayer.Model
         public RijbewijsLijst Lijst { get; private set; }
         public Voertuig Voertuig { get; private set; }
         public TankKaart TankKaart { get; private set; }
+
+        public Dictionary<TypeRijbewijs, int> _Types { get; private set; } = new Dictionary<TypeRijbewijs, int>();
         #endregion
 
         #region Methods
