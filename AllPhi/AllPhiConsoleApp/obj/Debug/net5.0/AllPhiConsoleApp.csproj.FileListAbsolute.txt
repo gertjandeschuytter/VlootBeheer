@@ -60,3 +60,14 @@ C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\obj\Deb
 C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\obj\Debug\net5.0\AllPhiConsoleApp.genruntimeconfig.cache
 C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\obj\Debug\net5.0\AllPhiConsoleApp.csproj.AssemblyReference.cache
 >>>>>>> 249c9769c8e50efd31a637622195c7d319ef377e
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\bin\Debug\net5.0\System.Data.SqlClient.dll
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\bin\Debug\net5.0\runtimes\win-arm64\native\sni.dll
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\bin\Debug\net5.0\runtimes\win-x64\native\sni.dll
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\bin\Debug\net5.0\runtimes\win-x86\native\sni.dll
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\bin\Debug\net5.0\BusinessLayer.dll
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\bin\Debug\net5.0\FleetDatabase.dll
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\bin\Debug\net5.0\FleetDatabase.pdb
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\bin\Debug\net5.0\BusinessLayer.pdb
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\obj\Debug\net5.0\AllPhiConsoleApp.csproj.CopyComplete
