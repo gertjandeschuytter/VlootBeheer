@@ -1,6 +1,5 @@
 {
   "version": 2,
-<<<<<<< HEAD
   "dgSpecHash": "43dIxKwbj9+PfpRm/sEW9aSrLHLrcRXHsw6LCZDOkSCfQMx5mGZRY/UXwALNVbXRkikEzpUsm67InfhCIwRikA==",
   "success": true,
   "projectFilePath": "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\AllPhiConsoleApp\\AllPhiConsoleApp.csproj",
@@ -15,11 +14,5 @@
     "C:\\Users\\Jarne\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
     "C:\\Users\\Jarne\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512"
   ],
-=======
-  "dgSpecHash": "wrfv8B8D/xfaWR9O2o286QbB2Bzx8gXRZKmdPt4nM2mj9UFq2OWvtrv1wiQf+2OkSrlWM8qXOIru0h+YmZhFog==",
-  "success": true,
-  "projectFilePath": "C:\\Users\\Ruben\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\AllPhiConsoleApp\\AllPhiConsoleApp.csproj",
-  "expectedPackageFiles": [],
->>>>>>> 249c9769c8e50efd31a637622195c7d319ef377e
   "logs": []
 }
