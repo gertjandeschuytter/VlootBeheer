@@ -106,7 +106,28 @@ namespace FleetDatabase
 
         public void VerwijderBestuurder(Bestuurder bestuurder)
         {
-            throw new NotImplementedException();
+            string query = "REMOVE FROM bestuurder WHERE ID = @id";
+
+            SqlConnection connection = GetConnection();
+            using (SqlCommand command = connection.CreateCommand())
+            {
+                connection.Open();
+                try
+                {
+                    command.Parameters.Add(new SqlParameter("@id", SqlDbType.Int));
+                    command.CommandText = query;
+                    command.Parameters["@id"].Value = bestuurder.ID;
+                }
+                catch(Exception ex)
+                {
+                    throw new BestuurderRepositoryADOException("BestuurderRepositoryADO: VerwijderBestuurder - Er liep iets mis ->", ex);
+                }
+                finally
+                {
+                    command.Dispose();
+                    connection.Close();
+                }
+            }
         }
 
         public void VoegBestuurderToe(Bestuurder bestuurder)
