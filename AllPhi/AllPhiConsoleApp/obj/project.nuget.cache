@@ -1,6 +1,10 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "2Uhsxe9oWWBd+7XGeweIoSBDCzcirbEaVsVHmlWMDF2fWZ2rA8EQtZkk+jmcAgFyNEKeaS1TxLks+5is/R+eVA==",
+=======
+  "dgSpecHash": "43dIxKwbj9+PfpRm/sEW9aSrLHLrcRXHsw6LCZDOkSCfQMx5mGZRY/UXwALNVbXRkikEzpUsm67InfhCIwRikA==",
+>>>>>>> 42aee5bdac43b0eaba895aaeeaaccbd4f01fe1c6
   "success": true,
   "projectFilePath": "C:\\Users\\Ruben\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\AllPhiConsoleApp\\AllPhiConsoleApp.csproj",
   "expectedPackageFiles": [

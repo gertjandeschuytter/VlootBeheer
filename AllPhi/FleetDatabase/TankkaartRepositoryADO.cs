@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace FleetDatabase
@@ -83,6 +82,11 @@ namespace FleetDatabase
                     cmd.Parameters.Add("@pincode", SqlDbType.NVarChar);
                     cmd.Parameters.Add("@bestuurder", SqlDbType.NVarChar);
                     cmd.Parameters.Add("@geblokkeerd", SqlDbType.TinyInt);
+                    var kaartnummerDb = cmd.Parameters["@kaartnummer"].Value = tankkaart.KaartNr;
+                    var geldigheidsdatumDB = cmd.Parameters["@geldigheidsdatum"].Value = tankkaart.Geldigheidsdatum;
+                    var pincodeDB = cmd.Parameters["@pincode"].Value = tankkaart.Pincode;
+                    var bestuurderDB = cmd.Parameters["@bestuurder"].Value = tankkaart.Bestuurder;
+                    var geblokkeerdDB = cmd.Parameters["@geblokkeerd"].Value = tankkaart.Geblokkeerd;
                     cmd.Parameters["@kaartnummer"].Value = tankkaart.KaartNr;
                     cmd.Parameters["@geldigheidsdatum"].Value = tankkaart.Geldigheidsdatum;
                     cmd.Parameters["@pincode"].Value = tankkaart.Pincode;
