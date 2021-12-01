@@ -14,6 +14,7 @@ C:\Users\Gertj\Source\Repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\obj\Deb
 C:\Users\Gertj\Source\Repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\obj\Debug\net5.0\ref\AllPhiConsoleApp.dll
 C:\Users\Gertj\Source\Repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\obj\Debug\net5.0\AllPhiConsoleApp.pdb
 C:\Users\Gertj\Source\Repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\obj\Debug\net5.0\AllPhiConsoleApp.genruntimeconfig.cache
+<<<<<<< HEAD
 C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\AllPhiConsoleApp\bin\Debug\net5.0\AllPhiConsoleApp.exe
 C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\AllPhiConsoleApp\bin\Debug\net5.0\AllPhiConsoleApp.deps.json
 C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\AllPhiConsoleApp\bin\Debug\net5.0\AllPhiConsoleApp.runtimeconfig.json
@@ -41,3 +42,21 @@ C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\AllPhiConsole
 C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\AllPhiConsoleApp\bin\Debug\net5.0\BusinessLayer.pdb
 C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\AllPhiConsoleApp\obj\Debug\net5.0\AllPhiConsoleApp.csproj.CopyComplete
 C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\AllPhiConsoleApp\obj\Debug\net5.0\AllPhiConsoleApp.csproj.AssemblyReference.cache
+=======
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\bin\Debug\net5.0\AllPhiConsoleApp.exe
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\bin\Debug\net5.0\AllPhiConsoleApp.deps.json
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\bin\Debug\net5.0\AllPhiConsoleApp.runtimeconfig.json
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\bin\Debug\net5.0\AllPhiConsoleApp.runtimeconfig.dev.json
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\bin\Debug\net5.0\AllPhiConsoleApp.dll
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\bin\Debug\net5.0\ref\AllPhiConsoleApp.dll
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\bin\Debug\net5.0\AllPhiConsoleApp.pdb
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\obj\Debug\net5.0\AllPhiConsoleApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\obj\Debug\net5.0\AllPhiConsoleApp.AssemblyInfoInputs.cache
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\obj\Debug\net5.0\AllPhiConsoleApp.AssemblyInfo.cs
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\obj\Debug\net5.0\AllPhiConsoleApp.csproj.CoreCompileInputs.cache
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\obj\Debug\net5.0\AllPhiConsoleApp.dll
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\obj\Debug\net5.0\ref\AllPhiConsoleApp.dll
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\obj\Debug\net5.0\AllPhiConsoleApp.pdb
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\obj\Debug\net5.0\AllPhiConsoleApp.genruntimeconfig.cache
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\obj\Debug\net5.0\AllPhiConsoleApp.csproj.AssemblyReference.cache
+>>>>>>> 249c9769c8e50efd31a637622195c7d319ef377e
