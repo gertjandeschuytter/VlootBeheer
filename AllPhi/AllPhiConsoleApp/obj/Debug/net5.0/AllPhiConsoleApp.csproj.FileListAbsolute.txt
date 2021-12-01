@@ -1,0 +1,16 @@
+C:\Users\Gertj\Source\Repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\bin\Debug\net5.0\AllPhiConsoleApp.exe
+C:\Users\Gertj\Source\Repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\bin\Debug\net5.0\AllPhiConsoleApp.deps.json
+C:\Users\Gertj\Source\Repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\bin\Debug\net5.0\AllPhiConsoleApp.runtimeconfig.json
+C:\Users\Gertj\Source\Repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\bin\Debug\net5.0\AllPhiConsoleApp.runtimeconfig.dev.json
+C:\Users\Gertj\Source\Repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\bin\Debug\net5.0\AllPhiConsoleApp.dll
+C:\Users\Gertj\Source\Repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\bin\Debug\net5.0\ref\AllPhiConsoleApp.dll
+C:\Users\Gertj\Source\Repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\bin\Debug\net5.0\AllPhiConsoleApp.pdb
+C:\Users\Gertj\Source\Repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\obj\Debug\net5.0\AllPhiConsoleApp.csproj.AssemblyReference.cache
+C:\Users\Gertj\Source\Repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\obj\Debug\net5.0\AllPhiConsoleApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Gertj\Source\Repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\obj\Debug\net5.0\AllPhiConsoleApp.AssemblyInfoInputs.cache
+C:\Users\Gertj\Source\Repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\obj\Debug\net5.0\AllPhiConsoleApp.AssemblyInfo.cs
+C:\Users\Gertj\Source\Repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\obj\Debug\net5.0\AllPhiConsoleApp.csproj.CoreCompileInputs.cache
+C:\Users\Gertj\Source\Repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\obj\Debug\net5.0\AllPhiConsoleApp.dll
+C:\Users\Gertj\Source\Repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\obj\Debug\net5.0\ref\AllPhiConsoleApp.dll
+C:\Users\Gertj\Source\Repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\obj\Debug\net5.0\AllPhiConsoleApp.pdb
+C:\Users\Gertj\Source\Repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\obj\Debug\net5.0\AllPhiConsoleApp.genruntimeconfig.cache

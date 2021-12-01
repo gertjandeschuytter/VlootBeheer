@@ -29,3 +29,11 @@ C:\Users\Ruben\Source\Repos\Opdracht\AllPhi\FleetDatabase\obj\Debug\net5.0\ref\F
 C:\Users\Ruben\Source\Repos\Opdracht\AllPhi\FleetDatabase\obj\Debug\net5.0\FleetDatabase.pdb
 >>>>>>> 50ce64a721b530e8ae15499c0583937fc9b25a23
 C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\FleetDatabase\obj\Debug\net5.0\FleetDatabase.csproj.CopyComplete
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\FleetDatabase\obj\Debug\net5.0\FleetDatabase.csproj.AssemblyReference.cache
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\FleetDatabase\obj\Debug\net5.0\FleetDatabase.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\FleetDatabase\obj\Debug\net5.0\FleetDatabase.AssemblyInfoInputs.cache
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\FleetDatabase\obj\Debug\net5.0\FleetDatabase.AssemblyInfo.cs
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\FleetDatabase\obj\Debug\net5.0\FleetDatabase.csproj.CoreCompileInputs.cache
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\FleetDatabase\obj\Debug\net5.0\FleetDatabase.dll
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\FleetDatabase\obj\Debug\net5.0\ref\FleetDatabase.dll
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\FleetDatabase\obj\Debug\net5.0\FleetDatabase.pdb

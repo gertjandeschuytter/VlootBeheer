@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace FleetDatabase
 {
-    class TankkaartRepositoryADO : ITankkaartRepository
+    public class TankkaartRepositoryADO : ITankkaartRepository
     {
         private readonly string connectionString;
 
@@ -124,12 +124,9 @@ namespace FleetDatabase
             }
         }
 
-        public void UpdateTankkaart(TankKaart tankkaart, SqlConnection sqlconnection = null, SqlTransaction transaction = null)
+        public void UpdateTankkaart(TankKaart tankkaart)
         {
-            SqlConnection connection;
-            if (sqlconnection is null)
-                connection = GetConnection();
-            else connection = sqlconnection;
+            SqlConnection connection = GetConnection();
             string query = "UPDATE tankkaart SET kaartnummer=@kaartnummer, geldigheidsdatum=@geldigheidsdatum, pincode=@pincode, bestuurder=@bestuurder, geblokkeerd=@geblokkeerd";
 
         }
