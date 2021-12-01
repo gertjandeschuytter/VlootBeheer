@@ -111,8 +111,7 @@ namespace FleetDatabase
 
         public void VoegBestuurderToe(Bestuurder bestuurder)
         {
-            SqlDataAdapter adapter = new SqlDataAdapter();
-            string query = "INSERT INTO bestuurder(ID, voornaam, naam, geboortedatum, adres, rijksregister, rijbewijs, Voertuig, tankkaart) VALUES (@voornaam, @naam, @datum, @adres, @rijksregister, @types, @v, @t);";
+            string query = "INSERT INTO bestuurder(ID, voornaam, naam, geboortedatum, adresID, rijksregister, rijbewijslijstID, voertuigID, tankkaartnummer)OUTPUT INSERTED.ID VALUES (@voornaam, @naam, @datum, @adres, @rijksregister, @types, @v, @t);";
 
             SqlConnection connection = GetConnection();
             using (SqlCommand command = connection.CreateCommand())
@@ -123,22 +122,21 @@ namespace FleetDatabase
                     command.Parameters.Add(new SqlParameter("@voornaam", SqlDbType.NVarChar));
                     command.Parameters.Add(new SqlParameter("@naam", SqlDbType.NVarChar));
                     command.Parameters.Add(new SqlParameter("@datum", SqlDbType.Date));
-                    command.Parameters.Add(new SqlParameter("@adres", SqlDbType.NVarChar));
+                    command.Parameters.Add(new SqlParameter("@adres", SqlDbType.Int));
                     command.Parameters.Add(new SqlParameter("@rijksregister", SqlDbType.NVarChar));
-                    command.Parameters.Add(new SqlParameter("@types", SqlDbType.NVarChar));
-                    command.Parameters.Add(new SqlParameter("@v", SqlDbType.NVarChar));
-                    command.Parameters.Add(new SqlParameter("@t", SqlDbType.NVarChar));
+                    command.Parameters.Add(new SqlParameter("@types", SqlDbType.Int));
+                    command.Parameters.Add(new SqlParameter("@v", SqlDbType.Int));
+                    command.Parameters.Add(new SqlParameter("@t", SqlDbType.Int));
                     command.CommandText = query;
                     command.Parameters["@voornaam"].Value = bestuurder.VoorNaam;
                     command.Parameters["@naam"].Value = bestuurder.Naam;
                     command.Parameters["@datum"].Value = bestuurder.GeboorteDatum;
-                    command.Parameters["@adres"].Value = bestuurder.Adres;
+                    command.Parameters["@adres"].Value = bestuurder.Adres.ID;
                     command.Parameters["@rijksregister"].Value = bestuurder.RijksRegisterNr;
-                    command.Parameters["@rijbewijs"].Value = bestuurder.Types;
-                    command.Parameters["@v"].Value = bestuurder.Voertuig;
-                    command.Parameters["@t"].Value = bestuurder.TankKaart;
-                    adapter.InsertCommand = command;
-                    adapter.InsertCommand.ExecuteNonQuery();
+                    command.Parameters["@rijbewijs"].Value = bestuurder.ID;
+                    command.Parameters["@v"].Value = bestuurder.Voertuig.ID;
+                    command.Parameters["@t"].Value = bestuurder.TankKaart.KaartNr;
+                    int ID = (int)command.ExecuteScalar();
                 }
                 catch (Exception ex)
                 {
@@ -154,8 +152,11 @@ namespace FleetDatabase
 
         public void WijzigBestuurder(Bestuurder bestuurder)
         {
-            SqlDataAdapter adapter = new SqlDataAdapter();
-            string query = "UPDATE bestuurder SET  WHERE ID = @id";
+            string query = "UPDATE bestuurder SET voornaam = @voornaam," +
+                "naam = @naam, geboortedatum = @geboorte, adresID = @adresID," +
+                "rijksregister = @rijksregister, rijbewijstlijstID = @typeID," +
+                "voertuigID = @voertuigID, tankkaartnummer = @tankkaartNr" +
+                "WHERE ID = @id";
             SqlConnection connection = GetConnection();
             using (SqlCommand command = connection.CreateCommand())
             {
@@ -179,10 +180,12 @@ namespace FleetDatabase
                     command.Parameters["@voornaam"].Value = bestuurder.VoorNaam;
                     command.Parameters["@adresID"].Value = bestuurder.Adres.ID;
                     command.Parameters["@geboorte"].Value = bestuurder.GeboorteDatum;
-                    command.Parameters["@rijksregister"].Value = bestuurder.Naam;
+                    command.Parameters["@rijksregister"].Value = bestuurder.RijksRegisterNr;
+                    command.Parameters["@typeID"].Value = bestuurder.ID;
+                    command.Parameters["@voertuigID"].Value = bestuurder.Voertuig.ID;
+                    command.Parameters["@tankkaartNr"].Value = bestuurder.TankKaart.KaartNr;
 
-                    adapter.UpdateCommand = command;
-                    adapter.UpdateCommand.ExecuteNonQuery();
+                    command.ExecuteNonQuery();
                 }
                 catch(Exception ex)
                 {
