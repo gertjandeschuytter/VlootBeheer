@@ -8,6 +8,7 @@
     "\\AllPhi\\BusinessLayer\\Managers",
     "\\AllPhi\\BusinessLayer\\Model",
     "\\AllPhi\\BusinessLayer\\Utilities",
+    "\\AllPhi\\FleetDatabase",
     "\\AllPhi\\UnitTests"
   ],
   "SelectedNode": "\\AllPhi\\AllPhi.sln",
