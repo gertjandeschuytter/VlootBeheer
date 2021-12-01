@@ -38,14 +38,17 @@ namespace BusinessLayer.Model
             TypeWagen = typeWagen;
             Bestuurder = bestuurder;
         }
-        public Voertuig(string merk, string model, string chassisNummer, string nummerPlaat, Brandstoftype_voertuig brandstofType, Typewagen typeWagen, string kleur, int aantalDeuren) : this(merk, model, chassisNummer, nummerPlaat, brandstofType, typeWagen, kleur) {
+        public Voertuig(string merk, string model, string chassisNummer, string nummerPlaat, Brandstoftype_voertuig brandstofType, Typewagen typeWagen, string kleur, int aantalDeuren) : this(merk, model, chassisNummer, nummerPlaat, brandstofType, typeWagen) {
             ZetAantalDeuren(aantalDeuren);
+            ZetKleur(kleur);
         }
-        public Voertuig(string merk, string model, string chassisNummer, string nummerPlaat, Brandstoftype_voertuig brandstofType, Typewagen typeWagen, string kleur, Bestuurder bestuurder) : this(merk, model, chassisNummer, nummerPlaat, brandstofType, typeWagen, kleur) {
+        public Voertuig(string merk, string model, string chassisNummer, string nummerPlaat, Brandstoftype_voertuig brandstofType, Typewagen typeWagen, string kleur, Bestuurder bestuurder) : this(merk, model, chassisNummer, nummerPlaat, brandstofType, typeWagen) {
             Bestuurder = bestuurder;
+            ZetKleur(kleur);
         }
-        public Voertuig(string merk, string model, string chassisNummer, string nummerPlaat, Brandstoftype_voertuig brandstofType, Typewagen typeWagen, int aantalDeuren, Bestuurder bestuurder) : this(merk, model, chassisNummer, nummerPlaat, brandstofType, typeWagen, aantalDeuren) {
+        public Voertuig(string merk, string model, string chassisNummer, string nummerPlaat, Brandstoftype_voertuig brandstofType, Typewagen typeWagen, int aantalDeuren, Bestuurder bestuurder) : this(merk, model, chassisNummer, nummerPlaat, brandstofType, typeWagen) {
             Bestuurder = bestuurder;
+            ZetAantalDeuren(aantalDeuren);
         }
 
 

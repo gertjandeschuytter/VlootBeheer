@@ -189,5 +189,10 @@ namespace FleetDatabase {
         void IVoertuigRepository.VoegVoertuigToe(Voertuig voertuig) {
             throw new NotImplementedException();
         }
+
+        public void VerwijderVoertuig(Voertuig voertuig)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
