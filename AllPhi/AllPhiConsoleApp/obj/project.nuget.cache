@@ -1,6 +1,5 @@
 {
   "version": 2,
-<<<<<<< HEAD
   "dgSpecHash": "43dIxKwbj9+PfpRm/sEW9aSrLHLrcRXHsw6LCZDOkSCfQMx5mGZRY/UXwALNVbXRkikEzpUsm67InfhCIwRikA==",
   "success": true,
   "projectFilePath": "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\AllPhiConsoleApp\\AllPhiConsoleApp.csproj",
@@ -14,21 +13,13 @@
     "C:\\Users\\Jarne\\.nuget\\packages\\system.data.sqlclient\\4.8.3\\system.data.sqlclient.4.8.3.nupkg.sha512",
     "C:\\Users\\Jarne\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
     "C:\\Users\\Jarne\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512"
-=======
-  "dgSpecHash": "ycqFCyY95jabHQDn4yMlPNZ3Noyb7+bzGBnUskQzCFy/F181qQzVpdPpODmnsoJw7hSoNSL3uBgFv5AzGp78wA==",
-  "success": true,
-  "projectFilePath": "C:\\Users\\Gertj\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\AllPhiConsoleApp\\AllPhiConsoleApp.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\Gertj\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
-    "C:\\Users\\Gertj\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
-    "C:\\Users\\Gertj\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.7.0\\runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",
-    "C:\\Users\\Gertj\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
-    "C:\\Users\\Gertj\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
-    "C:\\Users\\Gertj\\.nuget\\packages\\runtime.win-x86.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
-    "C:\\Users\\Gertj\\.nuget\\packages\\system.data.sqlclient\\4.8.3\\system.data.sqlclient.4.8.3.nupkg.sha512",
-    "C:\\Users\\Gertj\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
-    "C:\\Users\\Gertj\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512"
->>>>>>> 409fbd67ad032cda82291da7b2f04b7fcc3b59a2
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\AllPhiConsoleApp\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

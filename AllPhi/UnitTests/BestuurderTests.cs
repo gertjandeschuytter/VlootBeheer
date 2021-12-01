@@ -20,7 +20,7 @@ namespace UnitTests
             Assert.Equal("Ruben", bestuurder.VoorNaam);
             Assert.Equal(new DateTime(1999, 08, 04), bestuurder.GeboorteDatum);
             Assert.Equal("99080455307", bestuurder.RijksRegisterNr);
-            Assert.Equal(types, bestuurder.Lijst.Types.Keys);
+            Assert.Equal(types, bestuurder._Types.Keys);
         }
 
         [Theory]
@@ -85,7 +85,7 @@ namespace UnitTests
             Assert.Equal("99080455307", bestuurder.RijksRegisterNr);
             Assert.Equal(v, bestuurder.Voertuig);
             Assert.Equal(t, bestuurder.TankKaart);
-            Assert.Equal(types, bestuurder.Lijst.Types.Keys);
+            Assert.Equal(types, bestuurder._Types.Keys);
         }
 
         [Theory]
@@ -268,8 +268,8 @@ namespace UnitTests
             List<TypeRijbewijs> types = new List<TypeRijbewijs>();
             types.Add(TypeRijbewijs.C);
             Bestuurder b = new("Ophalvens", "Jarne", new DateTime(1999, 08, 04), "99080455307", types);
-            b.Lijst.VoegRijbewijsToe(TypeRijbewijs.A);
-            Assert.Contains(TypeRijbewijs.A, b.Lijst.Types.Keys);
+            b.VoegRijbewijsToe(TypeRijbewijs.A);
+            Assert.Contains(TypeRijbewijs.A, b._Types.Keys);
         }
 
         [Fact]
@@ -279,7 +279,7 @@ namespace UnitTests
             types.Add(TypeRijbewijs.C);
             types.Add(TypeRijbewijs.A);
             Bestuurder b = new("Ophalvens", "Jarne", new DateTime(1999, 08, 04), "99080455307", types);
-            Assert.Contains(TypeRijbewijs.A, b.Lijst.Types.Keys);
+            Assert.Contains(TypeRijbewijs.A, b._Types.Keys);
         }
 
         [Fact]
@@ -288,8 +288,8 @@ namespace UnitTests
             List<TypeRijbewijs> types = new List<TypeRijbewijs>();
             types.Add(TypeRijbewijs.C);
             Bestuurder b = new("Ophalvens", "Jarne", new DateTime(1999, 08, 04), "99080455307", types);
-            b.Lijst.VerwijderRijbewijs(TypeRijbewijs.C);
-            Assert.Empty(b.Lijst.Types.Keys);
+            b.VerwijderRijbewijs(TypeRijbewijs.C);
+            Assert.Empty(b._Types.Keys);
         }
 
         [Fact]
@@ -406,8 +406,8 @@ namespace UnitTests
             List<TypeRijbewijs> types = new List<TypeRijbewijs>();
             types.Add(TypeRijbewijs.C);
             Bestuurder b = new("Ophalvens", "Jarne", new DateTime(1999, 08, 04), "99080455307", types);
-            b.Lijst.VoegRijbewijsToe(TypeRijbewijs.C);
-            Assert.Throws<BestuurderException>(() => b.Lijst.VoegRijbewijsToe(TypeRijbewijs.C));
+            b.VoegRijbewijsToe(TypeRijbewijs.C);
+            Assert.Throws<BestuurderException>(() => b.VoegRijbewijsToe(TypeRijbewijs.C));
         }
 
         [Fact]
@@ -416,7 +416,7 @@ namespace UnitTests
             List<TypeRijbewijs> types = new List<TypeRijbewijs>();
             types.Add(TypeRijbewijs.A);
             Bestuurder b = new("Ophalvens", "Jarne", new DateTime(1999, 08, 04), "99080455307", types);
-            Assert.Throws<BestuurderException>(() => b.Lijst.VerwijderRijbewijs(TypeRijbewijs.C));
+            Assert.Throws<BestuurderException>(() => b.VerwijderRijbewijs(TypeRijbewijs.C));
         }
 
         [Fact]

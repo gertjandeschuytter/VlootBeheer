@@ -51,6 +51,10 @@ namespace BusinessLayer.Model
             ZetVoorNaam(voorNaam);
             ZetGeboorteDatum(geboorteDatum);
             ZetRijksRegisterNummer(rijksRegisterNr);
+            foreach(var type in types)
+            {
+                VoegRijbewijsToe(type);
+            }
         }
         #endregion
 
@@ -61,11 +65,10 @@ namespace BusinessLayer.Model
         public Adres Adres { get; private set; }
         public DateTime GeboorteDatum { get; private set; }
         public string RijksRegisterNr { get; private set; }
-        public RijbewijsLijst Lijst { get; private set; }
         public Voertuig Voertuig { get; private set; }
         public TankKaart TankKaart { get; private set; }
 
-        public Dictionary<TypeRijbewijs, int> _Types { get; private set; } = new Dictionary<TypeRijbewijs, int>();
+        public List<TypeRijbewijs> _Types { get; private set; } = new List<TypeRijbewijs>();
         #endregion
 
         #region Methods
@@ -135,6 +138,18 @@ namespace BusinessLayer.Model
                 tankKaart.ZetBestuurder(this);
         }
         #endregion
+
+        public void VoegRijbewijsToe(TypeRijbewijs type)
+        {
+            if (_Types.Contains(type)) throw new RijbewijsLijstException("RijbewijsLijst: VoegRijbewijsToe - Bestuurder heeft dit rijbewijs al.");
+            _Types.Add(type);
+        }
+
+        public void VerwijderRijbewijs(TypeRijbewijs type)
+        {
+            if (!_Types.Contains(type)) throw new RijbewijsLijstException("RijbewijsLijst: VerwijderRijbewijs - Bestuurder heeft dit rijbewijs niet.");
+            _Types.Remove(type);
+        }
 
         public void VerwijderVoertuig(Voertuig voertuig)
         {
