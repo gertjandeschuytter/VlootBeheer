@@ -19,14 +19,14 @@ namespace FleetDatabase {
             return connection;
         }
         //done
-        public bool BestaatVoertuig(string chassisNummer) {
+        public bool BestaatVoertuig(string Id) {
             SqlConnection conn = GetConnection();
-            string query = "SELECT (*) FROM [dbo].voertuig WHERE chassisNummer=@chassisNummer";
+            string query = "SELECT (*) FROM [dbo].voertuig WHERE Id=@Id";
             using (SqlCommand cmd = conn.CreateCommand()) {
                 try {
-                    cmd.Parameters.Add(new SqlParameter("@chassisNummer", SqlDbType.NVarChar));
+                    cmd.Parameters.Add(new SqlParameter("@Id", SqlDbType.NVarChar));
                     cmd.CommandText = query;
-                    cmd.Parameters["@chassisNummer"].Value = chassisNummer;
+                    cmd.Parameters["@Id"].Value = Id;
                     int n = (int)cmd.ExecuteScalar();
                     if (n > 0) return true;else return false;
                 } catch (Exception ex) {
@@ -175,11 +175,11 @@ namespace FleetDatabase {
                     var aantalDeurenDB =  cmd.Parameters["@aantalDeuren"].Value = voertuig.AantalDeuren;
                     var kleurDB = cmd.Parameters["@kleur"].Value = voertuig.Kleur;
                     int id = (int)cmd.ExecuteScalar();
-                    Voertuig v = new Voertuig(voertuig.Merk, voertuig.Model, voertuig.ChassisNummer, voertuig.NummerPlaat, voertuig.BrandstofType, voertuig.TypeWagen);
+                    Voertuig v = new Voertuig(voertuig.Merk, voertuig.Model, voertuig.ChassisNummer, voertuig.NummerPlaat, voertuig.BrandstofType, voertuig.TypeWagen,);
                     v.ZetId(id);
                     return v;
                 } catch (Exception ex) {
-                    throw new VoertuigRepositoryADOExceptions("KlantToevoegen ", ex);
+                    throw new VoertuigRepositoryADOExceptions("Voertuig toevoegen ", ex);
                 } finally {
                     conn.Close();
                 }
