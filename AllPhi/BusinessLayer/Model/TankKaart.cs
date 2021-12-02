@@ -63,6 +63,7 @@ namespace BusinessLayer.Model
         public Bestuurder Bestuurder { get; set; }
 
         public bool Geblokkeerd { get; set; }
+        public Brandstoftype_tankkaart Brandstoftype { get; set; }
         #endregion
 
         #region Methods
