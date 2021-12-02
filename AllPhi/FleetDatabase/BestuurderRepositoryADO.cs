@@ -99,11 +99,7 @@ namespace FleetDatabase
             throw new NotImplementedException();
         }
 
-        public bool BestaatBestuurder(Bestuurder bestuurder)
-        {
-            throw new NotImplementedException();
-        }
-        public bool BestaatBestuurder(int id)
+        public bool HeeftBestuurder(Bestuurder bestuurder)
         {
             throw new NotImplementedException();
         }
@@ -137,6 +133,7 @@ namespace FleetDatabase
         public void VoegBestuurderToe(Bestuurder bestuurder)
         {
             int BestuurderId;
+            var rijbewijzen = bestuurder.Lijst;
             SqlTransaction trans = null;
             string query = "INSERT INTO bestuurder(voornaam, naam, geboortedatum, adresID, rijksregister, voertuigID, tankkaartnummer)" +
                 "OUTPUT INSERTED.ID VALUES (@voornaam, @naam, @datum, @adres, @rijksregister, @voertuigID, @tankkaartnummer);";
@@ -184,8 +181,8 @@ namespace FleetDatabase
                         string sql2 = "INSERT INTO [dbo].BestuurderRijbewijs (BestuurderId, RijbewijsType) VALUES (@BestuurderId, @RijbewijsType)";
                         command2.Transaction = trans;
                         command2.CommandText = sql2;
-                        command2.Parameters.AddWithValue("@RijbewijsType", item);
-                        command2.Parameters.AddWithValue("@BestuurderId", bestuurder.ID);
+                        command2.Parameters.AddWithValue("@BestuurderId", BestuurderId);
+                        command2.Parameters.AddWithValue("@RijbewijsType", item.Value);
                     }
 
                 } catch (Exception ex)
