@@ -43,20 +43,19 @@ namespace FleetDatabase {
                         bestuurder = new Bestuurder((string)reader["Naam"], (string)reader["Voornaam"], (DateTime)reader["Geboortedatum"], (string)reader["Rijksregisternummer"], GeefTypeRijbewijzen(BestuurderId));
                         bestuurderGevonden = true;
                     }
-<<<<<<< HEAD
                     if (reader["AdresId"].GetType() != typeof(DBNull) && adresGevonden == false) {
                         Adres adres = new Adres((string)reader["Straat"], (string)reader["Stad"], (string)reader["Postcode"], (int)reader["Huisnummer"]);
                         bestuurder.ZetAdres(adres);
                         adresGevonden = true;
                     }
-                    if (reader["VoertuigId"].GetType() != typeof(DBNull)) {
+                    if (reader["VoertuigId"].GetType() != typeof(DBNull))
+                    {
                         Brandstoftype_tankkaart brandstofType = (Brandstoftype_tankkaart)Enum.Parse(typeof(Brandstoftype_tankkaart), (string)reader["Brandstoftype"]);
                         Typewagen wagenType = (Typewagen)Enum.Parse(typeof(Typewagen), (string)reader["WagenType"]);
                         Voertuig voertuig = new Voertuig((string)reader["Merk"], (string)reader["Model"], (string)reader["Chassisnummer"], brandstofType, wagenType);
-=======
+                    }
                     if (!(reader["AdresId"].GetType() == typeof(DBNull))) {
 
->>>>>>> cf937a8f21b223ff31480d4495715f8280ec1c4e
                     }
                 } catch (Exception ex) {
                     throw new BestuurderRepositoryADOException("BestuurderRepositoryADO - GeefBestuurders: Er liep iets mis -> ", ex);
@@ -153,15 +152,15 @@ namespace FleetDatabase {
         }
 
         public void VerwijderBestuurder(Bestuurder bestuurder) {
-            string query = "REMOVE FROM bestuurder WHERE ID = @id";
+            string query = "REMOVE FROM bestuurder WHERE BestuurderId = @BestuurderId";
 
             SqlConnection connection = GetConnection();
             using (SqlCommand command = connection.CreateCommand()) {
                 connection.Open();
                 try {
-                    command.Parameters.Add(new SqlParameter("@id", SqlDbType.Int));
+                    command.Parameters.Add(new SqlParameter("@BestuurderId", SqlDbType.Int));
                     command.CommandText = query;
-                    command.Parameters["@id"].Value = bestuurder.ID;
+                    command.Parameters["@BestuurderId"].Value = bestuurder.ID;
                 } catch (Exception ex) {
                     throw new BestuurderRepositoryADOException("BestuurderRepositoryADO: VerwijderBestuurder - Er liep iets mis ->", ex);
                 } finally {
@@ -232,15 +231,21 @@ namespace FleetDatabase {
         }
 
         public void WijzigBestuurder(Bestuurder bestuurder) {
+            SqlTransaction trans = null;
             string query = "UPDATE [dbo].Bestuurder SET Voornaam = @Voornaam," +
                 "Naam = @Naam, Geboortedatum = @Geboortedatum, AdresId = @AdresId," +
                 "Rijksregisternummer = @Rijksregisternummer, " +
                 "VoertuigId = @VoertuigId, TankkaartId = @TankkaartId" +
                 "WHERE BestuurderId = @BestuurderId";
+
             SqlConnection connection = GetConnection();
-            using (SqlCommand command = connection.CreateCommand()) {
+            using (SqlCommand command = connection.CreateCommand())
+            using (SqlCommand command2 = connection.CreateCommand())
+            {
                 connection.Open();
                 try {
+                    trans = connection.BeginTransaction();
+                    command.Transaction = trans;
                     command.Parameters.Add(new SqlParameter("@BestuurderId", SqlDbType.Int));
                     command.Parameters.Add(new SqlParameter("@Naam", SqlDbType.NVarChar));
                     command.Parameters.Add(new SqlParameter("@Voornaam", SqlDbType.NVarChar));
@@ -266,6 +271,31 @@ namespace FleetDatabase {
                     throw new BestuurderRepositoryADOException("BestuurderRepositoryADO - WijzigBestuurder: Er liep iets mis -> ", ex);
                 } finally {
                     command.Dispose();
+                }
+
+                try
+                {
+                    List<TypeRijbewijs> lijst = GeefTypeRijbewijzen(bestuurder.ID);
+                    foreach (var item in bestuurder._Types)
+                    {
+                        if (!lijst.Contains(item))
+                        {
+                            string sql2 = "INSERT INTO [dbo].BestuurderRijbewijs (BestuurderId, TypeRijbewijs) VALUES (@BestuurderId, @TypeRijbewijs)";
+                            command2.Transaction = trans;
+                            command2.CommandText = sql2;
+                            command2.Parameters.AddWithValue("@BestuurderId", bestuurder.ID);
+                            command2.Parameters.AddWithValue("@TypeRijbewijs", item.ToString());
+                            command2.ExecuteNonQuery();
+                        }
+                    }
+                }
+                catch(Exception ex)
+                {
+                    throw new BestuurderRepositoryADOException("BestuurderRepositoryADO: WijzigBestuurder - Er liep iets mis ->", ex);
+                }
+                finally
+                {
+                    command2.Dispose();
                     connection.Close();
                 }
             }

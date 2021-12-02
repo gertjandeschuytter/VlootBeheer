@@ -184,6 +184,10 @@ namespace FleetDatabase
                     TankKaart tankkaart = new TankKaart((string)reader["kaartnummer"], (DateTime)reader["geldigheidsdatum"], (string)reader["pincode"], bestuurder, (bool)reader["geblokkeerd"]);
 
                 }
+                catch(Exception ex)
+                {
+                    throw new TankkaartRepositoryADOException("TankkaartRepositoryADO: GeefTankkaart - Er liep iets mis ->", ex);
+                }
             }
         }
 

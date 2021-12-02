@@ -62,7 +62,8 @@ namespace BusinessLayer.Managers
         {
             try
             {
-                if (!repo.BestaatBestuurder(bestuurder)) throw new BestuurderManagerException("Bestuurder bestaat niet");
+                if (!repo.BestaatBestuurder(bestuurder.ID)) throw new BestuurderManagerException("Bestuurder bestaat niet");
+                if (repo.BestaatBestuurder(bestuurder)) throw new BestuurderManagerException("Deze bestuurder is niet aangepast");
                 repo.WijzigBestuurder(bestuurder);
             }
             catch (Exception ex) { throw new BestuurderManagerException("BestuurderManager - Er liep iets mis: ", ex); }
