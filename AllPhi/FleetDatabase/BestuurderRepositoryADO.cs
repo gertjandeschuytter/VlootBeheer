@@ -22,8 +22,9 @@ namespace FleetDatabase {
         public Bestuurder GeefBestuurder(int BestuurderId) {
             Bestuurder bestuurder = null;
             bool bestuurderGevonden = false;
+            bool adresGevonden = false;
             string query = "SELECT bs.*, vt.Merk, vt.Model, vt.Chassisnummer, vt.Nummerplaat, vt.Brandstoftype, vt.Wagentype," +
-                " vt.Kleur, vt.Aantaldeuren, tk.Kaartnummer, tk.Geldigheidsdatum, tk.Pincode, tk.Isgeblokeerd, a.Gemeente, a.Straat, a.Huisnummer, a.Postcode" +
+                " vt.Kleur, vt.Aantaldeuren, tk.Kaartnummer, tk.Geldigheidsdatum, tk.Pincode, tk.Isgeblokeerd, tk.Brandstoftype, a.Gemeente, a.Straat, a.Huisnummer, a.Postcode" +
                 " FROM bestuurder bs " +
                 "LEFT JOIN Voertuig vt ON vt.VoertuigId = bs.VoertuigId " +
                 "LEFT JOIN Tankkaart tk ON tk.TankkaartId = bs.TankkaartId " +
@@ -42,10 +43,21 @@ namespace FleetDatabase {
                         bestuurder = new Bestuurder((string)reader["Naam"], (string)reader["Voornaam"], (DateTime)reader["Geboortedatum"], (string)reader["Rijksregisternummer"], GeefTypeRijbewijzen(BestuurderId));
                         bestuurderGevonden = true;
                     }
+<<<<<<< HEAD
+                    if (reader["AdresId"].GetType() != typeof(DBNull) && adresGevonden == false) {
+                        Adres adres = new Adres((string)reader["Straat"], (string)reader["Stad"], (string)reader["Postcode"], (int)reader["Huisnummer"]);
+                        bestuurder.ZetAdres(adres);
+                        adresGevonden = true;
+                    }
+                    if (reader["VoertuigId"].GetType() != typeof(DBNull)) {
+                        Brandstoftype_tankkaart brandstofType = (Brandstoftype_tankkaart)Enum.Parse(typeof(Brandstoftype_tankkaart), (string)reader["Brandstoftype"]);
+                        Typewagen wagenType = (Typewagen)Enum.Parse(typeof(Typewagen), (string)reader["WagenType"]);
+                        Voertuig voertuig = new Voertuig((string)reader["Merk"], (string)reader["Model"], (string)reader["Chassisnummer"], brandstofType, wagenType);
+=======
                     if (!(reader["AdresId"].GetType() == typeof(DBNull))) {
 
+>>>>>>> cf937a8f21b223ff31480d4495715f8280ec1c4e
                     }
-
                 } catch (Exception ex) {
                     throw new BestuurderRepositoryADOException("BestuurderRepositoryADO - GeefBestuurders: Er liep iets mis -> ", ex);
                 } finally {
