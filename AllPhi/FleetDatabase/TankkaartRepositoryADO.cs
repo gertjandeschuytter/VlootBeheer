@@ -34,7 +34,8 @@ namespace FleetDatabase
                 + " AND geldigheidsdatum=@geldigheidsdatum"
                 + " AND pincode=@pincode"
                 + " AND bestuurder=@bestuurder"
-                + " AND geblokkeerd=@geblokkeerd";
+                + " AND geblokkeerd=@geblokkeerd"
+                + " AND brandstofType=@brandstofType";
             using (SqlCommand command = connection.CreateCommand())
             {
                 connection.Open();
@@ -183,6 +184,8 @@ namespace FleetDatabase
                     reader.Read();
                     TankKaart tankkaart = new TankKaart((string)reader["kaartnummer"], (DateTime)reader["geldigheidsdatum"], (string)reader["pincode"], bestuurder, (bool)reader["geblokkeerd"]);
 
+                } catch (Exception ex) {
+                    throw new TankkaartRepositoryADOException("geeftankkaart" + ex.Message);
                 }
             }
         }
