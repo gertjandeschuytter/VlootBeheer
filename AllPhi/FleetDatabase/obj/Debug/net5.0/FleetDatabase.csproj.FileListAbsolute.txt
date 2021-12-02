@@ -52,3 +52,10 @@ C:\Users\Gertj\source\repos\Opdracht_Projectwerk\AllPhi\FleetDatabase\obj\Debug\
 C:\Users\Gertj\source\repos\Opdracht_Projectwerk\AllPhi\FleetDatabase\obj\Debug\net5.0\FleetDatabase.dll
 C:\Users\Gertj\source\repos\Opdracht_Projectwerk\AllPhi\FleetDatabase\obj\Debug\net5.0\ref\FleetDatabase.dll
 C:\Users\Gertj\source\repos\Opdracht_Projectwerk\AllPhi\FleetDatabase\obj\Debug\net5.0\FleetDatabase.pdb
+C:\Users\Gertj\source\repos\Opdracht_Projectwerk\AllPhi\FleetDatabase\bin\Debug\net5.0\FleetDatabase.deps.json
+C:\Users\Gertj\source\repos\Opdracht_Projectwerk\AllPhi\FleetDatabase\bin\Debug\net5.0\FleetDatabase.dll
+C:\Users\Gertj\source\repos\Opdracht_Projectwerk\AllPhi\FleetDatabase\bin\Debug\net5.0\ref\FleetDatabase.dll
+C:\Users\Gertj\source\repos\Opdracht_Projectwerk\AllPhi\FleetDatabase\bin\Debug\net5.0\FleetDatabase.pdb
+C:\Users\Gertj\source\repos\Opdracht_Projectwerk\AllPhi\FleetDatabase\bin\Debug\net5.0\BusinessLayer.dll
+C:\Users\Gertj\source\repos\Opdracht_Projectwerk\AllPhi\FleetDatabase\bin\Debug\net5.0\BusinessLayer.pdb
+C:\Users\Gertj\source\repos\Opdracht_Projectwerk\AllPhi\FleetDatabase\obj\Debug\net5.0\FleetDatabase.csproj.CopyComplete
