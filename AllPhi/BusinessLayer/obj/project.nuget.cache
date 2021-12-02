@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "l8+4y7yVIyOMi8b3FLEtrpfXFSuSU0z6DegUk0uWYOPL2l4elg/JBtS/OkZlxX1erJKtl5GJQ+X+kCctCXfzPg==",
   "success": true,
   "projectFilePath": "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\BusinessLayer\\BusinessLayer.csproj",
+=======
+  "dgSpecHash": "alPR97Kpagp8iIRZnMKzN0REmzUOxnWpi32Scyf9HbmHyh3lUGM2nBfE2K2meSWa/zchoaZ7oYI5D6BRD1mWOg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Ruben\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\BusinessLayer\\BusinessLayer.csproj",
+>>>>>>> 9f8d500e4c91bd9154bc3c837307b4a13cc48a1e
   "expectedPackageFiles": [],
   "logs": []
 }
