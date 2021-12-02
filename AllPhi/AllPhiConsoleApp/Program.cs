@@ -6,10 +6,10 @@ using System.Collections.Generic;
 namespace AllPhiConsoleApp {
     class Program {
         static void Main(string[] args) {
-            BestuurderRepositoryADO b = new BestuurderRepositoryADO(@"Data Source=LAPTOP-JARNE\SQLEXPRESS;Initial Catalog=fleet;Integrated Security=True");
+            BestuurderRepositoryADO b = new BestuurderRepositoryADO(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Fleet;Integrated Security=True");
             List<TypeRijbewijs> list = new List<TypeRijbewijs>();
             list.Add(TypeRijbewijs.A);
-            Bestuurder bestuurder = new Bestuurder("Ophalvens", "Jarne", new DateTime(1999,08,04), "99080455307", list);
+            Bestuurder bestuurder = new Bestuurder("Pol", "Segers", new DateTime(1999,08,04), "99080455307", list);
 
             b.VoegBestuurderToe(bestuurder);
 
