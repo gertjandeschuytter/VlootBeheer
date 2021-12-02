@@ -187,6 +187,10 @@ namespace FleetDatabase
                 } catch (Exception ex) {
                     throw new TankkaartRepositoryADOException("geeftankkaart" + ex.Message);
                 }
+                catch(Exception ex)
+                {
+                    throw new TankkaartRepositoryADOException("TankkaartRepositoryADO: GeefTankkaart - Er liep iets mis ->", ex);
+                }
             }
         }
 
