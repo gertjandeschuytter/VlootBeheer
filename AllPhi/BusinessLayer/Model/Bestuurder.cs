@@ -141,13 +141,13 @@ namespace BusinessLayer.Model
 
         public void VoegRijbewijsToe(TypeRijbewijs type)
         {
-            if (_Types.Contains(type)) throw new RijbewijsLijstException("RijbewijsLijst: VoegRijbewijsToe - Bestuurder heeft dit rijbewijs al.");
+            if (_Types.Contains(type)) throw new BestuurderException("RijbewijsLijst: VoegRijbewijsToe - Bestuurder heeft dit rijbewijs al.");
             _Types.Add(type);
         }
 
         public void VerwijderRijbewijs(TypeRijbewijs type)
         {
-            if (!_Types.Contains(type)) throw new RijbewijsLijstException("RijbewijsLijst: VerwijderRijbewijs - Bestuurder heeft dit rijbewijs niet.");
+            if (!_Types.Contains(type)) throw new BestuurderException("RijbewijsLijst: VerwijderRijbewijs - Bestuurder heeft dit rijbewijs niet.");
             _Types.Remove(type);
         }
 
