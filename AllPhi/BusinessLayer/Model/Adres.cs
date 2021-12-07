@@ -18,6 +18,10 @@ namespace BusinessLayer.Model
         public string Postcode { get; private set; }
         public int Nummer { get; private set; }
 
+        public void ZetAdresId(int adresId) {
+            if (adresId <= 0) throw new AdresException("Id mag niet lager of gelijk zijn aan 0");
+            ID = adresId;
+        }
         public void ZetStraat(string straat)
         {
             if (string.IsNullOrWhiteSpace(straat)) throw new AdresException("Adres: ZetStraat - straat mag niet leeg zijn.");

@@ -34,7 +34,8 @@ namespace FleetDatabase
                 + " AND geldigheidsdatum=@geldigheidsdatum"
                 + " AND pincode=@pincode"
                 + " AND bestuurder=@bestuurder"
-                + " AND geblokkeerd=@geblokkeerd";
+                + " AND geblokkeerd=@geblokkeerd"
+                + " AND brandstofType=@brandstofType";
             using (SqlCommand command = connection.CreateCommand())
             {
                 connection.Open();
@@ -164,35 +165,35 @@ namespace FleetDatabase
             }
         }
 
-        public TankKaart GeefTankkaart(string kaartNr)
-        {
-            SqlConnection connection = GetConnection();
-            string query = "SELECT * FROM dbo.tankkaart WHERE kaartnummer = @kaartnummer+";
-            using(SqlCommand cmd = connection.CreateCommand())
-            {
-                cmd.CommandText = query;
-                SqlParameter paramId = new SqlParameter();
-                paramId.ParameterName = "@kaartnummer";
-                paramId.DbType = DbType.String;
-                paramId.Value = kaartNr;
-                cmd.Parameters.Add(paramId);
-                connection.Open();
-                try
-                {
-                    SqlDataReader reader = cmd.ExecuteReader();
-                    reader.Read();
-                    TankKaart tankkaart = new TankKaart((string)reader["kaartnummer"], (DateTime)reader["geldigheidsdatum"], (string)reader["pincode"], bestuurder, (bool)reader["geblokkeerd"]);
-
-                }
-                catch(Exception ex)
-                {
-                    throw new TankkaartRepositoryADOException("TankkaartRepositoryADO: GeefTankkaart - Er liep iets mis ->", ex);
-                }
-            }
-        }
+        //public TankKaart GeefTankkaart(string kaartNr)
+        //{
+        //    SqlConnection connection = GetConnection();
+        //    string query = "SELECT * FROM dbo.tankkaart WHERE kaartnummer = @kaartnummer+";
+        //    using(SqlCommand cmd = connection.CreateCommand())
+        //    {
+        //        cmd.CommandText = query;
+        //        SqlParameter paramId = new SqlParameter();
+        //        paramId.ParameterName = "@kaartnummer";
+        //        paramId.DbType = DbType.String;
+        //        paramId.Value = kaartNr;
+        //        cmd.Parameters.Add(paramId);
+        //        connection.Open();
+        //        try {
+        //            SqlDataReader reader = cmd.ExecuteReader();
+        //            reader.Read();
+        //            //TankKaart tankkaart = new TankKaart((string)reader["kaartnummer"], (DateTime)reader["geldigheidsdatum"], (string)reader["pincode"], bestuurder, (bool)reader["geblokkeerd"]);
+        //        } catch (Exception ex) {
+        //            throw new TankkaartRepositoryADOException("TankkaartRepositoryADO: GeefTankkaart - Er liep iets mis ->", ex);
+        //        }
+        //    }
+        //}
 
         public IReadOnlyList<TankKaart> GeefTankkaarten(string kaartnr, DateTime geldigheidsdatum, string pincode, Bestuurder bestuurder, bool geblokkeerd)
         {
+            throw new NotImplementedException();
+        }
+
+        public TankKaart GeefTankkaart(string kaartNr) {
             throw new NotImplementedException();
         }
     }
