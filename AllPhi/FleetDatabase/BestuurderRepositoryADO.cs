@@ -123,7 +123,27 @@ namespace FleetDatabase {
         }
 
         public bool BestaatBestuurder(Bestuurder bestuurder) {
-            throw new NotImplementedException();
+            SqlConnection conn = GetConnection();
+            string query = "SELECT * FROM [dbo].Bestuurder WHERE Voornaam = @Voornaam, Naam = @Naam, AdresId = @AdresId, @Geboortedatum = @Geboortedatum";
+            using (SqlCommand cmd = conn.CreateCommand())
+            {
+                try
+                {
+                    cmd.Parameters.Add(new SqlParameter("@BestuurderId", SqlDbType.Int));
+                    cmd.CommandText = query;
+                    cmd.Parameters["@BestuurderId"].Value = BestuurderId;
+                    int n = (int)cmd.ExecuteScalar();
+                    if (n > 0) return true; else return false;
+                }
+                catch (Exception ex)
+                {
+                    throw new VoertuigRepositoryADOExceptions("bestaatVoertuig", ex);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
         }
 
         public bool BestaatBestuurder(int BestuurderId)
