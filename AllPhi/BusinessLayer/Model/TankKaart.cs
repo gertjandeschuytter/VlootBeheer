@@ -11,46 +11,7 @@ namespace BusinessLayer.Model
     {
 
         #region Constructors
-        public TankKaart(string kaartnr, DateTime geldigheidsdatum)
-        {
-            ZetKaartNr(kaartnr);
-            ZetGeldigheidsdatum(geldigheidsdatum);
-        }
 
-        public TankKaart(string kaartnr, DateTime geldigheidsdatum, string pincode) : this(kaartnr, geldigheidsdatum)
-        {
-            ZetPincode(pincode);
-        }
-
-        public TankKaart(string kaartnr, DateTime geldigheidsdatum, bool geblokkeerd) : this(kaartnr, geldigheidsdatum)
-        {
-            Geblokkeerd = geblokkeerd;
-        }
-
-        public TankKaart(string kaartnr, DateTime geldigheidsdatum, Bestuurder bestuurder) : this(kaartnr, geldigheidsdatum)
-        {
-            ZetBestuurder(bestuurder);
-        }
-
-        public TankKaart(string kaartnr, DateTime geldigheidsdatum, string pincode, bool geblokkeerd) : this(kaartnr, geldigheidsdatum, pincode)
-        {
-            Geblokkeerd = geblokkeerd;
-        }
-
-        public TankKaart(string kaartnr, DateTime geldigheidsdatum, string pincode, Bestuurder bestuurder) : this(kaartnr, geldigheidsdatum, pincode)
-        {
-            ZetBestuurder(bestuurder);
-        }
-
-        public TankKaart(string kaartnr, DateTime geldigheidsdatum, Bestuurder bestuurder, bool geblokkeerd) : this(kaartnr, geldigheidsdatum, bestuurder)
-        {
-            Geblokkeerd = geblokkeerd;
-        }
-
-        public TankKaart(string kaartnr, DateTime geldigheidsdatum, string pincode, Bestuurder bestuurder, bool geblokkeerd) : this(kaartnr, geldigheidsdatum, pincode, bestuurder)
-        {
-            Geblokkeerd = geblokkeerd;
-        }
         #endregion
 
         #region Properties

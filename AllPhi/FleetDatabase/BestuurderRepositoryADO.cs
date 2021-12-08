@@ -43,7 +43,7 @@ namespace FleetDatabase {
                         bestuurder = new Bestuurder((string)reader["Naam"], (string)reader["Voornaam"], (DateTime)reader["Geboortedatum"], (string)reader["Rijksregisternummer"], GeefTypeRijbewijzen(BestuurderId));
                         bestuurderGevonden = true;
                     }
-<<<<<<< HEAD
+
                     if (reader["AdresId"].GetType() != typeof(DBNull) && adresGevonden == false) {
                         Adres adres = new Adres((string)reader["Straat"], (string)reader["Stad"], (string)reader["Postcode"], (int)reader["Huisnummer"]);
                         bestuurder.ZetAdres(adres);
@@ -53,10 +53,10 @@ namespace FleetDatabase {
                         Brandstoftype_tankkaart brandstofType = (Brandstoftype_tankkaart)Enum.Parse(typeof(Brandstoftype_tankkaart), (string)reader["Brandstoftype"]);
                         Typewagen wagenType = (Typewagen)Enum.Parse(typeof(Typewagen), (string)reader["WagenType"]);
                         Voertuig voertuig = new Voertuig((string)reader["Merk"], (string)reader["Model"], (string)reader["Chassisnummer"], brandstofType, wagenType);
-=======
+
                     if (!(reader["AdresId"].GetType() == typeof(DBNull))) {
 
->>>>>>> cf937a8f21b223ff31480d4495715f8280ec1c4e
+
                     }
                 } catch (Exception ex) {
                     throw new BestuurderRepositoryADOException("BestuurderRepositoryADO - GeefBestuurders: Er liep iets mis -> ", ex);
