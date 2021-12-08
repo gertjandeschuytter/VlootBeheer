@@ -1,0 +1,81 @@
+﻿<Window x:Class="WpfFleetManagement.BestuurderWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfFleetManagement"
+        mc:Ignorable="d"
+        Title="BestuurderWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.75*"/>
+            <ColumnDefinition Width="0.75*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.ColumnSpan="2" Grid.RowSpan="7" ShowGridLines="False">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Column="0" Grid.Row="0" Content="Voornaam" Margin="5"/>
+            <TextBox Grid.Row="0" Grid.Column="0"  Margin="5,30,5,10"/>
+
+            <Label Grid.Column="1" Grid.Row="0" Content="Naam" Margin="5"/>
+            <TextBox Grid.Row="0" Grid.Column="1"  Margin="5,30,5,10"/>
+
+            <Label Grid.Column="0" Grid.Row="1" Content="Geboortedatum" Margin="5"/>
+            <DatePicker Grid.Row="1" Grid.Column="0"  Margin="5,30,5,10"/>
+
+            <Label Grid.Column="1" Grid.Row="1" Content="Rijksregisternummer" Margin="5"/>
+            <TextBox Grid.Row="1" Grid.Column="1"  Margin="5,30,5,10"/>
+
+            <Label Grid.Column="0" Grid.Row="2" Content="Straat" Margin="5"/>
+            <TextBox Grid.Row="2" Grid.Column="0"  Margin="5,30,5,10"/>
+
+            <Label Grid.Column="1" Grid.Row="2" Content="Stad" Margin="5"/>
+            <TextBox Grid.Row="2" Grid.Column="1"  Margin="5,30,5,10"/>
+
+            <Label Grid.Column="0" Grid.Row="3" Content="Postcode" Margin="5"/>
+            <TextBox Grid.Row="3" Grid.Column="0"  Margin="5,30,5,10"/>
+
+            <Label Grid.Column="1" Grid.Row="3" Content="Huisnummer" Margin="5"/>
+            <TextBox Grid.Row="3" Grid.Column="1"  Margin="5,30,5,10"/>
+
+            <Label Grid.Column="0" Grid.Row="4" Content="BestuurderId" Margin="5"/>
+            <TextBox Grid.Row="4" Grid.Column="0"  Margin="5,30,5,10"/>
+
+            <Label Grid.Column="0" Grid.Row="5" Content="Voertuig" Margin="5"/>
+            <ComboBox Grid.Row="5" Grid.Column="0"  Margin="5,30,5,10" />
+
+            <Label Grid.Column="1" Grid.Row="5" Content="Tankkaart" Margin="5"/>
+            <ComboBox Grid.Row="5" Grid.Column="1"  Margin="5,30,5,10" />
+
+            <Button Grid.Column="0" Grid.Row="7" Margin="5">Filter</Button>
+            <Button Grid.Column="1" Grid.Row="7" Margin="5">Voeg Toe</Button>
+        </Grid>
+        <DataGrid Grid.Column="2" Grid.RowSpan="5" Margin="5">
+            
+        </DataGrid>
+        <Button Grid.Row="6" Grid.Column="3" Margin="5,5,275,5">Wijzig</Button>
+        <Button Grid.Row="6" Grid.Column="3" Margin="275,5,5,5">Verwijder</Button>
+    </Grid>
+</Window>

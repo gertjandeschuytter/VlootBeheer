@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-
+        <TextBlock FontSize="60" FontWeight="Bold"  TextAlignment="Center" Margin="40,45,40,250">Alphi Fleet Management</TextBlock>
+        <Button Margin="40,250,550,40">Bestuurder</Button>
+        <Button Margin="290,250,290,40">Voertuig</Button>
+        <Button Margin="550,250,40,40">Tankkaart</Button>
     </Grid>
 </Window>
