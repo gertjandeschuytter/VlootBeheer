@@ -75,6 +75,37 @@
         <DataGrid Grid.Column="2" Grid.RowSpan="5" Margin="5">
             
         </DataGrid>
+        <Label Grid.Row="5" Grid.Column="3" Margin="5" Content="Rijbewijzen"/>
+        <Grid Grid.Column="3"  Grid.Row="5" Margin=" 0,30,0,5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <CheckBox Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center">AM</CheckBox>
+            <CheckBox Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">A</CheckBox>
+            <CheckBox Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center">A1</CheckBox>
+            <CheckBox Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center">A2</CheckBox>
+            <CheckBox Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center">B</CheckBox>
+            <CheckBox Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center">BE</CheckBox>
+            <CheckBox Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center">C</CheckBox>
+            <CheckBox Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Center">CE</CheckBox>
+            <CheckBox Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Center">D</CheckBox>
+            <CheckBox Grid.Column="9" VerticalAlignment="Center" HorizontalAlignment="Center">DE</CheckBox>
+            <CheckBox Grid.Column="10" VerticalAlignment="Center" HorizontalAlignment="Center">D1</CheckBox>
+            <CheckBox Grid.Column="11" VerticalAlignment="Center" HorizontalAlignment="Center">D1E</CheckBox>
+            <CheckBox Grid.Column="12" VerticalAlignment="Center" HorizontalAlignment="Center">T</CheckBox>
+        </Grid>
         <Button Grid.Row="6" Grid.Column="3" Margin="5,5,275,5">Wijzig</Button>
         <Button Grid.Row="6" Grid.Column="3" Margin="275,5,5,5">Verwijder</Button>
     </Grid>

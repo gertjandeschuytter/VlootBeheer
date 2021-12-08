@@ -1,0 +1,48 @@
+﻿<Window x:Class="WpfFleetManagement.TankkaartToevoegenWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfFleetManagement"
+        mc:Ignorable="d"
+        Title="TankkaartToevoegenWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Grid.Column="0" Grid.Row="0" Content="Kaartnummer" Margin="5"/>
+        <TextBox Grid.Row="0" Grid.Column="0"  Margin="5,30,5,10"/>
+
+        <Label Grid.Column="1" Grid.Row="0" Content="Geldigheidsdatum" Margin="5"/>
+        <DatePicker Grid.Row="0" Grid.Column="1"  Margin="5,30,5,10"/>
+
+        <Label Grid.Column="0" Grid.Row="1" Content="Pincode" Margin="5"/>
+        <TextBox Grid.Row="1" Grid.Column="0"  Margin="5,30,5,10"/>
+
+        <Label Grid.Column="1" Grid.Row="1" Content="Geblokkeerd?" Margin="5" HorizontalContentAlignment="Center"/>
+        <CheckBox Grid.Row="1" Grid.Column="1"  Margin="5,30,5,10" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+        <Label Grid.Column="0" Grid.Row="2" Content="Brandstoftype" Margin="5"/>
+        <ComboBox Grid.Column="0" Grid.Row="2" Margin="5,30,5,10">
+            <ComboBoxItem>Diesel</ComboBoxItem>
+            <ComboBoxItem>Benzine</ComboBoxItem>
+            <ComboBoxItem>Elektrisch</ComboBoxItem>
+            <ComboBoxItem>Diesel_Elektrisch</ComboBoxItem>
+            <ComboBoxItem>Benzine_Elektrisch</ComboBoxItem>
+        </ComboBox>
+
+        <Label Grid.Column="1" Grid.Row="2" Content="Bestuurder" Margin="5"/>
+        <ComboBox Grid.Row="2" Grid.Column="1"  Margin="5,30,5,10" />
+
+        <Button Grid.Column="0" Grid.Row="5" Margin="5">Filter</Button>
+        <Button Grid.Column="1" Grid.Row="5" Margin="5">Voeg Toe</Button>
+    </Grid>
+</Window>

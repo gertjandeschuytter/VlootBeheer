@@ -14,5 +14,6 @@ namespace BusinessLayer.Interfaces
         void WijzigBestuurder(Bestuurder bestuurder);
         bool BestaatBestuurder(int id);
         Bestuurder GeefBestuurder(int id);
-        IEnumerable<Bestuurder> GeefBestuurders(string? voornaam, string? naam, string? rijksregister, DateTime? geboortedatum);    }
+        IEnumerable<Bestuurder> GeefBestuurders(string? voornaam, string? naam, string? rijksregister, DateTime? geboortedatum);
+    }
 }

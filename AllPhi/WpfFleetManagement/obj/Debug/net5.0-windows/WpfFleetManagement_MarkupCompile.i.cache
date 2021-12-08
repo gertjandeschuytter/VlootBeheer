@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\App.xaml
-4-643137379
+7-62740858
 
-81145527822
+11859758711
 193-1891726104
-BestuurderWindow.xaml;MainWindow.xaml;TankkaartWindow.xaml;VoertuigWindow.xaml;
+BestuurderToevoegenWindow.xaml;BestuurderWindow.xaml;MainWindow.xaml;TankkaartToevoegenWindow.xaml;TankkaartWindow.xaml;VoertuigToevoegenWindow.xaml;VoertuigWindow.xaml;
 
-False
+True
 
