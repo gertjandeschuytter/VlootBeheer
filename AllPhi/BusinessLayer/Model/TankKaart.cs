@@ -7,8 +7,7 @@ using BusinessLayer.Exceptions;
 
 namespace BusinessLayer.Model
 {
-    public class TankKaart
-    {
+    public class TankKaart {
 
         #region Constructors
         public TankKaart(string kaartnr, DateTime geldigheidsdatum)
@@ -64,7 +63,7 @@ namespace BusinessLayer.Model
         public Bestuurder Bestuurder { get; private set; }
 
         public bool Geblokkeerd { get; private set; }
-        public Brandstoftype_tankkaart Brandstoftype { get; private set; }
+        public Brandstoftype_tankkaart? Brandstoftype { get; private set; }
         #endregion
 
         #region Methods
