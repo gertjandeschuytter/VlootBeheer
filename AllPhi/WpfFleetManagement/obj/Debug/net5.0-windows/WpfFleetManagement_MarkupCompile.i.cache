@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Gertj\Source\Repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\
+C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\
 WpfFleetManagement
 none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
-C:\Users\Gertj\Source\Repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\App.xaml
-11407045341
+C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\App.xaml
+4-643137379
 
-51143327971
+81145527822
 193-1891726104
-MainWindow.xaml;
+BestuurderWindow.xaml;MainWindow.xaml;TankkaartWindow.xaml;VoertuigWindow.xaml;
 
 False
 

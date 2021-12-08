@@ -5,6 +5,6 @@
 
     public enum Brandstoftype_tankkaart
     {
-        Benzine, Diesel, Elektrisch, Benzine_en_Elektrisch, Diesel_en_Elektrisch
+        Benzine, Diesel, Elektrisch, Benzine_Elektrisch, Diesel_Elektrisch
     }
 }
