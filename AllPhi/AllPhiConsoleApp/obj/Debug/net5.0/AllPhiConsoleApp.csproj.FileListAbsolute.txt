@@ -82,3 +82,5 @@ C:\Users\Gertj\source\repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\bin\Deb
 C:\Users\Gertj\source\repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\bin\Debug\net5.0\FleetDatabase.pdb
 C:\Users\Gertj\source\repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\bin\Debug\net5.0\BusinessLayer.pdb
 C:\Users\Gertj\source\repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\obj\Debug\net5.0\AllPhiConsoleApp.csproj.CopyComplete
+C:\Users\Gertj\Source\Repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Users\Gertj\Source\Repos\Opdracht_Projectwerk\AllPhi\AllPhiConsoleApp\bin\Debug\net5.0\Castle.Core.dll

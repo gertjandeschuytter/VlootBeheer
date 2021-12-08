@@ -12,21 +12,21 @@ namespace BusinessLayer.Managers {
         public VoertuigManager(IVoertuigRepository repo) {
             this.repo = repo;
         }
-        public void VoegVoertuigToe(Voertuig voertuig) {
-            if (repo.BestaatVoertuig(voertuig.ChassisNummer)) throw new VoertuigManagerException("Voertuig al gekend");
-            repo.VoegVoertuigToe(voertuig);
-        }
-        public void VerwijderBestuurder(Voertuig voertuig) {
-            if (!repo.BestaatVoertuig(voertuig.ChassisNummer)) throw new VoertuigManagerException("Voertuig bestaat niet");
-            repo.VerwijderVoertuig(voertuig);
-        }
-        public void WijzigBestuurder(Voertuig voertuig) {
-            if (!repo.BestaatVoertuig(voertuig.ChassisNummer)) throw new VoertuigManagerException("Voertuig bestaat niet");
-            repo.UpdateVoertuig(voertuig);
-        }
-        public IEnumerable<Voertuig>GeefVoertuigen(Bestuurder bestuurder) {
-            return repo.GeefVoertuigen(bestuurder);
-        }
+        //public void VoegVoertuigToe(Voertuig voertuig) {
+        //    if (repo.BestaatVoertuig(voertuig.ChassisNummer)) throw new VoertuigManagerException("Voertuig al gekend");
+        //    repo.VoegVoertuigToe(voertuig);
+        //}
+        //public void VerwijderBestuurder(Voertuig voertuig) {
+        //    if (!repo.BestaatVoertuig(voertuig.ChassisNummer)) throw new VoertuigManagerException("Voertuig bestaat niet");
+        //    repo.VerwijderVoertuig(voertuig);
+        //}
+        //public void WijzigBestuurder(Voertuig voertuig) {
+        //    if (!repo.BestaatVoertuig(voertuig.ChassisNummer)) throw new VoertuigManagerException("Voertuig bestaat niet");
+        //    repo.UpdateVoertuig(voertuig);
+        //}
+        //public IEnumerable<Voertuig>GeefVoertuigen(Bestuurder bestuurder) {
+        //    return repo.GeefVoertuigen(bestuurder);
+        //}
 
     }
 }

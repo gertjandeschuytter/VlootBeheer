@@ -2,11 +2,10 @@
 using BusinessLayer.Exceptions;
 using System.Collections.Generic;
 using BusinessLayer.Utilities;
+using System.Linq;
 
-namespace BusinessLayer.Model
-{
-    public class Voertuig
-    {
+namespace BusinessLayer.Model {
+    public class Voertuig {
         #region Properties
         public int ID { get; private set; }
         public string Merk { get; private set; }
@@ -46,8 +45,7 @@ namespace BusinessLayer.Model
             ZetKleur(kleur);
         }
 
-        public Voertuig(string merk, string model, string chassisNummer, string nummerPlaat, Brandstoftype_voertuig brandstofType, Typewagen typeWagen, int aantalDeuren, Bestuurder bestuurder) : this(merk, model, chassisNummer, nummerPlaat, brandstofType, typeWagen)
-        {
+        public Voertuig(string merk, string model, string chassisNummer, string nummerPlaat, Brandstoftype_voertuig brandstofType, Typewagen typeWagen, int aantalDeuren, Bestuurder bestuurder) : this(merk, model, chassisNummer, nummerPlaat, brandstofType, typeWagen) {
             Bestuurder = bestuurder;
 
             ZetAantalDeuren(aantalDeuren);
@@ -73,25 +71,30 @@ namespace BusinessLayer.Model
         }
 
         public void ZetKleur(string kleur) {
-            if(string.IsNullOrEmpty(kleur)) throw new VoertuigException("kleur mag niet leeg zijn");
-            this.Kleur = kleur;
+            if (kleur == null) {
+                this.Kleur = null;
+            } else if (string.IsNullOrEmpty(kleur)) {
+                throw new VoertuigException("Kleur mag niet leeg zijn");
+            } else {
+                this.Kleur = kleur;
+            }
         }
-        public void ZetMerk (string merk) {
-            if(string.IsNullOrWhiteSpace(merk)) throw new VoertuigException("merk mag niet leeg of null zijn");
+        public void ZetMerk(string merk) {
+            if (string.IsNullOrWhiteSpace(merk)) throw new VoertuigException("merk mag niet leeg of null zijn");
             this.Merk = merk;
         }
         public void ZetModel(string model) {
             if (string.IsNullOrWhiteSpace(model)) throw new VoertuigException("model mag niet leeg of null zijn");
             this.Model = model;
         }
-        public void ZetChassisNummer (string chassisNummer) {
-            if(string.IsNullOrEmpty(chassisNummer)) throw new VoertuigException("chassisnummer mag niet leeg of null zijn");
-            if(chassisNummer.Length != 17) throw new VoertuigException("chassisnummer moet 17 karakters bevatten");
+        public void ZetChassisNummer(string chassisNummer) {
+            if (string.IsNullOrEmpty(chassisNummer)) throw new VoertuigException("chassisnummer mag niet leeg of null zijn");
+            if (chassisNummer.Length != 17) throw new VoertuigException("chassisnummer moet 17 karakters bevatten");
             if (ChassisnummerValidator.BevatChassisnummerSpeciaalKarakter(chassisNummer)) throw new VoertuigException("voertuig mag geen speciale karakters bevatten");
             this.ChassisNummer = chassisNummer;
         }
         public void ZetAantalDeuren(int aantalDeuren) {
-            if(aantalDeuren < 3) throw new VoertuigException("een auto heeft minstens 3 deuren");
+            if (aantalDeuren < 3) throw new VoertuigException("een auto heeft minstens 3 deuren");
             this.AantalDeuren = aantalDeuren;
         }
         public void ZetNummerPlaat(string nummerplaat) {
@@ -102,17 +105,16 @@ namespace BusinessLayer.Model
             this.NummerPlaat = nummerplaat;
         }
 
-        internal bool HeeftBestuurder(Bestuurder bestuurder)
-        {
+        internal bool HeeftBestuurder(Bestuurder bestuurder) {
             if (Bestuurder == bestuurder) return true;
             return false;
         }
 
-        internal void VerwijderBestuurder(Bestuurder bestuurder)
-        {
+        internal void VerwijderBestuurder(Bestuurder bestuurder) {
             if (Bestuurder != bestuurder) throw new VoertuigException("Voertuig: VerwijderBestuurder - deze bestuurder is niet ingesteld voor dit voertuig");
             Bestuurder = null;
         }
+
         #endregion
     }
 }

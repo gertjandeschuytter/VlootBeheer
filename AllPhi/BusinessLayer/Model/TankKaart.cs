@@ -7,28 +7,32 @@ using BusinessLayer.Exceptions;
 
 namespace BusinessLayer.Model
 {
-    public class TankKaart
-    {
+    public class TankKaart {
 
         #region Constructors
 
         #endregion
 
         #region Properties
-        public string KaartNr { get; set; }
+        public int TankkaartId { get; private set; }
+        public string KaartNr { get; private set; }
 
-        public DateTime Geldigheidsdatum { get; set; }
+        public DateTime Geldigheidsdatum { get; private set; }
 
-        public string Pincode { get; set; }
+        public string Pincode { get; private set; }
 
-        public Bestuurder Bestuurder { get; set; }
+        public Bestuurder Bestuurder { get; private set; }
 
-        public bool Geblokkeerd { get; set; }
-        public Brandstoftype_tankkaart Brandstoftype { get; set; }
+        public bool Geblokkeerd { get; private set; }
+        public Brandstoftype_tankkaart? Brandstoftype { get; private set; }
         #endregion
 
         #region Methods
         #region Setters
+        public void ZetTankkaartId(int TankkaartId) {
+            if (TankkaartId <= 0) throw new TankKaartException("TankkaartId mag niet kleiner of gelijk zijn aan 0");
+            this.TankkaartId = TankkaartId;
+        }
         public void ZetBestuurder(Bestuurder bestuurder)
         {
             if (bestuurder == null) throw new TankKaartException("Tankkaart: ZetBestuurder - bestuurder is null");
