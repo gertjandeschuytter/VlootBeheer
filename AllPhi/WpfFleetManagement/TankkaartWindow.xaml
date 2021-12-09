@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfFleetManagement"
         mc:Ignorable="d"
-        Title="TankkaartWindow" Height="450" Width="800">
+        Title="TankkaartWindow" Height="450" Width="800" Closing="TankkaartWindow_Closing">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.8*"/>

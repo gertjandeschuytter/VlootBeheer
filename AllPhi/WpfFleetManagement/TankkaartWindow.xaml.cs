@@ -23,5 +23,11 @@ namespace WpfFleetManagement
         {
             InitializeComponent();
         }
+
+        private void TankkaartWindow_Closing(object sender, EventArgs e)
+        {
+            MainWindow main = new MainWindow();
+            main.Show();
+        }
     }
 }

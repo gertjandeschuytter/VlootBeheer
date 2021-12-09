@@ -21,5 +21,26 @@ namespace WpfFleetManagement {
         public MainWindow() {
             InitializeComponent();
         }
+
+        private void Button_Bestuurder_Click(object sender, RoutedEventArgs e)
+        {
+            BestuurderWindow bestuurderWindow = new BestuurderWindow();
+            bestuurderWindow.Show();
+            this.Close();
+        }
+
+        private void Button_Voertuig_Click(object sender, RoutedEventArgs e)
+        {
+            VoertuigWindow voertuigWindow = new VoertuigWindow();
+            voertuigWindow.Show();
+            this.Close();
+        }
+
+        private void Button_Tankkaart_Click(object sender, RoutedEventArgs e)
+        {
+            TankkaartWindow tankkaartWindow = new TankkaartWindow();
+            tankkaartWindow.Show();
+            this.Close();
+        }
     }
 }

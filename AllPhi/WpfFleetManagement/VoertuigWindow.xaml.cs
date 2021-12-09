@@ -23,5 +23,11 @@ namespace WpfFleetManagement
         {
             InitializeComponent();
         }
+
+        private void VoertuigWindow_Closing(object sender, EventArgs e)
+        {
+            MainWindow main = new MainWindow();
+            main.Show();
+        }
     }
 }
