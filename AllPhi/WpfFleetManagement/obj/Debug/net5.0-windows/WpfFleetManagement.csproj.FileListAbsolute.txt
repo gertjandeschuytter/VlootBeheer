@@ -20,3 +20,37 @@ C:\Users\Gertj\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\D
 C:\Users\Gertj\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\ref\WpfFleetManagement.dll
 C:\Users\Gertj\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\WpfFleetManagement.pdb
 C:\Users\Gertj\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\WpfFleetManagement.genruntimeconfig.cache
+C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\bin\Debug\net5.0-windows\WpfFleetManagement.exe
+C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\bin\Debug\net5.0-windows\WpfFleetManagement.deps.json
+C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\bin\Debug\net5.0-windows\WpfFleetManagement.runtimeconfig.json
+C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\bin\Debug\net5.0-windows\WpfFleetManagement.runtimeconfig.dev.json
+C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\bin\Debug\net5.0-windows\WpfFleetManagement.dll
+C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\bin\Debug\net5.0-windows\ref\WpfFleetManagement.dll
+C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\bin\Debug\net5.0-windows\WpfFleetManagement.pdb
+C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\BestuurderWindow.g.cs
+C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\MainWindow.g.cs
+C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\TankkaartWindow.g.cs
+C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\VoertuigWindow.g.cs
+C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\App.g.cs
+C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\WpfFleetManagement_MarkupCompile.cache
+C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\WpfFleetManagement_MarkupCompile.lref
+C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\BestuurderWindow.baml
+C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\MainWindow.baml
+C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\TankkaartWindow.baml
+C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\VoertuigWindow.baml
+C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\WpfFleetManagement.g.resources
+C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\WpfFleetManagement.GeneratedMSBuildEditorConfig.editorconfig
+C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\WpfFleetManagement.AssemblyInfoInputs.cache
+C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\WpfFleetManagement.AssemblyInfo.cs
+C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\WpfFleetManagement.csproj.CoreCompileInputs.cache
+C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\WpfFleetManagement.dll
+C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\ref\WpfFleetManagement.dll
+C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\WpfFleetManagement.pdb
+C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\WpfFleetManagement.genruntimeconfig.cache
+C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\WpfFleetManagement.csproj.AssemblyReference.cache
+C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\BestuurderToevoegenWindow.g.cs
+C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\TankkaartToevoegenWindow.g.cs
+C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\VoertuigToevoegenWindow.g.cs
+C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\BestuurderToevoegenWindow.baml
+C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\TankkaartToevoegenWindow.baml
+C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\VoertuigToevoegenWindow.baml
