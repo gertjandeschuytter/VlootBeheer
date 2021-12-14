@@ -8,6 +8,22 @@ using BusinessLayer.Exceptions;
 namespace BusinessLayer.Model
 {
     public class TankKaart {
+        public TankKaart(string kaartNr, DateTime geldigheidsdatum)
+        {
+            ZetKaartNr(kaartNr);
+            ZetGeldigheidsdatum(geldigheidsdatum);
+        }
+
+        public TankKaart(int tankkaartId, string kaartNr, DateTime geldigheidsdatum, string pincode, Bestuurder bestuurder, bool geblokkeerd, Brandstoftype_tankkaart? brandstoftype)
+        {
+            ZetTankkaartId(tankkaartId);
+            ZetKaartNr(kaartNr);
+            ZetGeldigheidsdatum(geldigheidsdatum);
+            ZetPincode(pincode);
+            ZetBestuurder(bestuurder);
+            Geblokkeerd = geblokkeerd;
+            Brandstoftype = brandstoftype;
+        }
 
         #region Constructors
 

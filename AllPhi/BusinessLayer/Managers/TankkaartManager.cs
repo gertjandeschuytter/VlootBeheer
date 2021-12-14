@@ -20,7 +20,7 @@ namespace BusinessLayer.Managers
         {
             try
             {
-                if (Repo.BestaatTankkaart(tankkaart))
+                if (Repo.BestaatTankkaart(tankkaart.TankkaartId))
                 {
                     throw new TankkaartManagerException("TankkaartManager: VoegTankkaartToe - tankkaart bestaat al");
                 }
@@ -38,7 +38,7 @@ namespace BusinessLayer.Managers
         {
             try
             {
-                if (!Repo.BestaatTankkaart(tankkaart))
+                if (!Repo.BestaatTankkaart(tankkaart.TankkaartId))
                 {
                     throw new TankkaartManagerException("TankkaartManager: VerwijderTankkaart - tankkaart bestaat niet");
                 }
@@ -56,9 +56,9 @@ namespace BusinessLayer.Managers
         {
             try
             {
-                if (Repo.BestaatTankkaart(tankkaart))
+                if (Repo.BestaatTankkaart(tankkaart.TankkaartId))
                 {
-                    TankKaart dbTankkaart = Repo.GeefTankkaart(tankkaart.KaartNr);
+                    TankKaart dbTankkaart = Repo.GeefTankkaart(tankkaart.TankkaartId);
                     if(dbTankkaart == tankkaart)
                     {
                         throw new TankkaartManagerException("TankkaartManager: UpdateTankkaart - geen verschillen");
