@@ -22,6 +22,10 @@ namespace WpfFleetManagement
         public TankkaartWindow()
         {
             InitializeComponent();
+            FilterButton.IsEnabled = false;
+            VoegToeButton.IsEnabled = false;
+            WijzigButton.IsEnabled = false;
+            VerwijderButton.IsEnabled = false;
         }
 
         private void TankkaartWindow_Closing(object sender, EventArgs e)

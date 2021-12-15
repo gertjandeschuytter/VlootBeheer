@@ -18,25 +18,21 @@ namespace BusinessLayer.Managers
             this.repo = repo;
         }
 
-        //public List<Bestuurder> GeefBestuurder(int? id, string naam, string voornaam, Adres adres, DateTime datum, string rijksregister, List<TypeRijbewijs> types, Voertuig v, TankKaart t)
-        //{
-        //    List<Bestuurder> list = new List<Bestuurder>();
-        //    try
-        //    {
-        //        if(id.HasValue) list.Add(repo.GeefBestuurder((int)id));
-        //        if(!string.IsNullOrWhiteSpace(naam) || !string.IsNullOrWhiteSpace(voornaam) || adres != null || datum != new DateTime(1,1,1) || !string.IsNullOrWhiteSpace(rijksregister) || types.Count != 0 || v != null || t != null)
-        //        {
-        //            list.AddRange(repo.GeefBestuurders(naam, voornaam, adres, datum, rijksregister, types, v, t));
-        //        }
-        //        else
-        //        {
-        //            throw new BestuurderManagerException("Geen zoekcriteria gegeven");
-        //        }
-
-        //        return list;
-        //    }
-        //    catch(Exception ex) { throw new BestuurderManagerException("BestuurderManager - Er liep iets mis: ", ex); }
-        //}
+        public List<Bestuurder> GeefBestuurder(int? id, string? naam, string? voornaam, DateTime? datum, string? rijksregister)
+        {
+            List<Bestuurder> list = new List<Bestuurder>();
+            try
+            {
+                if (id.HasValue) list.Add(repo.GeefBestuurder((int)id));
+                else
+                {
+                    list.AddRange(repo.GeefBestuurders(voornaam, naam, rijksregister, datum));
+                }
+                
+                return list;
+            }
+            catch (Exception ex) { throw new BestuurderManagerException("BestuurderManager - Er liep iets mis: ", ex); }
+        }
 
         public void VoegBestuurderToe(Bestuurder bestuurder)
         {
