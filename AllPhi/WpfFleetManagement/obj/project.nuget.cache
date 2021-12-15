@@ -1,6 +1,5 @@
 {
   "version": 2,
-<<<<<<< HEAD
   "dgSpecHash": "qVJqZdcAW6NYC5fcyrh2Lh73LuDOBvNNnQtu4jfCYtIKJbli8U1vrJ6oeeDzd6u9jSwTwRBg9U9xUQ6O3w7LTQ==",
   "success": true,
   "projectFilePath": "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\WpfFleetManagement\\WpfFleetManagement.csproj",
@@ -97,17 +96,12 @@
     "C:\\Users\\Jarne\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Jarne\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512"
   ],
-=======
-<<<<<<< HEAD
-  "dgSpecHash": "YUrU2586kVeao2gRQFcqYL0VnCaHQGUWwghn2DKtol/D4m5ByzTS6/dVZmRotoCB6uArONF40slAXwT8d5YmaQ==",
-  "success": true,
-  "projectFilePath": "C:\\Users\\Ruben\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\WpfFleetManagement\\WpfFleetManagement.csproj",
-=======
-  "dgSpecHash": "gM3iVFkM+htvnlgBwaKKE/LjGn6gyRq3jrmLKB7oM5AhCbnOGJjDGxZYDk0ukPEynHDg5Ob4fvsaDRAnmA2XOg==",
-  "success": true,
-  "projectFilePath": "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\WpfFleetManagement\\WpfFleetManagement.csproj",
->>>>>>> a2025768a61e7008bc3bff21bc2f2410e3c81268
-  "expectedPackageFiles": [],
->>>>>>> 1876c7c935d0afb38d7e82fac7648bb8f50308db
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\WpfFleetManagement\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
