@@ -5548,20 +5548,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Jarne\\.nuget\\packages\\": {}
+    "C:\\Users\\Gertj\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\AllPhiConsoleApp\\AllPhiConsoleApp.csproj",
+      "projectUniqueName": "C:\\Users\\Gertj\\Source\\Repos\\Opdracht_Projectwerk\\AllPhi\\AllPhiConsoleApp\\AllPhiConsoleApp.csproj",
       "projectName": "AllPhiConsoleApp",
-      "projectPath": "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\AllPhiConsoleApp\\AllPhiConsoleApp.csproj",
-      "packagesPath": "C:\\Users\\Jarne\\.nuget\\packages\\",
-      "outputPath": "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\AllPhiConsoleApp\\obj\\",
+      "projectPath": "C:\\Users\\Gertj\\Source\\Repos\\Opdracht_Projectwerk\\AllPhi\\AllPhiConsoleApp\\AllPhiConsoleApp.csproj",
+      "packagesPath": "C:\\Users\\Gertj\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Gertj\\Source\\Repos\\Opdracht_Projectwerk\\AllPhi\\AllPhiConsoleApp\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Jarne\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Gertj\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -5574,8 +5579,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\FleetDatabase\\FleetDatabase.csproj": {
-              "projectPath": "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\FleetDatabase\\FleetDatabase.csproj"
+            "C:\\Users\\Gertj\\Source\\Repos\\Opdracht_Projectwerk\\AllPhi\\FleetDatabase\\FleetDatabase.csproj": {
+              "projectPath": "C:\\Users\\Gertj\\Source\\Repos\\Opdracht_Projectwerk\\AllPhi\\FleetDatabase\\FleetDatabase.csproj"
             }
           }
         }
@@ -5607,13 +5612,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\AllPhiConsoleApp\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }

@@ -1,15 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gM3iVFkM+htvnlgBwaKKE/LjGn6gyRq3jrmLKB7oM5AhCbnOGJjDGxZYDk0ukPEynHDg5Ob4fvsaDRAnmA2XOg==",
+  "dgSpecHash": "M1VQR4v4ZMLE/25DCVx+jOO3NQDvIwHod3Ig2khewXc6Og+fe/cSyA5TX7edLIvX9ush1Qqqb88I2tuGt5vuNQ==",
   "success": true,
-  "projectFilePath": "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\WpfFleetManagement\\WpfFleetManagement.csproj",
+  "projectFilePath": "C:\\Users\\Gertj\\Source\\Repos\\Opdracht_Projectwerk\\AllPhi\\WpfFleetManagement\\WpfFleetManagement.csproj",
   "expectedPackageFiles": [],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\WpfFleetManagement\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }
