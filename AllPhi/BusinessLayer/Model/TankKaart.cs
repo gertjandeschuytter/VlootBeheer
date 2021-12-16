@@ -49,6 +49,11 @@ namespace BusinessLayer.Model
             if (TankkaartId <= 0) throw new TankKaartException("TankkaartId mag niet kleiner of gelijk zijn aan 0");
             this.TankkaartId = TankkaartId;
         }
+        public void ZetBrandstoftype(Brandstoftype_tankkaart? brandstoftype)
+        {
+            if (brandstoftype == null) throw new TankKaartException("Tankkaart: ZetBrandstoftype - Brandstoftype mag niet null zijn");
+            Brandstoftype = brandstoftype;
+        }
         public void ZetBestuurder(Bestuurder bestuurder)
         {
             if (bestuurder == null) throw new TankKaartException("Tankkaart: ZetBestuurder - bestuurder is null");

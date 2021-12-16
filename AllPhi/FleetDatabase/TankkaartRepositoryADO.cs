@@ -116,7 +116,7 @@ namespace FleetDatabase
                 }
             }
         }
-        public void VoegTankkaartToe(TankKaart tankkaart) //Done
+        public void VoegTankkaartToe(TankKaart tankkaart) //TankkaartId nodig?
         {
             SqlConnection connection = GetConnection();
             string query = "INSERT INTO [dbo].Tankkaart (Kaartnummer, Geldigheidsdatum, Pincode, Bestuurder, Geblokkeerd) " +      
@@ -226,34 +226,71 @@ namespace FleetDatabase
 
         public TankKaart GeefTankkaart(int tankkaartId)
         {
-            //SqlConnection connection = GetConnection();
-            //string query = "SELECT * FROM dbo.tankkaart WHERE kaartnummer = @kaartnummer";
-            //using (SqlCommand cmd = connection.CreateCommand())
-            //{
-            //    cmd.CommandText = query;
-            //    SqlParameter paramId = new SqlParameter();
-            //    paramId.ParameterName = "@tankkaartId";
-            //    paramId.DbType = DbType.Int64;
-            //    paramId.Value = tankkaartId;
-            //    cmd.Parameters.Add(paramId);
-            //    connection.Open();
-            //    try
-            //    {
-            //        IDataReader reader = cmd.ExecuteReader();
-            //        reader.Read();
-            //        //TankKaart tankkaart = new TankKaart((string)reader["kaartnummer"], (DateTime)reader["geldigheidsdatum"], (string)reader["pincode"], bestuurder, (bool)reader["geblokkeerd"]);
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        throw new TankkaartRepositoryADOException("TankkaartRepositoryADO: GeefTankkaart - Er liep iets mis ->", ex);
-            //    }
-            //}
-            throw new NotImplementedException();
+            Bestuurder bestuurder = null;
+            TankKaart tankkaart = null;
+            string sql = "";
+            SqlConnection connection = GetConnection();
+            using (SqlCommand command = connection.CreateCommand())
+            {
+                connection.Open();
+                try
+                {
+                    command.Parameters.Add(new SqlParameter("@TankkaartId", SqlDbType.Int));
+                    command.CommandText = sql;
+                    command.Parameters["@TankkaartId"].Value = tankkaartId;
+                    IDataReader reader = command.ExecuteReader();
+                    reader.Read();
+                    if ((reader["TankkaartId"].GetType() != typeof(DBNull)))
+                    {
+                        int tankkaartIdDB = (int)reader["TankkaartId"];
+                        tankkaart = new TankKaart(tankkaartIdDB, (string)reader["Kaartnummer"], (DateTime)reader["Geldigheidsdatum"], (string)reader["Pincode"], null, (bool)reader["Isgeblokeerd"], null);
+                        if(reader["Brandstoftype"] != DBNull.Value)
+                        {
+                            Brandstoftype_tankkaart brandstofType = (Brandstoftype_tankkaart)Enum.Parse(typeof(Brandstoftype_tankkaart), (string)reader["Brandstoftype"]);
+                            tankkaart.ZetBrandstoftype(brandstofType);
+                        }
+                    }
+                    if (reader["BestuurderId"].GetType() != typeof(DBNull))
+                    {
+                        int bestuurderId = (int)reader["BestuurderId"];
+                        BestuurderRepositoryADO repo = new BestuurderRepositoryADO(connectionString);
+                        bestuurder = repo.GeefBestuurder(bestuurderId);
+                        tankkaart.ZetBestuurder(bestuurder);
+                        tankkaart.Bestuurder.ZetTankKaart(tankkaart);
+                    }
+                    return tankkaart;
+                }
+                catch (Exception ex)
+                {
+                    throw new TankkaartRepositoryADOException("TankkaartRepositoryADO - GeefTankkaart: ", ex);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
         }
 
-        public IReadOnlyList<TankKaart> GeefTankkaarten(string kaartnr, DateTime geldigheidsdatum, string pincode, Bestuurder bestuurder, bool geblokkeerd)
-        {
-            throw new NotImplementedException();
-        }
+        //public IReadOnlyList<TankKaart> GeefTankkaarten(string kaartnr, DateTime geldigheidsdatum, string pincode, Bestuurder bestuurder, bool geblokkeerd)
+        //{
+        //    List<TankKaart> tankkaarten = new();
+        //    TankKaart tankkaart = null;
+        //    bool WHERE = true;
+        //    bool AND = false;
+        //    string sql = "";
+
+
+
+        //    SqlConnection connection = GetConnection();
+        //    using(SqlCommand cmd = connection.CreateCommand())
+        //    {
+        //        cmd.CommandText = sql;
+        //        try
+        //        {
+        //            connection.Open();
+        //            if(!string.IsNullOrEmpty())
+        //        }
+        //    }
+        //} 
     }
 }
