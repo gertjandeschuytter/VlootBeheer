@@ -179,6 +179,7 @@ namespace WpfFleetManagement
 
         private void DatagridBestuurder_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+
             VerwijderButton.IsEnabled = true;
             
         }
