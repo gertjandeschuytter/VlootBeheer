@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "V1ESGIg3CCuRnsZP8SGXk8q9Le3aDUOReGD2paRixlU8VYPgHUKWLZjwP4kmLJfzOZoxfsFqlCtExhNZd0f0Rw==",
+  "dgSpecHash": "Y8FoIwMMChFomylU5U/sdsGkfZJarwWutNywfTPGNvpin530Lnn/d4/HPNz36sBUX+gyChs93TN+8t7N8NXb7Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Gertj\\Source\\Repos\\Opdracht_Projectwerk\\AllPhi\\BusinessLayer\\BusinessLayer.csproj",
+  "projectFilePath": "C:\\Users\\Gertj\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\BusinessLayer\\BusinessLayer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Gertj\\.nuget\\packages\\castle.core\\4.4.1\\castle.core.4.4.1.nupkg.sha512",
     "C:\\Users\\Gertj\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
@@ -88,5 +88,12 @@
     "C:\\Users\\Gertj\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Gertj\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\Gertj\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\BusinessLayer\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

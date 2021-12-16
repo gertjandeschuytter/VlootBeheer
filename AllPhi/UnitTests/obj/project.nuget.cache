@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "lVHMXtWxWhX/dD9h5vz+smb6KHRVvlMTqukorssdeYtSZNlP3IFpZz+61D1d3q6P3IY+43dEZpZ5Zx9Rg/rsLg==",
+  "dgSpecHash": "oT/wbBz4DUaqDHOboL0Um3EgYvkxxPLd889KGRBIjb4+Gf1VsFVQWjIHTZeWGs5PNxKNgMOF4QkrrJkcgHXUYA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Gertj\\Source\\Repos\\Opdracht_Projectwerk\\AllPhi\\UnitTests\\UnitTests.csproj",
+  "projectFilePath": "C:\\Users\\Gertj\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\UnitTests\\UnitTests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Gertj\\.nuget\\packages\\castle.core\\4.4.1\\castle.core.4.4.1.nupkg.sha512",
     "C:\\Users\\Gertj\\.nuget\\packages\\coverlet.collector\\3.0.2\\coverlet.collector.3.0.2.nupkg.sha512",
@@ -113,5 +113,12 @@
     "C:\\Users\\Gertj\\.nuget\\packages\\xunit.extensibility.execution\\2.4.1\\xunit.extensibility.execution.2.4.1.nupkg.sha512",
     "C:\\Users\\Gertj\\.nuget\\packages\\xunit.runner.visualstudio\\2.4.3\\xunit.runner.visualstudio.2.4.3.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\Gertj\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\UnitTests\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

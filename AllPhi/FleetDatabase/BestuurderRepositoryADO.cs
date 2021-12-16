@@ -70,7 +70,7 @@ namespace FleetDatabase {
                         voertuig.ZetId((int)reader["VoertuigId"]);
                         bestuurder.ZetVoertuig(voertuig);
                     }
-                    if ((reader["TankkaartId"].GetType() != typeof(DBNull))) {
+                    if (reader["TankkaartId"].GetType() != typeof(DBNull)) {
                         int tankkaartIdDB = (int)reader["TankkaartId"];
                         TankKaart tankKaart = new TankKaart((string)reader["Kaartnummer"], (DateTime)reader["Geldigheidsdatum"], (string)reader["Pincode"], (bool)reader["Isgeblokeerd"]);
                         tankKaart.ZetTankkaartId(tankkaartIdDB);

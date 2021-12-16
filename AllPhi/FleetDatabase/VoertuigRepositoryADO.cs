@@ -171,7 +171,7 @@ namespace FleetDatabase {
         }
         public void UpdateVoertuig(Voertuig voertuig) {
             string sqlUpdate = "UPDATE Voertuig SET Merk=@Merk,Model=@Model,Chassisnummer=@Chassisnummer,Nummerplaat=@Nummerplaat" +
-    ",Brandstoftype=@Brandstoftype,Wagentype=@Wagentype,Kleur=@Kleur,Aantaldeuren=@Aantaldeuren WHERE VoertuigId=@VoertuigId";
+            ",Brandstoftype=@Brandstoftype,Wagentype=@Wagentype,Kleur=@Kleur,Aantaldeuren=@Aantaldeuren WHERE VoertuigId=@VoertuigId";
             SqlConnection connection = GetConnection();
             //Update
             using (SqlCommand command = connection.CreateCommand()) {

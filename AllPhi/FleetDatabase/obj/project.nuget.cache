@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ug7oo3xDUkmX+oezWyeC04GQhZJgno1c49G0th0ce7CJEu+SpTZ3ORvfoXS9Xhl66vwheG4efl+LLeQX2JKEhw==",
+  "dgSpecHash": "AbIDvG2YA6cdt7bufK0qwiPdmnvj2rmDZea5D9raAMh4oRmZ5kH+qQYFmqKjgyNSUW4kLlj7L3mxQXtJfPBEGg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Gertj\\Source\\Repos\\Opdracht_Projectwerk\\AllPhi\\FleetDatabase\\FleetDatabase.csproj",
+  "projectFilePath": "C:\\Users\\Gertj\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\FleetDatabase\\FleetDatabase.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Gertj\\.nuget\\packages\\castle.core\\4.4.1\\castle.core.4.4.1.nupkg.sha512",
     "C:\\Users\\Gertj\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
@@ -96,5 +96,12 @@
     "C:\\Users\\Gertj\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Gertj\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\Gertj\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\FleetDatabase\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

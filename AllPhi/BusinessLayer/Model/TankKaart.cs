@@ -8,48 +8,25 @@ using BusinessLayer.Exceptions;
 namespace BusinessLayer.Model
 {
     public class TankKaart {
-
-        #region Constructors
-        public TankKaart(string kaartnr, DateTime geldigheidsdatum)
+        public TankKaart(string kaartNr, DateTime geldigheidsdatum)
         {
-            ZetKaartNr(kaartnr);
+            ZetKaartNr(kaartNr);
             ZetGeldigheidsdatum(geldigheidsdatum);
         }
 
-        public TankKaart(string kaartnr, DateTime geldigheidsdatum, string pincode) : this(kaartnr, geldigheidsdatum)
+        public TankKaart(int tankkaartId, string kaartNr, DateTime geldigheidsdatum, string pincode, Bestuurder bestuurder, bool geblokkeerd, Brandstoftype_tankkaart? brandstoftype)
         {
+            ZetTankkaartId(tankkaartId);
+            ZetKaartNr(kaartNr);
+            ZetGeldigheidsdatum(geldigheidsdatum);
             ZetPincode(pincode);
-        }
-
-        public TankKaart(string kaartnr, DateTime geldigheidsdatum, bool geblokkeerd) : this(kaartnr, geldigheidsdatum)
-        {
-            Geblokkeerd = geblokkeerd;
-        }
-
-        public TankKaart(string kaartnr, DateTime geldigheidsdatum, Bestuurder bestuurder) : this(kaartnr, geldigheidsdatum)
-        {
             ZetBestuurder(bestuurder);
-        }
-
-        public TankKaart(string kaartnr, DateTime geldigheidsdatum, string pincode, bool geblokkeerd) : this(kaartnr, geldigheidsdatum, pincode)
-        {
             Geblokkeerd = geblokkeerd;
+            Brandstoftype = brandstoftype;
         }
 
-        public TankKaart(string kaartnr, DateTime geldigheidsdatum, string pincode, Bestuurder bestuurder) : this(kaartnr, geldigheidsdatum, pincode)
-        {
-            ZetBestuurder(bestuurder);
-        }
+        #region Constructors
 
-        public TankKaart(string kaartnr, DateTime geldigheidsdatum, Bestuurder bestuurder, bool geblokkeerd) : this(kaartnr, geldigheidsdatum, bestuurder)
-        {
-            Geblokkeerd = geblokkeerd;
-        }
-
-        public TankKaart(string kaartnr, DateTime geldigheidsdatum, string pincode, Bestuurder bestuurder, bool geblokkeerd) : this(kaartnr, geldigheidsdatum, pincode, bestuurder)
-        {
-            Geblokkeerd = geblokkeerd;
-        }
         #endregion
 
         #region Properties
