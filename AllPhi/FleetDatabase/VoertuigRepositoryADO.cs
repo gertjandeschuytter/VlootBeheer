@@ -425,7 +425,6 @@ namespace FleetDatabase {
                 } catch (Exception ex) {
                     throw new VoertuigRepositoryADOExceptions("VoertuigRepositoryException - Geefvoertuig: Er liep iets mis -> ", ex);
                 } finally {
-                    command.Dispose();
                     connection.Close();
                 }
             }

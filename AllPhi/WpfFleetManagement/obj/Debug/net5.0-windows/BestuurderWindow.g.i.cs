@@ -525,7 +525,7 @@ namespace WpfFleetManagement {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/WpfFleetManagement;component/bestuurderwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/WpfFleetManagement;V1.0.0.0;component/bestuurderwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\BestuurderWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
