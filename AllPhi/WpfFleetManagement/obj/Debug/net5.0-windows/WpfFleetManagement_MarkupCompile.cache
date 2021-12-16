@@ -4,47 +4,17 @@
 winexe
 C#
 .cs
-<<<<<<< HEAD
-<<<<<<< HEAD
-C:\Users\Gertj\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\
-=======
-C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\
->>>>>>> 0f5ab55d94b80076e91c77748fc95fd6320d99a5
-=======
 C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\
->>>>>>> efde6025162e37156ef1acc01649d2625fcd83b5
 WpfFleetManagement
 none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
-<<<<<<< HEAD
-<<<<<<< HEAD
-C:\Users\Gertj\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\App.xaml
-4-643137379
-
-6-1230969706
-198808806033
-=======
-<<<<<<< HEAD
-C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\App.xaml
-4-643137379
-
-6-1230969706
-193-1891726104
-=======
-=======
->>>>>>> efde6025162e37156ef1acc01649d2625fcd83b5
 C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\App.xaml
-4-643137379
+5538625592
 
-6-1230969706
+7-1577149847
 198-166035910
-<<<<<<< HEAD
->>>>>>> 9f8559261070062d992301f069d7d4ff958d1e39
->>>>>>> 0f5ab55d94b80076e91c77748fc95fd6320d99a5
-=======
->>>>>>> efde6025162e37156ef1acc01649d2625fcd83b5
-BestuurderWindow.xaml;MainWindow.xaml;TankkaartWindow.xaml;VoertuigWindow.xaml;
+BestuurderWindow.xaml;MainWindow.xaml;TankkaartWindow.xaml;VoertuigWindow.xaml;WijzigenBestuurderWindow.xaml;
 
 False
 

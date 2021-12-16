@@ -1,30 +1,7 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "C:\\Users\\Gertj\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\UnitTests\\UnitTests.csproj": {}
-  },
-  "projects": {
-    "C:\\Users\\Gertj\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\BusinessLayer\\BusinessLayer.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\Gertj\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\BusinessLayer\\BusinessLayer.csproj",
-        "projectName": "BusinessLayer",
-        "projectPath": "C:\\Users\\Gertj\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\BusinessLayer\\BusinessLayer.csproj",
-        "packagesPath": "C:\\Users\\Gertj\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gertj\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\BusinessLayer\\obj\\",
-        "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-        ],
-        "configFilePaths": [
-          "C:\\Users\\Gertj\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-    "C:\\Users\\Ruben\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\UnitTests\\UnitTests.csproj": {}
-=======
     "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\UnitTests\\UnitTests.csproj": {}
->>>>>>> efde6025162e37156ef1acc01649d2625fcd83b5
   },
   "projects": {
     "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\BusinessLayer\\BusinessLayer.csproj": {
@@ -37,16 +14,8 @@
         "outputPath": "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\BusinessLayer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-<<<<<<< HEAD
-          "C:\\Users\\Ruben\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
->>>>>>> 0f5ab55d94b80076e91c77748fc95fd6320d99a5
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
-=======
           "C:\\Users\\Jarne\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
->>>>>>> efde6025162e37156ef1acc01649d2625fcd83b5
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -99,27 +68,7 @@
         }
       }
     },
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "C:\\Users\\Gertj\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\UnitTests\\UnitTests.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\Gertj\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\UnitTests\\UnitTests.csproj",
-        "projectName": "UnitTests",
-        "projectPath": "C:\\Users\\Gertj\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\UnitTests\\UnitTests.csproj",
-        "packagesPath": "C:\\Users\\Gertj\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gertj\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\UnitTests\\obj\\",
-        "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-        ],
-        "configFilePaths": [
-          "C:\\Users\\Gertj\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-    "C:\\Users\\Ruben\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\UnitTests\\UnitTests.csproj": {
-=======
     "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\UnitTests\\UnitTests.csproj": {
->>>>>>> efde6025162e37156ef1acc01649d2625fcd83b5
       "version": "1.0.0",
       "restore": {
         "projectUniqueName": "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\UnitTests\\UnitTests.csproj",
@@ -129,16 +78,8 @@
         "outputPath": "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\UnitTests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-<<<<<<< HEAD
-          "C:\\Users\\Ruben\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
->>>>>>> 0f5ab55d94b80076e91c77748fc95fd6320d99a5
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
-=======
           "C:\\Users\\Jarne\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
->>>>>>> efde6025162e37156ef1acc01649d2625fcd83b5
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -151,18 +92,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-<<<<<<< HEAD
-<<<<<<< HEAD
-              "C:\\Users\\Gertj\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\BusinessLayer\\BusinessLayer.csproj": {
-                "projectPath": "C:\\Users\\Gertj\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\BusinessLayer\\BusinessLayer.csproj"
-=======
-              "C:\\Users\\Ruben\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\BusinessLayer\\BusinessLayer.csproj": {
-                "projectPath": "C:\\Users\\Ruben\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\BusinessLayer\\BusinessLayer.csproj"
->>>>>>> 0f5ab55d94b80076e91c77748fc95fd6320d99a5
-=======
               "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\BusinessLayer\\BusinessLayer.csproj": {
                 "projectPath": "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\BusinessLayer\\BusinessLayer.csproj"
->>>>>>> efde6025162e37156ef1acc01649d2625fcd83b5
               }
             }
           }

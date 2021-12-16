@@ -37,7 +37,7 @@ namespace WpfFleetManagement
             this.ResizeMode = ResizeMode.NoResize;
             InitializeComponent();
             VoegToeButton.IsEnabled = false;
-            WijzigButton.IsEnabled = false;
+            WijzigBestuurderButton.IsEnabled = false;
             VerwijderButton.IsEnabled = false;
         }
 
@@ -139,87 +139,24 @@ namespace WpfFleetManagement
             MainWindow.bestuurderManager.VoegBestuurderToe(bestuurder);
         }
 
-        private void WijzigButton_Click(object sender, RoutedEventArgs e)
-        {
-            Voornaam = Wijzig_VoornaamTextbox.Text;
-            Naam = Wijzig_NaamTextbox.Text;
-            GeboorteDatum = Wijzig_GeboortedatumDatePicker.SelectedDate;
-            Rijksregisternummer = Wijzig_RijksregisternummerTextbox.Text;
-            if ((bool)Wijzig_RijbewijsCheckbox_A.IsChecked)
-                Rijbewijzen.Add(TypeRijbewijs.A);
-            if ((bool)Wijzig_RijbewijsCheckbox_A1.IsChecked)
-                Rijbewijzen.Add(TypeRijbewijs.A1);
-            if ((bool)Wijzig_RijbewijsCheckbox_A2.IsChecked)
-                Rijbewijzen.Add(TypeRijbewijs.A2);
-            if ((bool)Wijzig_RijbewijsCheckbox_AM.IsChecked)
-                Rijbewijzen.Add(TypeRijbewijs.AM);
-            if ((bool)Wijzig_RijbewijsCheckbox_B.IsChecked)
-                Rijbewijzen.Add(TypeRijbewijs.B);
-            if ((bool)Wijzig_RijbewijsCheckbox_BE.IsChecked)
-                Rijbewijzen.Add(TypeRijbewijs.BE);
-            if ((bool)Wijzig_RijbewijsCheckbox_C.IsChecked)
-                Rijbewijzen.Add(TypeRijbewijs.C);
-            if ((bool)Wijzig_RijbewijsCheckbox_CE.IsChecked)
-                Rijbewijzen.Add(TypeRijbewijs.CE);
-            if ((bool)Wijzig_RijbewijsCheckbox_D.IsChecked)
-                Rijbewijzen.Add(TypeRijbewijs.D);
-            if ((bool)Wijzig_RijbewijsCheckbox_DE.IsChecked)
-                Rijbewijzen.Add(TypeRijbewijs.DE);
-            if ((bool)Wijzig_RijbewijsCheckbox_D1.IsChecked)
-                Rijbewijzen.Add(TypeRijbewijs.D1);
-            if ((bool)Wijzig_RijbewijsCheckbox_D1E.IsChecked)
-                Rijbewijzen.Add(TypeRijbewijs.D1E);
-            if ((bool)Wijzig_RijbewijsCheckbox_T.IsChecked)
-                Rijbewijzen.Add(TypeRijbewijs.T);
-
-            Bestuurder bestuurder = new(Voornaam, Naam, (DateTime)GeboorteDatum, Rijksregisternummer, Rijbewijzen);
-
-            MainWindow.bestuurderManager.WijzigBestuurder(bestuurder);
-        }
-
         private void DatagridBestuurder_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
             VerwijderButton.IsEnabled = true;
+            WijzigBestuurderButton.IsEnabled = true;
             
         }
 
         private void VerwijderButton_Click(object sender, RoutedEventArgs e)
         {
-            Voornaam = Wijzig_VoornaamTextbox.Text;
-            Naam = Wijzig_NaamTextbox.Text;
-            GeboorteDatum = Wijzig_GeboortedatumDatePicker.SelectedDate;
-            Rijksregisternummer = Wijzig_RijksregisternummerTextbox.Text;
-            if ((bool)Wijzig_RijbewijsCheckbox_A.IsChecked)
-                Rijbewijzen.Add(TypeRijbewijs.A);
-            if ((bool)Wijzig_RijbewijsCheckbox_A1.IsChecked)
-                Rijbewijzen.Add(TypeRijbewijs.A1);
-            if ((bool)Wijzig_RijbewijsCheckbox_A2.IsChecked)
-                Rijbewijzen.Add(TypeRijbewijs.A2);
-            if ((bool)Wijzig_RijbewijsCheckbox_AM.IsChecked)
-                Rijbewijzen.Add(TypeRijbewijs.AM);
-            if ((bool)Wijzig_RijbewijsCheckbox_B.IsChecked)
-                Rijbewijzen.Add(TypeRijbewijs.B);
-            if ((bool)Wijzig_RijbewijsCheckbox_BE.IsChecked)
-                Rijbewijzen.Add(TypeRijbewijs.BE);
-            if ((bool)Wijzig_RijbewijsCheckbox_C.IsChecked)
-                Rijbewijzen.Add(TypeRijbewijs.C);
-            if ((bool)Wijzig_RijbewijsCheckbox_CE.IsChecked)
-                Rijbewijzen.Add(TypeRijbewijs.CE);
-            if ((bool)Wijzig_RijbewijsCheckbox_D.IsChecked)
-                Rijbewijzen.Add(TypeRijbewijs.D);
-            if ((bool)Wijzig_RijbewijsCheckbox_DE.IsChecked)
-                Rijbewijzen.Add(TypeRijbewijs.DE);
-            if ((bool)Wijzig_RijbewijsCheckbox_D1.IsChecked)
-                Rijbewijzen.Add(TypeRijbewijs.D1);
-            if ((bool)Wijzig_RijbewijsCheckbox_D1E.IsChecked)
-                Rijbewijzen.Add(TypeRijbewijs.D1E);
-            if ((bool)Wijzig_RijbewijsCheckbox_T.IsChecked)
-                Rijbewijzen.Add(TypeRijbewijs.T);
+            Application.Current.Properties["Bestuurder"] = (BusinessLayer.Model.Bestuurder)DatagridBestuurder.CurrentItem;
+        }
 
-            Bestuurder bestuurder = new(Voornaam, Naam, (DateTime)GeboorteDatum, Rijksregisternummer, Rijbewijzen);
-
-            MainWindow.bestuurderManager.VerwijderBestuurder(bestuurder);
+        private void GaNaarWijzigScherm(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Properties["Bestuurder"] = (BusinessLayer.Model.Bestuurder)DatagridBestuurder.CurrentItem;
+            WijzigenBestuurderWindow window = new();
+            window.ShowDialog();
         }
     }
 }

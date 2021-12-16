@@ -9,15 +9,15 @@
         Closing="BestuurderWindow_Closing">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="500" />
-            <ColumnDefinition Width="500"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <TabControl Grid.Column="0">
-            <TabItem Header="Filter">
+            <TabItem Header="Aanpassen">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition/>
+                        <ColumnDefinition Width="2*"/>
                     </Grid.ColumnDefinitions>
 
                     <Grid.RowDefinitions>
@@ -27,8 +27,7 @@
                         <RowDefinition/>
                         <RowDefinition/>
                         <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
+
                     </Grid.RowDefinitions>
 
                     <Grid Grid.ColumnSpan="2"  Grid.RowSpan="8" ShowGridLines="False">
@@ -71,8 +70,8 @@
                         <Label Grid.Column="1" Grid.Row="3" Content="Huisnummer" Margin="5"/>
                         <TextBox x:Name="HuisnummerTextbox" Grid.Row="3" Grid.Column="1"  Margin="5,30,5,10"/>-->
 
-                        <Label Grid.Column="0" Grid.Row="4" Content="BestuurderId" Margin="5"/>
-                        <TextBox x:Name="Filter_BestuurderIdTextbox" Grid.Row="4" Grid.Column="0"  Margin="5,30,5,10"/>
+                        <Label Grid.Column="0" Grid.Row="2" Content="BestuurderId" Margin="5"/>
+                        <TextBox x:Name="Filter_BestuurderIdTextbox" Grid.Row="2" Grid.Column="0"  Margin="5,30,5,10"/>
 
                         <!--<Label Grid.Column="0" Grid.Row="5" Content="Voertuig" Margin="5"/>
                         <ComboBox Name="VoertuigCombobox" Grid.Row="5" Grid.Column="0"  Margin="5,30,5,10" />
@@ -80,8 +79,8 @@
                         <Label Grid.Column="1" Grid.Row="5" Content="Tankkaart" Margin="5"/>
                         <ComboBox Name="TankkaartCombobox" Grid.Row="5" Grid.Column="1"  Margin="5,30,5,10" />-->
 
-                        <Label Grid.Row="5" Grid.ColumnSpan="2" Margin="5" Content="Rijbewijzen"/>
-                        <Grid Grid.ColumnSpan="2"  Grid.Row="5" Margin="5">
+                        <!--<Label Grid.Row="3" Grid.ColumnSpan="2" Margin="5" Content="Rijbewijzen"/>
+                        <Grid Grid.ColumnSpan="2"  Grid.Row="3" Margin="5">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
@@ -99,7 +98,7 @@
                             <CheckBox x:Name="Filter_RijbewijsCheckbox_BE" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center">BE</CheckBox>
                             <CheckBox x:Name="Filter_RijbewijsCheckbox_C" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center">C</CheckBox>
                         </Grid>
-                        <Grid Grid.ColumnSpan="2"  Grid.Row="6" Margin="5">
+                        <Grid Grid.ColumnSpan="2"  Grid.Row="4" Margin="5">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
@@ -115,17 +114,37 @@
                             <CheckBox x:Name="Filter_RijbewijsCheckbox_D1" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center">D1</CheckBox>
                             <CheckBox x:Name="Filter_RijbewijsCheckbox_D1E" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center">D1E</CheckBox>
                             <CheckBox x:Name="Filter_RijbewijsCheckbox_T" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center">T</CheckBox>
-                        </Grid>
+                        </Grid>-->
                     </Grid>
-                    <Button Name="FilterButton" Click="FilterButton_Click" Grid.Row="7" Grid.ColumnSpan="2" Margin="5">Filter</Button>
+
+                    <Button Name="FilterButton" Click="FilterButton_Click" Grid.Row="4" Grid.ColumnSpan="2" Margin="5">Filter</Button>
+                    <Button x:Name="WijzigBestuurderButton" Click="GaNaarWijzigScherm" Grid.ColumnSpan="2" Grid.Row="5" Margin="5">Wijzig</Button>
+
+                    <Grid Grid.Column="2" Grid.RowSpan="6">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="5*"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <DataGrid x:Name="DatagridBestuurder"  CanUserReorderColumns="False" AutoGenerateColumns="False" SelectedItem="{Binding SelectedRow, Mode=OneWay}" 
+                  CanUserSortColumns="False" CanUserResizeRows="False" CanUserAddRows="False" CanUserDeleteRows="False" SelectionChanged="DatagridBestuurder_SelectionChanged" Grid.Row="0" Margin="5">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="BestuurderId" Binding="{Binding BestuurderId, Mode=OneWay}"/>
+                                <DataGridTextColumn Header="Voornaam" Binding="{Binding Voornaam, Mode=OneWay}"/>
+                                <DataGridTextColumn Header="Naam" Binding="{Binding Naam, Mode=OneWay}"/>
+                                <DataGridTextColumn Header="Geboortedatum" Binding="{Binding Geboortedatum, Mode=OneWay}"/>
+                                <DataGridTextColumn Header="Rijksregisternummer" Binding="{Binding Rijksregisternummer, Mode=OneWay}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <Button x:Name="VerwijderButton" Click="VerwijderButton_Click" Grid.Row="1" Margin="5">Verwijder</Button>
+                    </Grid>
                 </Grid>
             </TabItem>
             <TabItem Header="Voeg Toe">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="10*"/>
-                        <ColumnDefinition Width="237*"/>
-                        <ColumnDefinition Width="247*"/>
+                        <ColumnDefinition Width="475"/>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="475"/>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -136,26 +155,26 @@
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <Label Grid.Column="0" Grid.Row="0" Content="Voornaam *" Margin="5,5,5,5" Grid.ColumnSpan="2"/>
-                    <TextBox Name="VoegToe_VoornaamTextbox" Grid.Row="0" Grid.Column="0"  Margin="5,30,5,10" Grid.ColumnSpan="2"/>
+                    <Label Grid.Column="0" Grid.Row="0" Content="Voornaam *" Margin="5,5,5,5" />
+                    <TextBox Name="VoegToe_VoornaamTextbox" Grid.Row="0" Grid.Column="0"  Margin="5,30,5,10"/>
 
                     <Label Grid.Column="2" Grid.Row="0" Content="Naam *" Margin="5,5,5,5"/>
                     <TextBox Name="VoegToe_NaamTextbox" Grid.Row="0" Grid.Column="2"  Margin="5,30,5,10"/>
 
-                    <Label Grid.Column="0" Grid.Row="1" Content="Geboortedatum *" Margin="5,5,5,5" Grid.ColumnSpan="2"/>
-                    <DatePicker Name="VoegToe_GeboortedatumDatePicker" Grid.Row="1" Grid.Column="0"  Margin="5,30,5,10" Grid.ColumnSpan="2"/>
+                    <Label Grid.Column="0" Grid.Row="1" Content="Geboortedatum *" Margin="5,5,5,5" />
+                    <DatePicker Name="VoegToe_GeboortedatumDatePicker" Grid.Row="1" Grid.Column="0"  Margin="5,30,5,10" />
 
                     <Label Grid.Column="2" Grid.Row="1" Content="Rijksregisternummer *" Margin="5,5,5,5"/>
                     <TextBox Name="VoegToe_RijksregisternummerTextbox" Grid.Row="1" Grid.Column="2"  Margin="5,30,5,10"/>
 
-                    <Label Grid.Column="0" Grid.Row="2" Content="Straat" Margin="5,5,5,5" Grid.ColumnSpan="2"/>
-                    <TextBox Name="VoegToe_StraatTextbox" Grid.Row="2" Grid.Column="0"  Margin="5,30,5,10" Grid.ColumnSpan="2"/>
+                    <Label Grid.Column="0" Grid.Row="2" Content="Straat" Margin="5,5,5,5" />
+                    <TextBox Name="VoegToe_StraatTextbox" Grid.Row="2" Grid.Column="0"  Margin="5,30,5,10" />
 
                     <Label Grid.Column="2" Grid.Row="2" Content="Stad" Margin="5,5,5,5"/>
                     <TextBox Grid.Row="2" Grid.Column="2"  Margin="5,30,5,10"/>
 
-                    <Label Grid.Column="0" Grid.Row="3" Content="Postcode" Margin="5,5,5,5" Grid.ColumnSpan="2"/>
-                    <TextBox Grid.Row="3" Grid.Column="0"  Margin="5,30,5,10" Grid.ColumnSpan="2"/>
+                    <Label Grid.Column="0" Grid.Row="3" Content="Postcode" Margin="5,5,5,5" />
+                    <TextBox Grid.Row="3" Grid.Column="0"  Margin="5,30,5,10" />
 
                     <Label Grid.Column="2" Grid.Row="3" Content="Huisnummer" Margin="5,5,5,5"/>
                     <TextBox Grid.Row="3" Grid.Column="2"  Margin="5,30,5,10"/>
@@ -166,8 +185,8 @@
                     <Label Grid.Column="2" Grid.Row="4" Content="Tankkaart" Margin="5,5,5,5"/>
                     <ComboBox Grid.Row="4" Grid.Column="2"  Margin="5,30,5,10" />-->
 
-                    <Label Grid.Column="0" Grid.Row="4" Margin="5,5,0,0" Content="Rijbewijzen *" Width="100" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.ColumnSpan="2"/>
-                    <Grid Grid.ColumnSpan="3"  Grid.Row="4" Margin=" 5,30,5,20">
+                    <Label Grid.Column="0" Grid.Row="4" Margin="5,5,0,0" Content="Rijbewijzen *" Width="100" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" />
+                    <Grid Grid.Column="0"  Grid.Row="4" Margin="5">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
                             <ColumnDefinition/>
@@ -185,7 +204,7 @@
                         <CheckBox Name="VoegToe_RijbewijsCheckbox_BE" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center">BE</CheckBox>
                         <CheckBox Name="VoegToe_RijbewijsCheckbox_C" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center">C</CheckBox>
                     </Grid>
-                    <Grid Grid.ColumnSpan="3"  Grid.Row="5" Margin="5,50,5,79" Grid.RowSpan="2">
+                    <Grid Grid.Row="5" Margin="5" Grid.Column="0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
                             <ColumnDefinition/>
@@ -203,113 +222,13 @@
                         <CheckBox Name="VoegToe_RijbewijsCheckbox_T" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center">T</CheckBox>
                     </Grid>
 
+                    <!--<Button Grid.Row="4" Grid.Column="2" Margin="5">Voeg Voertuig Toe</Button>
+                    <Button Grid.Row="5" Grid.Column="2" Margin="5">Voeg Tankkaart Toe</Button>-->
+
                     <Button x:Name="VoegToeButton" Click="VoegToeButton_Click" Grid.ColumnSpan="3" Grid.Row="6" Margin="5,5,5,5">Voeg Toe</Button>
                     <Label Grid.ColumnSpan="2" Grid.Row="6" Margin="5,5,0,0" Width="100" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left">* = verplicht</Label>
                 </Grid>
             </TabItem>
-            <TabItem Header="Wijzig">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    <Label Grid.Column="0" Grid.Row="0" Content="Voornaam" Margin="5"/>
-                    <TextBox x:Name="Wijzig_VoornaamTextbox" Grid.Row="0" Grid.Column="0"  Margin="5,30,5,10"/>
-
-                    <Label Grid.Column="1" Grid.Row="0" Content="Naam" Margin="5"/>
-                    <TextBox x:Name="Wijzig_NaamTextbox" Grid.Row="0" Grid.Column="1"  Margin="5,30,5,10"/>
-
-                    <Label Grid.Column="0" Grid.Row="1" Content="Geboortedatum" Margin="5"/>
-                    <DatePicker x:Name="Wijzig_GeboortedatumDatePicker" Grid.Row="1" Grid.Column="0"  Margin="5,30,5,10"/>
-
-                    <Label Grid.Column="1" Grid.Row="1" Content="Rijksregisternummer" Margin="5"/>
-                    <TextBox x:Name="Wijzig_RijksregisternummerTextbox" Grid.Row="1" Grid.Column="1"  Margin="5,30,5,10"/>
-
-                    <Label Grid.Column="0" Grid.Row="2" Content="Straat" Margin="5"/>
-                    <TextBox x:Name="Wijzig_StraatTextbox" Grid.Row="2" Grid.Column="0"  Margin="5,30,5,10"/>
-
-                    <Label Grid.Column="1" Grid.Row="2" Content="Stad" Margin="5"/>
-                    <TextBox Grid.Row="2" Grid.Column="1"  Margin="5,30,5,10"/>
-
-                    <Label Grid.Column="0" Grid.Row="3" Content="Postcode" Margin="5"/>
-                    <TextBox Grid.Row="3" Grid.Column="0"  Margin="5,30,5,10"/>
-
-                    <Label Grid.Column="1" Grid.Row="3" Content="Huisnummer" Margin="5"/>
-                    <TextBox Grid.Row="3" Grid.Column="1"  Margin="5,30,5,10"/>
-
-                    <Label Grid.Column="0" Grid.Row="4" Content="Voertuig" Margin="5"/>
-                    <ComboBox Grid.Row="4" Grid.Column="0"  Margin="5,30,5,10" />
-
-                    <Label Grid.Column="1" Grid.Row="4" Content="Tankkaart" Margin="5"/>
-                    <ComboBox Grid.Row="4" Grid.Column="1"  Margin="5,30,5,10" />
-
-                    <Label Grid.Column="0" Grid.Row="4" Margin="5" Content="Rijbewijzen" Width="100" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-                    <Grid Grid.ColumnSpan="2"  Grid.Row="4" Margin="5">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <CheckBox x:Name="Wijzig_RijbewijsCheckbox_AM" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center">AM</CheckBox>
-                        <CheckBox x:Name="Wijzig_RijbewijsCheckbox_A" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">A</CheckBox>
-                        <CheckBox x:Name="Wijzig_RijbewijsCheckbox_A1" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center">A1</CheckBox>
-                        <CheckBox x:Name="Wijzig_RijbewijsCheckbox_A2" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center">A2</CheckBox>
-                        <CheckBox x:Name="Wijzig_RijbewijsCheckbox_B" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center">B</CheckBox>
-                        <CheckBox x:Name="Wijzig_RijbewijsCheckbox_BE" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center">BE</CheckBox>
-                        <CheckBox x:Name="Wijzig_RijbewijsCheckbox_C" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center">C</CheckBox>
-                    </Grid>
-                    <Grid Grid.ColumnSpan="2"  Grid.Row="5" Margin="5">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <CheckBox x:Name="Wijzig_RijbewijsCheckbox_CE" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center">CE</CheckBox>
-                        <CheckBox x:Name="Wijzig_RijbewijsCheckbox_D" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">D</CheckBox>
-                        <CheckBox x:Name="Wijzig_RijbewijsCheckbox_DE" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center">DE</CheckBox>
-                        <CheckBox x:Name="Wijzig_RijbewijsCheckbox_D1" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center">D1</CheckBox>
-                        <CheckBox x:Name="Wijzig_RijbewijsCheckbox_D1E" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center">D1E</CheckBox>
-                        <CheckBox x:Name="Wijzig_RijbewijsCheckbox_T" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center">T</CheckBox>
-                    </Grid>
-
-                    <Button x:Name="WijzigButton" Click="WijzigButton_Click" Grid.ColumnSpan="2" Grid.Row="6" Margin="5">Wijzig</Button>
-                </Grid>
-            </TabItem>
         </TabControl>
-        <Grid Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="7*"/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <DataGrid x:Name="DatagridBestuurder"  CanUserReorderColumns="False" AutoGenerateColumns="False" SelectedItem="{Binding SelectedRow, Mode=OneWay}" 
-                  CanUserSortColumns="False" CanUserResizeRows="False" CanUserAddRows="False" CanUserDeleteRows="False" SelectionChanged="DatagridBestuurder_SelectionChanged" Grid.Row="0" Margin="5">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="BestuurderId" Binding="{Binding BestuurderId, Mode=OneWay}"/>
-                    <DataGridTextColumn Header="Voornaam" Binding="{Binding Voornaam, Mode=OneWay}"/>
-                    <DataGridTextColumn Header="Naam" Binding="{Binding Naam, Mode=OneWay}"/>
-                    <DataGridTextColumn Header="Geboortedatum" Binding="{Binding Geboortedatum, Mode=OneWay}"/>
-                    <DataGridTextColumn Header="Rijksregisternummer" Binding="{Binding Rijksregisternummer, Mode=OneWay}"/>
-                </DataGrid.Columns>
-            </DataGrid>
-            <Button x:Name="VerwijderButton" Click="VerwijderButton_Click" Grid.Row="1" Margin="5">Verwijder</Button>
-        </Grid>
-
     </Grid>
 </Window>
