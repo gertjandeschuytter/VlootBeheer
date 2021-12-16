@@ -354,8 +354,7 @@ namespace FleetDatabase {
                         }
                         if ((reader["TankkaartId"].GetType() != typeof(DBNull))) {
                             int tankkaartIdDB = (int)reader["TankkaartId"];
-                            TankKaart tankKaart = new TankKaart((string)reader["Kaartnummer"], (DateTime)reader["Geldigheidsdatum"], (string)reader["Pincode"], (bool)reader["Isgeblokeerd"]);
-                            tankKaart.ZetTankkaartId(tankkaartIdDB);
+                            TankKaart tankKaart = new TankKaart(tankkaartIdDB, (string)reader["Kaartnummer"], (DateTime)reader["Geldigheidsdatum"], (string)reader["Pincode"], bestuurder, (bool)reader["Isgeblokeerd"], null);
                             voertuig.Bestuurder.ZetTankKaart(tankKaart);
                         }
                         Voertuigen.Add(voertuig);
@@ -418,7 +417,7 @@ namespace FleetDatabase {
                     }
                     if ((reader["TankkaartId"].GetType() != typeof(DBNull))) {
                         int tankkaartIdDB = (int)reader["TankkaartId"];
-                        TankKaart tankKaart = new TankKaart((string)reader["Kaartnummer"], (DateTime)reader["Geldigheidsdatum"], (string)reader["Pincode"], (bool)reader["Isgeblokeerd"]);
+                        TankKaart tankKaart = new TankKaart(tankkaartIdDB, (string)reader["Kaartnummer"], (DateTime)reader["Geldigheidsdatum"], (string)reader["Pincode"], bestuurder, (bool)reader["Isgeblokeerd"], null);
                         tankKaart.ZetTankkaartId(tankkaartIdDB);
                         voertuig.Bestuurder.ZetTankKaart(tankKaart);
                     }

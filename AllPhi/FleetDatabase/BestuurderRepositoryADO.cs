@@ -72,8 +72,7 @@ namespace FleetDatabase {
                     }
                     if (reader["TankkaartId"].GetType() != typeof(DBNull)) {
                         int tankkaartIdDB = (int)reader["TankkaartId"];
-                        TankKaart tankKaart = new TankKaart((string)reader["Kaartnummer"], (DateTime)reader["Geldigheidsdatum"], (string)reader["Pincode"], (bool)reader["Isgeblokeerd"]);
-                        tankKaart.ZetTankkaartId(tankkaartIdDB);
+                        TankKaart tankKaart = new TankKaart(tankkaartIdDB,(string)reader["Kaartnummer"], (DateTime)reader["Geldigheidsdatum"], (string)reader["Pincode"], bestuurder, (bool)reader["Isgeblokeerd"], null);
                         bestuurder.ZetTankKaart(tankKaart);
                     }
                     return bestuurder;
@@ -149,15 +148,15 @@ namespace FleetDatabase {
                     command.Parameters.Add(new SqlParameter("@VoertuigId", SqlDbType.Int));
                     command.Parameters.Add(new SqlParameter("@TankkaartId", SqlDbType.Int));
                     command.CommandText = query;
-                    command.Parameters["@Voornaam"].Value = bestuurder.VoorNaam;
+                    command.Parameters["@Voornaam"].Value = bestuurder.Voornaam;
                     command.Parameters["@Naam"].Value = bestuurder.Naam;
-                    command.Parameters["@Geboortedatum"].Value = bestuurder.GeboorteDatum;
+                    command.Parameters["@Geboortedatum"].Value = bestuurder.Geboortedatum;
                     if (bestuurder.Adres == null) {
                         command.Parameters["@AdresId"].Value = DBNull.Value;
                     } else {
                         command.Parameters["@AdresId"].Value = bestuurder.Adres.ID;
                     }
-                    command.Parameters["@Rijksregisternummer"].Value = bestuurder.RijksRegisterNr;
+                    command.Parameters["@Rijksregisternummer"].Value = bestuurder.Rijksregisternummer;
                     if (bestuurder.Voertuig == null) {
                         command.Parameters["@VoertuigId"].Value = DBNull.Value;
                     } else {
@@ -222,7 +221,7 @@ namespace FleetDatabase {
                 } else {
                     AND = true;
                 }
-                sql += "b.KlantId = @KlantId";
+                sql += "bs.naam = @naam";
             }
             if (!string.IsNullOrEmpty(rijksregister)) {
                 if (WHERE) {
@@ -234,7 +233,7 @@ namespace FleetDatabase {
                 } else {
                     AND = false;
                 }
-                sql += "b.rijksregisternummer = @rijksregisternummer";
+                sql += "bs.rijksregisternummer = @rijksregisternummer";
             }
             if (geboortedatum.HasValue) {
                 if (WHERE) {
@@ -243,10 +242,11 @@ namespace FleetDatabase {
                 if (AND) {
                     sql += " AND ";
                 }
-                sql += "b.geboortedatum=@geboortedatum";
+                sql += "bs.geboortedatum=@geboortedatum";
             }
             SqlConnection conn = GetConnection();
             using (SqlCommand cmd = conn.CreateCommand()) {
+                conn.Open();
                 cmd.CommandText = sql;
                 try {
                     if (!string.IsNullOrEmpty(voornaam)) {
@@ -256,18 +256,19 @@ namespace FleetDatabase {
                         cmd.Parameters.AddWithValue("@naam", naam);
                     }
                     if (!string.IsNullOrEmpty(rijksregister)) {
-                        cmd.Parameters.AddWithValue("@rijksregister", rijksregister);
+                        cmd.Parameters.AddWithValue("@rijksregisternummer", rijksregister);
                     }
-                    if (!string.IsNullOrEmpty(rijksregister)) {
+                    if (geboortedatum != null) {
                         cmd.Parameters.AddWithValue("@geboortedatum", geboortedatum);
                     }
                     SqlDataReader reader = cmd.ExecuteReader();
                     while (reader.Read()) {
-                        conn.Open();
-                        int bestuurderId = (int)reader["BestuurderId"];
                         if (reader["BestuurderId"].GetType() != typeof(DBNull)) {
+                            var datum = (DateTime)reader["Geboortedatum"];
+                            var verkorteDatum = datum.Date;
+                            int bestuurderId = (int)reader["BestuurderId"];
                             if (!BestuurderHeeftEenOfMeerdereRijbewijzen(bestuurderId)) {
-                                bestuurder = new Bestuurder((string)reader["Naam"], (string)reader["Voornaam"], (DateTime)reader["Geboortedatum"], (string)reader["Rijksregisternummer"], RijbewijzenLijst);
+                                bestuurder = new Bestuurder((string)reader["Naam"], (string)reader["Voornaam"], verkorteDatum, (string)reader["Rijksregisternummer"], RijbewijzenLijst);
                             } else {
                                 bestuurder = new Bestuurder((string)reader["Naam"], (string)reader["Voornaam"], (DateTime)reader["Geboortedatum"], (string)reader["Rijksregisternummer"], GeefTypeRijbewijzen(bestuurderId));
                             }
@@ -294,8 +295,7 @@ namespace FleetDatabase {
                         }
                         if ((reader["TankkaartId"].GetType() != typeof(DBNull))) {
                             int tankkaartIdDB = (int)reader["TankkaartId"];
-                            TankKaart tankKaart = new TankKaart((string)reader["Kaartnummer"], (DateTime)reader["Geldigheidsdatum"], (string)reader["Pincode"], (bool)reader["Isgeblokeerd"]);
-                            tankKaart.ZetTankkaartId(tankkaartIdDB);
+                            TankKaart tankKaart = new TankKaart(tankkaartIdDB, (string)reader["Kaartnummer"], (DateTime)reader["Geldigheidsdatum"], (string)reader["Pincode"], bestuurder, (bool)reader["Isgeblokeerd"], null);
                             bestuurder.ZetTankKaart(tankKaart);
                         }
                         bestuurders.Add(bestuurder);
@@ -310,8 +310,9 @@ namespace FleetDatabase {
         }
         private bool BestuurderHeeftEenOfMeerdereRijbewijzen(int bestuurderId) {
             SqlConnection conn = GetConnection();
-            string query = "SELECT (*) FROM [dbo].BestuurderRijbewijs WHERE bestuurderId=@bestuurderId";
+            string query = "SELECT COUNT(*) FROM [dbo].BestuurderRijbewijs WHERE bestuurderId=@bestuurderId";
             using (SqlCommand cmd = conn.CreateCommand()) {
+                conn.Open();
                 try {
                     cmd.Parameters.Add(new SqlParameter("@bestuurderId", SqlDbType.Int));
                     cmd.CommandText = query;
@@ -326,7 +327,7 @@ namespace FleetDatabase {
             }
         }
         public void VerwijderBestuurder(Bestuurder bestuurder) {
-            Bestuurder bestuurderDB = GeefBestuurder(bestuurder.ID);
+            Bestuurder bestuurderDB = GeefBestuurder(bestuurder.BestuurderId);
             string querydeleteAdres = "DELETE t1 FROM Fleet.[dbo].Adres t1 JOIN Fleet.[dbo].Bestuurder t2 ON t1.AdresId = t2.AdresId WHERE t2.BestuurderId=@BestuurderId";
             string querydeleteVoertuig = "DELETE t1 FROM Fleet.[dbo].Voertuig t1 JOIN Fleet.[dbo].Bestuurder t2 ON t1.VoertuigId = t2.VoertuigId WHERE t2.BestuurderId=@BestuurderId";
             string querydeleteTankkaart = "DELETE t1 FROM Fleet.[dbo].Tankkaart t1 JOIN Fleet.[dbo].Bestuurder t2 ON t1.TankkaartId = t2.TankkaartId WHERE t2.BestuurderId=@BestuurderId";
@@ -339,7 +340,7 @@ namespace FleetDatabase {
                     try {
                         command.Parameters.Add(new SqlParameter("@BestuurderId", SqlDbType.Int));
                         command.CommandText = querydeleteAdres;
-                        command.Parameters["@BestuurderId"].Value = bestuurder.ID;
+                        command.Parameters["@BestuurderId"].Value = bestuurder.BestuurderId;
                         command.ExecuteNonQuery();
                     } catch (Exception ex) {
                         throw new BestuurderRepositoryADOException("Adres kon niet verwijderd worden" + ex.Message);
@@ -354,7 +355,7 @@ namespace FleetDatabase {
                     try {
                         command.Parameters.Add(new SqlParameter("@BestuurderId", SqlDbType.Int));
                         command.CommandText = querydeleteVoertuig;
-                        command.Parameters["@BestuurderId"].Value = bestuurder.ID;
+                        command.Parameters["@BestuurderId"].Value = bestuurder.BestuurderId;
                         command.ExecuteNonQuery();
                     } catch (Exception ex) {
                         throw new BestuurderRepositoryADOException("Voertuig kon niet verwijderd worden" + ex.Message);
@@ -369,7 +370,7 @@ namespace FleetDatabase {
                     try {
                         command.Parameters.Add(new SqlParameter("@BestuurderId", SqlDbType.Int));
                         command.CommandText = querydeleteTankkaart;
-                        command.Parameters["@BestuurderId"].Value = bestuurder.ID;
+                        command.Parameters["@BestuurderId"].Value = bestuurder.BestuurderId;
                         command.ExecuteNonQuery();
                     } catch (Exception ex) {
                         throw new BestuurderRepositoryADOException("Tankkaart kon niet verwijderd worden" + ex.Message);
@@ -384,7 +385,7 @@ namespace FleetDatabase {
                     try {
                         command.Parameters.Add(new SqlParameter("@BestuurderId", SqlDbType.Int));
                         command.CommandText = querydeleteTypes;
-                        command.Parameters["@BestuurderId"].Value = bestuurder.ID;
+                        command.Parameters["@BestuurderId"].Value = bestuurder.BestuurderId;
                         command.ExecuteNonQuery();
                     } catch (Exception ex) {
                         throw new BestuurderRepositoryADOException("Tankkaart kon niet verwijderd worden" + ex.Message);
@@ -399,7 +400,7 @@ namespace FleetDatabase {
                     try {
                         command.Parameters.Add(new SqlParameter("@BestuurderId", SqlDbType.Int));
                         command.CommandText = querydeleteBestuurder;
-                        command.Parameters["@BestuurderId"].Value = bestuurder.ID;
+                        command.Parameters["@BestuurderId"].Value = bestuurder.BestuurderId;
                         command.ExecuteNonQuery();
                     } catch (Exception ex) {
                         throw new BestuurderRepositoryADOException("Bestuurder kon niet verwijderd worden want bestuurder bestaat niet" + ex.Message);
@@ -410,7 +411,7 @@ namespace FleetDatabase {
             }
         }
         public void WijzigBestuurder(Bestuurder nieuweBestuurder) {
-            Bestuurder bestuurderdb = GeefBestuurder(nieuweBestuurder.ID);
+            Bestuurder bestuurderdb = GeefBestuurder(nieuweBestuurder.BestuurderId);
             SqlTransaction trans = null;
             string sql1 = "UPDATE [dbo].Bestuurder SET Voornaam = @Voornaam," +
                 "Naam = @Naam, Geboortedatum = @Geboortedatum," +
@@ -432,17 +433,17 @@ namespace FleetDatabase {
                     command.Parameters.Add(new SqlParameter("@Geboortedatum", SqlDbType.Date));
                     command.Parameters.Add(new SqlParameter("@Rijksregisternummer", SqlDbType.NVarChar));
                     command.CommandText = sql1;
-                    command.Parameters["@BestuurderId"].Value = nieuweBestuurder.ID;
+                    command.Parameters["@BestuurderId"].Value = nieuweBestuurder.BestuurderId;
                     command.Parameters["@Naam"].Value = nieuweBestuurder.Naam;
-                    command.Parameters["@Voornaam"].Value = nieuweBestuurder.VoorNaam;
-                    command.Parameters["@Geboortedatum"].Value = nieuweBestuurder.GeboorteDatum;
-                    command.Parameters["@Rijksregisternummer"].Value = nieuweBestuurder.RijksRegisterNr;
+                    command.Parameters["@Voornaam"].Value = nieuweBestuurder.Voornaam;
+                    command.Parameters["@Geboortedatum"].Value = nieuweBestuurder.Geboortedatum;
+                    command.Parameters["@Rijksregisternummer"].Value = nieuweBestuurder.Rijksregisternummer;
                     command.ExecuteNonQuery();
-                    List<TypeRijbewijs> lijst = GeefTypeRijbewijzen(nieuweBestuurder.ID);
+                    List<TypeRijbewijs> lijst = GeefTypeRijbewijzen(nieuweBestuurder.BestuurderId);
                     foreach (var item in bestuurderdb._Types) {
                         if (!lijst.Contains(item)) {
                             command2.CommandText = sql2;
-                            command2.Parameters.AddWithValue("@BestuurderId", nieuweBestuurder.ID);
+                            command2.Parameters.AddWithValue("@BestuurderId", nieuweBestuurder.BestuurderId);
                             command2.Parameters.AddWithValue("@TypeRijbewijs", item.ToString());
                             command2.ExecuteNonQuery();
                         }

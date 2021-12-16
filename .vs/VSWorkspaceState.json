@@ -3,14 +3,9 @@
     "",
     "\\AllPhi",
     "\\AllPhi\\BusinessLayer",
-    "\\AllPhi\\BusinessLayer\\Exceptions",
-    "\\AllPhi\\BusinessLayer\\Interfaces",
-    "\\AllPhi\\BusinessLayer\\Managers",
-    "\\AllPhi\\BusinessLayer\\Model",
-    "\\AllPhi\\BusinessLayer\\Utilities",
     "\\AllPhi\\FleetDatabase",
     "\\AllPhi\\UnitTests"
   ],
-  "SelectedNode": "\\AllPhi\\BusinessLayer\\Utilities\\NummerplaatValidator.cs",
+  "SelectedNode": "\\AllPhi\\AllPhi.sln",
   "PreviewInSolutionExplorer": false
 }

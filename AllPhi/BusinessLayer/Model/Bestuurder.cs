@@ -48,12 +48,12 @@ namespace BusinessLayer.Model {
         #endregion
 
         #region Properties
-        public int ID { get; private set; }
+        public int BestuurderId { get; private set; }
         public string Naam { get; private set; }
-        public string VoorNaam { get; private set; }
+        public string Voornaam { get; private set; }
         public Adres Adres { get; private set; }
-        public DateTime GeboorteDatum { get; private set; }
-        public string RijksRegisterNr { get; private set; }
+        public DateTime Geboortedatum { get; private set; }
+        public string Rijksregisternummer { get; private set; }
         public Voertuig Voertuig { get; private set; }
         public TankKaart TankKaart { get; private set; }
 
@@ -66,7 +66,7 @@ namespace BusinessLayer.Model {
 
         public void ZetID(int ID) {
             if (ID <= 0) throw new BestuurderException("Bestuurder: ZetID - ID mag niet 0 of kleiner zijn.");
-            this.ID = ID;
+            this.BestuurderId = ID;
         }
         public void ZetNaam(string naam) {
             if (string.IsNullOrWhiteSpace(naam)) throw new BestuurderException("Bestuurder: ZetNaam - invalid naam: naam mag niet leeg zijn");
@@ -75,13 +75,13 @@ namespace BusinessLayer.Model {
 
         public void ZetVoorNaam(string voorNaam) {
             if (string.IsNullOrWhiteSpace(voorNaam)) throw new BestuurderException("Bestuurder: ZetVoorNaam - invalid voornaam: voornaam mag niet leeg zijn");
-            VoorNaam = voorNaam;
+            Voornaam = voorNaam;
         }
 
         public void ZetGeboorteDatum(DateTime geboorte) {
             DateTime standaard = new();
             if (geboorte == standaard) throw new BestuurderException("Bestuurder: ZetGeboorteDatum - invalid geboortedatum: geboortedatum mag niet null/ongeldig zijn");
-            GeboorteDatum = geboorte;
+            Geboortedatum = geboorte;
         }
 
         public void ZetRijksRegisterNummer(string rijksRegisterNr) {
@@ -90,7 +90,7 @@ namespace BusinessLayer.Model {
             if (!RijksRegisterNummerValidator.ControleerEerste6Cijfers(this, rijksRegisterNr)) throw new BestuurderException("Bestuurder: ZetRijksRegisterNummer - invalid rijksregisternummer: De eerste 6 cijfers moeten dezelfde zijn als de geboortedatum");
             if (!RijksRegisterNummerValidator.ControleerLaatste2Cijfers(this, rijksRegisterNr)) throw new BestuurderException("Bestuurder: ZetRijksRegisterNummer - invalid rijksregisternummer: De laatste 2 cijfers zijn een controle voor de andere 9");
 
-            RijksRegisterNr = rijksRegisterNr;
+            Rijksregisternummer = rijksRegisterNr;
         }
 
         public void ZetAdres(Adres adres) {
@@ -154,12 +154,12 @@ namespace BusinessLayer.Model {
 
         public bool Equals(Bestuurder other) {
             return other != null &&
-                   ID == other.ID &&
+                   BestuurderId == other.BestuurderId &&
                    Naam == other.Naam &&
-                   VoorNaam == other.VoorNaam &&
+                   Voornaam == other.Voornaam &&
                    EqualityComparer<Adres>.Default.Equals(Adres, other.Adres) &&
-                   GeboorteDatum == other.GeboorteDatum &&
-                   RijksRegisterNr == other.RijksRegisterNr &&
+                   Geboortedatum == other.Geboortedatum &&
+                   Rijksregisternummer == other.Rijksregisternummer &&
                    EqualityComparer<Voertuig>.Default.Equals(Voertuig, other.Voertuig) &&
                    EqualityComparer<TankKaart>.Default.Equals(TankKaart, other.TankKaart) &&
                    EqualityComparer<List<TypeRijbewijs>>.Default.Equals(_Types, other._Types);
@@ -167,12 +167,12 @@ namespace BusinessLayer.Model {
 
         public override int GetHashCode() {
             HashCode hash = new HashCode();
-            hash.Add(ID);
+            hash.Add(BestuurderId);
             hash.Add(Naam);
-            hash.Add(VoorNaam);
+            hash.Add(Voornaam);
             hash.Add(Adres);
-            hash.Add(GeboorteDatum);
-            hash.Add(RijksRegisterNr);
+            hash.Add(Geboortedatum);
+            hash.Add(Rijksregisternummer);
             hash.Add(Voertuig);
             hash.Add(TankKaart);
             hash.Add(_Types);
