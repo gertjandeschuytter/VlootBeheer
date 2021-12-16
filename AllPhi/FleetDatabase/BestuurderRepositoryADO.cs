@@ -165,7 +165,7 @@ namespace FleetDatabase {
                     if (bestuurder.TankKaart == null) {
                         command.Parameters["@TankkaartId"].Value = DBNull.Value;
                     } else {
-                        command.Parameters["@TankkaartId"].Value = bestuurder.TankKaart.KaartNr;
+                        command.Parameters["@TankkaartId"].Value = bestuurder.TankKaart.TankkaartId;
                     }
                     BestuurderId = (int)command.ExecuteScalar();
                     bestuurder.ZetID(BestuurderId);
