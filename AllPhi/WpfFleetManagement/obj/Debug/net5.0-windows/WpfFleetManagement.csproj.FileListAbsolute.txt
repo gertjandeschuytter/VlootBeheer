@@ -120,10 +120,8 @@ C:\Users\Gertj\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\bin\D
 C:\Users\Gertj\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\bin\Debug\net5.0-windows\FleetDatabase.pdb
 C:\Users\Gertj\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\WpfFleetManagement.csproj.CopyComplete
 >>>>>>> 0f5ab55d94b80076e91c77748fc95fd6320d99a5
-<<<<<<< HEAD
 C:\Users\Gertj\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\WijzigenBestuurderWindow.g.cs
 C:\Users\Gertj\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\WijzigenBestuurderWindow.baml
-=======
 C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\WijzigenBestuurderWindow.g.cs
 C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\WijzigenBestuurderWindow.baml
 >>>>>>> 8806cfacca33869a3240755138e81226ef241923

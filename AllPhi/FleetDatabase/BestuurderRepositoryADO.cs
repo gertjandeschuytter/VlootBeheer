@@ -170,8 +170,9 @@ namespace FleetDatabase {
                     BestuurderId = (int)command.ExecuteScalar();
                     bestuurder.ZetID(BestuurderId);
                     foreach (var item in bestuurder._Types) {
-                        string sql2 = "INSERT INTO [dbo].BestuurderRijbewijs (BestuurderId, TypeRijbewijs) VALUES (@BestuurderId, @TypeRijbewijs)";
+                        command2.Parameters.Clear();
                         command2.Transaction = trans;
+                        string sql2 = "INSERT INTO [dbo].BestuurderRijbewijs (BestuurderId, TypeRijbewijs) VALUES (@BestuurderId, @TypeRijbewijs)";
                         command2.CommandText = sql2;
                         command2.Parameters.AddWithValue("@BestuurderId", BestuurderId);
                         command2.Parameters.AddWithValue("@TypeRijbewijs", item.ToString());
@@ -180,7 +181,7 @@ namespace FleetDatabase {
                     trans.Commit();
                 } catch (Exception ex) {
                     trans.Rollback();
-                    throw new("BestuurderRepositoryADO - GeefBestuurders: Er liep iets mis -> ", ex);
+                    throw new BestuurderRepositoryADOException("BestuurderRepositoryADO - GeefBestuurders: Er liep iets mis -> ", ex);
                 } finally {
                     connection.Close();
                 }

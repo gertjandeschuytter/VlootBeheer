@@ -13,15 +13,13 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace WpfFleetManagement
-{
+namespace WpfFleetManagement {
     /// <summary>
     /// Interaction logic for WijzigenBestuurderWindow.xaml
     /// </summary>
-    public partial class WijzigenBestuurderWindow : Window
-    {
+    public partial class WijzigenBestuurderWindow : Window {
 
-        private BusinessLayer.Model.Bestuurder _bestuurder = (BusinessLayer.Model.Bestuurder)Application.Current.Properties["Bestuurder"];
+        private Bestuurder _bestuurder = (BusinessLayer.Model.Bestuurder)Application.Current.Properties["Bestuurder"];
 
         public string Voornaam;
         public string Naam;
@@ -34,8 +32,7 @@ namespace WpfFleetManagement
         public int? BestuurderID;
         public List<TypeRijbewijs> Rijbewijzen = new();
 
-        public WijzigenBestuurderWindow()
-        {
+        public WijzigenBestuurderWindow() {
             InitializeComponent();
             Wijzig_VoornaamTextbox.Text = _bestuurder.Voornaam;
             Wijzig_NaamTextbox.Text = _bestuurder.Naam;
@@ -69,8 +66,7 @@ namespace WpfFleetManagement
                 Wijzig_RijbewijsCheckbox_T.IsChecked = true;
         }
 
-        private void WijzigButton_Click_1(object sender, RoutedEventArgs e)
-        {
+        private void WijzigButton_Click_1(object sender, RoutedEventArgs e) {
             Voornaam = Wijzig_VoornaamTextbox.Text;
             Naam = Wijzig_NaamTextbox.Text;
             GeboorteDatum = Wijzig_GeboortedatumDatePicker.SelectedDate;
@@ -101,10 +97,11 @@ namespace WpfFleetManagement
                 Rijbewijzen.Add(TypeRijbewijs.D1E);
             if ((bool)Wijzig_RijbewijsCheckbox_T.IsChecked)
                 Rijbewijzen.Add(TypeRijbewijs.T);
-
-            Bestuurder bestuurder = new(Voornaam, Naam, (DateTime)GeboorteDatum, Rijksregisternummer, Rijbewijzen);
-
+            Bestuurder bestuurder = new(Naam, Voornaam, (DateTime)GeboorteDatum, Rijksregisternummer, Rijbewijzen);
+            bestuurder.ZetID(_bestuurder.BestuurderId);
             MainWindow.bestuurderManager.WijzigBestuurder(bestuurder);
+            MessageBox.Show("De bestuurder is gewijzigd");
+            this.Close();
         }
     }
 }
