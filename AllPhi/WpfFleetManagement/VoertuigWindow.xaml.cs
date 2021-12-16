@@ -22,6 +22,10 @@ namespace WpfFleetManagement
         public VoertuigWindow()
         {
             InitializeComponent();
+            FilterButton.IsEnabled = false;
+            VoegToeButton.IsEnabled = false;
+            WijzigButton.IsEnabled = false;
+            VerwijderButton.IsEnabled = false;
         }
 
         private void VoertuigWindow_Closing(object sender, EventArgs e)

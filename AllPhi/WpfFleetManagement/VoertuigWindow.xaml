@@ -76,7 +76,7 @@
                         <Label Grid.Column="1" Grid.Row="4" Content="VoertuigId" Margin="5"/>
                         <TextBox Grid.Row="4" Grid.Column="1"  Margin="5,30,5,10"/>
                     </Grid>
-                    <Button Grid.Row="7" Grid.ColumnSpan="2" Margin="5">Filter</Button>
+                    <Button x:Name="FilterButton" Grid.Row="7" Grid.ColumnSpan="2" Margin="5">Filter</Button>
                 </Grid>
             </TabItem>
             <TabItem Header="Voeg Toe">
@@ -122,7 +122,7 @@
                         <Label Grid.Row="4" Grid.Column="0" Content="Type wagen *" Margin="5"/>
                         <ComboBox Grid.Row="4" Grid.Column="0" Margin="5,30,5,10"/>
 
-                        <Button Grid.ColumnSpan="2" Grid.Row="6" Margin="5">Voeg Toe</Button>
+                        <Button x:Name="VoegToeButton" Grid.ColumnSpan="2" Grid.Row="6" Margin="5">Voeg Toe</Button>
                         <Label Grid.ColumnSpan="2" Grid.Row="6" Margin="5" Width="100" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left">* = verplicht</Label>
                     </Grid>
 
@@ -172,7 +172,7 @@
                         <Label Grid.Row="4" Grid.Column="0" Content="Type wagen" Margin="5"/>
                         <ComboBox Grid.Row="4" Grid.Column="0" Margin="5,30,5,10"/>
 
-                        <Button Grid.ColumnSpan="2" Grid.Row="6" Margin="5">Wijzig</Button>
+                        <Button x:Name="WijzigButton" Grid.ColumnSpan="2" Grid.Row="6" Margin="5">Wijzig</Button>
                     </Grid>
                 </Grid>
             </TabItem>
@@ -183,7 +183,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <DataGrid Grid.Row="0" Margin="5"/>
-            <Button Grid.Row="1" Margin="5">Verwijder</Button>
+            <Button x:Name="VerwijderButton" Grid.Row="1" Margin="5">Verwijder</Button>
         </Grid>
 
     </Grid>

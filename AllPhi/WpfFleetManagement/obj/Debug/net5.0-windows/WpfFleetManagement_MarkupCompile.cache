@@ -9,11 +9,19 @@ WpfFleetManagement
 none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
+<<<<<<< HEAD
 C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\App.xaml
 4-643137379
 
 6-1230969706
 193-1891726104
+=======
+C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\App.xaml
+4-643137379
+
+6-1230969706
+198-166035910
+>>>>>>> 9f8559261070062d992301f069d7d4ff958d1e39
 BestuurderWindow.xaml;MainWindow.xaml;TankkaartWindow.xaml;VoertuigWindow.xaml;
 
 False
