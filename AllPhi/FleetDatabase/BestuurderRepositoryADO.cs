@@ -154,6 +154,7 @@ namespace FleetDatabase {
                     if (bestuurder.Adres == null) {
                         command.Parameters["@AdresId"].Value = DBNull.Value;
                     } else {
+                        VoegAdresToe(bestuurder.Adres);
                         command.Parameters["@AdresId"].Value = bestuurder.Adres.ID;
                     }
                     command.Parameters["@Rijksregisternummer"].Value = bestuurder.Rijksregisternummer;
@@ -450,13 +451,13 @@ namespace FleetDatabase {
                         }
                     }
                     //UPDATE ADRES
-                    if (bestuurderdb.Adres != nieuweBestuurder.Adres) {
+                    if (bestuurderdb.Adres != nieuweBestuurder.Adres && nieuweBestuurder.Adres != null) {
                         UpdateAdresBestuurder(nieuweBestuurder);
                     }
-                    if (bestuurderdb.Voertuig != nieuweBestuurder.Voertuig) {
+                    if (bestuurderdb.Voertuig != nieuweBestuurder.Voertuig && nieuweBestuurder.Voertuig != null) {
                         UpdateVoertuigBestuurder(nieuweBestuurder);
                     }
-                    if (bestuurderdb.TankKaart != nieuweBestuurder.TankKaart) {
+                    if (bestuurderdb.TankKaart != nieuweBestuurder.TankKaart && nieuweBestuurder.TankKaart != null) {
                         UpdateTankkaartBestuurder(nieuweBestuurder);
                     }
                     trans.Commit();
@@ -465,6 +466,33 @@ namespace FleetDatabase {
                     throw new BestuurderRepositoryADOException("BestuurderRepositoryADO - WijzigBestuurder: Er liep iets mis -> ", ex);
                 } finally {
                     command.Dispose();
+                    connection.Close();
+                }
+            }
+        }
+        private void VoegAdresToe(Adres adres) {
+            int adresId;
+            string query = "INSERT INTO adres(Straat, Huisnummer, Postcode, Gemeente)" +
+                "OUTPUT INSERTED.AdresId VALUES (@Straat, @Huisnummer, @Postcode, @Gemeente);";
+
+            SqlConnection connection = GetConnection();
+            using (SqlCommand command = connection.CreateCommand()) {
+                connection.Open();
+                try {
+                    command.Parameters.Add(new SqlParameter("@Straat", SqlDbType.NVarChar));
+                    command.Parameters.Add(new SqlParameter("@Huisnummer", SqlDbType.NVarChar));
+                    command.Parameters.Add(new SqlParameter("@Postcode", SqlDbType.NVarChar));
+                    command.Parameters.Add(new SqlParameter("@Gemeente", SqlDbType.NVarChar));
+                    command.CommandText = query;
+                    command.Parameters["@Straat"].Value = adres.Straat;
+                    command.Parameters["@Huisnummer"].Value = adres.Nummer;
+                    command.Parameters["@Postcode"].Value = adres.Postcode;
+                    command.Parameters["@Gemeente"].Value = adres.Stad;
+                    adresId = (int)command.ExecuteScalar();
+                    adres.ZetAdresId(adresId);
+                } catch (Exception ex) {
+                    throw new("BestuurderRepositoryADO - VoegAdresToe: Er liep iets mis -> ", ex);
+                } finally {
                     connection.Close();
                 }
             }

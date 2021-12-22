@@ -38,6 +38,12 @@ namespace WpfFleetManagement {
             Wijzig_NaamTextbox.Text = _bestuurder.Naam;
             Wijzig_GeboortedatumDatePicker.SelectedDate = _bestuurder.Geboortedatum;
             Wijzig_RijksregisternummerTextbox.Text = _bestuurder.Rijksregisternummer;
+            if (_bestuurder.Adres != null) {
+                Straat_wijzigscherm.Text = _bestuurder.Adres.Straat;
+                Stad_wijzigscherm.Text = _bestuurder.Adres.Stad;
+                Postcode_wijzigscherm.Text = _bestuurder.Adres.Postcode.ToString();
+                Huisnummer_wijzigscherm.Text = _bestuurder.Adres.Nummer;
+            } 
             if (_bestuurder._Types.Contains(TypeRijbewijs.AM))
                 Wijzig_RijbewijsCheckbox_AM.IsChecked = true;
             if (_bestuurder._Types.Contains(TypeRijbewijs.A))

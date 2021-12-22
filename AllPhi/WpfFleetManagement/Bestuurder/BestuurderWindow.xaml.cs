@@ -27,7 +27,7 @@ namespace WpfFleetManagement
         public string Rijksregisternummer;
         public string Straat;
         public string Stad;
-        public int? Postcode;
+        public int Postcode;
         public string? Huisnummer;
         public int? BestuurderID;
         public List<TypeRijbewijs> Rijbewijzen = new();
@@ -109,6 +109,7 @@ namespace WpfFleetManagement
         }
         private void VoegToeButton_Click(object sender, RoutedEventArgs e)
         {
+            Adres a = null;
             try {
                 if (ZijnAlleVeldenIngevuld()) {
                     Rijbewijzen.Clear();
@@ -149,21 +150,23 @@ namespace WpfFleetManagement
                             Stad = VoegToe_StadTextbox.Text;
 
                         int output;
-                        if (!int.TryParse(VoegToe_PostcodeTextbox.Text, out output))
-                            Postcode = null;
-                        else
+                        if (int.TryParse(VoegToe_PostcodeTextbox.Text, out output))
                             Postcode = output;
+                        else
+                            MessageBox.Show("mag niet null zijn");
 
-                        if (!int.TryParse(voeg.Text, out output))
+                        if (string.IsNullOrWhiteSpace(VoegToe_HuisnummerTextbox.Text))
                             Huisnummer = null;
                         else
-                            Huisnummer = output;
+                            Huisnummer = VoegToe_HuisnummerTextbox.Text;
+                        a = new Adres(Straat, Stad, Postcode, Huisnummer);
                     }
                     Voornaam = VoegToe_VoornaamTextbox.Text;
                     Naam = VoegToe_NaamTextbox.Text;
                     GeboorteDatum = VoegToe_GeboortedatumDatePicker.SelectedDate;
                     Rijksregisternummer = VoegToe_RijksregisternummerTextbox.Text;
                     Bestuurder bestuurder = new(Voornaam, Naam, (DateTime)GeboorteDatum, Rijksregisternummer, Rijbewijzen);
+                    bestuurder.ZetAdres(a);
                     MainWindow.bestuurderManager.VoegBestuurderToe(bestuurder);
                     MessageBox.Show("De bestuurder werd succesvol toegevoegd!");
                 } else {

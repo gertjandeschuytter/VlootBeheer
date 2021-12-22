@@ -33,16 +33,16 @@
         <TextBox x:Name="Wijzig_RijksregisternummerTextbox" Grid.Row="1" Grid.Column="1"  Margin="5,30,5,10"/>
 
         <Label Grid.Column="0" Grid.Row="2" Content="Straat" Margin="5"/>
-        <TextBox x:Name="Wijzig_StraatTextbox" Grid.Row="2" Grid.Column="0"  Margin="5,30,5,10"/>
+        <TextBox x:Name="Straat_wijzigscherm" Grid.Row="2" Grid.Column="0"  Margin="5,30,5,10"/>
 
         <Label Grid.Column="1" Grid.Row="2" Content="Stad" Margin="5"/>
-        <TextBox Grid.Row="2" Grid.Column="1"  Margin="5,30,5,10"/>
+        <TextBox Grid.Row="2" Grid.Column="1" x:Name="Stad_wijzigscherm"  Margin="5,30,5,10"/>
 
         <Label Grid.Column="0" Grid.Row="3" Content="Postcode" Margin="5"/>
-        <TextBox Grid.Row="3" Grid.Column="0"  Margin="5,30,5,10"/>
+        <TextBox Grid.Row="3" Grid.Column="0" x:Name="Postcode_wijzigscherm"  Margin="5,30,5,10"/>
 
         <Label Grid.Column="1" Grid.Row="3" Content="Huisnummer" Margin="5"/>
-        <TextBox Grid.Row="3" Grid.Column="1"  Margin="5,30,5,10"/>
+        <TextBox Grid.Row="3" Grid.Column="1" x:Name="Huisnummer_wijzigscherm" Margin="5,30,5,10"/>
 
         <!--<Label Grid.Column="0" Grid.Row="4" Content="Voertuig" Margin="5"/>
         <ComboBox Grid.Row="4" Grid.Column="0"  Margin="5,30,5,10" />

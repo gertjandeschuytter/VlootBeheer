@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "TxFJaRaYOam9dTsPBRnpAdEWSzgcVrGWNowfq/FKvI19+UpNMYDtVwLKiTDE2EUIFqyzY8b/4/Ed/+dMnxZD8Q==",
+  "dgSpecHash": "MJ1gr5mOmJgeW0Vg3Gq4ywf5COouwEsjQ9PeOvI1Fp/NrNrzTD8rqIOQVECo4JuqAMTNVwKejwVYrrzoKYx/rQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Gertj\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\WpfFleetManagement\\WpfFleetManagement.csproj",
   "expectedPackageFiles": [
@@ -94,7 +94,8 @@
     "C:\\Users\\Gertj\\.nuget\\packages\\system.threading.timer\\4.3.0\\system.threading.timer.4.3.0.nupkg.sha512",
     "C:\\Users\\Gertj\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\Gertj\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\Gertj\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512"
+    "C:\\Users\\Gertj\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
+    "C:\\Users\\Gertj\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.13\\microsoft.netcore.app.host.win-x64.5.0.13.nupkg.sha512"
   ],
   "logs": []
 }
