@@ -38,7 +38,7 @@ namespace BusinessLayer.Managers
         {
             try
             {
-                if (repo.BestaatBestuurder(bestuurder.ID)) throw new BestuurderManagerException("Bestuurder al gekend");
+                if (repo.BestaatBestuurder(bestuurder.BestuurderId)) throw new BestuurderManagerException("Bestuurder al gekend");
                 repo.VoegBestuurderToe(bestuurder);
             }
             catch(Exception ex) { throw new BestuurderManagerException("BestuurderManager - Er liep iets mis: ", ex); }
@@ -48,7 +48,7 @@ namespace BusinessLayer.Managers
         {
             try
             {
-                if (!repo.BestaatBestuurder(bestuurder.ID)) throw new BestuurderManagerException("Bestuurder bestaat niet");
+                if (!repo.BestaatBestuurder(bestuurder.BestuurderId)) throw new BestuurderManagerException("Bestuurder bestaat niet");
                 repo.VerwijderBestuurder(bestuurder);
             }
             catch(Exception ex) { throw new BestuurderManagerException("BestuurderManager - Er liep iets mis: ", ex); }
@@ -59,8 +59,8 @@ namespace BusinessLayer.Managers
             try
             {
                 if (bestuurder == null) throw new BestuurderManagerException("bestuurder mag niet null zijn");
-                if (!repo.BestaatBestuurder(bestuurder.ID)) throw new BestuurderManagerException("Bestuurder bestaat niet");
-                if (bestuurder == repo.GeefBestuurder(bestuurder.ID)) throw new BestuurderManagerException("Ze zijn gelijk");
+                if (!repo.BestaatBestuurder(bestuurder.BestuurderId)) throw new BestuurderManagerException("Bestuurder bestaat niet");
+                if (bestuurder == repo.GeefBestuurder(bestuurder.BestuurderId)) throw new BestuurderManagerException("Ze zijn gelijk");
                 repo.WijzigBestuurder(bestuurder);
             }
             catch (Exception ex) { throw new BestuurderManagerException("BestuurderManager - Er liep iets mis: ", ex); }

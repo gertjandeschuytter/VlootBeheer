@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using FleetDatabase;
 using System.Configuration;
+using WpfFleetManagement.Voertuig;
 
 namespace WpfFleetManagement {
     /// <summary>

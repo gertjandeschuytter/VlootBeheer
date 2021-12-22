@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\App.xaml
-4-643137379
+6-1540796845
 
-81145527822
+10-2080819530
 198-439190315
-BestuurderWindow.xaml;MainWindow.xaml;TankkaartWindow.xaml;VoertuigWindow.xaml;
+Bestuurder\BestuurderWindow.xaml;Bestuurder\WijzigenBestuurderWindow.xaml;MainWindow.xaml;Tankkaart\TankkaartWindow.xaml;Voertuig\VoertuigWindow.xaml;Voertuig\ZoekBestuurderVoertuigWindow.xaml;
 
 False
 

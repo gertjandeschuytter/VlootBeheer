@@ -113,43 +113,43 @@ namespace FleetDatabase {
                 string query = "INSERT INTO voertuig(Merk, Model, Chassisnummer, Nummerplaat, Brandstoftype, Wagentype, Kleur, Aantaldeuren)" +
                     "OUTPUT INSERTED.VoertuigId VALUES (@Merk, @Model, @Chassisnummer, @Nummerplaat, @Brandstoftype, @Wagentype, @Kleur, @Aantaldeuren);";
 
-                SqlConnection connection = GetConnection();
-                using (SqlCommand command = connection.CreateCommand()) {
-                    connection.Open();
-                    try {
-                        command.Parameters.Add(new SqlParameter("@Merk", SqlDbType.NVarChar));
-                        command.Parameters.Add(new SqlParameter("@Model", SqlDbType.NVarChar));
-                        command.Parameters.Add(new SqlParameter("@Chassisnummer", SqlDbType.NVarChar));
-                        command.Parameters.Add(new SqlParameter("@Nummerplaat", SqlDbType.NVarChar));
-                        command.Parameters.Add(new SqlParameter("@Brandstoftype", SqlDbType.NVarChar));
-                        command.Parameters.Add(new SqlParameter("@Wagentype", SqlDbType.NVarChar));
-                        command.Parameters.Add(new SqlParameter("@Kleur", SqlDbType.NVarChar));
-                        command.Parameters.Add(new SqlParameter("@Aantaldeuren", SqlDbType.Int));
-                        command.CommandText = query;
-                        command.Parameters["@Merk"].Value = voertuig.Merk;
-                        command.Parameters["@Model"].Value = voertuig.Model;
-                        command.Parameters["@Chassisnummer"].Value = voertuig.ChassisNummer;
-                        command.Parameters["@Nummerplaat"].Value = voertuig.NummerPlaat;
-                        command.Parameters["@Brandstoftype"].Value = voertuig.BrandstofType;
-                        command.Parameters["@Wagentype"].Value = voertuig.TypeWagen;
-                        if (voertuig.Kleur == null) {
-                            command.Parameters["@Kleur"].Value = DBNull.Value;
-                        } else {
-                            command.Parameters["@Kleur"].Value = voertuig.Kleur;
-                        }
-                        if (voertuig.AantalDeuren == 0) {
-                            command.Parameters["@AantalDeuren"].Value = DBNull.Value;
-                        } else {
-                            command.Parameters["@AantalDeuren"].Value = voertuig.AantalDeuren;
-                        }
-                        voertuigId = (int)command.ExecuteScalar();
-                        voertuig.ZetId(voertuigId);
-                    } catch (Exception ex) {
-                        throw new("BestuurderRepositoryADO - GeefBestuurders: Er liep iets mis -> ", ex);
-                    } finally {
-                        connection.Close();
+            SqlConnection connection = GetConnection();
+            using (SqlCommand command = connection.CreateCommand()) {
+                connection.Open();
+                try {
+                    command.Parameters.Add(new SqlParameter("@Merk", SqlDbType.NVarChar));
+                    command.Parameters.Add(new SqlParameter("@Model", SqlDbType.NVarChar));
+                    command.Parameters.Add(new SqlParameter("@Chassisnummer", SqlDbType.NVarChar));
+                    command.Parameters.Add(new SqlParameter("@Nummerplaat", SqlDbType.NVarChar));
+                    command.Parameters.Add(new SqlParameter("@Brandstoftype", SqlDbType.NVarChar));
+                    command.Parameters.Add(new SqlParameter("@Wagentype", SqlDbType.NVarChar));
+                    command.Parameters.Add(new SqlParameter("@Kleur", SqlDbType.NVarChar));
+                    command.Parameters.Add(new SqlParameter("@Aantaldeuren", SqlDbType.Int));
+                    command.CommandText = query;
+                    command.Parameters["@Merk"].Value = voertuig.Merk;
+                    command.Parameters["@Model"].Value = voertuig.Model;
+                    command.Parameters["@Chassisnummer"].Value = voertuig.ChassisNummer;
+                    command.Parameters["@Nummerplaat"].Value = voertuig.NummerPlaat;
+                    command.Parameters["@Brandstoftype"].Value = voertuig.BrandstofType;
+                    command.Parameters["@Wagentype"].Value = voertuig.TypeWagen;
+                    if (voertuig.Kleur == null) {
+                        command.Parameters["@Kleur"].Value = DBNull.Value;
+                    } else {
+                        command.Parameters["@Kleur"].Value = voertuig.Kleur;
                     }
+                    if (voertuig.AantalDeuren == 0) {
+                        command.Parameters["@AantalDeuren"].Value = DBNull.Value;
+                    } else {
+                        command.Parameters["@AantalDeuren"].Value = voertuig.AantalDeuren;
+                    }
+                    voertuigId = (int)command.ExecuteScalar();
+                    voertuig.ZetId(voertuigId);
+                } catch (Exception ex) {
+                    throw new("VoertuigRepositoryADO - GeefVoertuigen: Er liep iets mis -> ", ex);
+                } finally {
+                    connection.Close();
                 }
+            }
         }
         public bool BestaatVoertuig(int VoertuigId) {
             SqlConnection conn = GetConnection();
@@ -353,8 +353,7 @@ namespace FleetDatabase {
                         }
                         if ((reader["TankkaartId"].GetType() != typeof(DBNull))) {
                             int tankkaartIdDB = (int)reader["TankkaartId"];
-                            TankKaart tankKaart = new TankKaart((string)reader["Kaartnummer"], (DateTime)reader["Geldigheidsdatum"], (string)reader["Pincode"], (bool)reader["Isgeblokeerd"]);
-                            tankKaart.ZetTankkaartId(tankkaartIdDB);
+                            TankKaart tankKaart = new TankKaart(tankkaartIdDB, (string)reader["Kaartnummer"], (DateTime)reader["Geldigheidsdatum"], (string)reader["Pincode"], bestuurder, (bool)reader["Isgeblokeerd"], null);
                             voertuig.Bestuurder.ZetTankKaart(tankKaart);
                         }
                         Voertuigen.Add(voertuig);
@@ -417,7 +416,7 @@ namespace FleetDatabase {
                     }
                     if ((reader["TankkaartId"].GetType() != typeof(DBNull))) {
                         int tankkaartIdDB = (int)reader["TankkaartId"];
-                        TankKaart tankKaart = new TankKaart((string)reader["Kaartnummer"], (DateTime)reader["Geldigheidsdatum"], (string)reader["Pincode"], (bool)reader["Isgeblokeerd"]);
+                        TankKaart tankKaart = new TankKaart(tankkaartIdDB, (string)reader["Kaartnummer"], (DateTime)reader["Geldigheidsdatum"], (string)reader["Pincode"], bestuurder, (bool)reader["Isgeblokeerd"], null);
                         tankKaart.ZetTankkaartId(tankkaartIdDB);
                         voertuig.Bestuurder.ZetTankKaart(tankKaart);
                     }

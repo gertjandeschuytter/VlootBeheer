@@ -7,27 +7,39 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="BestuurderWindow.xaml.cs">
+    <Compile Update="Bestuurder\BestuurderWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="TankkaartWindow.xaml.cs">
+    <Compile Update="Tankkaart\TankkaartWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="VoertuigWindow.xaml.cs">
+    <Compile Update="Bestuurder\WijzigenBestuurderWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Voertuig\VoertuigWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Voertuig\ZoekBestuurderVoertuigWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="BestuurderWindow.xaml">
+    <Page Update="Bestuurder\BestuurderWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="TankkaartWindow.xaml">
+    <Page Update="Tankkaart\TankkaartWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="VoertuigWindow.xaml">
+    <Page Update="Bestuurder\WijzigenBestuurderWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Voertuig\VoertuigWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Voertuig\ZoekBestuurderVoertuigWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

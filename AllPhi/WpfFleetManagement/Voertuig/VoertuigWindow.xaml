@@ -1,11 +1,11 @@
-﻿<Window x:Class="WpfFleetManagement.VoertuigWindow"
+﻿<Window x:Class="WpfFleetManagement.Voertuig.VoertuigWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfFleetManagement"
+        xmlns:local="clr-namespace:WpfFleetManagement.Voertuig"
         mc:Ignorable="d"
-        Title="VoertuigWindow" Height="600" Width="1000" Closing="VoertuigWindow_Closing">
+        Title="VoertuigWindow" Height="600" Width="1000">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="500" />
@@ -79,7 +79,7 @@
                     <Button x:Name="FilterButton" Grid.Row="7" Grid.ColumnSpan="2" Margin="5">Filter</Button>
                 </Grid>
             </TabItem>
-            <TabItem Header="Voeg Toe">
+            <TabItem Header="Voeg Toe" x:Name="TabVoegToe">
                 <Grid>
                     <Grid Grid.ColumnSpan="2"  Grid.RowSpan="8" ShowGridLines="False">
                         <Grid.ColumnDefinitions>
@@ -95,34 +95,38 @@
                             <RowDefinition/>
                             <RowDefinition/>
                         </Grid.RowDefinitions>
-                        <Label Grid.Column="0" Grid.Row="0" Content="Merk *" Margin="5"/>
-                        <TextBox Grid.Row="0" Grid.Column="0"  Margin="5,30,5,10"/>
+                        <Label Content="Kies bestuurder:"/>
+                        <TextBox x:Name="TextBoxGekozenBestuurder" Grid.Row="0" Grid.Column="0"  Margin="5,30,5,10" IsEnabled="false"/>
+                        <Button Content="Kies bestuurder" Grid.Column="1" Click="KiesBestuurderButton_Click" Margin="13,30,13,10" />
 
-                        <Label Grid.Column="1" Grid.Row="0" Content="Model *" Margin="5"/>
-                        <TextBox Grid.Row="0" Grid.Column="1"  Margin="5,30,5,10"/>
-
-                        <Label Grid.Column="0" Grid.Row="1" Content="Chassisnummer *" Margin="5"/>
+                        <Label Grid.Column="0" Grid.Row="1" Content="Merk *" Margin="5"/>
                         <TextBox Grid.Row="1" Grid.Column="0"  Margin="5,30,5,10"/>
 
-                        <Label Grid.Column="1" Grid.Row="1" Content="Nummerplaat *" Margin="5"/>
+                        <Label Grid.Column="1" Grid.Row="1" Content="Model *" Margin="5"/>
                         <TextBox Grid.Row="1" Grid.Column="1"  Margin="5,30,5,10"/>
 
-                        <Label Grid.Column="0" Grid.Row="2" Content="Kleur" Margin="5"/>
+                        <Label Grid.Column="0" Grid.Row="2" Content="Chassisnummer *" Margin="5"/>
                         <TextBox Grid.Row="2" Grid.Column="0"  Margin="5,30,5,10"/>
 
-                        <Label Grid.Column="1" Grid.Row="2" Content="Aantal Deuren" Margin="5"/>
+                        <Label Grid.Column="1" Grid.Row="2" Content="Nummerplaat *" Margin="5"/>
                         <TextBox Grid.Row="2" Grid.Column="1"  Margin="5,30,5,10"/>
 
-                        <Label Grid.Column="0" Grid.Row="3" Content="Brandstof type *" Margin="5"/>
-                        <ComboBox Grid.Row="3" Grid.Column="0"  Margin="5,30,5,10"/>
+                        <Label Grid.Column="0" Grid.Row="3" Content="Kleur" Margin="5"/>
+                        <TextBox Grid.Row="3" Grid.Column="0"  Margin="5,30,5,10"/>
 
-                        <Label Grid.Column="1" Grid.Row="3" Content="Bestuurder" Margin="5"/>
-                        <ComboBox Grid.Row="3" Grid.Column="1"  Margin="5,30,5,10"/>
+                        <Label Grid.Column="1" Grid.Row="3" Content="Aantal Deuren" Margin="5"/>
+                        <TextBox Grid.Row="3" Grid.Column="1"  Margin="5,30,5,10"/>
 
-                        <Label Grid.Row="4" Grid.Column="0" Content="Type wagen *" Margin="5"/>
-                        <ComboBox Grid.Row="4" Grid.Column="0" Margin="5,30,5,10"/>
+                        <Label Grid.Column="0" Grid.Row="4" Content="Brandstof type *" Margin="5"/>
+                        <ComboBox Grid.Row="4" Grid.Column="0"  Margin="5,30,5,10"/>
 
-                        <Button x:Name="VoegToeButton" Grid.ColumnSpan="2" Grid.Row="6" Margin="5">Voeg Toe</Button>
+                        <Label Grid.Column="1" Grid.Row="4" Content="Bestuurder" Margin="5"/>
+                        <ComboBox Grid.Row="4" Grid.Column="1"  Margin="5,30,5,10"/>
+
+                        <Label Grid.Row="5" Grid.Column="0" Content="Type wagen *" Margin="5"/>
+                        <ComboBox Grid.Row="5" Grid.Column="0" Margin="5,30,5,10"/>
+
+                        <Button x:Name="VoegToeButton" Click="VoegToeButton_Click" Grid.ColumnSpan="2" Grid.Row="6" Margin="5">Voeg Toe</Button>
                         <Label Grid.ColumnSpan="2" Grid.Row="6" Margin="5" Width="100" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left">* = verplicht</Label>
                     </Grid>
 

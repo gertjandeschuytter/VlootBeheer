@@ -152,7 +152,7 @@ namespace FleetDatabase
                     }
                     else
                     {
-                        cmd.Parameters["@BestuurderId"].Value = tankkaart.Bestuurder.ID;
+                        cmd.Parameters["@BestuurderId"].Value = tankkaart.Bestuurder.BestuurderId;
                     }
                     if(tankkaart.Geblokkeerd == null)
                     {
@@ -206,7 +206,7 @@ namespace FleetDatabase
                     }
                     else
                     {
-                        cmd.Parameters["@BestuurderId"].Value = tankkaart.Bestuurder.ID;
+                        cmd.Parameters["@BestuurderId"].Value = tankkaart.Bestuurder.BestuurderId;
                     }
                     if (tankkaart.Geblokkeerd == null)
                     {

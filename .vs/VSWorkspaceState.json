@@ -3,11 +3,6 @@
     "",
     "\\AllPhi",
     "\\AllPhi\\BusinessLayer",
-    "\\AllPhi\\BusinessLayer\\Exceptions",
-    "\\AllPhi\\BusinessLayer\\Interfaces",
-    "\\AllPhi\\BusinessLayer\\Managers",
-    "\\AllPhi\\BusinessLayer\\Model",
-    "\\AllPhi\\BusinessLayer\\Utilities",
     "\\AllPhi\\FleetDatabase",
     "\\AllPhi\\UnitTests"
   ],
