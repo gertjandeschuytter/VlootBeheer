@@ -83,7 +83,7 @@ namespace FleetDatabase
                 }
                 catch (Exception ex)
                 {
-                    throw new VoertuigRepositoryADOExceptions("BestaatTankkaart", ex);
+                    throw new TankkaartRepositoryADOException("BestaatTankkaart", ex);
                 }
                 finally
                 {
@@ -119,6 +119,7 @@ namespace FleetDatabase
         public void VoegTankkaartToe(TankKaart tankkaart) //TankkaartId nodig?
         {
             SqlConnection connection = GetConnection();
+            int tankkaartId;
             string query = "INSERT INTO [dbo].Tankkaart (Kaartnummer, Geldigheidsdatum, Pincode, Bestuurder, Geblokkeerd) " +      
                 "VALUES (@Kaartnummer, @Geldigheidsdatum, @Pincode, @Bestuurder, @Geblokkeerd)";
             using (SqlCommand cmd = connection.CreateCommand())
@@ -157,7 +158,7 @@ namespace FleetDatabase
                     {
                         cmd.Parameters["@Geblokkeerd"].Value = tankkaart.Geblokkeerd;
                     }
-                    cmd.ExecuteNonQuery();
+                    tankkaartId = (int)cmd.ExecuteScalar();
                 }
                 catch (Exception ex)
                 {
@@ -271,26 +272,122 @@ namespace FleetDatabase
             }
         }
 
-        //public IReadOnlyList<TankKaart> GeefTankkaarten(string kaartnr, DateTime geldigheidsdatum, string pincode, Bestuurder bestuurder, bool geblokkeerd)
-        //{
-        //    List<TankKaart> tankkaarten = new();
-        //    TankKaart tankkaart = null;
-        //    bool WHERE = true;
-        //    bool AND = false;
-        //    string sql = "";
+        public IReadOnlyList<TankKaart> GeefTankkaarten(string? kaartnr, DateTime? geldigheidsdatum, string? pincode, Bestuurder? bestuurder, bool? geblokkeerd)
+        {
+            List<TankKaart> tankkaarten = new();
+            TankKaart tankkaart = null;
+            bool WHERE = true;
+            bool AND = false;
+            string sql = "";
+            if (!string.IsNullOrEmpty(kaartnr))
+            {
+                if (WHERE)
+                {
+                    sql += " WHERE ";
+                    WHERE = false;
+                }
+                if (AND)
+                {
+                    sql += " AND ";
+                }
+                else
+                {
+                    AND = true;
+                }
+                sql += "Kaartnr = @Kaartnr";
+            }
+            if (geldigheidsdatum.HasValue)
+            {
+                if (WHERE)
+                {
+                    sql += " WHERE ";
+                    WHERE = false;
+                }
+                if (AND)
+                {
+                    sql += " AND ";
+                }
+                else
+                {
+                    AND = true;
+                }
+                sql += "Geldigheidsdatum = @Geldigheidsdatum";
+            }
+            if (!string.IsNullOrEmpty(pincode))
+            {
+                if (WHERE)
+                {
+                    sql += " WHERE ";
+                    WHERE = false;
+                }
+                if (AND)
+                {
+                    sql += " AND ";
+                }
+                else
+                {
+                    AND = true;
+                }
+                sql += "Pincode = @Pincode";
+            }
+            if (bestuurder != null)
+            {
+                if (WHERE)
+                {
+                    sql += " WHERE ";
+                    WHERE = false;
+                }
+                if (AND)
+                {
+                    sql += " AND ";
+                }
+                else
+                {
+                    AND = true;
+                }
+                sql += "Bestuurder = @Bestuurder";
+            }
+            if (geblokkeerd.HasValue)
+            {
+                if (WHERE)
+                {
+                    sql += " WHERE ";
+                    WHERE = false;
+                }
+                if (AND)
+                {
+                    sql += " AND ";
+                }
+                else
+                {
+                    AND = true;
+                }
+                sql += "Geblokkeerd = @Geblokkeerd";
+            }
 
+            SqlConnection connection = GetConnection();
+            using (SqlCommand cmd = connection.CreateCommand())
+            {
+                cmd.CommandText = sql;
+                try
+                {
+                    connection.Open();
+                    if (!string.IsNullOrEmpty(kaartnr)) cmd.Parameters.AddWithValue("Kaartnummer", kaartnr);
+                    if (geldigheidsdatum.HasValue) cmd.Parameters.AddWithValue("Geldigheidsdatum", geldigheidsdatum);
+                    if (!string.IsNullOrEmpty(pincode)) cmd.Parameters.AddWithValue("Pincode", pincode);
+                    if (bestuurder != null) cmd.Parameters.AddWithValue("Bestuurder", bestuurder);
+                    if (geblokkeerd.HasValue) cmd.Parameters.AddWithValue("Geblokkeerd", geblokkeerd);
 
+                }
+                catch (Exception)
+                {
 
-        //    SqlConnection connection = GetConnection();
-        //    using(SqlCommand cmd = connection.CreateCommand())
-        //    {
-        //        cmd.CommandText = sql;
-        //        try
-        //        {
-        //            connection.Open();
-        //            if(!string.IsNullOrEmpty())
-        //        }
-        //    }
-        //} 
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+        }
     }
 }
