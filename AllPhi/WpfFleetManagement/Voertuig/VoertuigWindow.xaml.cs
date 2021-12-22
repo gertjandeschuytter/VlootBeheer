@@ -40,5 +40,15 @@ namespace WpfFleetManagement.Voertuig {
         {
 
         }
+
+        private void WijzigButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void FilterButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
