@@ -271,6 +271,10 @@ namespace FleetDatabase
             }
         }
 
+        public IReadOnlyList<TankKaart> GeefTankkaarten(string kaartnr, DateTime geldigheidsdatum, string pincode, Bestuurder bestuurder, bool geblokkeerd) {
+            throw new NotImplementedException();
+        }
+
         //public IReadOnlyList<TankKaart> GeefTankkaarten(string kaartnr, DateTime geldigheidsdatum, string pincode, Bestuurder bestuurder, bool geblokkeerd)
         //{
         //    List<TankKaart> tankkaarten = new();

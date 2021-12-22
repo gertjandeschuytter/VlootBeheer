@@ -148,6 +148,11 @@ namespace BusinessLayer.Model {
             return false;
         }
 
+        public override string ToString()
+        {
+            return $"id: {BestuurderId}, {Naam}, {Voornaam}";
+        }
+
         public override bool Equals(object obj) {
             return Equals(obj as Bestuurder);
         }

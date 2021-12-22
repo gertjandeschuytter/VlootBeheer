@@ -145,7 +145,7 @@ namespace FleetDatabase {
                     voertuigId = (int)command.ExecuteScalar();
                     voertuig.ZetId(voertuigId);
                 } catch (Exception ex) {
-                    throw new("BestuurderRepositoryADO - GeefBestuurders: Er liep iets mis -> ", ex);
+                    throw new("VoertuigRepositoryADO - GeefVoertuigen: Er liep iets mis -> ", ex);
                 } finally {
                     connection.Close();
                 }

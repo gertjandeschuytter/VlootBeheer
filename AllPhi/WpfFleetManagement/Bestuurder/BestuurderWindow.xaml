@@ -156,28 +156,28 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Label Grid.Column="0" Grid.Row="0" Content="Voornaam *" Margin="5,5,5,5" />
-                    <TextBox Name="VoegToe_VoornaamTextbox" Grid.Row="0" Grid.Column="0"  Margin="5,30,5,10"/>
+                    <TextBox Name="VoegToe_VoornaamTextbox"  Grid.Row="0" Grid.Column="0"  Margin="5,30,5,10"/>
 
                     <Label Grid.Column="2" Grid.Row="0" Content="Naam *" Margin="5,5,5,5"/>
-                    <TextBox Name="VoegToe_NaamTextbox" Grid.Row="0" Grid.Column="2"  Margin="5,30,5,10"/>
+                    <TextBox Name="VoegToe_NaamTextbox"  Grid.Row="0" Grid.Column="2"  Margin="5,30,5,10"/>
 
                     <Label Grid.Column="0" Grid.Row="1" Content="Geboortedatum *" Margin="5,5,5,5" />
-                    <DatePicker Name="VoegToe_GeboortedatumDatePicker" Grid.Row="1" Grid.Column="0"  Margin="5,30,5,10" />
+                    <DatePicker Name="VoegToe_GeboortedatumDatePicker"   Grid.Row="1" Grid.Column="0"  Margin="5,30,5,10" />
 
                     <Label Grid.Column="2" Grid.Row="1" Content="Rijksregisternummer *" Margin="5,5,5,5"/>
-                    <TextBox Name="VoegToe_RijksregisternummerTextbox" Grid.Row="1" Grid.Column="2"  Margin="5,30,5,10"/>
+                    <TextBox Name="VoegToe_RijksregisternummerTextbox"  Grid.Row="1" Grid.Column="2"  Margin="5,30,5,10"/>
 
                     <Label Grid.Column="0" Grid.Row="2" Content="Straat" Margin="5,5,5,5" />
                     <TextBox Name="VoegToe_StraatTextbox" Grid.Row="2" Grid.Column="0"  Margin="5,30,5,10" />
 
                     <Label Grid.Column="2" Grid.Row="2" Content="Stad" Margin="5,5,5,5"/>
-                    <TextBox Grid.Row="2" Grid.Column="2"  Margin="5,30,5,10"/>
+                    <TextBox Grid.Row="2" Grid.Column="2" x:Name="VoegToe_StadTextbox"  Margin="5,30,5,10"/>
 
                     <Label Grid.Column="0" Grid.Row="3" Content="Postcode" Margin="5,5,5,5" />
-                    <TextBox Grid.Row="3" Grid.Column="0"  Margin="5,30,5,10" />
+                    <TextBox Grid.Row="3" Grid.Column="0" x:Name="VoegToe_PostcodeTextbox"  Margin="5,30,5,10" />
 
                     <Label Grid.Column="2" Grid.Row="3" Content="Huisnummer" Margin="5,5,5,5"/>
-                    <TextBox Grid.Row="3" Grid.Column="2"  Margin="5,30,5,10"/>
+                    <TextBox Grid.Row="3" Grid.Column="2" x:Name="VoegToe_HuisnummerTextbox" Margin="5,30,5,10"/>
 
                     <!--<Label Grid.Column="0" Grid.Row="4" Content="Voertuig" Margin="5,5,5,5" Grid.ColumnSpan="2"/>
                     <ComboBox Grid.Row="4" Grid.Column="0"  Margin="5,30,5,10" Grid.ColumnSpan="2" />
@@ -196,13 +196,13 @@
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        <CheckBox Name="VoegToe_RijbewijsCheckbox_AM" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center">AM</CheckBox>
-                        <CheckBox Name="VoegToe_RijbewijsCheckbox_A" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">A</CheckBox>
-                        <CheckBox Name="VoegToe_RijbewijsCheckbox_A1" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center">A1</CheckBox>
-                        <CheckBox Name="VoegToe_RijbewijsCheckbox_A2" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center">A2</CheckBox>
-                        <CheckBox Name="VoegToe_RijbewijsCheckbox_B" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center">B</CheckBox>
-                        <CheckBox Name="VoegToe_RijbewijsCheckbox_BE" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center">BE</CheckBox>
-                        <CheckBox Name="VoegToe_RijbewijsCheckbox_C" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center">C</CheckBox>
+                        <CheckBox Name="VoegToe_RijbewijsCheckbox_AM" Grid.Column="0"  VerticalAlignment="Center" HorizontalAlignment="Center">AM</CheckBox>
+                        <CheckBox Name="VoegToe_RijbewijsCheckbox_A" Grid.Column="1"  VerticalAlignment="Center" HorizontalAlignment="Center">A</CheckBox>
+                        <CheckBox Name="VoegToe_RijbewijsCheckbox_A1" Grid.Column="2"  VerticalAlignment="Center" HorizontalAlignment="Center">A1</CheckBox>
+                        <CheckBox Name="VoegToe_RijbewijsCheckbox_A2" Grid.Column="3"  VerticalAlignment="Center" HorizontalAlignment="Center">A2</CheckBox>
+                        <CheckBox Name="VoegToe_RijbewijsCheckbox_B" Grid.Column="4"  VerticalAlignment="Center" HorizontalAlignment="Center">B</CheckBox>
+                        <CheckBox Name="VoegToe_RijbewijsCheckbox_BE" Grid.Column="5"  VerticalAlignment="Center" HorizontalAlignment="Center">BE</CheckBox>
+                        <CheckBox Name="VoegToe_RijbewijsCheckbox_C" Grid.Column="6"  VerticalAlignment="Center" HorizontalAlignment="Center">C</CheckBox>
                     </Grid>
                     <Grid Grid.Row="5" Margin="5" Grid.Column="0">
                         <Grid.ColumnDefinitions>
@@ -214,12 +214,12 @@
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        <CheckBox Name="VoegToe_RijbewijsCheckbox_CE" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center">CE</CheckBox>
-                        <CheckBox Name="VoegToe_RijbewijsCheckbox_D" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">D</CheckBox>
+                        <CheckBox Name="VoegToe_RijbewijsCheckbox_CE"  Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center">CE</CheckBox>
+                        <CheckBox Name="VoegToe_RijbewijsCheckbox_D"  Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">D</CheckBox>
                         <CheckBox Name="VoegToe_RijbewijsCheckbox_DE" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center">DE</CheckBox>
-                        <CheckBox Name="VoegToe_RijbewijsCheckbox_D1" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center">D1</CheckBox>
-                        <CheckBox Name="VoegToe_RijbewijsCheckbox_D1E" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center">D1E</CheckBox>
-                        <CheckBox Name="VoegToe_RijbewijsCheckbox_T" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center">T</CheckBox>
+                        <CheckBox Name="VoegToe_RijbewijsCheckbox_D1"  Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center">D1</CheckBox>
+                        <CheckBox Name="VoegToe_RijbewijsCheckbox_D1E"  Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center">D1E</CheckBox>
+                        <CheckBox Name="VoegToe_RijbewijsCheckbox_T"  Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center">T</CheckBox>
                     </Grid>
 
                     <!--<Button Grid.Row="4" Grid.Column="2" Margin="5">Voeg Voertuig Toe</Button>
