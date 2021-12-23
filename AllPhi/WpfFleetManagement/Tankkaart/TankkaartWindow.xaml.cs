@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace WpfFleetManagement
+namespace WpfFleetManagement.Tankkaart
 {
     /// <summary>
     /// Interaction logic for TankkaartWindow.xaml
@@ -21,16 +21,39 @@ namespace WpfFleetManagement
     {
         public TankkaartWindow()
         {
+            this.ResizeMode = ResizeMode.NoResize;
             InitializeComponent();
-            FilterButton.IsEnabled = false;
             VoegToeButton.IsEnabled = false;
             VerwijderButton.IsEnabled = false;
         }
 
-        private void TankkaartWindow_Closing(object sender, EventArgs e)
+        private void VoegToeButton_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow main = new MainWindow();
-            main.Show();
+
+        }
+
+        private void KiesBestuurderButton_Click(object sender, RoutedEventArgs e)
+        {
+            ZoekBestuurderTankkaartWindow zb = new();
+            zb.Show();
+            Close();
+        }
+
+        private void WijzigButton_Click(object sender, RoutedEventArgs e)
+        {
+            WijzigTankkaartWindow wtw = new();
+            wtw.Show();
+            Close();
+        }
+
+        private void FilterButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void VerwijderButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

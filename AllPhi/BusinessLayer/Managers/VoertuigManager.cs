@@ -12,20 +12,37 @@ namespace BusinessLayer.Managers {
         public VoertuigManager(IVoertuigRepository repo) {
             this.repo = repo;
         }
-        //public void VoegVoertuigToe(Voertuig voertuig) {
-        //    if (repo.BestaatVoertuig(voertuig.ChassisNummer)) throw new VoertuigManagerException("Voertuig al gekend");
-        //    repo.VoegVoertuigToe(voertuig);
-        //}
-        //public void VerwijderBestuurder(Voertuig voertuig) {
-        //    if (!repo.BestaatVoertuig(voertuig.ChassisNummer)) throw new VoertuigManagerException("Voertuig bestaat niet");
-        //    repo.VerwijderVoertuig(voertuig);
-        //}
-        //public void WijzigBestuurder(Voertuig voertuig) {
-        //    if (!repo.BestaatVoertuig(voertuig.ChassisNummer)) throw new VoertuigManagerException("Voertuig bestaat niet");
-        //    repo.UpdateVoertuig(voertuig);
-        //}
-        //public IEnumerable<Voertuig>GeefVoertuigen(Bestuurder bestuurder) {
-        //    return repo.GeefVoertuigen(bestuurder);
+        public void VoegVoertuigToe(Voertuig voertuig)
+        {
+            if (repo.BestaatVoertuig(voertuig)) throw new VoertuigManagerException("Voertuig al gekend");
+            repo.VoegVoertuigToe(voertuig);
+        }
+        public void VerwijderBestuurder(Voertuig voertuig)
+        {
+            if (!repo.BestaatVoertuig(voertuig)) throw new VoertuigManagerException("Voertuig bestaat niet");
+            repo.VerwijderVoertuig(voertuig);
+        }
+        public void WijzigBestuurder(Voertuig voertuig)
+        {
+            if (!repo.BestaatVoertuig(voertuig.ID)) throw new VoertuigManagerException("Voertuig bestaat niet");
+            if (repo.BestaatVoertuig(voertuig)) throw new VoertuigManagerException("Voertuig is niet veranderdt");
+            repo.UpdateVoertuig(voertuig);
+        }
+
+        public IReadOnlyList<Voertuig> GeefVoertuig(int? id, string? merk, string? model, string? chassisnummer, string? nummerplaat, string? kleur, int? aantalDeuren, string? brandstoftype, string? typewagen)
+        {
+            List<Voertuig> list = new();
+            if (id.HasValue)
+                list.Add(repo.geefVoertuig((int)id));
+            list = (List<Voertuig>)repo.GeefVoertuigen(merk, model, chassisnummer, nummerplaat, brandstoftype, typewagen, kleur, aantalDeuren);
+            return list.AsReadOnly();
+        }
+
+        // Waarom hebben we dit nodig?
+        //public IEnumerable<Voertuig> GeefVoertuigen(Bestuurder bestuurder)
+        //{
+        //    List<Voertuig> list = repo.GeefVoertuigen(bestuurder)
+        //    return list;
         //}
 
     }
