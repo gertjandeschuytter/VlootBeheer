@@ -24,7 +24,6 @@ namespace WpfFleetManagement
             InitializeComponent();
             FilterButton.IsEnabled = false;
             VoegToeButton.IsEnabled = false;
-            WijzigButton.IsEnabled = false;
             VerwijderButton.IsEnabled = false;
         }
 
