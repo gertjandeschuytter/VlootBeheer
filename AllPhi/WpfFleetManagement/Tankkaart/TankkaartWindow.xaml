@@ -7,22 +7,20 @@
         mc:Ignorable="d"
         Title="TankkaartWindow" Height="600" Width="1000" Closing="TankkaartWindow_Closing">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="500" />
-            <ColumnDefinition Width="500"/>
-        </Grid.ColumnDefinitions>
         <TabControl Grid.Column="0">
-            <TabItem Header="Filter">
+            <TabItem Header="Aanpassen">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="100"/>
                         <RowDefinition Height="100"/>
                         <RowDefinition Height="100"/>
                         <RowDefinition Height="100"/>
+                        <RowDefinition/>
                         <RowDefinition />
 
                     </Grid.RowDefinitions>
@@ -53,7 +51,16 @@
                     <Label Grid.Column="0" Grid.Row="3" Content="TankkaartId" Margin="5"/>
                     <TextBox Grid.Column="0" Grid.Row="3" Margin="5,30,5,10"/>
 
-                    <Button Name="FilterButton" Grid.ColumnSpan="2" Grid.Row="6" Margin="5,92,5,2">Filter</Button>
+                    <Button Name="FilterButton" Grid.ColumnSpan="2" Grid.Row="6" Margin="5">Filter</Button>
+
+                    <Grid Grid.Column="2" Grid.RowSpan="6">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="7*"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <DataGrid Grid.Row="0" Margin="5"/>
+                        <Button x:Name="VerwijderButton" Grid.Row="1" Margin="5">Verwijder</Button>
+                    </Grid>
                 </Grid>
             </TabItem>
             <TabItem Header="Voeg Toe">
@@ -97,55 +104,6 @@
                     <Label Grid.ColumnSpan="2" Grid.Row="6" Margin="5,191,5,2" Width="100" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left">* = verplicht</Label>
                 </Grid>
             </TabItem>
-            <TabItem Header="Wijzig">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="100"/>
-                        <RowDefinition Height="100"/>
-                        <RowDefinition Height="100"/>
-                        <RowDefinition />
-
-                    </Grid.RowDefinitions>
-                    <Label Grid.Column="0" Grid.Row="0" Content="Kaartnummer" Margin="5"/>
-                    <TextBox Grid.Row="0" Grid.Column="0"  Margin="5,30,5,10"/>
-
-                    <Label Grid.Column="1" Grid.Row="0" Content="Geldigheidsdatum" Margin="5"/>
-                    <DatePicker Grid.Row="0" Grid.Column="1"  Margin="5,30,5,10"/>
-
-                    <Label Grid.Column="0" Grid.Row="1" Content="Pincode" Margin="5"/>
-                    <TextBox Grid.Column="0" Grid.Row="1" Margin="5,30,5,10"/>
-
-                    <Label Grid.Column="1" Grid.Row="1" Content="Geblokkeerd?" Margin="5" HorizontalContentAlignment="Center"/>
-                    <CheckBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-
-                    <Label Grid.Column="0" Grid.Row="2" Content="Brandstof" Margin="5"/>
-                    <ComboBox Grid.Row="2" Grid.Column="0"  Margin="5,30,5,10">
-                        <ComboBoxItem Content="Diesel"/>
-                        <ComboBoxItem Content="Benzine"/>
-                        <ComboBoxItem Content="Elektrisch"/>
-                        <ComboBoxItem Content="Diesel_Elektrisch"/>
-                        <ComboBoxItem Content="Benzine_Elektrisch"/>
-                    </ComboBox>
-
-                    <Label Grid.Column="1" Grid.Row="2" Content="Bestuurder" Margin="5"/>
-                    <ComboBox Grid.Column="1" Grid.Row="2" Margin="5,30,5,10"/>
-
-                    <Button x:Name="WijzigButton" Grid.ColumnSpan="2" Grid.Row="3" Margin="5,191,5,2">Wijzig</Button>
-                </Grid>
-            </TabItem>
         </TabControl>
-        <Grid Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="7*"/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <DataGrid Grid.Row="0" Margin="5"/>
-            <Button x:Name="VerwijderButton" Grid.Row="1" Margin="5">Verwijder</Button>
-        </Grid>
-
     </Grid>
 </Window>

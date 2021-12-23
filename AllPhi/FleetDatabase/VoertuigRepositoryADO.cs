@@ -109,9 +109,9 @@ namespace FleetDatabase {
         //    }
         //}
         public void VoegVoertuigToe(Voertuig voertuig) {
-            int voertuigId;
-            string query = "INSERT INTO voertuig(Merk, Model, Chassisnummer, Nummerplaat, Brandstoftype, Wagentype, Kleur, Aantaldeuren)" +
-                "OUTPUT INSERTED.VoertuigId VALUES (@Merk, @Model, @Chassisnummer, @Nummerplaat, @Brandstoftype, @Wagentype, @Kleur, @Aantaldeuren);";
+                int voertuigId;
+                string query = "INSERT INTO voertuig(Merk, Model, Chassisnummer, Nummerplaat, Brandstoftype, Wagentype, Kleur, Aantaldeuren)" +
+                    "OUTPUT INSERTED.VoertuigId VALUES (@Merk, @Model, @Chassisnummer, @Nummerplaat, @Brandstoftype, @Wagentype, @Kleur, @Aantaldeuren);";
 
             SqlConnection connection = GetConnection();
             using (SqlCommand command = connection.CreateCommand()) {
@@ -211,7 +211,6 @@ namespace FleetDatabase {
                     connection.Close();
                 }
             }
-
         }
         public void VerwijderVoertuig(Voertuig voertuig) {
             string querydeleteVoertuig = "DELETE FROM Fleet.[dbo].Voertuig WHERE VoertuigId=@VoertuigId";
