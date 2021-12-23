@@ -378,6 +378,8 @@ namespace FleetDatabase
                     if (bestuurder != null) cmd.Parameters.AddWithValue("Bestuurder", bestuurder);
                     if (geblokkeerd.HasValue) cmd.Parameters.AddWithValue("Geblokkeerd", geblokkeerd);
 
+
+                    return tankkaarten;
                 }
                 catch (Exception)
                 {
