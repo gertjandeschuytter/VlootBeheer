@@ -377,11 +377,34 @@ namespace FleetDatabase
                     if (!string.IsNullOrEmpty(pincode)) cmd.Parameters.AddWithValue("Pincode", pincode);
                     if (bestuurder != null) cmd.Parameters.AddWithValue("Bestuurder", bestuurder);
                     if (geblokkeerd.HasValue) cmd.Parameters.AddWithValue("Geblokkeerd", geblokkeerd);
-
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        if ((reader["TankkaartId"].GetType() != typeof(DBNull)))
+                        {
+                            int tankkaartIdDB = (int)reader["TankkaartId"];
+                            tankkaart = new TankKaart(tankkaartIdDB, (string)reader["Kaartnummer"], (DateTime)reader["Geldigheidsdatum"], (string)reader["Pincode"], null, (bool)reader["Isgeblokeerd"], null);
+                            if (reader["Brandstoftype"] != DBNull.Value)
+                            {
+                                Brandstoftype_tankkaart brandstofType = (Brandstoftype_tankkaart)Enum.Parse(typeof(Brandstoftype_tankkaart), (string)reader["Brandstoftype"]);
+                                tankkaart.ZetBrandstoftype(brandstofType);
+                            }
+                        }
+                        if (reader["BestuurderId"].GetType() != typeof(DBNull))
+                        {
+                            int bestuurderId = (int)reader["BestuurderId"];
+                            BestuurderRepositoryADO repo = new BestuurderRepositoryADO(connectionString);
+                            bestuurder = repo.GeefBestuurder(bestuurderId);
+                            tankkaart.ZetBestuurder(bestuurder);
+                            tankkaart.Bestuurder.ZetTankKaart(tankkaart);
+                        }
+                        tankkaarten.Add(tankkaart);
+                    }
+                    return tankkaarten;
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-
+                    throw new TankkaartRepositoryADOException("TankkaartRepositoryADOExceptions - GeefTankkaarten - Er liep iets mis - " + ex.Message);
                 }
                 finally
                 {
