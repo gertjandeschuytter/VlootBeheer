@@ -110,5 +110,11 @@ namespace WpfFleetManagement.Tankkaart
                 this.Close();
             }
         }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            TankkaartWindow tw = new();
+            tw.Show();
+        }
     }
 }
