@@ -1,24 +1,7 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
     "C:\\Users\\Gertj\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\UnitTests\\UnitTests.csproj": {}
-=======
-<<<<<<< HEAD
-    "C:\\Users\\Ruben\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\UnitTests\\UnitTests.csproj": {}
-  },
-  "projects": {
-    "C:\\Users\\Ruben\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\BusinessLayer\\BusinessLayer.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\Ruben\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\BusinessLayer\\BusinessLayer.csproj",
-        "projectName": "BusinessLayer",
-        "projectPath": "C:\\Users\\Ruben\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\BusinessLayer\\BusinessLayer.csproj",
-        "packagesPath": "C:\\Users\\Ruben\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ruben\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\BusinessLayer\\obj\\",
-=======
-    "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\UnitTests\\UnitTests.csproj": {}
->>>>>>> 4ac95261f723f737dd19e87a0d03b30a3a74b86f
   },
   "projects": {
     "C:\\Users\\Gertj\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\BusinessLayer\\BusinessLayer.csproj": {
@@ -26,38 +9,19 @@
       "restore": {
         "projectUniqueName": "C:\\Users\\Gertj\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\BusinessLayer\\BusinessLayer.csproj",
         "projectName": "BusinessLayer",
-<<<<<<< HEAD
         "projectPath": "C:\\Users\\Gertj\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\BusinessLayer\\BusinessLayer.csproj",
         "packagesPath": "C:\\Users\\Gertj\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Gertj\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\BusinessLayer\\obj\\",
-=======
-        "projectPath": "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\BusinessLayer\\BusinessLayer.csproj",
-        "packagesPath": "C:\\Users\\Jarne\\.nuget\\packages\\",
-        "outputPath": "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\BusinessLayer\\obj\\",
->>>>>>> 43ffd9b9529a25720195069223c579c6a2f5b0ce
->>>>>>> 4ac95261f723f737dd19e87a0d03b30a3a74b86f
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-<<<<<<< HEAD
           "C:\\Users\\Gertj\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
-=======
-<<<<<<< HEAD
-          "C:\\Users\\Ruben\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
-=======
-          "C:\\Users\\Jarne\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
->>>>>>> 43ffd9b9529a25720195069223c579c6a2f5b0ce
->>>>>>> 4ac95261f723f737dd19e87a0d03b30a3a74b86f
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -106,25 +70,7 @@
               "privateAssets": "all"
             }
           },
-<<<<<<< HEAD
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
-=======
-<<<<<<< HEAD
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "C:\\Users\\Ruben\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\UnitTests\\UnitTests.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\Ruben\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\UnitTests\\UnitTests.csproj",
-        "projectName": "UnitTests",
-        "projectPath": "C:\\Users\\Ruben\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\UnitTests\\UnitTests.csproj",
-        "packagesPath": "C:\\Users\\Ruben\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ruben\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\UnitTests\\obj\\",
-=======
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
->>>>>>> 4ac95261f723f737dd19e87a0d03b30a3a74b86f
         }
       }
     },
@@ -133,38 +79,19 @@
       "restore": {
         "projectUniqueName": "C:\\Users\\Gertj\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\UnitTests\\UnitTests.csproj",
         "projectName": "UnitTests",
-<<<<<<< HEAD
         "projectPath": "C:\\Users\\Gertj\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\UnitTests\\UnitTests.csproj",
         "packagesPath": "C:\\Users\\Gertj\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Gertj\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\UnitTests\\obj\\",
-=======
-        "projectPath": "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\UnitTests\\UnitTests.csproj",
-        "packagesPath": "C:\\Users\\Jarne\\.nuget\\packages\\",
-        "outputPath": "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\UnitTests\\obj\\",
->>>>>>> 43ffd9b9529a25720195069223c579c6a2f5b0ce
->>>>>>> 4ac95261f723f737dd19e87a0d03b30a3a74b86f
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-<<<<<<< HEAD
           "C:\\Users\\Gertj\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
-=======
-<<<<<<< HEAD
-          "C:\\Users\\Ruben\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
-=======
-          "C:\\Users\\Jarne\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
->>>>>>> 43ffd9b9529a25720195069223c579c6a2f5b0ce
->>>>>>> 4ac95261f723f737dd19e87a0d03b30a3a74b86f
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -177,18 +104,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-<<<<<<< HEAD
               "C:\\Users\\Gertj\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\BusinessLayer\\BusinessLayer.csproj": {
                 "projectPath": "C:\\Users\\Gertj\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\BusinessLayer\\BusinessLayer.csproj"
-=======
-<<<<<<< HEAD
-              "C:\\Users\\Ruben\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\BusinessLayer\\BusinessLayer.csproj": {
-                "projectPath": "C:\\Users\\Ruben\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\BusinessLayer\\BusinessLayer.csproj"
-=======
-              "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\BusinessLayer\\BusinessLayer.csproj": {
-                "projectPath": "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\BusinessLayer\\BusinessLayer.csproj"
->>>>>>> 43ffd9b9529a25720195069223c579c6a2f5b0ce
->>>>>>> 4ac95261f723f737dd19e87a0d03b30a3a74b86f
               }
             }
           }
@@ -247,15 +164,7 @@
               "privateAssets": "all"
             }
           },
-<<<<<<< HEAD
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
-=======
-<<<<<<< HEAD
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
-=======
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
->>>>>>> 43ffd9b9529a25720195069223c579c6a2f5b0ce
->>>>>>> 4ac95261f723f737dd19e87a0d03b30a3a74b86f
         }
       }
     }
