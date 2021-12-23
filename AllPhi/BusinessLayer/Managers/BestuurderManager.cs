@@ -51,7 +51,9 @@ namespace BusinessLayer.Managers
                 if (!repo.BestaatBestuurder(bestuurder.BestuurderId)) throw new BestuurderManagerException("Bestuurder bestaat niet");
                 repo.VerwijderBestuurder(bestuurder);
             }
-            catch(Exception ex) { throw new BestuurderManagerException("BestuurderManager - Er liep iets mis: ", ex); }
+            catch(Exception ex) {
+                throw new BestuurderManagerException("BestuurderManager - Er liep iets mis: ", ex); 
+            }
         }
 
         public void WijzigBestuurder(Bestuurder bestuurder)

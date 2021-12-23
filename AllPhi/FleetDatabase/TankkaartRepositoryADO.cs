@@ -114,12 +114,12 @@ namespace FleetDatabase {
                 }
             }
         }
-        public void VoegTankkaartToe(TankKaart tankkaart) //TankkaartId nodig?
+        public void VoegTankkaartToe(TankKaart tankkaart)
         {
             SqlConnection connection = GetConnection();
             int tankkaartId;
-            string query = "INSERT INTO [dbo].Tankkaart (Kaartnummer, Geldigheidsdatum, Pincode, Bestuurder, Geblokkeerd) " +
-                "VALUES (@Kaartnummer, @Geldigheidsdatum, @Pincode, @Bestuurder, @Geblokkeerd)";
+            string query = "INSERT INTO [dbo].Tankkaart (Kaartnummer, Geldigheidsdatum, Pincode, BestuurderId, Isgeblokeerd) " +
+                "OUTPUT INSERTED.TankkaartId VALUES(@Kaartnummer, @Geldigheidsdatum, @Pincode, @BestuurderId, @Geblokkeerd)";
             using (SqlCommand cmd = connection.CreateCommand())
             {
                 connection.Open();
@@ -129,12 +129,11 @@ namespace FleetDatabase {
                     cmd.Parameters.Add(new SqlParameter("@Kaartnummer", SqlDbType.NVarChar));
                     cmd.Parameters.Add(new SqlParameter("@Geldigheidsdatum", SqlDbType.DateTime));
                     cmd.Parameters.Add(new SqlParameter("@Pincode", SqlDbType.NVarChar));
-                    cmd.Parameters.Add(new SqlParameter("@Bestuurder", SqlDbType.NVarChar));
-                    cmd.Parameters.Add(new SqlParameter("@Geblokkeerd", SqlDbType.TinyInt));
+                    cmd.Parameters.Add(new SqlParameter("@BestuurderId", SqlDbType.NVarChar));
+                    cmd.Parameters.Add(new SqlParameter("@Geblokkeerd", SqlDbType.Bit));
+                    cmd.CommandText = query;
                     cmd.Parameters["@Kaartnummer"].Value = tankkaart.KaartNr;
                     cmd.Parameters["@Geldigheidsdatum"].Value = tankkaart.Geldigheidsdatum;
-                    cmd.Parameters["@Pincode"].Value = tankkaart.Pincode;
-                    cmd.Parameters["@Bestuurder"].Value = tankkaart.Bestuurder;
                     cmd.Parameters["@Geblokkeerd"].Value = tankkaart.Geblokkeerd;
                     if (tankkaart.Pincode == null)
                     {
@@ -151,10 +150,6 @@ namespace FleetDatabase {
                     else
                     {
                         cmd.Parameters["@BestuurderId"].Value = tankkaart.Bestuurder.BestuurderId;
-                    }
-                    if (tankkaart.Geblokkeerd == null)
-                    {
-                        cmd.Parameters["@Geblokkeerd"].Value = tankkaart.Geblokkeerd;
                     }
                     tankkaartId = (int)cmd.ExecuteScalar();
                 }
@@ -171,7 +166,7 @@ namespace FleetDatabase {
         public void UpdateTankkaart(TankKaart tankkaart) //Done
         {
             SqlConnection connection = GetConnection();
-            string query = "UPDATE tankkaart SET Kaartnummer=@Kaartnummer, Geldigheidsdatum=@Geldigheidsdatum, Pincode=@Pincode, Bestuurder=@Bestuurder, Geblokkeerd=@Geblokkeerd WHERE TankkaartId=@TankkaartId";
+            string query = "UPDATE tankkaart SET Kaartnummer=@Kaartnummer, Geldigheidsdatum=@Geldigheidsdatum, Pincode=@Pincode, BestuurderId=@BestuurderId, Isgeblokeerd=@Geblokkeerd WHERE TankkaartId=@TankkaartId";
             using (SqlCommand cmd = connection.CreateCommand())
             {
                 connection.Open();
@@ -181,14 +176,12 @@ namespace FleetDatabase {
                     cmd.Parameters.Add(new SqlParameter("@Kaartnummer", SqlDbType.NVarChar));
                     cmd.Parameters.Add(new SqlParameter("@Geldigheidsdatum", SqlDbType.DateTime));
                     cmd.Parameters.Add(new SqlParameter("@Pincode", SqlDbType.NVarChar));
-                    cmd.Parameters.Add(new SqlParameter("@Bestuurder", SqlDbType.NVarChar));
+                    cmd.Parameters.Add(new SqlParameter("@BestuurderId", SqlDbType.NVarChar));
                     cmd.Parameters.Add(new SqlParameter("@Geblokkeerd", SqlDbType.TinyInt));
                     cmd.CommandText = query;
                     cmd.Parameters["@TankkaartId"].Value = tankkaart.TankkaartId;
                     cmd.Parameters["@Kaartnummer"].Value = tankkaart.KaartNr;
                     cmd.Parameters["@Geldigheidsdatum"].Value = tankkaart.Geldigheidsdatum;
-                    cmd.Parameters["@Pincode"].Value = tankkaart.Pincode;
-                    cmd.Parameters["@Bestuurder"].Value = tankkaart.Bestuurder;
                     cmd.Parameters["@Geblokkeerd"].Value = tankkaart.Geblokkeerd;
                     if (tankkaart.Pincode == null)
                     {
@@ -205,10 +198,6 @@ namespace FleetDatabase {
                     else
                     {
                         cmd.Parameters["@BestuurderId"].Value = tankkaart.Bestuurder.BestuurderId;
-                    }
-                    if (tankkaart.Geblokkeerd == null)
-                    {
-                        cmd.Parameters["@Geblokkeerd"].Value = tankkaart.Geblokkeerd;
                     }
                     cmd.ExecuteNonQuery();
                 }
@@ -227,7 +216,12 @@ namespace FleetDatabase {
         {
             Bestuurder bestuurder = null;
             TankKaart tankkaart = null;
-            string sql = "";
+            string sql = "SELECT tk.*, bs.Voornaam, bs.Naam, bs.Geboortedatum, bs.Rijksregisternummer," +
+                        " a.AdresId, a.Straat, a.Huisnummer, a.Gemeente, a.Postcode" +
+                        " FROM Fleet.[dbo].Tankkaart tk" +
+                        " LEFT JOIN Fleet.[dbo].Bestuurder bs ON bs.BestuurderId = tk.BestuurderId" +
+                        " LEFT JOIN Fleet.[dbo].Adres a ON a.AdresId = bs.AdresId" +
+                        " WHERE tk.TankkaartId = @TankkaartId";
             SqlConnection connection = GetConnection();
             using (SqlCommand command = connection.CreateCommand())
             {
@@ -242,7 +236,8 @@ namespace FleetDatabase {
                     if ((reader["TankkaartId"].GetType() != typeof(DBNull)))
                     {
                         int tankkaartIdDB = (int)reader["TankkaartId"];
-                        tankkaart = new TankKaart(tankkaartIdDB, (string)reader["Kaartnummer"], (DateTime)reader["Geldigheidsdatum"], (string)reader["Pincode"], null, (bool)reader["Isgeblokeerd"], null);
+                        tankkaart = new TankKaart((string)reader["Kaartnummer"], (DateTime)reader["Geldigheidsdatum"], (string)reader["Pincode"], null, (bool)reader["Isgeblokeerd"], null);
+                        tankkaart.ZetTankkaartId(tankkaartId);
                         if (reader["Brandstoftype"] != DBNull.Value)
                         {
                             Brandstoftype_tankkaart brandstofType = (Brandstoftype_tankkaart)Enum.Parse(typeof(Brandstoftype_tankkaart), (string)reader["Brandstoftype"]);
@@ -255,7 +250,10 @@ namespace FleetDatabase {
                         BestuurderRepositoryADO repo = new BestuurderRepositoryADO(connectionString);
                         bestuurder = repo.GeefBestuurder(bestuurderId);
                         tankkaart.ZetBestuurder(bestuurder);
-                        tankkaart.Bestuurder.ZetTankKaart(tankkaart);
+                        if (tankkaart.Bestuurder.TankKaart == null)
+                        {
+                            tankkaart.Bestuurder.ZetTankKaart(tankkaart);
+                        }
                     }
                     return tankkaart;
                 }
@@ -270,13 +268,17 @@ namespace FleetDatabase {
             }
         }
 
-        public IReadOnlyList<TankKaart> GeefTankkaarten(string kaartnr, DateTime? geldigheidsdatum, string pincode, Bestuurder bestuurder, bool? geblokkeerd)
+        public IReadOnlyList<TankKaart> GeefTankkaarten(string? kaartnr, DateTime? geldigheidsdatum, string? pincode, Bestuurder? bestuurder, bool? geblokkeerd)
         {
             List<TankKaart> tankkaarten = new();
             TankKaart tankkaart = null;
             bool WHERE = true;
             bool AND = false;
-            string sql = "";
+            string sql = "SELECT tk.*, bs.Voornaam, bs.Naam, bs.Geboortedatum, bs.Rijksregisternummer," +
+                        " a.AdresId, a.Straat, a.Huisnummer, a.Gemeente, a.Postcode" +
+                        " FROM Fleet.[dbo].Tankkaart tk" +
+                        " LEFT JOIN Fleet.[dbo].Bestuurder bs ON bs.BestuurderId = tk.BestuurderId" +
+                        " LEFT JOIN Fleet.[dbo].Adres a ON a.AdresId = bs.AdresId";
             if (!string.IsNullOrEmpty(kaartnr))
             {
                 if (WHERE)
@@ -380,7 +382,8 @@ namespace FleetDatabase {
                         if ((reader["TankkaartId"].GetType() != typeof(DBNull)))
                         {
                             int tankkaartIdDB = (int)reader["TankkaartId"];
-                            tankkaart = new TankKaart(tankkaartIdDB, (string)reader["Kaartnummer"], (DateTime)reader["Geldigheidsdatum"], (string)reader["Pincode"], null, (bool)reader["Isgeblokeerd"], null);
+                            tankkaart = new TankKaart((string)reader["Kaartnummer"], (DateTime)reader["Geldigheidsdatum"], (string)reader["Pincode"], null, (bool)reader["Isgeblokeerd"], null);
+                            tankkaart.ZetTankkaartId(tankkaartIdDB);
                             if (reader["Brandstoftype"] != DBNull.Value)
                             {
                                 Brandstoftype_tankkaart brandstofType = (Brandstoftype_tankkaart)Enum.Parse(typeof(Brandstoftype_tankkaart), (string)reader["Brandstoftype"]);
@@ -393,7 +396,10 @@ namespace FleetDatabase {
                             BestuurderRepositoryADO repo = new BestuurderRepositoryADO(connectionString);
                             bestuurder = repo.GeefBestuurder(bestuurderId);
                             tankkaart.ZetBestuurder(bestuurder);
-                            tankkaart.Bestuurder.ZetTankKaart(tankkaart);
+                            if (tankkaart.Bestuurder.TankKaart == null)
+                            {
+                                tankkaart.Bestuurder.ZetTankKaart(tankkaart);
+                            }
                         }
                         tankkaarten.Add(tankkaart);
                     }

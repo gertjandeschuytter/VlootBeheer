@@ -14,13 +14,15 @@ namespace BusinessLayer.Model
             ZetGeldigheidsdatum(geldigheidsdatum);
         }
 
-        public TankKaart(int tankkaartId, string kaartNr, DateTime geldigheidsdatum, string pincode, Bestuurder bestuurder, bool geblokkeerd, Brandstoftype_tankkaart? brandstoftype)
+        public TankKaart(string kaartNr, DateTime geldigheidsdatum, string pincode, Bestuurder bestuurder, bool geblokkeerd, Brandstoftype_tankkaart? brandstoftype)
         {
-            ZetTankkaartId(tankkaartId);
             ZetKaartNr(kaartNr);
             ZetGeldigheidsdatum(geldigheidsdatum);
             ZetPincode(pincode);
-            ZetBestuurder(bestuurder);
+            if (bestuurder != null)
+            {
+                ZetBestuurder(bestuurder);
+            }
             Geblokkeerd = geblokkeerd;
             Brandstoftype = brandstoftype;
         }
@@ -45,6 +47,9 @@ namespace BusinessLayer.Model
 
         #region Methods
         #region Setters
+        public void ZetGeblokkeerd(bool geblokkeerd) {
+            Geblokkeerd = geblokkeerd; 
+        }
         public void ZetTankkaartId(int TankkaartId) {
             if (TankkaartId <= 0) throw new TankKaartException("TankkaartId mag niet kleiner of gelijk zijn aan 0");
             this.TankkaartId = TankkaartId;
