@@ -35,6 +35,8 @@ namespace WpfFleetManagement.Voertuig {
         {
             this.ResizeMode = ResizeMode.NoResize;
             InitializeComponent();
+            VerwijderButton.IsEnabled = false;
+            WijzigButton.IsEnabled = false;
             if (bestuurder != null)
             {
                 TextBoxGekozenBestuurder.Text = bestuurder.ToString();
@@ -113,6 +115,38 @@ namespace WpfFleetManagement.Voertuig {
             }
 
             VoertuigDatagrid.ItemsSource = v;
+            VerwijderButton.IsEnabled = false;
+            WijzigButton.IsEnabled = false;
+        }
+
+        private void VoertuigDatagrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            VerwijderButton.IsEnabled = true;
+            WijzigButton.IsEnabled = true;
+        }
+
+        private void VoegToe_TypewagenCombobox_Loaded(object sender, RoutedEventArgs e)
+        {
+            ObservableCollection<string> wagentypes = new();
+            wagentypes.Insert(0, "<geen wagentype>");
+            wagentypes.Insert(1, "Personenwagen");
+            wagentypes.Insert(2, "Bestelwagen");
+            wagentypes.Insert(3, "Sportwagen");
+            Aanpassen_TypewagenCombobox.ItemsSource = wagentypes;
+            Aanpassen_TypewagenCombobox.SelectedIndex = 0;
+        }
+
+        private void VoegToe_BrandstoftypeCombobox_Loaded(object sender, RoutedEventArgs e)
+        {
+            ObservableCollection<string> brandstofTypes = new();
+            brandstofTypes.Insert(0, "<geen brandstofTypes>");
+            brandstofTypes.Insert(1, "Benzine");
+            brandstofTypes.Insert(2, "Diesel");
+            brandstofTypes.Insert(3, "Hybride_Benzine");
+            brandstofTypes.Insert(4, "Hybride_Diesel");
+            brandstofTypes.Insert(5, "Elektrisch");
+            Aanpassen_BrandstoftypeCombobox.ItemsSource = brandstofTypes;
+            Aanpassen_BrandstoftypeCombobox.SelectedIndex = 0;
         }
     }
 }

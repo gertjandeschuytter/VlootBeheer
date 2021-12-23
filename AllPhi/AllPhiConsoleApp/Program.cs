@@ -33,6 +33,9 @@ namespace AllPhiConsoleApp {
             //voertuig.ZetKleur("Paars");
             //voertuig.ZetModel("Bandito");
             //v.VoegVoertuigToe(voertuig);
+            TankkaartRepositoryADO tk = new(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Fleet;Integrated Security=True");
+            //tk.BestaatTankkaart(2);
+            tk.GeefTankkaart(2);
         }
     }
 }

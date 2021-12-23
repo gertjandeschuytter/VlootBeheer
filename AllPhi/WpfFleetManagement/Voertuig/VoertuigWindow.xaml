@@ -5,15 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfFleetManagement.Voertuig"
         mc:Ignorable="d"
-        Title="VoertuigWindow" Height="600" Width="1000">
+        Title="VoertuigWindow" Height="600" Width="1300">
     <Grid>
         <TabControl>
             <TabItem Header="Aanpassen">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="250"/>
-                        <ColumnDefinition Width="250"/>
-                        <ColumnDefinition Width="500"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*" />
                     </Grid.ColumnDefinitions>
 
                     <Grid.RowDefinitions>
@@ -81,7 +81,7 @@
                             <RowDefinition Height="7*"/>
                             <RowDefinition/>
                         </Grid.RowDefinitions>
-                        <DataGrid x:Name="VoertuigDatagrid" Grid.Row="0" Margin="5"/>
+                        <DataGrid x:Name="VoertuigDatagrid" Grid.Row="0" Margin="5" SelectionChanged="VoertuigDatagrid_SelectionChanged"/>
                         <Button x:Name="VerwijderButton" Grid.Row="1" Margin="5">Verwijder</Button>
                     </Grid>
                 </Grid>
@@ -125,13 +125,13 @@
                         <TextBox x:Name="VoegToe_AantalDeurenTextbox" Grid.Row="3" Grid.Column="1"  Margin="5,30,5,10"/>
 
                         <Label Grid.Column="0" Grid.Row="4" Content="Brandstof type *" Margin="5"/>
-                        <ComboBox x:Name="VoegToe_BrandstoftypeCombobox" Grid.Row="4" Grid.Column="0"  Margin="5,30,5,10"/>
+                        <ComboBox x:Name="VoegToe_BrandstoftypeCombobox" Loaded="VoegToe_BrandstoftypeCombobox_Loaded" Grid.Row="4" Grid.Column="0"  Margin="5,30,5,10"/>
 
                         <!--<Label Grid.Column="1" Grid.Row="4" Content="Bestuurder" Margin="5"/>
                         <ComboBox Grid.Row="4" Grid.Column="1"  Margin="5,30,5,10"/>-->
 
                         <Label Grid.Row="4" Grid.Column="1" Content="Type wagen *" Margin="5"/>
-                        <ComboBox x:Name="VoegToe_TypewagenCombobox" Grid.Row="4" Grid.Column="1" Margin="5,30,5,10"/>
+                        <ComboBox x:Name="VoegToe_TypewagenCombobox" Loaded="VoegToe_TypewagenCombobox_Loaded" Grid.Row="4" Grid.Column="1" Margin="5,30,5,10"/>
 
                         <Button x:Name="VoegToeButton" Click="VoegToeButton_Click" Grid.ColumnSpan="2" Grid.Row="6" Margin="5">Voeg Toe</Button>
                         <Label Grid.ColumnSpan="2" Grid.Row="6" Margin="5" Width="100" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left">* = verplicht</Label>
