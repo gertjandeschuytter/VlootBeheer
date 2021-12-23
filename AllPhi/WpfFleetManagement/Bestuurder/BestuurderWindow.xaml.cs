@@ -40,12 +40,6 @@ namespace WpfFleetManagement
             VerwijderButton.IsEnabled = false;
         }
 
-        private void BestuurderWindow_Closing(object sender, EventArgs e)
-        {
-            MainWindow main = new MainWindow();
-            main.Show();
-        }
-
         private void FilterButton_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(Filter_VoornaamTextbox.Text))
