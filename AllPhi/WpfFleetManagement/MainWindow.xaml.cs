@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using FleetDatabase;
 using System.Configuration;
 using WpfFleetManagement.Voertuig;
+using WpfFleetManagement.Tankkaart;
 
 namespace WpfFleetManagement {
     /// <summary>

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfFleetManagement"
         mc:Ignorable="d"
         Title="BestuurderWindow" Height="600" Width="1000"
-        Closing="BestuurderWindow_Closing">
+        >
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
