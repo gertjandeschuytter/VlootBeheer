@@ -23,5 +23,16 @@ namespace WpfFleetManagement.Tankkaart
         {
             InitializeComponent();
         }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            TankkaartWindow tw = new();
+            tw.Show();
+        }
+
+        private void WijzigButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

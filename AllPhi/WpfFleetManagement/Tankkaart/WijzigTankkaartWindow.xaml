@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfFleetManagement.Tankkaart"
         mc:Ignorable="d"
-        Title="WijzigTankkaartWindow" Height="600" Width="1000">
+        Title="WijzigTankkaartWindow" Height="600" Width="1000" Closing="Window_Closing">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -44,6 +44,6 @@
         <Label Grid.Column="1" Grid.Row="4" Content="Bestuurder" Margin="5"/>
         <ComboBox Grid.Column="1" Grid.Row="4" Margin="5,30,5,10"/>
 
-        <Button x:Name="WijzigButton" Grid.ColumnSpan="2" Grid.Row="6" Margin="5">Wijzig</Button>
+        <Button x:Name="WijzigButton" Click="WijzigButton_Click" Grid.ColumnSpan="2" Grid.Row="6" Margin="5">Wijzig</Button>
     </Grid>
 </Window>

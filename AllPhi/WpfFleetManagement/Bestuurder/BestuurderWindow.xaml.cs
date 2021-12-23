@@ -194,6 +194,7 @@ namespace WpfFleetManagement
             Application.Current.Properties["Bestuurder"] = (BusinessLayer.Model.Bestuurder)DatagridBestuurder.SelectedItem;
             WijzigenBestuurderWindow window = new();
             window.Show();
+            Close();
         }
         private bool ZijnAlleVeldenIngevuld() {
             if (VoegToe_VoornaamTextbox.Text.Length > 0 && VoegToe_NaamTextbox.Text.Length > 0 && VoegToe_GeboortedatumDatePicker.SelectedDate.HasValue && VoegToe_RijksregisternummerTextbox.Text.Length > 0) {
