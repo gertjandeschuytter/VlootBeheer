@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfFleetManagement.Voertuig"
         mc:Ignorable="d"
-        Title="WijzigVoertuigWindow" Height="600" Width="1000">
+        Title="WijzigVoertuigWindow" Height="600" Width="1000" Closing="Window_Closing">
     <Grid>
         <Grid Grid.ColumnSpan="2"  Grid.RowSpan="8" ShowGridLines="False">
             <Grid.ColumnDefinitions>

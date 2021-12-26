@@ -6,10 +6,15 @@
       "version": "5.0.0"
     },
     "additionalProbingPaths": [
+<<<<<<< HEAD
       "C:\\Users\\Ruben\\.dotnet\\store\\|arch|\\|tfm|",
       "C:\\Users\\Ruben\\.nuget\\packages",
       "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
       "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet"
+=======
+      "C:\\Users\\Jarne\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Jarne\\.nuget\\packages"
+>>>>>>> 2040174d57958ea69cdf0c15b5a4d35d2b63aaa3
     ],
     "configProperties": {
       "Microsoft.NETCore.DotNetHostPolicy.SetAppPaths": true

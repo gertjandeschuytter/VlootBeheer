@@ -24,7 +24,6 @@ namespace WpfFleetManagement.Tankkaart
             this.ResizeMode = ResizeMode.NoResize;
             InitializeComponent();
             VoegToeButton.IsEnabled = false;
-            WijzigButton.IsEnabled = false;
             VerwijderButton.IsEnabled = false;
         }
 

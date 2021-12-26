@@ -1,6 +1,7 @@
 ﻿using BusinessLayer.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfFleetManagement.Voertuig;
 
 namespace WpfFleetManagement.Tankkaart
 {
@@ -107,6 +109,12 @@ namespace WpfFleetManagement.Tankkaart
                 vw.TabVoegToe.Focus();
                 this.Close();
             }
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            TankkaartWindow tw = new();
+            tw.Show();
         }
     }
 }

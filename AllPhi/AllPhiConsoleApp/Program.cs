@@ -33,6 +33,13 @@ namespace AllPhiConsoleApp {
             //voertuig.ZetKleur("Paars");
             //voertuig.ZetModel("Bandito");
             //v.VoegVoertuigToe(voertuig);
+            TankkaartRepositoryADO tk = new(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Fleet;Integrated Security=True");
+            //tk.BestaatTankkaart(2);
+            //var tankkaart = tk.GeefTankkaart(2);
+            //var tankkaarten = tk.GeefTankkaarten(null, null, null, null, null);
+            //tk.UpdateTankkaart(tankkaart);
+            //tk.VerwijderTankkaart(tankkaart);
+            //tk.VoegTankkaartToe(new("17035332291656429",DateTime.Now,"1234",null,true,Brandstoftype_tankkaart.Benzine));
         }
     }
 }

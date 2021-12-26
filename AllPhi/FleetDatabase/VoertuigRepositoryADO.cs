@@ -153,7 +153,7 @@ namespace FleetDatabase {
                 "FROM Fleet.[dbo].Voertuig vs " +
                 "LEFT JOIN Fleet.[dbo].Bestuurder bs ON bs.VoertuigId = vs.VoertuigId " +
                 "LEFT JOIN Fleet.[dbo].Tankkaart tk ON bs.TankkaartId = tk.TankkaartId " +
-                "LEFT JOIN Fleet.[dbo].Adres a ON bs.AdresId = a.AdresId ";
+                "LEFT JOIN Fleet.[dbo].Adres a ON bs.AdresId = a.AdresId";
             if (!string.IsNullOrEmpty(merk)) {
                 if (WHERE) {
                     sql += " WHERE ";
@@ -221,7 +221,7 @@ namespace FleetDatabase {
                 if (AND) {
                     sql += " AND ";
                 }
-                sql += "wagentype=@wagentype";
+                sql += "aantaldeuren=@aantaldeuren";
             }
             if (!string.IsNullOrEmpty(chassisnummer))
             {
@@ -273,7 +273,6 @@ namespace FleetDatabase {
                     if (aantaldeuren.HasValue) cmd.Parameters.AddWithValue("@aantaldeuren", aantaldeuren);
                     SqlDataReader reader = cmd.ExecuteReader();
                     while (reader.Read()) {
-                        int bestuurderId = (int)reader["BestuurderId"];
                         if (reader["VoertuigId"].GetType() != typeof(DBNull)) {
                             Brandstoftype_voertuig brandstofType = (Brandstoftype_voertuig)Enum.Parse(typeof(Brandstoftype_voertuig), (string)reader["Brandstoftype"]);
                             Typewagen wagenType = (Typewagen)Enum.Parse(typeof(Typewagen), (string)reader["WagenType"]);
@@ -289,6 +288,7 @@ namespace FleetDatabase {
                             voertuig.ZetId((int)reader["VoertuigId"]);
                         }
                         if (reader["BestuurderId"].GetType() != typeof(DBNull)) {
+                            int bestuurderId = (int)reader["BestuurderId"];
                             if (!BestuurderHeeftEenOfMeerdereRijbewijzen(bestuurderId)) {
                                 bestuurder = new Bestuurder((string)reader["Naam"], (string)reader["Voornaam"], (DateTime)reader["Geboortedatum"], (string)reader["Rijksregisternummer"], RijbewijzenLijst);
                             } else {
@@ -302,7 +302,8 @@ namespace FleetDatabase {
                         }
                         if ((reader["TankkaartId"].GetType() != typeof(DBNull))) {
                             int tankkaartIdDB = (int)reader["TankkaartId"];
-                            TankKaart tankKaart = new TankKaart(tankkaartIdDB, (string)reader["Kaartnummer"], (DateTime)reader["Geldigheidsdatum"], (string)reader["Pincode"], bestuurder, (bool)reader["Isgeblokeerd"], null);
+                            TankKaart tankKaart = new TankKaart((string)reader["Kaartnummer"], (DateTime)reader["Geldigheidsdatum"], (string)reader["Pincode"], bestuurder, (bool)reader["Isgeblokeerd"], null);
+                            tankKaart.ZetTankkaartId(tankkaartIdDB);
                             voertuig.Bestuurder.ZetTankKaart(tankKaart);
                         }
                         Voertuigen.Add(voertuig);
@@ -365,7 +366,7 @@ namespace FleetDatabase {
                     }
                     if ((reader["TankkaartId"].GetType() != typeof(DBNull))) {
                         int tankkaartIdDB = (int)reader["TankkaartId"];
-                        TankKaart tankKaart = new TankKaart(tankkaartIdDB, (string)reader["Kaartnummer"], (DateTime)reader["Geldigheidsdatum"], (string)reader["Pincode"], bestuurder, (bool)reader["Isgeblokeerd"], null);
+                        TankKaart tankKaart = new TankKaart((string)reader["Kaartnummer"], (DateTime)reader["Geldigheidsdatum"], (string)reader["Pincode"], bestuurder, (bool)reader["Isgeblokeerd"], null);
                         tankKaart.ZetTankkaartId(tankkaartIdDB);
                         voertuig.Bestuurder.ZetTankKaart(tankKaart);
                     }

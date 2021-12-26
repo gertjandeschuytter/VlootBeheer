@@ -28,5 +28,11 @@ namespace WpfFleetManagement.Voertuig
         {
 
         }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            VoertuigWindow vw = new();
+            vw.Show();
+        }
     }
 }
