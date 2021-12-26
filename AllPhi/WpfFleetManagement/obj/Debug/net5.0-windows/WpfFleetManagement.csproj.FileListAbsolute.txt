@@ -135,3 +135,11 @@ C:\Users\Gertj\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\D
 C:\Users\Gertj\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\Voertuig\VoertuigWindow.baml
 C:\Users\Gertj\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\Voertuig\ZoekBestuurderVoertuigWindow.g.cs
 C:\Users\Gertj\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\Voertuig\ZoekBestuurderVoertuigWindow.baml
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\Bestuurder\BestuurderWindow.g.cs
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\Bestuurder\WijzigenBestuurderWindow.g.cs
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\Tankkaart\TankkaartWindow.g.cs
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\Tankkaart\WijzigTankkaartWindow.g.cs
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\Tankkaart\ZoekBestuurderTankkaartWindow.g.cs
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\Voertuig\VoertuigWindow.g.cs
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\Voertuig\WijzigVoertuigWindow.g.cs
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\Voertuig\ZoekBestuurderVoertuigWindow.g.cs
