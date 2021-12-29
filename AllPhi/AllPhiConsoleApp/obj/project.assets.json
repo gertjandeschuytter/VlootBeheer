@@ -5548,45 +5548,28 @@
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
     "C:\\Users\\Ruben\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
-=======
-    "C:\\Users\\Jarne\\.nuget\\packages\\": {}
->>>>>>> 2040174d57958ea69cdf0c15b5a4d35d2b63aaa3
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\Ruben\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\AllPhiConsoleApp\\AllPhiConsoleApp.csproj",
       "projectName": "AllPhiConsoleApp",
       "projectPath": "C:\\Users\\Ruben\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\AllPhiConsoleApp\\AllPhiConsoleApp.csproj",
       "packagesPath": "C:\\Users\\Ruben\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Ruben\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\AllPhiConsoleApp\\obj\\",
-=======
-      "projectUniqueName": "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\AllPhiConsoleApp\\AllPhiConsoleApp.csproj",
-      "projectName": "AllPhiConsoleApp",
-      "projectPath": "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\AllPhiConsoleApp\\AllPhiConsoleApp.csproj",
-      "packagesPath": "C:\\Users\\Jarne\\.nuget\\packages\\",
-      "outputPath": "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\AllPhiConsoleApp\\obj\\",
->>>>>>> 2040174d57958ea69cdf0c15b5a4d35d2b63aaa3
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-<<<<<<< HEAD
         "C:\\Users\\Ruben\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
-=======
-        "C:\\Users\\Jarne\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
->>>>>>> 2040174d57958ea69cdf0c15b5a4d35d2b63aaa3
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -5599,13 +5582,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-<<<<<<< HEAD
             "C:\\Users\\Ruben\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\FleetDatabase\\FleetDatabase.csproj": {
               "projectPath": "C:\\Users\\Ruben\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\FleetDatabase\\FleetDatabase.csproj"
-=======
-            "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\FleetDatabase\\FleetDatabase.csproj": {
-              "projectPath": "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\FleetDatabase\\FleetDatabase.csproj"
->>>>>>> 2040174d57958ea69cdf0c15b5a4d35d2b63aaa3
             }
           }
         }

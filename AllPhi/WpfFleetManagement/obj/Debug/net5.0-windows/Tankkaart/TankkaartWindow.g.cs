@@ -65,29 +65,6 @@ namespace WpfFleetManagement.Tankkaart {
         #line default
         #line hidden
         
-        #line 28 "..\..\..\..\Tankkaart\TankkaartWindow.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.TextBox Aanpassen_KaartnummerTextbox;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 31 "..\..\..\..\Tankkaart\TankkaartWindow.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.DatePicker Aanpassen_GeldigheidsdatumDatePicker;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 34 "..\..\..\..\Tankkaart\TankkaartWindow.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.TextBox Aanpassen_PincodeTextbox;
-        
-        #line default
-        #line hidden
-        
         
         #line 37 "..\..\..\..\Tankkaart\TankkaartWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]

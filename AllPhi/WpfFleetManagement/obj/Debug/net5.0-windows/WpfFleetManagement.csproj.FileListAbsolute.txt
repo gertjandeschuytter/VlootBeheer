@@ -135,7 +135,6 @@ C:\Users\Gertj\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\D
 C:\Users\Gertj\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\Voertuig\VoertuigWindow.baml
 C:\Users\Gertj\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\Voertuig\ZoekBestuurderVoertuigWindow.g.cs
 C:\Users\Gertj\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\Voertuig\ZoekBestuurderVoertuigWindow.baml
-<<<<<<< HEAD
 C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\Bestuurder\BestuurderWindow.g.cs
 C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\Bestuurder\WijzigenBestuurderWindow.g.cs
 C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\Tankkaart\TankkaartWindow.g.cs
@@ -144,7 +143,6 @@ C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\D
 C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\Voertuig\VoertuigWindow.g.cs
 C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\Voertuig\WijzigVoertuigWindow.g.cs
 C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\Voertuig\ZoekBestuurderVoertuigWindow.g.cs
-=======
 C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\Bestuurder\BestuurderWindow.g.cs
 C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\Bestuurder\WijzigenBestuurderWindow.g.cs
 C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\Tankkaart\TankkaartWindow.g.cs
@@ -169,3 +167,25 @@ C:\Users\Gertj\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\D
 C:\Users\Gertj\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\Voertuig\WijzigVoertuigWindow.baml
 >>>>>>> 1d8600da34aa6dc534a78599bd85d6229b1cc93b
 >>>>>>> 2040174d57958ea69cdf0c15b5a4d35d2b63aaa3
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\bin\Debug\net5.0-windows\WpfFleetManagement.dll.config
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\bin\Debug\net5.0-windows\Castle.Core.dll
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\bin\Debug\net5.0-windows\Newtonsoft.Json.dll
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\bin\Debug\net5.0-windows\System.Data.SqlClient.dll
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\bin\Debug\net5.0-windows\runtimes\win-arm64\native\sni.dll
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\bin\Debug\net5.0-windows\runtimes\win-x64\native\sni.dll
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\bin\Debug\net5.0-windows\runtimes\win-x86\native\sni.dll
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\bin\Debug\net5.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\bin\Debug\net5.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\bin\Debug\net5.0-windows\BusinessLayer.dll
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\bin\Debug\net5.0-windows\FleetDatabase.dll
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\bin\Debug\net5.0-windows\BusinessLayer.pdb
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\bin\Debug\net5.0-windows\FleetDatabase.pdb
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\Bestuurder\BestuurderWindow.baml
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\Bestuurder\WijzigenBestuurderWindow.baml
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\Tankkaart\TankkaartWindow.baml
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\Tankkaart\WijzigTankkaartWindow.baml
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\Tankkaart\ZoekBestuurderTankkaartWindow.baml
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\Voertuig\VoertuigWindow.baml
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\Voertuig\WijzigVoertuigWindow.baml
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\Voertuig\ZoekBestuurderVoertuigWindow.baml
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\WpfFleetManagement.csproj.CopyComplete
