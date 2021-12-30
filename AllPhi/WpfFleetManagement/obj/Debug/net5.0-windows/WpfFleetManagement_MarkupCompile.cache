@@ -4,16 +4,28 @@
 winexe
 C#
 .cs
+<<<<<<< HEAD
 C:\Users\Gertj\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\
+=======
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\
+>>>>>>> d47c9ac173a08b59e7c87c17c17f0e85d4945bdf
 WpfFleetManagement
 none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
+<<<<<<< HEAD
 C:\Users\Gertj\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\App.xaml
 9-122942804
 
 11-602885532
 198808806033
+=======
+C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\App.xaml
+9-122942804
+
+11-602885532
+198-439190315
+>>>>>>> d47c9ac173a08b59e7c87c17c17f0e85d4945bdf
 Bestuurder\BestuurderWindow.xaml;Bestuurder\WijzigenBestuurderWindow.xaml;MainWindow.xaml;Tankkaart\TankkaartWindow.xaml;Tankkaart\WijzigTankkaartWindow.xaml;Tankkaart\ZoekBestuurderTankkaartWindow.xaml;Voertuig\VoertuigWindow.xaml;Voertuig\WijzigVoertuigWindow.xaml;Voertuig\ZoekBestuurderVoertuigWindow.xaml;
 
 False
