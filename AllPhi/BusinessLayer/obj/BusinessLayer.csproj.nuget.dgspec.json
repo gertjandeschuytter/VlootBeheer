@@ -1,7 +1,24 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\BusinessLayer\\BusinessLayer.csproj": {}
+=======
+<<<<<<< HEAD
+    "C:\\Users\\Gertj\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\BusinessLayer\\BusinessLayer.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Gertj\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\BusinessLayer\\BusinessLayer.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Gertj\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\BusinessLayer\\BusinessLayer.csproj",
+        "projectName": "BusinessLayer",
+        "projectPath": "C:\\Users\\Gertj\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\BusinessLayer\\BusinessLayer.csproj",
+        "packagesPath": "C:\\Users\\Gertj\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Gertj\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\BusinessLayer\\obj\\",
+=======
+    "C:\\Users\\Ruben\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\BusinessLayer\\BusinessLayer.csproj": {}
+>>>>>>> c795f02547d9870c5abd8653a36c94622cef4ffe
   },
   "projects": {
     "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\BusinessLayer\\BusinessLayer.csproj": {
@@ -9,13 +26,31 @@
       "restore": {
         "projectUniqueName": "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\BusinessLayer\\BusinessLayer.csproj",
         "projectName": "BusinessLayer",
+<<<<<<< HEAD
         "projectPath": "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\BusinessLayer\\BusinessLayer.csproj",
         "packagesPath": "C:\\Users\\Jarne\\.nuget\\packages\\",
         "outputPath": "C:\\School\\2de Jaar\\Semester 1\\Graduaats Project\\RepoGertjan\\AllPhi\\BusinessLayer\\obj\\",
+=======
+        "projectPath": "C:\\Users\\Ruben\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\BusinessLayer\\BusinessLayer.csproj",
+        "packagesPath": "C:\\Users\\Ruben\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Ruben\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\BusinessLayer\\obj\\",
+>>>>>>> d47c9ac173a08b59e7c87c17c17f0e85d4945bdf
+>>>>>>> c795f02547d9870c5abd8653a36c94622cef4ffe
         "projectStyle": "PackageReference",
         "configFilePaths": [
+<<<<<<< HEAD
           "C:\\Users\\Jarne\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+=======
+<<<<<<< HEAD
+          "C:\\Users\\Gertj\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+          "C:\\Users\\Ruben\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> d47c9ac173a08b59e7c87c17c17f0e85d4945bdf
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+>>>>>>> c795f02547d9870c5abd8653a36c94622cef4ffe
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -64,7 +99,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

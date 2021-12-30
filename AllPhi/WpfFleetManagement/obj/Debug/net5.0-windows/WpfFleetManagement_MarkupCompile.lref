@@ -1,5 +1,6 @@
 ﻿
 
+<<<<<<< HEAD
 FC:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\Bestuurder\BestuurderWindow.xaml;;
 FC:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\Bestuurder\WijzigenBestuurderWindow.xaml;;
 FC:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\MainWindow.xaml;;
@@ -9,4 +10,27 @@ FC:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetMana
 FC:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\Voertuig\VoertuigWindow.xaml;;
 FC:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\Voertuig\WijzigVoertuigWindow.xaml;;
 FC:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\Voertuig\ZoekBestuurderVoertuigWindow.xaml;;
+=======
+<<<<<<< HEAD
+FC:\Users\Gertj\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\Bestuurder\BestuurderWindow.xaml;;
+FC:\Users\Gertj\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\Bestuurder\WijzigenBestuurderWindow.xaml;;
+FC:\Users\Gertj\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\MainWindow.xaml;;
+FC:\Users\Gertj\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\Tankkaart\TankkaartWindow.xaml;;
+FC:\Users\Gertj\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\Tankkaart\WijzigTankkaartWindow.xaml;;
+FC:\Users\Gertj\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\Tankkaart\ZoekBestuurderTankkaartWindow.xaml;;
+FC:\Users\Gertj\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\Voertuig\VoertuigWindow.xaml;;
+FC:\Users\Gertj\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\Voertuig\WijzigVoertuigWindow.xaml;;
+FC:\Users\Gertj\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\Voertuig\ZoekBestuurderVoertuigWindow.xaml;;
+=======
+FC:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\Bestuurder\BestuurderWindow.xaml;;
+FC:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\Bestuurder\WijzigenBestuurderWindow.xaml;;
+FC:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\MainWindow.xaml;;
+FC:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\Tankkaart\TankkaartWindow.xaml;;
+FC:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\Tankkaart\WijzigTankkaartWindow.xaml;;
+FC:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\Tankkaart\ZoekBestuurderTankkaartWindow.xaml;;
+FC:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\Voertuig\VoertuigWindow.xaml;;
+FC:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\Voertuig\WijzigVoertuigWindow.xaml;;
+FC:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\Voertuig\ZoekBestuurderVoertuigWindow.xaml;;
+>>>>>>> d47c9ac173a08b59e7c87c17c17f0e85d4945bdf
+>>>>>>> c795f02547d9870c5abd8653a36c94622cef4ffe
 
