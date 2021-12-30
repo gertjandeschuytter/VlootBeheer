@@ -33,7 +33,7 @@ namespace WpfFleetManagement.Voertuig {
 
         public VoertuigWindow()
         {
-            this.ResizeMode = ResizeMode.NoResize;
+            ResizeMode = ResizeMode.NoResize;
             InitializeComponent();
             VerwijderButton.IsEnabled = false;
             WijzigButton.IsEnabled = false;
@@ -47,7 +47,7 @@ namespace WpfFleetManagement.Voertuig {
         {
             ZoekBestuurderVoertuigWindow zb = new();
             zb.Show();
-            this.Close();
+            Close();
         }
 
         private void VoegToeButton_Click(object sender, RoutedEventArgs e)

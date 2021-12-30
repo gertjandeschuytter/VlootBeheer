@@ -92,11 +92,11 @@ namespace FleetDatabase {
                     if (reader["TankkaartId"].GetType() != typeof(DBNull))
                     {
                         int tankkaartIdDB = (int)reader["TankkaartId"];
-                        var tankKaart = new TankKaart((string)reader["Kaartnummer"], (DateTime)reader["Geldigheidsdatum"], (string)reader["Pincode"], bestuurder, (bool)reader["Isgeblokeerd"], null);
-                        tankKaart.ZetTankkaartId(tankkaartIdDB);
+                        tankkaart = new TankKaart((string)reader["Kaartnummer"], (DateTime)reader["Geldigheidsdatum"], (string)reader["Pincode"], bestuurder, (bool)reader["Isgeblokeerd"], null);
+                        tankkaart.ZetTankkaartId(tankkaartIdDB);
                         if (bestuurder.TankKaart == null)
                         {
-                            bestuurder.ZetTankKaart(tankKaart);
+                            bestuurder.ZetTankKaart(tankkaart);
                         }
                     }
                     return bestuurder;

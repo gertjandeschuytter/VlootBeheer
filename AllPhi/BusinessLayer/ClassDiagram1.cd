@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BusinessLayer.Model.Adres">
+    <Position X="9" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAgBAAgAACgAAAEACAQIACAAAAAAAAQiA=</HashCode>
+      <FileName>Model\Adres.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BusinessLayer.Model.Bestuurder">
+    <Position X="5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAQgAAAkQAAEgAgABgBAQIgABKAAABggIAAARiA=</HashCode>
+      <FileName>Model\Bestuurder.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Adres" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BusinessLayer.Model.Voertuig">
+    <Position X="1.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAEAgABAAAAhAAAEACAAAAAAAgCAEAlAEgMCAAAAAA=</HashCode>
+      <FileName>Model\Voertuig.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Bestuurder" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="BusinessLayer.Model.TankKaart">
+    <Position X="12.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEQAAAAAAIAABAAAAAQAAAABIAABAJCEAKAAAAQAA=</HashCode>
+      <FileName>Model\TankKaart.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Bestuurder" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
