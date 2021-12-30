@@ -420,7 +420,6 @@ namespace FleetDatabase {
                 }
             }
         }
-
         private bool BestuurderHeeftEenOfMeerdereRijbewijzen(int bestuurderId)
         {
             SqlConnection conn = GetConnection();
