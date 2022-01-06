@@ -117,7 +117,8 @@ namespace WpfFleetManagement.Voertuig {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/WpfFleetManagement;component/voertuig/bestuurderwijzigenvoertuigwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/WpfFleetManagement;V1.0.0.0;component/voertuig/bestuurderwijzigenvoertuigwindow." +
+                    "xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Voertuig\BestuurderWijzigenVoertuigWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

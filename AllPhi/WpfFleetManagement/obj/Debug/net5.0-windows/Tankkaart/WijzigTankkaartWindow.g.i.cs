@@ -61,7 +61,7 @@ namespace WpfFleetManagement.Tankkaart {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/WpfFleetManagement;component/tankkaart/wijzigtankkaartwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/WpfFleetManagement;V1.0.0.0;component/tankkaart/wijzigtankkaartwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Tankkaart\WijzigTankkaartWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
