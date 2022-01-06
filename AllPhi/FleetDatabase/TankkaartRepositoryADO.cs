@@ -152,6 +152,7 @@ namespace FleetDatabase {
                         cmd.Parameters["@BestuurderId"].Value = tankkaart.Bestuurder.BestuurderId;
                     }
                     tankkaartId = (int)cmd.ExecuteScalar();
+                    tankkaart.ZetTankkaartId(tankkaartId);
                 }
                 catch (Exception ex)
                 {
