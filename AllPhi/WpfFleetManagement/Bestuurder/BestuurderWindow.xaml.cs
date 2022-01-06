@@ -184,7 +184,7 @@ namespace WpfFleetManagement
             try {
                 BusinessLayer.Model.Bestuurder bestuurder = (BusinessLayer.Model.Bestuurder)DatagridBestuurder.SelectedItem;
                 MainWindow.bestuurderManager.VerwijderBestuurder(bestuurder);
-                MessageBox.Show("Voetbaltruitje is verwijderd", Title, MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Bestuurder is verwijderd", Title, MessageBoxButton.OK, MessageBoxImage.Information);
             } catch (Exception ex) {
                 MessageBox.Show(ex.Message, Title, MessageBoxButton.OK, MessageBoxImage.Error);
             }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BusinessLayer.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,12 @@ namespace WpfFleetManagement.Tankkaart
     /// </summary>
     public partial class WijzigTankkaartWindow : Window
     {
+        public string Kaartnummer;
+        public string Pincode;
+        public Brandstoftype_tankkaart? Brandstoftype;
+        public int? TankkaartId;
+        public bool Geblokkeerd;
+        public DateTime? Geldigheidsdatum;
         public WijzigTankkaartWindow()
         {
             InitializeComponent();

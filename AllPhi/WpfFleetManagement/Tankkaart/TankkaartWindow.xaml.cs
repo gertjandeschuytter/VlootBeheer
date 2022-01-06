@@ -49,9 +49,9 @@ namespace WpfFleetManagement.Tankkaart
 
         private void WijzigButton_Click(object sender, RoutedEventArgs e)
         {
+            Application.Current.Properties["Tankkaart"] = (BusinessLayer.Model.TankKaart)TankkaartDatagrid.SelectedItem;
             WijzigTankkaartWindow wtw = new();
-            wtw.Show();
-            Close();
+            wtw.ShowDialog();
         }
 
         private void FilterButton_Click(object sender, RoutedEventArgs e)
@@ -91,10 +91,18 @@ namespace WpfFleetManagement.Tankkaart
 
             TankkaartDatagrid.ItemsSource = t;
         }
-
         private void VerwijderButton_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                BusinessLayer.Model.TankKaart tankkaart = (BusinessLayer.Model.TankKaart)TankkaartDatagrid.SelectedItem;
+                MainWindow.tankkaartManager.VerwijderTankkaart(tankkaart);
+                MessageBox.Show("Tankkaart is verwijderd", Title, MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Title, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void Aanpassen_BrandstoftypeCombobox_Loaded(object sender, RoutedEventArgs e)
@@ -103,6 +111,12 @@ namespace WpfFleetManagement.Tankkaart
             maten.Insert(0, "<geen brandstoftype>");
             Aanpassen_BrandstoftypeCombobox.ItemsSource = maten;
             Aanpassen_BrandstoftypeCombobox.SelectedIndex = 0;
+        }
+
+        private void TankkaartDatagrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            VerwijderButton.IsEnabled = true;
+            WijzigButton.IsEnabled = true;
         }
     }
 }
