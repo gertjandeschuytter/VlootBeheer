@@ -400,7 +400,7 @@ namespace FleetDatabase {
                             int tankkaartIdDB = (int)reader["TankkaartId"];
                             TankKaart tankKaart = new TankKaart((string)reader["Kaartnummer"], (DateTime)reader["Geldigheidsdatum"], (string)reader["Pincode"], bestuurder, (bool)reader["Isgeblokeerd"], null);
                             tankKaart.ZetTankkaartId(tankkaartIdDB);
-                            bestuurder.ZetTankKaart(tankKaart);
+                            //bestuurder.ZetTankKaart(tankKaart);
                         }
                         bestuurders.Add(bestuurder);
                     }
