@@ -60,7 +60,7 @@
                             <RowDefinition Height="7*"/>
                             <RowDefinition/>
                         </Grid.RowDefinitions>
-                        <DataGrid x:Name="TankkaartDatagrid" Grid.Row="0" Margin="5"/>
+                        <DataGrid x:Name="TankkaartDatagrid" Grid.Row="0" Margin="5" SelectionChanged="TankkaartDatagrid_SelectionChanged"/>
                         <Button x:Name="VerwijderButton" Click="VerwijderButton_Click" Grid.Row="1" Margin="5">Verwijder</Button>
                     </Grid>
                 </Grid>
