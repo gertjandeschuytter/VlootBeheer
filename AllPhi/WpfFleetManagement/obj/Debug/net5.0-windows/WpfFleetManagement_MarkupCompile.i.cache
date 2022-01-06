@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\
+C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\
 WpfFleetManagement
 none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
-C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\App.xaml
-9-122942804
+C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\App.xaml
+101821699636
 
-131773611996
-198-439190315
-Bestuurder\BestuurderWindow.xaml;Bestuurder\WijzigenBestuurderWindow.xaml;MainWindow.xaml;Tankkaart\TankkaartWindow.xaml;Tankkaart\WijzigTankkaartWindow.xaml;Tankkaart\ZoekBestuurderTankkaartWindow.xaml;Voertuig\VoertuigWindow.xaml;Voertuig\WijzigVoertuigWindow.xaml;Voertuig\ZoekBestuurderVoertuigWindow.xaml;
+14-476340436
+195-1417987072
+Bestuurder\BestuurderWindow.xaml;Bestuurder\WijzigenBestuurderWindow.xaml;MainWindow.xaml;Tankkaart\TankkaartWindow.xaml;Tankkaart\WijzigTankkaartWindow.xaml;Tankkaart\ZoekBestuurderTankkaartWindow.xaml;Voertuig\BestuurderWijzigenVoertuigWindow.xaml;Voertuig\VoertuigWindow.xaml;Voertuig\WijzigVoertuigWindow.xaml;Voertuig\ZoekBestuurderVoertuigWindow.xaml;
 
-False
+True
 

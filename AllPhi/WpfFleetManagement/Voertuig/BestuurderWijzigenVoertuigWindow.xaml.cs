@@ -10,7 +10,8 @@ namespace WpfFleetManagement.Voertuig
     /// <summary>
     /// Interaction logic for ZoekKlantVoertuigWindow.xaml
     /// </summary>
-    public partial class ZoekBestuurderVoertuigWindow : Window {
+    public partial class BestuurderWijzigenVoertuigWindow : Window
+    {
         public string Voornaam;
         public string Naam;
         public DateTime? GeboorteDatum;
@@ -22,7 +23,7 @@ namespace WpfFleetManagement.Voertuig
         public int? BestuurderID;
         public List<TypeRijbewijs> Rijbewijzen = new();
 
-        public ZoekBestuurderVoertuigWindow()
+        public BestuurderWijzigenVoertuigWindow()
         {
             InitializeComponent();
         }
@@ -93,17 +94,11 @@ namespace WpfFleetManagement.Voertuig
             if (DatagridBestuurder.SelectedItem != null)
             {
                 Application.Current.Properties["Bestuurder"] = (Bestuurder)DatagridBestuurder.SelectedItem;
-                VoertuigWindow vw = new();
-                vw.Show();
-                vw.TabVoegToe.Focus();
-                this.Close();
+                WijzigVoertuigWindow wvw = new();
+                wvw.Show();
+                Close();
             }
         }
 
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            VoertuigWindow vw = new();
-            vw.Show();
-        }
     }
 }

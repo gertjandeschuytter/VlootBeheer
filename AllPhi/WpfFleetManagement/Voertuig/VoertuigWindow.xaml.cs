@@ -20,6 +20,7 @@ namespace WpfFleetManagement.Voertuig {
     /// </summary>
     public partial class VoertuigWindow : Window {
         private Bestuurder bestuurder = (Bestuurder)Application.Current.Properties["Bestuurder"];
+        private BusinessLayer.Model.Voertuig voertuig = (BusinessLayer.Model.Voertuig)Application.Current.Properties["Voertuig"];
 
         private int? VoertuigId;
         private string? Merk;
@@ -57,9 +58,9 @@ namespace WpfFleetManagement.Voertuig {
 
         private void WijzigButton_Click(object sender, RoutedEventArgs e)
         {
+            Application.Current.Properties["Voertuig"] = (BusinessLayer.Model.Voertuig)VoertuigDatagrid.SelectedItem;
             WijzigVoertuigWindow wvw = new();
-            wvw.Show();
-            Close();
+            wvw.ShowDialog();
         }
 
         private void FilterButton_Click(object sender, RoutedEventArgs e)
@@ -96,12 +97,12 @@ namespace WpfFleetManagement.Voertuig {
             else
                 AantalDeuren = output;
 
-            if (Aanpassen_BrandstoftypeCombobox.SelectedItem == null)
+            if ((string)Aanpassen_BrandstoftypeCombobox.SelectedItem == "<geen brandstofTypes>")
                 Brandstoftype = null;
             else
                 Brandstoftype = Aanpassen_BrandstoftypeCombobox.SelectedItem.ToString();
 
-            if (Aanpassen_TypewagenCombobox.SelectedItem == null)
+            if ((string)Aanpassen_TypewagenCombobox.SelectedItem == "<geen wagentype>")
                 Typewagen = null;
             else
                 Typewagen = Aanpassen_TypewagenCombobox.SelectedItem.ToString();

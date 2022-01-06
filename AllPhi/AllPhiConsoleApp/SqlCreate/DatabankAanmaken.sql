@@ -190,13 +190,16 @@ INSERT INTO Bestuurder (Voornaam,Naam,Geboortedatum,AdresId,Rijksregisternummer,
 VALUES ('Jarne','De Keyser','05/02/1985',2,'85050200212',NULL,NULL)
 GO
 INSERT INTO Bestuurder (Voornaam,Naam,Geboortedatum,AdresId,Rijksregisternummer,VoertuigId,TankkaartId)
-VALUES ('Thomas','Volckaert','10/09/1995',3,'95091000111',NULL,NULL)
+VALUES ('Thomas','Volckaert','09/10/1995',3,'95091000111',NULL,NULL)
 GO
 INSERT INTO Bestuurder (Voornaam,Naam,Geboortedatum,AdresId,Rijksregisternummer,VoertuigId,TankkaartId)
 VALUES ('Bruno','Peters','12/21/2000',4,'00122100263',NULL,NULL)
 GO
 INSERT INTO Bestuurder (Voornaam,Naam,Geboortedatum,AdresId,Rijksregisternummer,VoertuigId,TankkaartId)
 VALUES ('Tom','Van De Casteele','09/30/2005',5,'05093000271',NULL,NULL)
+GO
+INSERT INTO Bestuurder (Voornaam,Naam,Geboortedatum,AdresId,Rijksregisternummer,VoertuigId,TankkaartId)
+VALUES ('Jarne','Ophalvens','08/04/1999',NULL,'99080455307',NULL,NULL)
 GO
 
 INSERT INTO BestuurderRijbewijs (TypeRijbewijs,BestuurderId)
