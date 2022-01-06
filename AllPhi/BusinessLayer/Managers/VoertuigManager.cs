@@ -22,10 +22,10 @@ namespace BusinessLayer.Managers {
             if (!repo.BestaatVoertuig(voertuig)) throw new VoertuigManagerException("Voertuig bestaat niet");
             repo.VerwijderVoertuig(voertuig);
         }
-        public void WijzigBestuurder(Voertuig voertuig)
+        public void WijzigVoertuig(Voertuig voertuig)
         {
             if (!repo.BestaatVoertuig(voertuig.ID)) throw new VoertuigManagerException("Voertuig bestaat niet");
-            if (repo.BestaatVoertuig(voertuig)) throw new VoertuigManagerException("Voertuig is niet veranderdt");
+            if (repo.BestaatVoertuig(voertuig)) throw new VoertuigManagerException("Voertuig is niet veranderd");
             repo.UpdateVoertuig(voertuig);
         }
 
@@ -37,13 +37,6 @@ namespace BusinessLayer.Managers {
             list = (List<Voertuig>)repo.GeefVoertuigen(merk, model, chassisnummer, nummerplaat, brandstoftype, typewagen, kleur, aantalDeuren);
             return list.AsReadOnly();
         }
-
-        // Waarom hebben we dit nodig?
-        //public IEnumerable<Voertuig> GeefVoertuigen(Bestuurder bestuurder)
-        //{
-        //    List<Voertuig> list = repo.GeefVoertuigen(bestuurder)
-        //    return list;
-        //}
 
     }
 }

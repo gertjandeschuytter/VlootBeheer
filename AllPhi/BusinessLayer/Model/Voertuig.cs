@@ -94,7 +94,7 @@ namespace BusinessLayer.Model {
             this.ChassisNummer = chassisNummer;
         }
         public void ZetAantalDeuren(int aantalDeuren) {
-            if (aantalDeuren < 3) throw new VoertuigException("een auto heeft minstens 3 deuren");
+            if (aantalDeuren < 3 && aantalDeuren !=0) throw new VoertuigException("een auto heeft minstens 3 deuren");
             this.AantalDeuren = aantalDeuren;
         }
         public void ZetNummerPlaat(string nummerplaat) {

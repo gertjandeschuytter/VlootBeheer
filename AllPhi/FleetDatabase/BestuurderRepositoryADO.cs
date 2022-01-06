@@ -609,10 +609,12 @@ namespace FleetDatabase {
                     {
                         UpdateAdresBestuurder(nieuweBestuurder);
                     }
+                    //UPDATE VOERTUIG
                     if (bestuurderdb.Voertuig != nieuweBestuurder.Voertuig && nieuweBestuurder.Voertuig != null)
                     {
                         UpdateVoertuigBestuurder(nieuweBestuurder);
                     }
+                    //UPDATE TANKKAART
                     if (bestuurderdb.TankKaart != nieuweBestuurder.TankKaart && nieuweBestuurder.TankKaart != null)
                     {
                         UpdateTankkaartBestuurder(nieuweBestuurder);
