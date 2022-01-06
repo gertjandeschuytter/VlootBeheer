@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -152,6 +153,7 @@ namespace FleetDatabase {
                         cmd.Parameters["@BestuurderId"].Value = tankkaart.Bestuurder.BestuurderId;
                     }
                     tankkaartId = (int)cmd.ExecuteScalar();
+                    tankkaart.ZetTankkaartId(tankkaartId);
                 }
                 catch (Exception ex)
                 {
@@ -268,10 +270,11 @@ namespace FleetDatabase {
             }
         }
 
-        public IReadOnlyList<TankKaart> GeefTankkaarten(string? kaartnr, DateTime? geldigheidsdatum, string? pincode, Bestuurder? bestuurder, bool? geblokkeerd)
+        public IReadOnlyList<TankKaart> ZoekTankkaarten(string? kaartnr, DateTime? geldigheidsdatum, string? pincode, Brandstoftype_tankkaart? brandstoftype, bool? geblokkeerd)
         {
             List<TankKaart> tankkaarten = new();
             TankKaart tankkaart = null;
+            Bestuurder bestuurder = null;
             bool WHERE = true;
             bool AND = false;
             string sql = "SELECT tk.*, bs.Voornaam, bs.Naam, bs.Geboortedatum, bs.Rijksregisternummer," +
@@ -294,7 +297,7 @@ namespace FleetDatabase {
                 {
                     AND = true;
                 }
-                sql += "Kaartnr = @Kaartnr";
+                sql += "Kaartnummer = @Kaartnummer";
             }
             if (geldigheidsdatum.HasValue)
             {
@@ -330,7 +333,7 @@ namespace FleetDatabase {
                 }
                 sql += "Pincode = @Pincode";
             }
-            if (bestuurder != null)
+            if (brandstoftype != null)
             {
                 if (WHERE)
                 {
@@ -345,7 +348,7 @@ namespace FleetDatabase {
                 {
                     AND = true;
                 }
-                sql += "Bestuurder = @Bestuurder";
+                sql += "Brandstoftype = @Brandstoftype";
             }
             if (geblokkeerd.HasValue)
             {
@@ -362,7 +365,7 @@ namespace FleetDatabase {
                 {
                     AND = true;
                 }
-                sql += "Geblokkeerd = @Geblokkeerd";
+                sql += "Isgeblokeerd = @Isgeblokeerd";
             }
             SqlConnection connection = GetConnection();
             using (SqlCommand cmd = connection.CreateCommand())
@@ -374,8 +377,8 @@ namespace FleetDatabase {
                     if (!string.IsNullOrEmpty(kaartnr)) cmd.Parameters.AddWithValue("Kaartnummer", kaartnr);
                     if (geldigheidsdatum.HasValue) cmd.Parameters.AddWithValue("Geldigheidsdatum", geldigheidsdatum);
                     if (!string.IsNullOrEmpty(pincode)) cmd.Parameters.AddWithValue("Pincode", pincode);
-                    if (bestuurder != null) cmd.Parameters.AddWithValue("Bestuurder", bestuurder);
-                    if (geblokkeerd.HasValue) cmd.Parameters.AddWithValue("Geblokkeerd", geblokkeerd);
+                    if (brandstoftype != null) cmd.Parameters.AddWithValue("Brandstoftype", brandstoftype.ToString());
+                    if (geblokkeerd.HasValue) cmd.Parameters.AddWithValue("Isgeblokeerd", geblokkeerd);
                     SqlDataReader reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {

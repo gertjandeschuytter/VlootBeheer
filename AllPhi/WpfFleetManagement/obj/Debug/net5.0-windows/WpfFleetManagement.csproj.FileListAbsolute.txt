@@ -189,3 +189,5 @@ C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\D
 C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\Voertuig\WijzigVoertuigWindow.baml
 C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\Voertuig\ZoekBestuurderVoertuigWindow.baml
 C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\WpfFleetManagement.csproj.CopyComplete
+C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\Voertuig\BestuurderWijzigenVoertuigWindow.g.cs
+C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\Voertuig\BestuurderWijzigenVoertuigWindow.baml

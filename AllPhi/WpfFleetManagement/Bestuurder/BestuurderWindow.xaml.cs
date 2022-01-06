@@ -159,7 +159,7 @@ namespace WpfFleetManagement
                     Naam = VoegToe_NaamTextbox.Text;
                     GeboorteDatum = VoegToe_GeboortedatumDatePicker.SelectedDate;
                     Rijksregisternummer = VoegToe_RijksregisternummerTextbox.Text;
-                    Bestuurder bestuurder = new(Voornaam, Naam, (DateTime)GeboorteDatum, Rijksregisternummer, Rijbewijzen);
+                    Bestuurder bestuurder = new(Naam, Voornaam, (DateTime)GeboorteDatum, Rijksregisternummer, Rijbewijzen);
                     bestuurder.ZetAdres(a);
                     MainWindow.bestuurderManager.VoegBestuurderToe(bestuurder);
                     MessageBox.Show("De bestuurder werd succesvol toegevoegd!");

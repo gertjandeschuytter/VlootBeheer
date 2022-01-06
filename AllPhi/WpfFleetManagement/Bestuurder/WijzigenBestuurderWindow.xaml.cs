@@ -107,7 +107,7 @@ namespace WpfFleetManagement {
             bestuurder.ZetID(_bestuurder.BestuurderId);
             MainWindow.bestuurderManager.WijzigBestuurder(bestuurder);
             MessageBox.Show("De bestuurder is gewijzigd");
-            this.Close();
+            Close();
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)

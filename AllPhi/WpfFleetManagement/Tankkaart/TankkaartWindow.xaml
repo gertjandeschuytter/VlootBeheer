@@ -37,12 +37,13 @@
                     <CheckBox x:Name="Aanpassen_IsGeblokkeerdCheckbox" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
                     <Label Grid.Column="0" Grid.Row="2" Content="Brandstof" Margin="5"/>
-                    <ComboBox x:Name="Aanpassen_BrandstoftypeCombobox" Grid.Row="2" Grid.Column="0"  Margin="5,30,5,10">
+                    <ComboBox x:Name="Aanpassen_BrandstoftypeCombobox" Grid.Row="2" Grid.Column="0"  Margin="5,30,5,10" Loaded="Aanpassen_BrandstoftypeCombobox_Loaded">
+                        <!--<ComboBoxItem Content="geen brandstoftype"/>
                         <ComboBoxItem Content="Diesel"/>
                         <ComboBoxItem Content="Benzine"/>
                         <ComboBoxItem Content="Elektrisch"/>
                         <ComboBoxItem Content="Diesel_Elektrisch"/>
-                        <ComboBoxItem Content="Benzine_Elektrisch"/>
+                        <ComboBoxItem Content="Benzine_Elektrisch"/>-->
                     </ComboBox>
 
                     <!--<Label Grid.Column="1" Grid.Row="2" Content="Bestuurder" Margin="5"/>

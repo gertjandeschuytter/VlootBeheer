@@ -92,11 +92,11 @@ namespace FleetDatabase {
                     if (reader["TankkaartId"].GetType() != typeof(DBNull))
                     {
                         int tankkaartIdDB = (int)reader["TankkaartId"];
-                        var tankKaart = new TankKaart((string)reader["Kaartnummer"], (DateTime)reader["Geldigheidsdatum"], (string)reader["Pincode"], bestuurder, (bool)reader["Isgeblokeerd"], null);
-                        tankKaart.ZetTankkaartId(tankkaartIdDB);
+                        tankkaart = new TankKaart((string)reader["Kaartnummer"], (DateTime)reader["Geldigheidsdatum"], (string)reader["Pincode"], bestuurder, (bool)reader["Isgeblokeerd"], null);
+                        tankkaart.ZetTankkaartId(tankkaartIdDB);
                         if (bestuurder.TankKaart == null)
                         {
-                            bestuurder.ZetTankKaart(tankKaart);
+                            bestuurder.ZetTankKaart(tankkaart);
                         }
                     }
                     return bestuurder;
@@ -400,7 +400,7 @@ namespace FleetDatabase {
                             int tankkaartIdDB = (int)reader["TankkaartId"];
                             TankKaart tankKaart = new TankKaart((string)reader["Kaartnummer"], (DateTime)reader["Geldigheidsdatum"], (string)reader["Pincode"], bestuurder, (bool)reader["Isgeblokeerd"], null);
                             tankKaart.ZetTankkaartId(tankkaartIdDB);
-                            bestuurder.ZetTankKaart(tankKaart);
+                            //bestuurder.ZetTankKaart(tankKaart);
                         }
                         bestuurders.Add(bestuurder);
                     }
@@ -609,10 +609,12 @@ namespace FleetDatabase {
                     {
                         UpdateAdresBestuurder(nieuweBestuurder);
                     }
+                    //UPDATE VOERTUIG
                     if (bestuurderdb.Voertuig != nieuweBestuurder.Voertuig && nieuweBestuurder.Voertuig != null)
                     {
                         UpdateVoertuigBestuurder(nieuweBestuurder);
                     }
+                    //UPDATE TANKKAART
                     if (bestuurderdb.TankKaart != nieuweBestuurder.TankKaart && nieuweBestuurder.TankKaart != null)
                     {
                         UpdateTankkaartBestuurder(nieuweBestuurder);
