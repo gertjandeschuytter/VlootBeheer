@@ -10,6 +10,9 @@
     <Compile Update="Bestuurder\BestuurderWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Tankkaart\BestuurderWijzigenTankkaartWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Tankkaart\TankkaartWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -40,6 +43,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Tankkaart\BestuurderWijzigenTankkaartWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Tankkaart\TankkaartWindow.xaml">

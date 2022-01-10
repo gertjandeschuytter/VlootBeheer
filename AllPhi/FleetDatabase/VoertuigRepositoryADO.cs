@@ -21,8 +21,8 @@ namespace FleetDatabase {
         
         public void VoegVoertuigToe(Voertuig voertuig) {
                 int voertuigId;
-                string query = "INSERT INTO voertuig(Merk, Model, Chassisnummer, Nummerplaat, Brandstoftype, Wagentype, Kleur, Aantaldeuren)" +
-                    "OUTPUT INSERTED.VoertuigId VALUES (@Merk, @Model, @Chassisnummer, @Nummerplaat, @Brandstoftype, @Wagentype, @Kleur, @Aantaldeuren);";
+                string query = "INSERT INTO voertuig(Merk, Model, Chassisnummer, Nummerplaat, Brandstoftype, Wagentype, Kleur, Aantaldeuren, BestuurderId)" +
+                    "OUTPUT INSERTED.VoertuigId VALUES (@Merk, @Model, @Chassisnummer, @Nummerplaat, @Brandstoftype, @Wagentype, @Kleur, @Aantaldeuren, @BestuurderId);";
 
             SqlConnection connection = GetConnection();
             using (SqlCommand command = connection.CreateCommand()) {
@@ -43,6 +43,7 @@ namespace FleetDatabase {
                     command.Parameters["@Nummerplaat"].Value = voertuig.NummerPlaat;
                     command.Parameters["@Brandstoftype"].Value = voertuig.BrandstofType;
                     command.Parameters["@Wagentype"].Value = voertuig.TypeWagen;
+                    
                     if (voertuig.Kleur == null) {
                         command.Parameters["@Kleur"].Value = DBNull.Value;
                     } else {
@@ -52,6 +53,15 @@ namespace FleetDatabase {
                         command.Parameters["@AantalDeuren"].Value = DBNull.Value;
                     } else {
                         command.Parameters["@AantalDeuren"].Value = voertuig.AantalDeuren;
+                    }
+                    if(voertuig.Bestuurder == null)
+                    {
+                        command.Parameters.AddWithValue("@BestuurderId", DBNull.Value);
+                    }
+                    else
+                    {
+                        UpdateBestuurderVoertuig(voertuig);
+                        command.Parameters.AddWithValue("@BestuurderId", voertuig.Bestuurder.BestuurderId);
                     }
                     voertuigId = (int)command.ExecuteScalar();
                     voertuig.ZetId(voertuigId);
@@ -132,12 +142,41 @@ namespace FleetDatabase {
                     if (voertuigdb.Bestuurder != voertuig.Bestuurder && voertuig.Bestuurder != null)
                     {
                         UpdateBestuurderVoertuig(voertuig);
+                        UpdateOudeBestuurderVoertuig(voertuigdb);
                     }
 
                     command.ExecuteNonQuery();
                 } catch (Exception ex) {
                     throw new BestuurderRepositoryADOException("WijzigAdresBestuurder - UpdateAdres " + ex.Message);
                 } finally {
+                    connection.Close();
+                }
+            }
+        }
+
+        private void UpdateOudeBestuurderVoertuig(Voertuig voertuigdb)
+        {
+            string sqlUpdate = "UPDATE Bestuurder SET VoertuigId = @VoertuigId WHERE BestuurderId = @BestuurderId";
+            SqlConnection connection = GetConnection();
+            //Update
+            using (SqlCommand command = connection.CreateCommand())
+            {
+                try
+                {
+                    connection.Open();
+                    command.Parameters.Add(new SqlParameter("@BestuurderId", SqlDbType.Int));
+                    command.Parameters.Add(new SqlParameter("@VoertuigId", SqlDbType.Int));
+                    command.CommandText = sqlUpdate;
+                    command.Parameters["@BestuurderId"].Value = voertuigdb.Bestuurder.BestuurderId;
+                    command.Parameters["@VoertuigId"].Value = DBNull.Value;
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    throw new TankkaartRepositoryADOException("UpdateVoertuig - UpdateOudeBestuurderVoertuig - " + ex.Message);
+                }
+                finally
+                {
                     connection.Close();
                 }
             }
@@ -420,7 +459,7 @@ namespace FleetDatabase {
                         int tankkaartIdDB = (int)reader["TankkaartId"];
                         TankKaart tankKaart = new TankKaart((string)reader["Kaartnummer"], (DateTime)reader["Geldigheidsdatum"], (string)reader["Pincode"], bestuurder, (bool)reader["Isgeblokeerd"], null);
                         tankKaart.ZetTankkaartId(tankkaartIdDB);
-                        voertuig.Bestuurder.ZetTankKaart(tankKaart);
+                        //voertuig.Bestuurder.ZetTankKaart(tankKaart);
                     }
                     return voertuig;
                 } catch (Exception ex) {
@@ -434,7 +473,7 @@ namespace FleetDatabase {
         public bool BestaatVoertuig(Voertuig Voertuig)
         {
             SqlConnection conn = GetConnection();
-            string query = "SELECT COUNT(*) FROM [dbo].voertuig WHERE Merk = @merk AND Model = @model AND BrandstofType = @brandstof AND Wagentype = @wagen AND Chassisnummer = @chassisnummer AND Nummerplaat = @nummerplaat AND Kleur = @kleur AND AantalDeuren = @aantalDeuren";
+            string query = "SELECT COUNT(*) FROM [dbo].voertuig WHERE Merk = @merk AND Model = @model AND BrandstofType = @brandstof AND Wagentype = @wagen AND Chassisnummer = @chassisnummer AND Nummerplaat = @nummerplaat AND Kleur = @kleur AND AantalDeuren = @aantalDeuren AND BestuurderId = @BestuurderId";
             using (SqlCommand cmd = conn.CreateCommand())
             {
                 try
@@ -444,27 +483,54 @@ namespace FleetDatabase {
                     cmd.Parameters.Add(new SqlParameter("@model", SqlDbType.NVarChar));
                     cmd.Parameters.Add(new SqlParameter("@brandstof", SqlDbType.NVarChar));
                     cmd.Parameters.Add(new SqlParameter("@wagen", SqlDbType.NVarChar));
-                    cmd.Parameters.Add(new SqlParameter("@kleur", SqlDbType.NVarChar));
                     cmd.Parameters.Add(new SqlParameter("@chassisnummer", SqlDbType.NVarChar));
                     cmd.Parameters.Add(new SqlParameter("@nummerplaat", SqlDbType.NVarChar));
-                    cmd.Parameters.Add(new SqlParameter("@aantalDeuren", SqlDbType.Int));
 
                     cmd.CommandText = query;
+
                     cmd.Parameters["@merk"].Value = Voertuig.Merk;
                     cmd.Parameters["@model"].Value = Voertuig.Model;
                     cmd.Parameters["@brandstof"].Value = Voertuig.BrandstofType.ToString();
                     cmd.Parameters["@wagen"].Value = Voertuig.TypeWagen.ToString();
                     cmd.Parameters["@chassisnummer"].Value = Voertuig.ChassisNummer;
                     cmd.Parameters["@nummerplaat"].Value = Voertuig.NummerPlaat;
-                    cmd.Parameters["@kleur"].Value = Voertuig.Kleur;
-                    cmd.Parameters["@aantalDeuren"].Value = Voertuig.AantalDeuren;
+
+                    cmd.Parameters.Add(new SqlParameter("@kleur", SqlDbType.NVarChar));
+                    if (string.IsNullOrWhiteSpace(Voertuig.Kleur))
+                    {
+                        cmd.Parameters["@kleur"].Value = DBNull.Value;
+                    }
+                    else
+                    {
+                        cmd.Parameters["@kleur"].Value = Voertuig.Kleur;
+                    }
+
+                    cmd.Parameters.Add(new SqlParameter("@aantalDeuren", SqlDbType.Int));
+                    if (Voertuig.AantalDeuren > 2)
+                    {
+                        cmd.Parameters["@aantalDeuren"].Value = Voertuig.AantalDeuren;
+                    }
+                    else
+                    {
+                        cmd.Parameters["@aantalDeuren"].Value = DBNull.Value;
+                    }
+
+                    cmd.Parameters.Add(new SqlParameter("@BestuurderId", SqlDbType.Int));
+                    if(Voertuig.Bestuurder == null)
+                    {
+                        cmd.Parameters["@BestuurderId"].Value = DBNull.Value;
+                    }
+                    else
+                    {
+                        cmd.Parameters["@BestuurderId"].Value = Voertuig.Bestuurder.BestuurderId;
+                    }
 
                     int n = (int)cmd.ExecuteScalar();
                     if (n > 0) return true; else return false;
                 }
                 catch (Exception ex)
                 {
-                    throw new VoertuigRepositoryADOExceptions("bestaatVoertuig", ex);
+                    throw new VoertuigRepositoryADOExceptions("VoertuigRepository - BestaatVoertuig: " + ex.Message);
                 }
                 finally
                 {
@@ -531,5 +597,7 @@ namespace FleetDatabase {
                 }
             }
         }
+
+
     }
 }

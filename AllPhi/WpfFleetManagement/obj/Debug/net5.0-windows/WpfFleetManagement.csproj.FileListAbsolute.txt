@@ -196,3 +196,7 @@ C:\Users\Gertj\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\D
 C:\Users\Gertj\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\Voertuig\BestuurderWijzigenVoertuigWindow.baml
 >>>>>>> 6d97de78af7ece9973ed919503fa49b53b8e40fa
 C:\Users\Ruben\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\Voertuig\BestuurderWijzigenVoertuigWindow.baml
+C:\Users\Gertj\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\Tankkaart\BestuurderWijzigenTankkaartWindow.g.cs
+C:\Users\Gertj\source\repos\Opdracht_Projectwerk\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\Tankkaart\BestuurderWijzigenTankkaartWindow.baml
+C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\Tankkaart\BestuurderWijzigenTankkaartWindow.g.cs
+C:\School\2de Jaar\Semester 1\Graduaats Project\RepoGertjan\AllPhi\WpfFleetManagement\obj\Debug\net5.0-windows\Tankkaart\BestuurderWijzigenTankkaartWindow.baml

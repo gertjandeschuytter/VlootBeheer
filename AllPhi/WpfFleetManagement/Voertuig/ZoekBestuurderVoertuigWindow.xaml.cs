@@ -93,17 +93,13 @@ namespace WpfFleetManagement.Voertuig
             if (DatagridBestuurder.SelectedItem != null)
             {
                 Application.Current.Properties["Bestuurder"] = (Bestuurder)DatagridBestuurder.SelectedItem;
+
                 VoertuigWindow vw = new();
+
                 vw.Show();
                 vw.TabVoegToe.Focus();
                 this.Close();
             }
-        }
-
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            VoertuigWindow vw = new();
-            vw.Show();
         }
     }
 }

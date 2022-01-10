@@ -32,7 +32,9 @@ namespace WpfFleetManagement {
         public MainWindow() {
             ResizeMode = ResizeMode.NoResize;
             InitializeComponent();
-            connectionstring = ConfigurationManager.ConnectionStrings["connectionstring"].ConnectionString;
+            //connectionstring = ConfigurationManager.ConnectionStrings["connectionStringRuben"].ConnectionString;
+            connectionstring = ConfigurationManager.ConnectionStrings["connectionStringJarne"].ConnectionString;
+            //connectionstring = ConfigurationManager.ConnectionStrings["connectionStringGertjan"].ConnectionString;
             bestuurderManager = new BestuurderManager(new BestuurderRepositoryADO(connectionstring));
             tankkaartManager = new TankkaartManager(new TankkaartRepositoryADO(connectionstring));
             voertuigManager = new VoertuigManager(new VoertuigRepositoryADO(connectionstring));

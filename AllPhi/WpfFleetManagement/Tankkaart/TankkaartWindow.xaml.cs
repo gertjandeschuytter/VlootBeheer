@@ -21,6 +21,7 @@ namespace WpfFleetManagement.Tankkaart
     /// </summary>
     public partial class TankkaartWindow : Window
     {
+
         public string Kaartnummer;
         public string Pincode;
         public Brandstoftype_tankkaart? Brandstoftype;
@@ -107,9 +108,9 @@ namespace WpfFleetManagement.Tankkaart
 
         private void Aanpassen_BrandstoftypeCombobox_Loaded(object sender, RoutedEventArgs e)
         {
-            List<string> maten = Enum.GetNames(typeof(Brandstoftype_tankkaart)).ToList();
-            maten.Insert(0, "<geen brandstoftype>");
-            Aanpassen_BrandstoftypeCombobox.ItemsSource = maten;
+            List<string> brandstofTypes_tankkaart = Enum.GetNames(typeof(Brandstoftype_tankkaart)).ToList();
+            brandstofTypes_tankkaart.Insert(0, "<geen brandstoftype>");
+            Aanpassen_BrandstoftypeCombobox.ItemsSource = brandstofTypes_tankkaart;
             Aanpassen_BrandstoftypeCombobox.SelectedIndex = 0;
         }
 
