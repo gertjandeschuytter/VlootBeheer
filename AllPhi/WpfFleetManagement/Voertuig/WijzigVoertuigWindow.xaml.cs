@@ -83,7 +83,7 @@ namespace WpfFleetManagement.Voertuig
 
             if(!string.IsNullOrWhiteSpace(voertuig.Kleur)) KleurTextBox.Text = voertuig.Kleur;
             if (voertuig.AantalDeuren >= 3) DeurenTextBox.Text = voertuig.AantalDeuren.ToString();
-            if (voertuig.Bestuurder != null) BestuurderTextBox.Text = voertuig.Bestuurder.ToString();
+            bestuurder = voertuig.Bestuurder;
             if (bestuurder != null)
             {
                 BestuurderTextBox.Text = bestuurder.ToString();
@@ -142,21 +142,15 @@ namespace WpfFleetManagement.Voertuig
                 } else AantalDeuren = 0;
             }
             else AantalDeuren = 0;
-            if(voertuig.Bestuurder != null && bestuurder == null)
-            {
-                Bestuurder = voertuig.Bestuurder;
-            }
-            else
-            {
-                Bestuurder = bestuurder;
-            }
+
+            Bestuurder = bestuurder;
 
             BusinessLayer.Model.Voertuig v;
             try
             {
                 v = new(Merk, Model, ChassisNummer, NummerPlaat, BrandstofType, TypeWagen);
                 v.ZetId(voertuig.ID);
-                v.ZetBestuurder(Bestuurder);
+                if(Bestuurder != null) v.ZetBestuurder(Bestuurder);
                 v.ZetKleur(Kleur);
                 v.ZetAantalDeuren((int)AantalDeuren);
 
@@ -197,6 +191,12 @@ namespace WpfFleetManagement.Voertuig
         {
             BestuurderWijzigenVoertuigWindow zb = new();
             zb.ShowDialog();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            bestuurder = null;
+            BestuurderTextBox.Text = "";
         }
     }
 }
