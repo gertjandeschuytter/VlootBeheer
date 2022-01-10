@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -166,6 +167,7 @@ namespace FleetDatabase {
         }
         public void UpdateTankkaart(TankKaart tankkaart) //Done
         {
+            var tankkaartdb = GeefTankkaart(tankkaart.TankkaartId);
             SqlConnection connection = GetConnection();
             string query = "UPDATE tankkaart SET Kaartnummer=@Kaartnummer, Geldigheidsdatum=@Geldigheidsdatum, Pincode=@Pincode, BestuurderId=@BestuurderId, Isgeblokeerd=@Geblokkeerd WHERE TankkaartId=@TankkaartId";
             using (SqlCommand cmd = connection.CreateCommand())
@@ -176,14 +178,16 @@ namespace FleetDatabase {
                     cmd.Parameters.Add(new SqlParameter("@TankkaartId", SqlDbType.Int));
                     cmd.Parameters.Add(new SqlParameter("@Kaartnummer", SqlDbType.NVarChar));
                     cmd.Parameters.Add(new SqlParameter("@Geldigheidsdatum", SqlDbType.DateTime));
-                    cmd.Parameters.Add(new SqlParameter("@Pincode", SqlDbType.NVarChar));
-                    cmd.Parameters.Add(new SqlParameter("@BestuurderId", SqlDbType.NVarChar));
                     cmd.Parameters.Add(new SqlParameter("@Geblokkeerd", SqlDbType.TinyInt));
+                    cmd.Parameters.Add(new SqlParameter("@Pincode", SqlDbType.NVarChar));
+
+                    cmd.Parameters.Add(new SqlParameter("@BestuurderId", SqlDbType.NVarChar));
                     cmd.CommandText = query;
                     cmd.Parameters["@TankkaartId"].Value = tankkaart.TankkaartId;
                     cmd.Parameters["@Kaartnummer"].Value = tankkaart.KaartNr;
                     cmd.Parameters["@Geldigheidsdatum"].Value = tankkaart.Geldigheidsdatum;
                     cmd.Parameters["@Geblokkeerd"].Value = tankkaart.Geblokkeerd;
+
                     if (tankkaart.Pincode == null)
                     {
                         cmd.Parameters["@Pincode"].Value = DBNull.Value;
@@ -200,11 +204,72 @@ namespace FleetDatabase {
                     {
                         cmd.Parameters["@BestuurderId"].Value = tankkaart.Bestuurder.BestuurderId;
                     }
+                    if (tankkaartdb.Bestuurder != tankkaart.Bestuurder && tankkaart.Bestuurder != null)
+                    {
+                        UpdateBestuurderTankkaart(tankkaart);
+                        UpdateOudeBestuurderTankkaart(tankkaartdb);
+                    }
                     cmd.ExecuteNonQuery();
                 }
                 catch (Exception ex)
                 {
                     throw new TankkaartRepositoryADOException("UpdateTankkaart", ex);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+        }
+
+        private void UpdateOudeBestuurderTankkaart(TankKaart tankkaartdb)
+        {
+            string sqlUpdate = "UPDATE Bestuurder SET TankkaartId = @TankkaartId WHERE BestuurderId = @BestuurderId";
+            SqlConnection connection = GetConnection();
+            //Update
+            using (SqlCommand command = connection.CreateCommand())
+            {
+                try
+                {
+                    connection.Open();
+                    command.Parameters.Add(new SqlParameter("@BestuurderId", SqlDbType.Int));
+                    command.Parameters.Add(new SqlParameter("@TankkaartId", SqlDbType.Int));
+                    command.CommandText = sqlUpdate;
+                    command.Parameters["@BestuurderId"].Value = tankkaartdb.Bestuurder.BestuurderId;
+                    command.Parameters["@TankkaartId"].Value = DBNull.Value;
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    throw new TankkaartRepositoryADOException("UpdateTankkaart - UpdateOudeBestuurderTankkaart - " + ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+        }
+
+        private void UpdateBestuurderTankkaart(TankKaart tankkaart)
+        {
+            string sqlUpdate = "UPDATE Bestuurder SET TankkaartId = @TankkaartId WHERE BestuurderId = @BestuurderId";
+            SqlConnection connection = GetConnection();
+            //Update
+            using (SqlCommand command = connection.CreateCommand())
+            {
+                try
+                {
+                    connection.Open();
+                    command.Parameters.Add(new SqlParameter("@BestuurderId", SqlDbType.Int));
+                    command.Parameters.Add(new SqlParameter("@TankkaartId", SqlDbType.Int));
+                    command.CommandText = sqlUpdate;
+                    command.Parameters["@BestuurderId"].Value = tankkaart.Bestuurder.BestuurderId;
+                    command.Parameters["@TankkaartId"].Value = tankkaart.TankkaartId;
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    throw new TankkaartRepositoryADOException("UpdateTankkaart - UpdateBestuurderTankkaart - " + ex.Message);
                 }
                 finally
                 {
@@ -269,10 +334,11 @@ namespace FleetDatabase {
             }
         }
 
-        public IReadOnlyList<TankKaart> GeefTankkaarten(string? kaartnr, DateTime? geldigheidsdatum, string? pincode, Bestuurder? bestuurder, bool? geblokkeerd)
+        public IReadOnlyList<TankKaart> ZoekTankkaarten(string? kaartnr, DateTime? geldigheidsdatum, string? pincode, Brandstoftype_tankkaart? brandstoftype, bool? geblokkeerd)
         {
             List<TankKaart> tankkaarten = new();
             TankKaart tankkaart = null;
+            Bestuurder bestuurder = null;
             bool WHERE = true;
             bool AND = false;
             string sql = "SELECT tk.*, bs.Voornaam, bs.Naam, bs.Geboortedatum, bs.Rijksregisternummer," +
@@ -295,7 +361,7 @@ namespace FleetDatabase {
                 {
                     AND = true;
                 }
-                sql += "Kaartnr = @Kaartnr";
+                sql += "Kaartnummer = @Kaartnummer";
             }
             if (geldigheidsdatum.HasValue)
             {
@@ -331,7 +397,7 @@ namespace FleetDatabase {
                 }
                 sql += "Pincode = @Pincode";
             }
-            if (bestuurder != null)
+            if (brandstoftype != null)
             {
                 if (WHERE)
                 {
@@ -346,7 +412,7 @@ namespace FleetDatabase {
                 {
                     AND = true;
                 }
-                sql += "Bestuurder = @Bestuurder";
+                sql += "Brandstoftype = @Brandstoftype";
             }
             if (geblokkeerd.HasValue)
             {
@@ -363,7 +429,7 @@ namespace FleetDatabase {
                 {
                     AND = true;
                 }
-                sql += "Geblokkeerd = @Geblokkeerd";
+                sql += "Isgeblokeerd = @Isgeblokeerd";
             }
             SqlConnection connection = GetConnection();
             using (SqlCommand cmd = connection.CreateCommand())
@@ -375,8 +441,8 @@ namespace FleetDatabase {
                     if (!string.IsNullOrEmpty(kaartnr)) cmd.Parameters.AddWithValue("Kaartnummer", kaartnr);
                     if (geldigheidsdatum.HasValue) cmd.Parameters.AddWithValue("Geldigheidsdatum", geldigheidsdatum);
                     if (!string.IsNullOrEmpty(pincode)) cmd.Parameters.AddWithValue("Pincode", pincode);
-                    if (bestuurder != null) cmd.Parameters.AddWithValue("Bestuurder", bestuurder);
-                    if (geblokkeerd.HasValue) cmd.Parameters.AddWithValue("Geblokkeerd", geblokkeerd);
+                    if (brandstoftype != null) cmd.Parameters.AddWithValue("Brandstoftype", brandstoftype.ToString());
+                    if (geblokkeerd.HasValue) cmd.Parameters.AddWithValue("Isgeblokeerd", geblokkeerd);
                     SqlDataReader reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {

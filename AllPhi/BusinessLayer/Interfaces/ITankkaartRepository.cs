@@ -14,6 +14,6 @@ namespace BusinessLayer.Interfaces
         void VerwijderTankkaart(TankKaart tankkaart);
         void UpdateTankkaart(TankKaart tankkaart);
         TankKaart GeefTankkaart(int tankkaartId);
-        IReadOnlyList<TankKaart> GeefTankkaarten(string? kaartnr, DateTime? geldigheidsdatum, string? pincode, Bestuurder? bestuurder, bool? geblokkeerd);
+        IReadOnlyList<TankKaart> ZoekTankkaarten(string? kaartNr, DateTime? geldigheidsdatum, string? pincode, Brandstoftype_tankkaart? brandstoftype, bool? geblokkeerd);
     }
 }
