@@ -38,6 +38,7 @@ namespace WpfFleetManagement
             InitializeComponent();
             WijzigBestuurderButton.IsEnabled = false;
             VerwijderButton.IsEnabled = false;
+            DatagridBestuurder.SelectedItem = null;
         }
 
         private void FilterButton_Click(object sender, EventArgs e)
@@ -185,6 +186,8 @@ namespace WpfFleetManagement
                 BusinessLayer.Model.Bestuurder bestuurder = (BusinessLayer.Model.Bestuurder)DatagridBestuurder.SelectedItem;
                 MainWindow.bestuurderManager.VerwijderBestuurder(bestuurder);
                 MessageBox.Show("Bestuurder is verwijderd", Title, MessageBoxButton.OK, MessageBoxImage.Information);
+                DatagridBestuurder.SelectedItem = null;
+                FilterButton_Click(sender, e);
             } catch (Exception ex) {
                 MessageBox.Show(ex.Message, Title, MessageBoxButton.OK, MessageBoxImage.Error);
             }

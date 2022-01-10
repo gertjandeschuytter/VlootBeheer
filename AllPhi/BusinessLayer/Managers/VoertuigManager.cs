@@ -17,9 +17,9 @@ namespace BusinessLayer.Managers {
             if (repo.BestaatVoertuig(voertuig)) throw new VoertuigManagerException("Voertuig al gekend");
             repo.VoegVoertuigToe(voertuig);
         }
-        public void VerwijderBestuurder(Voertuig voertuig)
+        public void VerwijderVoertuig(Voertuig voertuig)
         {
-            if (!repo.BestaatVoertuig(voertuig)) throw new VoertuigManagerException("Voertuig bestaat niet");
+            if (!repo.BestaatVoertuig(voertuig.ID)) throw new VoertuigManagerException("Voertuig bestaat niet");
             repo.VerwijderVoertuig(voertuig);
         }
         public void WijzigVoertuig(Voertuig voertuig)

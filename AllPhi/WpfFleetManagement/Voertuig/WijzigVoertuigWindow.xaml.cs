@@ -158,7 +158,7 @@ namespace WpfFleetManagement.Voertuig
                 v.ZetId(voertuig.ID);
                 v.ZetBestuurder(Bestuurder);
                 v.ZetKleur(Kleur);
-                if (AantalDeuren != null) v.ZetAantalDeuren((int)AantalDeuren);
+                v.ZetAantalDeuren((int)AantalDeuren);
 
                 MainWindow.voertuigManager.WijzigVoertuig(v);
                 MessageBox.Show("Het voertuig is gewijzigd");
@@ -196,8 +196,7 @@ namespace WpfFleetManagement.Voertuig
         private void BestuurderButton_Click(object sender, RoutedEventArgs e)
         {
             BestuurderWijzigenVoertuigWindow zb = new();
-            zb.Show();
-            Close();
+            zb.ShowDialog();
         }
     }
 }
