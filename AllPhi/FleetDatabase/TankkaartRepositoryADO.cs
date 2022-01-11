@@ -118,9 +118,11 @@ namespace FleetDatabase {
         public void VoegTankkaartToe(TankKaart tankkaart)
         {
             SqlConnection connection = GetConnection();
+            //BestuurderRepositoryADO repo = new BestuurderRepositoryADO(connectionString);
+            //Bestuurder bestuurder = repo.GeefBestuurder()
             int tankkaartId;
-            string query = "INSERT INTO [dbo].Tankkaart (Kaartnummer, Geldigheidsdatum, Pincode, BestuurderId, Isgeblokeerd) " +
-                "OUTPUT INSERTED.TankkaartId VALUES(@Kaartnummer, @Geldigheidsdatum, @Pincode, @BestuurderId, @Geblokkeerd)";
+            string query = "INSERT INTO [dbo].Tankkaart (Kaartnummer, Geldigheidsdatum, Pincode, BestuurderId, Isgeblokeerd, Brandstoftype) " +
+                "OUTPUT INSERTED.TankkaartId VALUES(@Kaartnummer, @Geldigheidsdatum, @Pincode, @BestuurderId, @Geblokkeerd, @Brandstoftype)";
             using (SqlCommand cmd = connection.CreateCommand())
             {
                 connection.Open();
@@ -132,6 +134,7 @@ namespace FleetDatabase {
                     cmd.Parameters.Add(new SqlParameter("@Pincode", SqlDbType.NVarChar));
                     cmd.Parameters.Add(new SqlParameter("@BestuurderId", SqlDbType.NVarChar));
                     cmd.Parameters.Add(new SqlParameter("@Geblokkeerd", SqlDbType.Bit));
+                    cmd.Parameters.Add(new SqlParameter("@Brandstoftype", SqlDbType.NVarChar));
                     cmd.CommandText = query;
                     cmd.Parameters["@Kaartnummer"].Value = tankkaart.KaartNr;
                     cmd.Parameters["@Geldigheidsdatum"].Value = tankkaart.Geldigheidsdatum;
@@ -152,6 +155,12 @@ namespace FleetDatabase {
                     {
                         cmd.Parameters["@BestuurderId"].Value = tankkaart.Bestuurder.BestuurderId;
                     }
+                    if(tankkaart.Brandstoftype == null)
+                    {
+                        cmd.Parameters["@Brandstoftype"].Value = DBNull.Value;
+                    }
+                    else
+                        cmd.Parameters["@Brandstoftype"].Value = tankkaart.Brandstoftype.ToString();
                     tankkaartId = (int)cmd.ExecuteScalar();
                     tankkaart.ZetTankkaartId(tankkaartId);
                 }

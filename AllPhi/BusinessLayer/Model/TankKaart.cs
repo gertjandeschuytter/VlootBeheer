@@ -13,12 +13,19 @@ namespace BusinessLayer.Model
             ZetKaartNr(kaartNr);
             ZetGeldigheidsdatum(geldigheidsdatum);
         }
-
+        //public TankKaart(string kaartNr, DateTime geldigheidsdatum, string pincode, bool geblokkeerd, Brandstoftype_tankkaart? brandstoftype)
+        //{
+        //    ZetKaartNr(kaartNr);
+        //    ZetGeldigheidsdatum(geldigheidsdatum);
+        //    ZetPincode(pincode);
+        //    Geblokkeerd = geblokkeerd;
+        //    Brandstoftype = brandstoftype;
+        //}
         public TankKaart(string kaartNr, DateTime geldigheidsdatum, string pincode, Bestuurder bestuurder, bool geblokkeerd, Brandstoftype_tankkaart? brandstoftype)
         {
             ZetKaartNr(kaartNr);
             ZetGeldigheidsdatum(geldigheidsdatum);
-            ZetPincode(pincode);
+            Pincode = pincode;
             if (bestuurder != null)
             {
                 ZetBestuurder(bestuurder);
@@ -37,7 +44,7 @@ namespace BusinessLayer.Model
 
         public DateTime Geldigheidsdatum { get; private set; }
 
-        public string Pincode { get; private set; }
+        public string? Pincode { get; private set; }
 
         public Bestuurder Bestuurder { get; private set; }
 
