@@ -142,6 +142,7 @@ namespace FleetDatabase {
                     if (voertuigdb.Bestuurder != voertuig.Bestuurder && voertuig.Bestuurder != null)
                     {
                         UpdateBestuurderVoertuig(voertuig);
+                        UpdateOudeBestuurderVoertuig(voertuigdb);
                     }
                     if (voertuigdb.Bestuurder != null)
                     {
