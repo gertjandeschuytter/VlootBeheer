@@ -117,8 +117,7 @@ namespace WpfFleetManagement.Tankkaart {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/WpfFleetManagement;V1.0.0.0;component/tankkaart/bestuurderwijzigentankkaartwindo" +
-                    "w.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/WpfFleetManagement;component/tankkaart/bestuurderwijzigentankkaartwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Tankkaart\BestuurderWijzigenTankkaartWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
