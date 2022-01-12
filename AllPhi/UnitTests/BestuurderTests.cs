@@ -406,7 +406,6 @@ namespace UnitTests
             List<TypeRijbewijs> types = new List<TypeRijbewijs>();
             types.Add(TypeRijbewijs.C);
             Bestuurder b = new("Ophalvens", "Jarne", new DateTime(1999, 08, 04), "99080455307", types);
-            b.VoegRijbewijsToe(TypeRijbewijs.C);
             Assert.Throws<BestuurderException>(() => b.VoegRijbewijsToe(TypeRijbewijs.C));
         }
 
