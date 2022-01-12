@@ -5530,41 +5530,25 @@
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
     "C:\\Users\\Ruben\\.nuget\\packages\\": {},
-=======
-    "C:\\Users\\Gertj\\.nuget\\packages\\": {},
->>>>>>> d175962b1412597b6ecf869981766dd5139ecabf
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\Ruben\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\FleetDatabase\\FleetDatabase.csproj",
       "projectName": "FleetDatabase",
       "projectPath": "C:\\Users\\Ruben\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\FleetDatabase\\FleetDatabase.csproj",
       "packagesPath": "C:\\Users\\Ruben\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Ruben\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\FleetDatabase\\obj\\",
-=======
-      "projectUniqueName": "C:\\Users\\Gertj\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\FleetDatabase\\FleetDatabase.csproj",
-      "projectName": "FleetDatabase",
-      "projectPath": "C:\\Users\\Gertj\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\FleetDatabase\\FleetDatabase.csproj",
-      "packagesPath": "C:\\Users\\Gertj\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Gertj\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\FleetDatabase\\obj\\",
->>>>>>> d175962b1412597b6ecf869981766dd5139ecabf
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-<<<<<<< HEAD
         "C:\\Users\\Ruben\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-        "C:\\Users\\Gertj\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> d175962b1412597b6ecf869981766dd5139ecabf
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
@@ -5580,13 +5564,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-<<<<<<< HEAD
             "C:\\Users\\Ruben\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\BusinessLayer\\BusinessLayer.csproj": {
               "projectPath": "C:\\Users\\Ruben\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\BusinessLayer\\BusinessLayer.csproj"
-=======
-            "C:\\Users\\Gertj\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\BusinessLayer\\BusinessLayer.csproj": {
-              "projectPath": "C:\\Users\\Gertj\\source\\repos\\Opdracht_Projectwerk\\AllPhi\\BusinessLayer\\BusinessLayer.csproj"
->>>>>>> d175962b1412597b6ecf869981766dd5139ecabf
             }
           }
         }
@@ -5625,7 +5604,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
       }
     }
   }

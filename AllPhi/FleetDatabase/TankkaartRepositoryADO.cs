@@ -218,6 +218,10 @@ namespace FleetDatabase {
                         UpdateBestuurderTankkaart(tankkaart);
                         UpdateOudeBestuurderTankkaart(tankkaartdb);
                     }
+                    if(tankkaartdb.Bestuurder != null)
+                    {
+                        UpdateOudeBestuurderTankkaart(tankkaartdb);
+                    }
                     cmd.ExecuteNonQuery();
                 }
                 catch (Exception ex)

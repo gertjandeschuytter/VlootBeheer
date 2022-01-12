@@ -25,7 +25,7 @@ namespace BusinessLayer.Model
         {
             ZetKaartNr(kaartNr);
             ZetGeldigheidsdatum(geldigheidsdatum);
-            Pincode = pincode;
+            ZetPincode(pincode);
             if (bestuurder != null)
             {
                 ZetBestuurder(bestuurder);
@@ -90,9 +90,14 @@ namespace BusinessLayer.Model
         }
         public void ZetPincode(string pincode)
         {
-            if (string.IsNullOrWhiteSpace(pincode)) throw new TankKaartException("Tankkaart: ZetPincode - pincode is null");
-            if (pincode.Length != 4) throw new TankKaartException("Tankkaart: ZetPincode - pincode moet 4 cijfers lang zijn");
-            Pincode = pincode;
+            //if (string.IsNullOrWhiteSpace(pincode)) throw new TankKaartException("Tankkaart: ZetPincode - pincode is null");
+            if (!string.IsNullOrWhiteSpace(pincode))
+            {
+                if (pincode.Length != 4) throw new TankKaartException("Tankkaart: ZetPincode - pincode moet 4 cijfers lang zijn");
+                else
+                    Pincode = pincode;
+            }
+
         }
         #endregion
         internal bool HeeftBestuurder(Bestuurder bestuurder)

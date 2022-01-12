@@ -67,7 +67,7 @@ namespace WpfFleetManagement.Tankkaart
 
                     BusinessLayer.Model.TankKaart t = new(Kaartnummer, (DateTime)Geldigheidsdatum, Pincode, Bestuurder, Geblokkeerd, Brandstoftype);
                     MainWindow.tankkaartManager.VoegTankkaartToe(t);
-                    MessageBox.Show("Het voertuig werd succesvol toegevoegd!");
+                    MessageBox.Show("De Tankkaart werd succesvol toegevoegd!");
                 }
                 else
                 {
