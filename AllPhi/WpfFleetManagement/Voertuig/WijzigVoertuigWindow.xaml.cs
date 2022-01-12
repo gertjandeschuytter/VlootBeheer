@@ -83,8 +83,12 @@ namespace WpfFleetManagement.Voertuig
 
             if(!string.IsNullOrWhiteSpace(voertuig.Kleur)) KleurTextBox.Text = voertuig.Kleur;
             if (voertuig.AantalDeuren >= 3) DeurenTextBox.Text = voertuig.AantalDeuren.ToString();
-            bestuurder = voertuig.Bestuurder;
-            if (bestuurder != null)
+            if (voertuig.Bestuurder != null)
+            {
+                BestuurderTextBox.Text = voertuig.Bestuurder.ToString();
+                bestuurder = voertuig.Bestuurder;
+            }
+            else if (bestuurder != null)
             {
                 BestuurderTextBox.Text = bestuurder.ToString();
             }
@@ -190,7 +194,8 @@ namespace WpfFleetManagement.Voertuig
         private void BestuurderButton_Click(object sender, RoutedEventArgs e)
         {
             BestuurderWijzigenVoertuigWindow zb = new();
-            zb.ShowDialog();
+            zb.Show();
+            Close();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

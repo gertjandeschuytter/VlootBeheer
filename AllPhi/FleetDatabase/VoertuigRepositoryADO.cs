@@ -142,9 +142,11 @@ namespace FleetDatabase {
                     if (voertuigdb.Bestuurder != voertuig.Bestuurder && voertuig.Bestuurder != null)
                     {
                         UpdateBestuurderVoertuig(voertuig);
+                    }
+                    if (voertuigdb.Bestuurder != null)
+                    {
                         UpdateOudeBestuurderVoertuig(voertuigdb);
                     }
-
                     command.ExecuteNonQuery();
                 } catch (Exception ex) {
                     throw new BestuurderRepositoryADOException("WijzigAdresBestuurder - UpdateAdres " + ex.Message);
