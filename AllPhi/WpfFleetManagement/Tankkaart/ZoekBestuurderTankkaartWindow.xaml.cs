@@ -22,6 +22,7 @@ namespace WpfFleetManagement.Tankkaart
     /// </summary>
     public partial class ZoekBestuurderTankkaartWindow : Window
     {
+        public Bestuurder Bestuurder;
         public string Voornaam;
         public string Naam;
         public DateTime? GeboorteDatum;
@@ -104,17 +105,16 @@ namespace WpfFleetManagement.Tankkaart
             if (DatagridBestuurder.SelectedItem != null)
             {
                 Application.Current.Properties["Bestuurder"] = (Bestuurder)DatagridBestuurder.SelectedItem;
-                VoertuigWindow vw = new();
-                vw.Show();
-                vw.TabVoegToe.Focus();
-                this.Close();
+                Bestuurder = (Bestuurder)DatagridBestuurder.SelectedItem;
+                DialogResult = true;
+                Close();
             }
         }
 
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            TankkaartWindow tw = new();
-            tw.Show();
-        }
+        //private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        //{
+        //    TankkaartWindow tw = new();
+        //    tw.Show();
+        //}
     }
 }

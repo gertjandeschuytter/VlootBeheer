@@ -65,7 +65,7 @@
                     </Grid>
                 </Grid>
             </TabItem>
-            <TabItem Header="Voeg Toe">
+            <TabItem Header="Voeg Toe" x:Name="TabVoegToe" Height="20" VerticalAlignment="Top">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
@@ -92,13 +92,7 @@
                     <CheckBox x:Name="VoegToe_IsGeblokkeerdCheckbox" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
                     <Label Grid.Column="0" Grid.Row="2" Content="Brandstof" Margin="5"/>
-                    <ComboBox x:Name="VoegToe_BrandstofTypeCombobox" Grid.Row="2" Grid.Column="0"  Margin="5,30,5,10">
-                        <ComboBoxItem Content="Diesel"/>
-                        <ComboBoxItem Content="Benzine"/>
-                        <ComboBoxItem Content="Elektrisch"/>
-                        <ComboBoxItem Content="Diesel_Elektrisch"/>
-                        <ComboBoxItem Content="Benzine_Elektrisch"/>
-                    </ComboBox>
+                    <ComboBox x:Name="VoegToe_BrandstofTypeCombobox" Grid.Row="2" Grid.Column="0"  Margin="5,30,5,10" Loaded="VoegToe_BrandstofTypeCombobox_Loaded"/>
 
                     <!--<Label Grid.Column="1" Grid.Row="2" Content="Bestuurder" Margin="5"/>
                     <ComboBox Grid.Column="1" Grid.Row="2" Margin="5,30,5,10"/>-->
