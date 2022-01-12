@@ -110,7 +110,6 @@ namespace WpfFleetManagement.Tankkaart
             BusinessLayer.Model.TankKaart tk;
             try
             {
-                //datetime is nullable dus ook een optie nodig om datum te verwijderen van de tankkaart
                 tk = new(Kaartnummer,(DateTime)Geldigheidsdatum, Pincode,Bestuurder,Geblokkeerd,Brandstoftype);
                 tk.ZetTankkaartId((int)TankkaartId);
                 MainWindow.tankkaartManager.UpdateTankkaart(tk);

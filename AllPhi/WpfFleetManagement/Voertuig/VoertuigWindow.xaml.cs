@@ -55,7 +55,7 @@ namespace WpfFleetManagement.Voertuig {
         {
             if (VoegToe_MerkTextbox.Text.Length > 0 && VoegToe_ModelTextbox.Text.Length > 0 && VoegToe_ChassisnummerTextbox.Text.Length > 0 && VoegToe_NummerplaatTextbox.Text.Length > 0 && VoegToe_BrandstoftypeCombobox.SelectedIndex != 0 && VoegToe_TypewagenCombobox.SelectedIndex != 0)
             {
-                    return true;
+                return true;
             }
             return false;
         }
@@ -72,46 +72,47 @@ namespace WpfFleetManagement.Voertuig {
                     Nummerplaat = VoegToe_NummerplaatTextbox.Text;
                     Kleur = VoegToe_KleurTextbox.Text;
                     int output;
-                    if(int.TryParse(VoegToe_AantalDeurenTextbox.Text, out output)) AantalDeuren = output;
+                    if (int.TryParse(VoegToe_AantalDeurenTextbox.Text, out output)) AantalDeuren = output;
 
                     switch (VoegToe_BrandstoftypeCombobox.SelectedIndex)
                     {
                         case 0:
-                            Brandstoftype = Brandstoftype_voertuig.Benzine;
-                            break;
+                        Brandstoftype = Brandstoftype_voertuig.Benzine;
+                        break;
                         case 1:
-                            Brandstoftype = Brandstoftype_voertuig.Diesel;
-                            break;
+                        Brandstoftype = Brandstoftype_voertuig.Diesel;
+                        break;
                         case 2:
-                            Brandstoftype = Brandstoftype_voertuig.Hybride_Benzine;
-                            break;
+                        Brandstoftype = Brandstoftype_voertuig.Hybride_Benzine;
+                        break;
                         case 3:
-                            Brandstoftype = Brandstoftype_voertuig.Hybride_Diesel;
-                            break;
+                        Brandstoftype = Brandstoftype_voertuig.Hybride_Diesel;
+                        break;
                         case 4:
-                            Brandstoftype = Brandstoftype_voertuig.Elektrisch;
-                            break;
+                        Brandstoftype = Brandstoftype_voertuig.Elektrisch;
+                        break;
                     }
 
                     switch (VoegToe_TypewagenCombobox.SelectedIndex)
                     {
                         case 0:
-                            wagenType = Typewagen.Personenwagen;
-                            break;
+                        wagenType = Typewagen.Personenwagen;
+                        break;
 
                         case 1:
-                            wagenType = Typewagen.Bestelwagen;
-                            break;
+                        wagenType = Typewagen.Bestelwagen;
+                        break;
 
                         case 2:
-                            wagenType = Typewagen.Sportwagen;
-                            break;
+                        wagenType = Typewagen.Sportwagen;
+                        break;
                     }
 
                     BusinessLayer.Model.Voertuig v = new(Merk, Model, Chassisnummer, Nummerplaat, (Brandstoftype_voertuig)Brandstoftype, (Typewagen)wagenType, bestuurder);
                     v.ZetAantalDeuren((int)AantalDeuren);
                     v.ZetKleur((string)Kleur);
                     MainWindow.voertuigManager.VoegVoertuigToe(v);
+                    bestuurder = null;
                     MessageBox.Show("Het voertuig werd succesvol toegevoegd!");
                 }
                 else
@@ -127,9 +128,16 @@ namespace WpfFleetManagement.Voertuig {
 
         private void WijzigButton_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Properties["Voertuig"] = (BusinessLayer.Model.Voertuig)VoertuigDatagrid.SelectedItem;
-            WijzigVoertuigWindow wvw = new();
-            wvw.ShowDialog();
+            if ((BusinessLayer.Model.Voertuig)VoertuigDatagrid.SelectedItem == null)
+            {
+                MessageBox.Show("U heeft geen voertuig gekozen");
+            }
+            else
+            {
+                Application.Current.Properties["Voertuig"] = (BusinessLayer.Model.Voertuig)VoertuigDatagrid.SelectedItem;
+                WijzigVoertuigWindow wvw = new();
+                wvw.ShowDialog();
+            }
         }
 
         private void FilterButton_Click(object sender, RoutedEventArgs e)
@@ -160,7 +168,7 @@ namespace WpfFleetManagement.Voertuig {
             else
                 Kleur = Aanpassen_KleurTextbox.Text;
 
-           
+
             if (!int.TryParse(Aanpassen_AantalDeurenTextbox.Text, out output))
                 AantalDeuren = null;
             else

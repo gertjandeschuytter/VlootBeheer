@@ -92,7 +92,7 @@ namespace WpfFleetManagement.Voertuig
         {
             if (DatagridBestuurder.SelectedItem != null)
             {
-                Application.Current.Properties["Bestuurder"] = (Bestuurder)DatagridBestuurder.SelectedItem;
+                Application.Current.Properties["bestuurder"] = (Bestuurder)DatagridBestuurder.SelectedItem;
 
                 VoertuigWindow vw = new();
 

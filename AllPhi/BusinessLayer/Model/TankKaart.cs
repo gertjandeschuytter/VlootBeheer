@@ -13,7 +13,14 @@ namespace BusinessLayer.Model
             ZetKaartNr(kaartNr);
             ZetGeldigheidsdatum(geldigheidsdatum);
         }
-
+        //public TankKaart(string kaartNr, DateTime geldigheidsdatum, string pincode, bool geblokkeerd, Brandstoftype_tankkaart? brandstoftype)
+        //{
+        //    ZetKaartNr(kaartNr);
+        //    ZetGeldigheidsdatum(geldigheidsdatum);
+        //    ZetPincode(pincode);
+        //    Geblokkeerd = geblokkeerd;
+        //    Brandstoftype = brandstoftype;
+        //}
         public TankKaart(string kaartNr, DateTime geldigheidsdatum, string pincode, Bestuurder bestuurder, bool geblokkeerd, Brandstoftype_tankkaart? brandstoftype)
         {
             ZetKaartNr(kaartNr);
@@ -37,7 +44,7 @@ namespace BusinessLayer.Model
 
         public DateTime Geldigheidsdatum { get; private set; }
 
-        public string Pincode { get; private set; }
+        public string? Pincode { get; private set; }
 
         public Bestuurder Bestuurder { get; private set; }
 
@@ -83,9 +90,14 @@ namespace BusinessLayer.Model
         }
         public void ZetPincode(string pincode)
         {
-            if (string.IsNullOrWhiteSpace(pincode)) throw new TankKaartException("Tankkaart: ZetPincode - pincode is null");
-            if (pincode.Length != 4) throw new TankKaartException("Tankkaart: ZetPincode - pincode moet 4 cijfers lang zijn");
-            Pincode = pincode;
+            //if (string.IsNullOrWhiteSpace(pincode)) throw new TankKaartException("Tankkaart: ZetPincode - pincode is null");
+            if (!string.IsNullOrWhiteSpace(pincode))
+            {
+                if (pincode.Length != 4) throw new TankKaartException("Tankkaart: ZetPincode - pincode moet 4 cijfers lang zijn");
+                else
+                    Pincode = pincode;
+            }
+
         }
         #endregion
         internal bool HeeftBestuurder(Bestuurder bestuurder)
