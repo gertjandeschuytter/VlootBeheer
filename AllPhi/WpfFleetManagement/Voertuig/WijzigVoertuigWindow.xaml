@@ -50,6 +50,8 @@
             <Label Grid.Row="4" Grid.Column="0" Content="Type wagen" Margin="5"/>
             <ComboBox x:Name="WagenTypeCombobox" Grid.Row="4" Grid.Column="0" Margin="5,30,5,10" Loaded="VoegToe_TypewagenCombobox_Loaded"/>
 
+            <Button Grid.Row="5" Grid.Column="1" Content="Verwijder Bestuurder" Margin="5" Click="Button_Click"/>
+
             <Button x:Name="WijzigButton" Click="WijzigButton_Click" Grid.ColumnSpan="2" Grid.Row="6" Margin="5">Wijzig</Button>
         </Grid>
     </Grid>

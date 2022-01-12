@@ -62,13 +62,13 @@
                         <TextBox x:Name="Aanpassen_AantalDeurenTextbox" Grid.Row="2" Grid.Column="1"  Margin="5,30,5,10"/>
 
                         <Label Grid.Column="0" Grid.Row="3" Content="Brandstof type" Margin="5"/>
-                        <ComboBox x:Name="Aanpassen_BrandstoftypeCombobox" Grid.Row="3" Grid.Column="0"  Margin="5,30,5,10"/>
+                        <ComboBox x:Name="Aanpassen_BrandstoftypeCombobox" Grid.Row="3" Grid.Column="0"  Margin="5,30,5,10" Loaded="Aanpassen_BrandstoftypeCombobox_Loaded"/>
 
                         <!--<Label Grid.Column="1" Grid.Row="3" Content="Bestuurder" Margin="5"/>
                         <ComboBox Grid.Row="3" Grid.Column="1"  Margin="5,30,5,10"/>-->
 
                         <Label Grid.Row="4" Grid.Column="0" Content="Type wagen" Margin="5"/>
-                        <ComboBox x:Name="Aanpassen_TypewagenCombobox" Grid.Row="4" Grid.Column="0" Margin="5,30,5,10"/>
+                        <ComboBox x:Name="Aanpassen_TypewagenCombobox" Grid.Row="4" Grid.Column="0" Margin="5,30,5,10" Loaded="Aanpassen_TypewagenCombobox_Loaded"/>
 
                         <Label Grid.Column="1" Grid.Row="4" Content="VoertuigId" Margin="5"/>
                         <TextBox x:Name="Aanpassen_VoertuigIdTextbox" Grid.Row="4" Grid.Column="1"  Margin="5,30,5,10"/>
@@ -82,7 +82,7 @@
                             <RowDefinition/>
                         </Grid.RowDefinitions>
                         <DataGrid x:Name="VoertuigDatagrid" Grid.Row="0" Margin="5" SelectionChanged="VoertuigDatagrid_SelectionChanged"/>
-                        <Button x:Name="VerwijderButton" Grid.Row="1" Margin="5">Verwijder</Button>
+                        <Button x:Name="VerwijderButton" Grid.Row="1" Margin="5" Click="VerwijderButton_Click">Verwijder</Button>
                     </Grid>
                 </Grid>
             </TabItem>
