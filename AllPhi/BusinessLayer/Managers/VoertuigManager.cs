@@ -53,13 +53,13 @@ namespace BusinessLayer.Managers {
             _vrepo.UpdateVoertuig(voertuig);
         }
 
-        public IReadOnlyList<Voertuig> GeefVoertuig(int? id, string? merk, string? model, string? chassisnummer, string? nummerplaat, string? kleur, int? aantalDeuren, string? brandstoftype, string? typewagen)
+        public IReadOnlyList<Voertuig> GeefVoertuig(int? id, string? merk, string? model, string? chassisnummer, string? nummerplaat, string? kleur, int? aantalDeuren, string? brandstoftype, string? typewagen, string? naamBestuurder)
         {
             List<Voertuig> list = new();
             if (id.HasValue)
                 list.Add(_vrepo.geefVoertuig((int)id));
             else
-            list = (List<Voertuig>)_vrepo.GeefVoertuigen(merk, model, chassisnummer, nummerplaat, brandstoftype, typewagen, kleur, aantalDeuren);
+            list = (List<Voertuig>)_vrepo.GeefVoertuigen(merk, model, chassisnummer, nummerplaat, brandstoftype, typewagen, kleur, aantalDeuren, naamBestuurder);
             return list.AsReadOnly();
         }
 

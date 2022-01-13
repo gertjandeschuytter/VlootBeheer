@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfFleetManagement"
         mc:Ignorable="d"
-        Title="WijzigenBestuurderWindow" Height="600" Width="1000" Closing="Window_Closing">
+        Title="WijzigenBestuurderWindow" Height="600" Width="1000">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>

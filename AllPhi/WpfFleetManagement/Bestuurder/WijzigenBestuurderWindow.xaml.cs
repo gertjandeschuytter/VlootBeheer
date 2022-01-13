@@ -109,11 +109,5 @@ namespace WpfFleetManagement {
             MessageBox.Show("De bestuurder is gewijzigd");
             Close();
         }
-
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            BestuurderWindow bw = new();
-            bw.Show();
-        }
     }
 }

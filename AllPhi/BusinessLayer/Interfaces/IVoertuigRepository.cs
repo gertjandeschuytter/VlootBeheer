@@ -13,7 +13,7 @@ namespace BusinessLayer.Interfaces {
         bool BestaatVoertuig(int VoertuigId);
         bool BestaatChassisnummer(string chassisnummer);
         bool BestaatVoertuig(Voertuig Voertuig);
-        IReadOnlyList<Voertuig> GeefVoertuigen(string? merk, string? model,string? chassisnummer, string? nummerplaat, string? brandstoftype, string? wagentype, string? kleur, int? aantaldeuren);
+        IReadOnlyList<Voertuig> GeefVoertuigen(string? merk, string? model,string? chassisnummer, string? nummerplaat, string? brandstoftype, string? wagentype, string? kleur, int? aantaldeuren, string? naamBestuurder);
         Voertuig geefVoertuig(int voertuigId);
         bool BestaatNummerplaat(string nummerPlaat);
     }

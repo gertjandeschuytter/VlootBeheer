@@ -205,6 +205,7 @@ namespace WpfFleetManagement
                 Application.Current.Properties["Bestuurder"] = (BusinessLayer.Model.Bestuurder)DatagridBestuurder.SelectedItem;
                 WijzigenBestuurderWindow wtw = new();
                 wtw.ShowDialog();
+                FilterButton_Click(sender, e);
             }
         }
         private bool ZijnAlleVeldenIngevuld() {

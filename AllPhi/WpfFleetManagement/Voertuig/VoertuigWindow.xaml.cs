@@ -30,6 +30,7 @@ namespace WpfFleetManagement.Voertuig {
         private string? Nummerplaat;
         private string? Kleur;
         private int? AantalDeuren;
+        private string? Naam;
         private Brandstoftype_voertuig? Brandstoftype;
         private Typewagen? wagenType;
 
@@ -147,6 +148,12 @@ namespace WpfFleetManagement.Voertuig {
         private void FilterButton_Click(object sender, RoutedEventArgs e)
         {
             int output;
+            if (string.IsNullOrWhiteSpace(Aanpassen_BestuurderTextbox.Text))
+            {
+                Naam = null;
+            }
+            else
+                Naam = Aanpassen_BestuurderTextbox.Text;
             if (!int.TryParse(Aanpassen_VoertuigIdTextbox.Text, out output))
                 VoertuigId = null;
             else
@@ -188,7 +195,7 @@ namespace WpfFleetManagement.Voertuig {
             else
                 wagenType = (Typewagen)Enum.Parse(typeof(Typewagen), (string)Aanpassen_TypewagenCombobox.SelectedItem);
 
-            IReadOnlyList<BusinessLayer.Model.Voertuig> voertuigen = MainWindow.voertuigManager.GeefVoertuig(VoertuigId, Merk, Model, Chassisnummer, Nummerplaat, Kleur, AantalDeuren, Brandstoftype.ToString(), wagenType.ToString());
+            IReadOnlyList<BusinessLayer.Model.Voertuig> voertuigen = MainWindow.voertuigManager.GeefVoertuig(VoertuigId, Merk, Model, Chassisnummer, Nummerplaat, Kleur, AantalDeuren, Brandstoftype.ToString(), wagenType.ToString(), Naam);
 
             ObservableCollection<BusinessLayer.Model.Voertuig> v = new();
             foreach (BusinessLayer.Model.Voertuig voertuig in voertuigen)

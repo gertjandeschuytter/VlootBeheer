@@ -260,11 +260,12 @@ namespace FleetDatabase {
             }
         }
 
-        public IReadOnlyList<Voertuig> GeefVoertuigen(string? merk, string? model, string? chassisnummer, string? nummerplaat, string? brandstoftype, string? wagentype, string? kleur, int? aantaldeuren) {
+        public IReadOnlyList<Voertuig> GeefVoertuigen(string? merk, string? model, string? chassisnummer, string? nummerplaat, string? brandstoftype, string? wagentype, string? kleur, int? aantaldeuren, string? naamBestuurder) {
             List<TypeRijbewijs> RijbewijzenLijst = new();
             List<Voertuig> Voertuigen = new();
             Bestuurder bestuurder = null;
             Voertuig voertuig = null;
+            IEnumerable<Bestuurder> bestuurders;
             bool WHERE = true;
             bool AND = false;
             string sql = "SELECT vs.*, bs.Naam, bs.Voornaam, bs.Geboortedatum,bs.Rijksregisternummer, bs.AdresId,a.Gemeente," +
@@ -284,6 +285,23 @@ namespace FleetDatabase {
                     AND = true;
                 }
                 sql += "Merk = @Merk";
+            }
+            if (!string.IsNullOrEmpty(naamBestuurder))
+            {
+                if (WHERE)
+                {
+                    sql += " WHERE ";
+                    WHERE = false;
+                }
+                if (AND)
+                {
+                    sql += " AND ";
+                }
+                else
+                {
+                    AND = true;
+                }
+                sql += "Naam = @Naam";
             }
             if (!string.IsNullOrEmpty(model)) {
                 if (WHERE) {
@@ -390,6 +408,7 @@ namespace FleetDatabase {
                     if (!string.IsNullOrEmpty(wagentype)) cmd.Parameters.AddWithValue("@wagentype", wagentype);
                     if (!string.IsNullOrEmpty(kleur)) cmd.Parameters.AddWithValue("@kleur", kleur);
                     if (aantaldeuren.HasValue) cmd.Parameters.AddWithValue("@aantaldeuren", aantaldeuren);
+                    if (!string.IsNullOrEmpty(naamBestuurder)) cmd.Parameters.AddWithValue("@Naam", naamBestuurder);
                     SqlDataReader reader = cmd.ExecuteReader();
                     while (reader.Read()) {
                         if (reader["VoertuigId"].GetType() != typeof(DBNull)) {
@@ -414,7 +433,14 @@ namespace FleetDatabase {
                                 var rijksregister = (string)reader["Rijksregisternummer"];
                                 bestuurder = new Bestuurder(naam, voornaam, (DateTime)reader["Geboortedatum"], rijksregister, RijbewijzenLijst);
                             } else {
-                                bestuurder = new Bestuurder((string)reader["Naam"], (string)reader["Voornaam"], (DateTime)reader["Geboortedatum"], (string)reader["Rijksregisternummer"], GeefTypeRijbewijzenVanBestuurderInVoertuig(bestuurderId));
+                                BestuurderRepositoryADO repo = new BestuurderRepositoryADO(connectionString);
+                                bestuurders = repo.GeefBestuurders(null, (string)reader["Naam"], null, null);
+                                foreach (var b in bestuurders)
+                                {
+                                    bestuurder = b;
+                                }
+                                
+                                //bestuurder = new Bestuurder((string)reader["Naam"], (string)reader["Voornaam"], (DateTime)reader["Geboortedatum"], (string)reader["Rijksregisternummer"], GeefTypeRijbewijzenVanBestuurderInVoertuig(bestuurderId));
                             }
                             bestuurder.ZetID(bestuurderId);
                             voertuig.ZetBestuurder(bestuurder);
