@@ -171,6 +171,8 @@ namespace FleetDatabase {
                 finally
                 {
                     connection.Close();
+                    cmd.Parameters["@Kaartnummer"].Value = tankkaart.KaartNr;
+                    cmd.Parameters["@Geldigheidsdatum"].Value = tankkaart.Geldigheidsdatum;
                 }
             }
         }
@@ -193,8 +195,6 @@ namespace FleetDatabase {
                     cmd.Parameters.Add(new SqlParameter("@BestuurderId", SqlDbType.NVarChar));
                     cmd.CommandText = query;
                     cmd.Parameters["@TankkaartId"].Value = tankkaart.TankkaartId;
-                    cmd.Parameters["@Kaartnummer"].Value = tankkaart.KaartNr;
-                    cmd.Parameters["@Geldigheidsdatum"].Value = tankkaart.Geldigheidsdatum;
                     cmd.Parameters["@Geblokkeerd"].Value = tankkaart.Geblokkeerd;
 
                     if (tankkaart.Pincode == null)

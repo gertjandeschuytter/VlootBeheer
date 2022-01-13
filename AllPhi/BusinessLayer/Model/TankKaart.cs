@@ -68,7 +68,6 @@ namespace BusinessLayer.Model
         }
         public void ZetBestuurder(Bestuurder bestuurder)
         {
-            if (bestuurder == null) throw new TankKaartException("Tankkaart: ZetBestuurder - bestuurder is null");
             if (Bestuurder == bestuurder) throw new TankKaartException("Tankkaart: ZetBestuurder - bestuurder bestaat al");
             if (Bestuurder != null)
                 if (Bestuurder.HeeftTankKaart(this))
