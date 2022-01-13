@@ -133,6 +133,7 @@ namespace BusinessLayer.Model {
         public void VerwijderVoertuig(Voertuig voertuig) {
             if (Voertuig != voertuig) throw new BestuurderException("Bestuurder: VerwijderVoertuig - Dit voertuig is niet het voertuig van deze bestuurder.");
             Voertuig = null;
+            voertuig.VerwijderBestuurder(voertuig.Bestuurder);
         }
         internal bool HeeftVoertuig(Voertuig voertuig) {
             if (Voertuig == voertuig) return true;
@@ -142,6 +143,7 @@ namespace BusinessLayer.Model {
         public void VerwijderTankKaart(TankKaart tankKaart) {
             if (TankKaart != tankKaart) throw new BestuurderException("Bestuurder: VerwijderTankKaart - Deze tankkaart is niet van deze bestuurder.");
             TankKaart = null;
+            tankKaart.VerwijderBestuurder(tankKaart.Bestuurder);
         }
         internal bool HeeftTankKaart(TankKaart tankKaart) {
             if (TankKaart == tankKaart) return true;
