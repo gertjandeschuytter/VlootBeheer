@@ -142,6 +142,7 @@ namespace WpfFleetManagement.Voertuig {
                 Application.Current.Properties["Voertuig"] = (BusinessLayer.Model.Voertuig)VoertuigDatagrid.SelectedItem;
                 WijzigVoertuigWindow wvw = new();
                 wvw.ShowDialog();
+                FilterButton_Click(sender, e);
             }
         }
 

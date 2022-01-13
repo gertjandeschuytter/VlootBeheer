@@ -146,7 +146,14 @@ namespace WpfFleetManagement.Voertuig
             }
             else AantalDeuren = 0;
 
-            Bestuurder = bestuurder;
+            if (voertuig.Bestuurder != null)
+            {
+                Bestuurder = voertuig.Bestuurder;
+            }
+            else
+            {
+                Bestuurder = bestuurder;
+            }
 
             BusinessLayer.Model.Voertuig v;
             try

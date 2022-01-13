@@ -168,7 +168,7 @@ namespace FleetDatabase {
                         UpdateOudeBestuurderVoertuig(voertuigdb);
                     }
                     else
-                    if (voertuigdb.Bestuurder != voertuig.Bestuurder && voertuigdb.Bestuurder != null)
+                    if (voertuigdb.Bestuurder.BestuurderId != voertuig.Bestuurder.BestuurderId && voertuigdb.Bestuurder != null)
                     {
                         UpdateBestuurderVoertuig(voertuig);
                         UpdateOudeBestuurderVoertuig(voertuigdb);
@@ -433,14 +433,14 @@ namespace FleetDatabase {
                                 var rijksregister = (string)reader["Rijksregisternummer"];
                                 bestuurder = new Bestuurder(naam, voornaam, (DateTime)reader["Geboortedatum"], rijksregister, RijbewijzenLijst);
                             } else {
-                                BestuurderRepositoryADO repo = new BestuurderRepositoryADO(connectionString);
-                                bestuurders = repo.GeefBestuurders(null, (string)reader["Naam"], null, null);
-                                foreach (var b in bestuurders)
-                                {
-                                    bestuurder = b;
-                                }
-                                
-                                //bestuurder = new Bestuurder((string)reader["Naam"], (string)reader["Voornaam"], (DateTime)reader["Geboortedatum"], (string)reader["Rijksregisternummer"], GeefTypeRijbewijzenVanBestuurderInVoertuig(bestuurderId));
+                                //BestuurderRepositoryADO repo = new BestuurderRepositoryADO(connectionString);
+                                //bestuurders = repo.GeefBestuurders(null, (string)reader["Naam"], null, null);
+                                //foreach (var b in bestuurders)
+                                //{
+                                //    bestuurder = b;
+                                //}
+
+                                bestuurder = new Bestuurder((string)reader["Naam"], (string)reader["Voornaam"], (DateTime)reader["Geboortedatum"], (string)reader["Rijksregisternummer"], GeefTypeRijbewijzenVanBestuurderInVoertuig(bestuurderId));
                             }
                             bestuurder.ZetID(bestuurderId);
                             voertuig.ZetBestuurder(bestuurder);

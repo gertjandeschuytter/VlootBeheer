@@ -44,11 +44,11 @@ namespace BusinessLayer.Managers {
             }
             if (!_vrepo.BestaatVoertuig(voertuig.ID)) throw new VoertuigManagerException("Voertuig bestaat niet");
             if (_vrepo.BestaatVoertuig(voertuig)) throw new VoertuigManagerException("Voertuig is niet veranderd");
-            Bestuurder nieuweBestuurder = null;
+            Bestuurder oudeBestuurder = null;
             if (voertuig.Bestuurder != null)
             {
-                nieuweBestuurder = _brepo.GeefBestuurder(voertuig.Bestuurder.BestuurderId);
-                if (nieuweBestuurder.Voertuig != null && nieuweBestuurder.Voertuig != voertuig) throw new VoertuigManagerException("Deze bestuurder heeft al een wagen, gelieve deze eerst te verwijderen vooraleer je een nieuwe wagen geeft");
+                oudeBestuurder = _brepo.GeefBestuurder(voertuig.Bestuurder.BestuurderId);
+                if (oudeBestuurder.Voertuig != null && oudeBestuurder.Voertuig.ID != voertuig.ID) throw new VoertuigManagerException("Deze bestuurder heeft al een wagen, gelieve deze eerst te verwijderen vooraleer je een nieuwe wagen geeft");
             }
             _vrepo.UpdateVoertuig(voertuig);
         }
