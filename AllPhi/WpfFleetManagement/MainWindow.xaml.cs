@@ -36,8 +36,8 @@ namespace WpfFleetManagement {
             //connectionstring = ConfigurationManager.ConnectionStrings["connectionStringJarne"].ConnectionString;
             connectionstring = ConfigurationManager.ConnectionStrings["connectionStringGertjan"].ConnectionString;
             bestuurderManager = new BestuurderManager(new BestuurderRepositoryADO(connectionstring));
-            tankkaartManager = new TankkaartManager(new TankkaartRepositoryADO(connectionstring));
-            voertuigManager = new VoertuigManager(new VoertuigRepositoryADO(connectionstring));
+            tankkaartManager = new TankkaartManager(new TankkaartRepositoryADO(connectionstring), new BestuurderRepositoryADO(connectionstring));
+            voertuigManager = new VoertuigManager(new VoertuigRepositoryADO(connectionstring), new BestuurderRepositoryADO(connectionstring));
         }
 
         private void Button_Bestuurder_Click(object sender, RoutedEventArgs e)

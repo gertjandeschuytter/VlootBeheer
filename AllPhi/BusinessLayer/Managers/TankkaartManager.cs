@@ -7,29 +7,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLayer.Managers
-{
-    public class TankkaartManager
-    {
+namespace BusinessLayer.Managers {
+    public class TankkaartManager {
         private ITankkaartRepository Repo;
-        public TankkaartManager(ITankkaartRepository repo)
+        private IBestuurderRepository _brepo;
+        public TankkaartManager(ITankkaartRepository repo, IBestuurderRepository brepo)
         {
             Repo = repo;
+            _brepo = brepo;
         }
         public void VoegTankkaartToe(TankKaart tankkaart)
         {
             try
             {
-                if (Repo.BestaatTankkaart(tankkaart.TankkaartId))
-                {
-                    throw new TankkaartManagerException("TankkaartManager: VoegTankkaartToe - tankkaart bestaat al");
-                }
-                else
-                {
-                    Repo.VoegTankkaartToe(tankkaart);
-                }
+                if (Repo.BestaatTankkaartNummer(tankkaart.KaartNr)) throw new TankkaartManagerException("Er bestaat al een tankkaart met dit kaartnummer");
+                Repo.VoegTankkaartToe(tankkaart);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw new TankkaartManagerException("TankkaartManager: VoegTankkaartToe", ex);
             }
@@ -47,7 +41,7 @@ namespace BusinessLayer.Managers
                     Repo.VerwijderTankkaart(tankkaart);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw new TankkaartManagerException("TankkaartManager: VerwijderTankkaart", ex);
             }
@@ -59,23 +53,27 @@ namespace BusinessLayer.Managers
                 if (Repo.BestaatTankkaart(tankkaart.TankkaartId))
                 {
                     TankKaart dbTankkaart = Repo.GeefTankkaart(tankkaart.TankkaartId);
-                    if(dbTankkaart == tankkaart)
+                    if (dbTankkaart.KaartNr != tankkaart.KaartNr)
                     {
-                        throw new TankkaartManagerException("TankkaartManager: UpdateTankkaart - geen verschillen");
+                        if (Repo.BestaatTankkaartNummer(tankkaart.KaartNr)) throw new TankkaartManagerException("Deze tankkaart bestaat al in het systeem");
                     }
-                    else
+                    Bestuurder nieuweBestuurder;
+                    if (tankkaart.Bestuurder != null)
                     {
-                        Repo.UpdateTankkaart(tankkaart);
+                        nieuweBestuurder = _brepo.GeefBestuurder(tankkaart.Bestuurder.BestuurderId);
+                        if (nieuweBestuurder.TankKaart != null && nieuweBestuurder.TankKaart != tankkaart) throw new TankkaartManagerException("Deze bestuurder heeft al een tankkaart, gelieve deze eerst te verwijderen vooraleer je een nieuwe wagen geeft");
                     }
+                    if (dbTankkaart == tankkaart) throw new TankkaartManagerException("TankkaartManager: UpdateTankkaart - geen verschillen");
+                    Repo.UpdateTankkaart(tankkaart);
                 }
                 else
                 {
                     throw new TankkaartManagerException("TankkaartManager: UpdateTankkaart - tankkaart bestaat niet");
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                throw new TankkaartManagerException("TankkaartManager: UpdateTankkaart", ex);
+                throw new TankkaartManagerException("TankkaartManager: UpdateTankkaart - "+ ex.Message);
             }
         }
         public IReadOnlyList<TankKaart> ZoekTankkaarten(int? tankkaartId, string? kaartNr, DateTime? geldigheidsdatum, string? pincode, Brandstoftype_tankkaart? brandstoftype, bool? geblokkeerd)
@@ -90,7 +88,7 @@ namespace BusinessLayer.Managers
                 }
                 else
                 {
-                    if(!string.IsNullOrWhiteSpace(kaartNr) || geldigheidsdatum != DateTime.MinValue || !string.IsNullOrWhiteSpace(pincode) || brandstoftype != null)
+                    if (!string.IsNullOrWhiteSpace(kaartNr) || geldigheidsdatum != DateTime.MinValue || !string.IsNullOrWhiteSpace(pincode) || brandstoftype != null)
                     {
                         tankkaarten.AddRange(Repo.ZoekTankkaarten(kaartNr, geldigheidsdatum, pincode, brandstoftype, geblokkeerd));
                     }
@@ -101,7 +99,7 @@ namespace BusinessLayer.Managers
                 }
                 return tankkaarten;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw new TankkaartManagerException("TankkaartManager: ZoekTankkaarten", ex);
             }

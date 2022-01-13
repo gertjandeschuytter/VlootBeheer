@@ -11,6 +11,7 @@ namespace WpfFleetManagement.Voertuig
     /// Interaction logic for ZoekKlantVoertuigWindow.xaml
     /// </summary>
     public partial class ZoekBestuurderVoertuigWindow : Window {
+        public Bestuurder bs;
         public string Voornaam;
         public string Naam;
         public DateTime? GeboorteDatum;
@@ -92,13 +93,9 @@ namespace WpfFleetManagement.Voertuig
         {
             if (DatagridBestuurder.SelectedItem != null)
             {
-                Application.Current.Properties["bestuurder"] = (Bestuurder)DatagridBestuurder.SelectedItem;
-
-                VoertuigWindow vw = new();
-
-                vw.Show();
-                vw.TabVoegToe.Focus();
-                this.Close();
+                Application.Current.Properties["Bestuurder"] = (Bestuurder)DatagridBestuurder.SelectedItem;
+                DialogResult = true;
+                Close();
             }
         }
     }

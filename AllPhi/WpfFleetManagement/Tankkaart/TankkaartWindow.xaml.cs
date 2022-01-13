@@ -91,13 +91,22 @@ namespace WpfFleetManagement.Tankkaart
 
         private void WijzigButton_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Properties["Tankkaart"] = (BusinessLayer.Model.TankKaart)TankkaartDatagrid.SelectedItem;
-            WijzigTankkaartWindow wtw = new();
-            wtw.ShowDialog();
+            if ((BusinessLayer.Model.TankKaart)TankkaartDatagrid.SelectedItem == null)
+            {
+                MessageBox.Show("U heeft geen Tankkaart gekozen");
+            }
+            else
+            {
+                Application.Current.Properties["Tankkaart"] = (BusinessLayer.Model.TankKaart)TankkaartDatagrid.SelectedItem;
+                WijzigTankkaartWindow wtw = new();
+                wtw.ShowDialog();
+                FilterButton_Click(sender, e);
+            }
         }
 
         private void FilterButton_Click(object sender, RoutedEventArgs e)
         {
+            bestuurder = null;
             if (string.IsNullOrWhiteSpace(Aanpassen_KaartnummerTextbox.Text))
                 Kaartnummer = null;
             else
@@ -133,13 +142,17 @@ namespace WpfFleetManagement.Tankkaart
 
             TankkaartDatagrid.ItemsSource = t;
         }
+
         private void VerwijderButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 BusinessLayer.Model.TankKaart tankkaart = (BusinessLayer.Model.TankKaart)TankkaartDatagrid.SelectedItem;
-                MainWindow.tankkaartManager.VerwijderTankkaart(tankkaart);
-                MessageBox.Show("Tankkaart is verwijderd", Title, MessageBoxButton.OK, MessageBoxImage.Information);
+                if (MessageBox.Show("Ben je zeker dat je deze tankkaart wil verwijderen?", "Confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    MainWindow.tankkaartManager.VerwijderTankkaart(tankkaart);
+                    FilterButton_Click(sender, e);
+                }
             }
             catch (Exception ex)
             {
@@ -167,6 +180,12 @@ namespace WpfFleetManagement.Tankkaart
             brandstoftypes.Insert(0, "<geen brandstoftype>");
             VoegToe_BrandstofTypeCombobox.ItemsSource = brandstoftypes;
             VoegToe_BrandstofTypeCombobox.SelectedIndex = 0;
+        }
+
+        private void ClearBestuurderButton_Click(object sender, RoutedEventArgs e)
+        {
+            bestuurder = null;
+            TextBoxGekozenBestuurder.Text = "";
         }
     }
 }

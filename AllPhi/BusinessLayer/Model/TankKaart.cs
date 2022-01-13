@@ -80,6 +80,7 @@ namespace BusinessLayer.Model
         public void ZetKaartNr(string kaartNr)
         {
             if(string.IsNullOrWhiteSpace(kaartNr)) throw new TankKaartException("Tankkaart: ZetKaartNr - kaartNr is null");
+            if (kaartNr.Length != 17) throw new TankKaartException("Tankkaart moet 17 cijfers bevatten, probeer opnieuw met een geldige invoer");
             KaartNr = kaartNr;
         }
         public void ZetGeldigheidsdatum(DateTime geldigheidsdatum)
