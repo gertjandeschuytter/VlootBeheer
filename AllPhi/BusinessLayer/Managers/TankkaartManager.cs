@@ -76,7 +76,7 @@ namespace BusinessLayer.Managers {
                 throw new TankkaartManagerException("TankkaartManager: UpdateTankkaart - "+ ex.Message);
             }
         }
-        public IReadOnlyList<TankKaart> ZoekTankkaarten(int? tankkaartId, string? kaartNr, DateTime? geldigheidsdatum, string? pincode, Brandstoftype_tankkaart? brandstoftype, bool? geblokkeerd)
+        public IReadOnlyList<TankKaart> ZoekTankkaarten(int? tankkaartId, string? kaartNr, DateTime? geldigheidsdatum, string? pincode, string? naamBestuurder, Brandstoftype_tankkaart? brandstoftype, bool? geblokkeerd)
         {
             List<TankKaart> tankkaarten = new List<TankKaart>();
 
@@ -88,9 +88,9 @@ namespace BusinessLayer.Managers {
                 }
                 else
                 {
-                    if (!string.IsNullOrWhiteSpace(kaartNr) || geldigheidsdatum != DateTime.MinValue || !string.IsNullOrWhiteSpace(pincode) || brandstoftype != null)
+                    if (!string.IsNullOrWhiteSpace(kaartNr) || geldigheidsdatum != DateTime.MinValue || !string.IsNullOrWhiteSpace(pincode) || brandstoftype != null || !string.IsNullOrWhiteSpace(naamBestuurder))
                     {
-                        tankkaarten.AddRange(Repo.ZoekTankkaarten(kaartNr, geldigheidsdatum, pincode, brandstoftype, geblokkeerd));
+                        tankkaarten.AddRange(Repo.ZoekTankkaarten(kaartNr, geldigheidsdatum, pincode, naamBestuurder, brandstoftype, geblokkeerd));
                     }
                     else
                     {

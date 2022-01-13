@@ -28,6 +28,7 @@ namespace WpfFleetManagement.Tankkaart
         public int? TankkaartId;
         public bool Geblokkeerd;
         public DateTime? Geldigheidsdatum;
+        public string? Naam;
         public Bestuurder Bestuurder;
         public TankkaartWindow()
         {
@@ -107,6 +108,12 @@ namespace WpfFleetManagement.Tankkaart
         private void FilterButton_Click(object sender, RoutedEventArgs e)
         {
             bestuurder = null;
+            if (string.IsNullOrWhiteSpace(Aanpassen_BestuurderTextBox.Text))
+            {
+                Naam = null;
+            }
+            else
+                Naam = Aanpassen_BestuurderTextBox.Text;
             if (string.IsNullOrWhiteSpace(Aanpassen_KaartnummerTextbox.Text))
                 Kaartnummer = null;
             else
@@ -132,7 +139,7 @@ namespace WpfFleetManagement.Tankkaart
             else
                 Geldigheidsdatum = Aanpassen_GeldigheidsdatumDatePicker.SelectedDate;
 
-            IReadOnlyList<TankKaart> tankkaarten = MainWindow.tankkaartManager.ZoekTankkaarten(TankkaartId, Kaartnummer, Geldigheidsdatum, Pincode, Brandstoftype, Geblokkeerd);
+            IReadOnlyList<TankKaart> tankkaarten = MainWindow.tankkaartManager.ZoekTankkaarten(TankkaartId, Kaartnummer, Geldigheidsdatum, Pincode, Naam, Brandstoftype, Geblokkeerd);
 
             ObservableCollection<TankKaart> t = new();
             foreach (TankKaart tankkaart in tankkaarten)

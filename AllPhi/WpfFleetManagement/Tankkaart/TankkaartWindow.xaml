@@ -52,6 +52,9 @@
                     <Label Grid.Column="1" Grid.Row="2" Content="TankkaartId" Margin="5"/>
                     <TextBox x:Name="Aanpassen_TankkaartIdTextbox" Grid.Column="1" Grid.Row="2" Margin="5,30,5,10"/>
 
+                    <Label Grid.Column="0" Grid.Row="3" Content="Naam Bestuurder" Margin="5"/>
+                    <TextBox x:Name="Aanpassen_BestuurderTextBox" Grid.Column="0" Grid.Row="3" Margin="5,30,5,10"/>
+
                     <Button x:Name="WijzigButton" Click="WijzigButton_Click" Grid.ColumnSpan="2" Grid.Row="4" Margin="5" Content="Wijzig"/>
                     <Button x:Name="FilterButton" Click="FilterButton_Click" Grid.ColumnSpan="2" Grid.Row="5" Margin="5">Filter</Button>
 

@@ -336,10 +336,11 @@ namespace FleetDatabase {
             }
         }
 
-        public IReadOnlyList<TankKaart> ZoekTankkaarten(string? kaartnr, DateTime? geldigheidsdatum, string? pincode, Brandstoftype_tankkaart? brandstoftype, bool? geblokkeerd)
+        public IReadOnlyList<TankKaart> ZoekTankkaarten(string? kaartnr, DateTime? geldigheidsdatum, string? pincode, string? naamBestuurder, Brandstoftype_tankkaart? brandstoftype, bool? geblokkeerd)
         {
             List<TankKaart> tankkaarten = new();
             TankKaart tankkaart = null;
+            IEnumerable<Bestuurder> bestuurders;
             Bestuurder bestuurder = null;
             bool WHERE = true;
             bool AND = false;
@@ -399,6 +400,23 @@ namespace FleetDatabase {
                 }
                 sql += "Pincode = @Pincode";
             }
+            if (!string.IsNullOrEmpty(naamBestuurder))
+            {
+                if (WHERE)
+                {
+                    sql += " WHERE ";
+                    WHERE = false;
+                }
+                if (AND)
+                {
+                    sql += " AND ";
+                }
+                else
+                {
+                    AND = true;
+                }
+                sql += "Naam = @Naam";
+            }
             if (brandstoftype != null)
             {
                 if (WHERE)
@@ -443,6 +461,7 @@ namespace FleetDatabase {
                     if (!string.IsNullOrEmpty(kaartnr)) cmd.Parameters.AddWithValue("Kaartnummer", kaartnr);
                     if (geldigheidsdatum.HasValue) cmd.Parameters.AddWithValue("Geldigheidsdatum", geldigheidsdatum);
                     if (!string.IsNullOrEmpty(pincode)) cmd.Parameters.AddWithValue("Pincode", pincode);
+                    if (!string.IsNullOrEmpty(naamBestuurder)) cmd.Parameters.AddWithValue("Naam", naamBestuurder);
                     if (brandstoftype != null) cmd.Parameters.AddWithValue("Brandstoftype", brandstoftype.ToString());
                     if (geblokkeerd.HasValue) cmd.Parameters.AddWithValue("Isgeblokeerd", geblokkeerd);
                     SqlDataReader reader = cmd.ExecuteReader();
@@ -451,7 +470,6 @@ namespace FleetDatabase {
                         if ((reader["TankkaartId"].GetType() != typeof(DBNull)))
                         {
                             int tankkaartIdDB = (int)reader["TankkaartId"];
-                            var kaarnumero = (string)reader["Kaartnummer"];
                             tankkaart = new TankKaart((string)reader["Kaartnummer"], (DateTime)reader["Geldigheidsdatum"], (string)reader["Pincode"], null, (bool)reader["Isgeblokeerd"], null);
                             tankkaart.ZetTankkaartId(tankkaartIdDB);
                             if (reader["Brandstoftype"] != DBNull.Value)
@@ -464,7 +482,11 @@ namespace FleetDatabase {
                         {
                             int bestuurderId = (int)reader["BestuurderId"];
                             BestuurderRepositoryADO repo = new BestuurderRepositoryADO(connectionString);
-                            bestuurder = repo.GeefBestuurder(bestuurderId);
+                            bestuurders = repo.GeefBestuurders(null, (string)reader["Naam"], null, null);
+                            foreach(var b in bestuurders)
+                            {
+                                bestuurder = b;
+                            }
                             tankkaart.ZetBestuurder(bestuurder);
                             if (tankkaart.Bestuurder.TankKaart == null)
                             {
