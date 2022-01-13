@@ -24,47 +24,31 @@ namespace FleetDatabase {
             return connection;
         }
 
-        //public bool BestaatTankkaart(TankKaart tankkaart) //Done
-        //{
-        //    SqlConnection connection = GetConnection();
-        //    string query =
-        //        "SELECT Count (*) FROM [dbo].tankkaart"
-        //        + "WHERE kaartnummer=@kaartnummer"
-        //        + " AND geldigheidsdatum=@geldigheidsdatum"
-        //        + " AND pincode=@pincode"
-        //        + " AND bestuurder=@bestuurder"
-        //        + " AND geblokkeerd=@geblokkeerd"
-        //        + " AND brandstofType=@brandstofType";
-        //    using (SqlCommand command = connection.CreateCommand())
-        //    {
-        //        connection.Open();
-        //        try
-        //        {
-        //            command.Parameters.Add(new SqlParameter("@kaartnummer", SqlDbType.NVarChar));
-        //            command.Parameters.Add(new SqlParameter("@geldigheidsdatum", SqlDbType.DateTime));
-        //            command.Parameters.Add(new SqlParameter("@pincode", SqlDbType.NVarChar));
-        //            command.Parameters.Add(new SqlParameter("@bestuurder", SqlDbType.NVarChar));
-        //            command.Parameters.Add(new SqlParameter("@geblokkeerd", SqlDbType.TinyInt));
-        //            command.CommandText = query;
-        //            command.Parameters["@kaartnummer"].Value = tankkaart.KaartNr;
-        //            command.Parameters["@geldigheidsdatum"].Value = tankkaart.Geldigheidsdatum;
-        //            command.Parameters["@pincode"].Value = tankkaart.Pincode;
-        //            command.Parameters["@bestuurder"].Value = tankkaart.Bestuurder;
-        //            command.Parameters["@geblokkeerd"].Value = tankkaart.Geblokkeerd;
-        //            int n = (int)command.ExecuteScalar();
-        //            if (n > 0) return true;
-        //            else return false;
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            throw new TankkaartRepositoryADOException("BestaatTankkaart", ex);
-        //        }
-        //        finally
-        //        {
-        //            connection.Close();
-        //        }
-        //    }
-        //}
+        public bool BestaatTankkaartNummer(string kaartnr) //Done
+        {
+            SqlConnection connection = GetConnection();
+            string query = "SELECT COUNT(*) FROM [dbo].Tankkaart WHERE Kaartnummer=@Kaartnummer";
+            using (SqlCommand cmd = connection.CreateCommand())
+            {
+                try
+                {
+                    connection.Open();
+                    cmd.Parameters.Add(new SqlParameter("@Kaartnummer", SqlDbType.NVarChar));
+                    cmd.CommandText = query;
+                    cmd.Parameters["@Kaartnummer"].Value = kaartnr;
+                    int n = (int)cmd.ExecuteScalar();
+                    if (n > 0) return true; else return false;
+                }
+                catch (Exception ex)
+                {
+                    throw new TankkaartRepositoryADOException("BestaatTankkaart", ex);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+        }
         public bool BestaatTankkaart(int tankkaartId) //Done
         {
             SqlConnection connection = GetConnection();
@@ -213,14 +197,19 @@ namespace FleetDatabase {
                     {
                         cmd.Parameters["@BestuurderId"].Value = tankkaart.Bestuurder.BestuurderId;
                     }
-                    if (tankkaartdb.Bestuurder != tankkaart.Bestuurder && tankkaart.Bestuurder != null)
+                    if (tankkaartdb.Bestuurder != tankkaart.Bestuurder && tankkaart.Bestuurder == null)
+                    {
+                        UpdateOudeBestuurderTankkaart(tankkaartdb);
+                    }
+                    else
+                    if (tankkaartdb.Bestuurder != tankkaart.Bestuurder && tankkaartdb.Bestuurder != null)
                     {
                         UpdateBestuurderTankkaart(tankkaart);
                         UpdateOudeBestuurderTankkaart(tankkaartdb);
                     }
-                    if(tankkaartdb.Bestuurder != null)
+                    if (tankkaart.Bestuurder != null && tankkaartdb.Bestuurder == null)
                     {
-                        UpdateOudeBestuurderTankkaart(tankkaartdb);
+                        UpdateBestuurderTankkaart(tankkaart);
                     }
                     cmd.ExecuteNonQuery();
                 }
@@ -462,6 +451,7 @@ namespace FleetDatabase {
                         if ((reader["TankkaartId"].GetType() != typeof(DBNull)))
                         {
                             int tankkaartIdDB = (int)reader["TankkaartId"];
+                            var kaarnumero = (string)reader["Kaartnummer"];
                             tankkaart = new TankKaart((string)reader["Kaartnummer"], (DateTime)reader["Geldigheidsdatum"], (string)reader["Pincode"], null, (bool)reader["Isgeblokeerd"], null);
                             tankkaart.ZetTankkaartId(tankkaartIdDB);
                             if (reader["Brandstoftype"] != DBNull.Value)

@@ -90,6 +90,31 @@ namespace FleetDatabase {
                 }
             }
         }
+        public bool BestaatChassisnummer(string chassisnummer)
+        {
+            SqlConnection conn = GetConnection();
+            string query = "SELECT COUNT(*) FROM [dbo].Voertuig WHERE Chassisnummer=@Chassisnummer";
+            using (SqlCommand cmd = conn.CreateCommand())
+            {
+                try
+                {
+                    conn.Open();
+                    cmd.Parameters.Add(new SqlParameter("@Chassisnummer", SqlDbType.NVarChar));
+                    cmd.CommandText = query;
+                    cmd.Parameters["@Chassisnummer"].Value = chassisnummer;
+                    int n = (int)cmd.ExecuteScalar();
+                    if (n > 0) return true; else return false;
+                }
+                catch (Exception ex)
+                {
+                    throw new VoertuigRepositoryADOExceptions("BestaatChassisnummer - "+ ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+        }
         public void UpdateVoertuig(Voertuig voertuig) {
             Voertuig voertuigdb = geefVoertuig(voertuig.ID);
 
@@ -138,14 +163,19 @@ namespace FleetDatabase {
                     } else {
                         command.Parameters["@AantalDeuren"].Value = voertuig.AantalDeuren;
                     }
-
-                    if (voertuigdb.Bestuurder != voertuig.Bestuurder && voertuig.Bestuurder != null)
-                    {
-                        UpdateBestuurderVoertuig(voertuig);
-                    }
-                    if (voertuigdb.Bestuurder != null)
+                    if (voertuigdb.Bestuurder != voertuig.Bestuurder && voertuig.Bestuurder == null)
                     {
                         UpdateOudeBestuurderVoertuig(voertuigdb);
+                    }
+                    else
+                    if (voertuigdb.Bestuurder != voertuig.Bestuurder && voertuigdb.Bestuurder != null)
+                    {
+                        UpdateBestuurderVoertuig(voertuig);
+                        UpdateOudeBestuurderVoertuig(voertuigdb);
+                    }
+                    if (voertuig.Bestuurder != null && voertuigdb.Bestuurder == null)
+                    {
+                        UpdateBestuurderVoertuig(voertuig);
                     }
                     command.ExecuteNonQuery();
                 } catch (Exception ex) {
@@ -600,6 +630,30 @@ namespace FleetDatabase {
             }
         }
 
-
+        public bool BestaatNummerplaat(string nummerPlaat)
+        {
+            SqlConnection conn = GetConnection();
+            string query = "SELECT COUNT(*) FROM [dbo].Voertuig WHERE Nummerplaat=@Nummerplaat";
+            using (SqlCommand cmd = conn.CreateCommand())
+            {
+                try
+                {
+                    conn.Open();
+                    cmd.Parameters.Add(new SqlParameter("@Nummerplaat", SqlDbType.NVarChar));
+                    cmd.CommandText = query;
+                    cmd.Parameters["@Nummerplaat"].Value = nummerPlaat;
+                    int n = (int)cmd.ExecuteScalar();
+                    if (n > 0) return true; else return false;
+                }
+                catch (Exception ex)
+                {
+                    throw new VoertuigRepositoryADOExceptions("bestaatVoertuig", ex);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+        }
     }
 }

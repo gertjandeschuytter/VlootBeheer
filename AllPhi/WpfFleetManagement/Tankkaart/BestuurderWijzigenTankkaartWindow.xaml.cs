@@ -100,7 +100,7 @@ namespace WpfFleetManagement.Tankkaart {
         {
             if (DatagridBestuurder.SelectedItem != null)
             {
-                Application.Current.Properties["Bestuurder"] = (Bestuurder)DatagridBestuurder.SelectedItem;
+                Application.Current.Properties["bestuurder"] = (Bestuurder)DatagridBestuurder.SelectedItem;
                 WijzigTankkaartWindow wvw = new();
                 wvw.Show();
                 Close();

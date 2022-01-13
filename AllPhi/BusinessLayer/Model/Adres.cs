@@ -45,13 +45,13 @@ namespace BusinessLayer.Model
 
         public void ZetPostcode(int postcode)
         {
-            if (postcode < 1000 && postcode > 9999) throw new AdresException("Adres: ZetPostcode - postcode moet minsters 4 cijfers bevatten.");
+            if (postcode < 1000 || postcode > 9999) throw new AdresException("Adres: ZetPostcode - postcode moet minsters 4 cijfers bevatten.");
             Postcode = postcode;
         }
 
         public void ZetNummer(string nummer)
         {
-            if (string.IsNullOrEmpty(nummer)) throw new AdresException("Adres: ZetNummer - nummer mag niet kleiner zijn dan 1.");
+            if (string.IsNullOrWhiteSpace(nummer)) throw new AdresException("Adres: ZetNummer - nummer mag niet kleiner zijn dan 1.");
             Nummer = nummer;
         }
 

@@ -23,6 +23,7 @@ namespace WpfFleetManagement.Voertuig {
         private BusinessLayer.Model.Voertuig voertuig = (BusinessLayer.Model.Voertuig)Application.Current.Properties["Voertuig"];
 
         private int? VoertuigId;
+        private Bestuurder bs;
         private string? Merk;
         private string? Model;
         private string? Chassisnummer;
@@ -46,14 +47,17 @@ namespace WpfFleetManagement.Voertuig {
 
         private void KiesBestuurderButton_Click(object sender, RoutedEventArgs e)
         {
-            ZoekBestuurderVoertuigWindow zb = new();
-            zb.Show();
-            Close();
+            ZoekBestuurderVoertuigWindow zbv = new();
+            if (zbv.ShowDialog() == true)
+            {
+                bs = zbv.bs;
+                TextBoxGekozenBestuurder.Text = bs.ToString();
+            }
         }
 
         private bool ZijnAlleVeldenIngevuld()
         {
-            if (VoegToe_MerkTextbox.Text.Length > 0 && VoegToe_ModelTextbox.Text.Length > 0 && VoegToe_ChassisnummerTextbox.Text.Length > 0 && VoegToe_NummerplaatTextbox.Text.Length > 0 && VoegToe_BrandstoftypeCombobox.SelectedIndex != 0 && VoegToe_TypewagenCombobox.SelectedIndex != 0)
+            if (VoegToe_MerkTextbox.Text.Length > 0 && VoegToe_ModelTextbox.Text.Length > 0 && VoegToe_ChassisnummerTextbox.Text.Length > 0 && VoegToe_NummerplaatTextbox.Text.Length > 0)
             {
                 return true;
             }
@@ -108,9 +112,9 @@ namespace WpfFleetManagement.Voertuig {
                         break;
                     }
 
-                    BusinessLayer.Model.Voertuig v = new(Merk, Model, Chassisnummer, Nummerplaat, (Brandstoftype_voertuig)Brandstoftype, (Typewagen)wagenType, bestuurder);
-                    v.ZetAantalDeuren((int)AantalDeuren);
+                    BusinessLayer.Model.Voertuig v = new(Merk, Model, Chassisnummer, Nummerplaat, (Brandstoftype_voertuig)Brandstoftype, (Typewagen)wagenType, bs);
                     v.ZetKleur((string)Kleur);
+                    v.ZetAantalDeuren((int)AantalDeuren);
                     MainWindow.voertuigManager.VoegVoertuigToe(v);
                     bestuurder = null;
                     MessageBox.Show("Het voertuig werd succesvol toegevoegd!");
@@ -177,12 +181,12 @@ namespace WpfFleetManagement.Voertuig {
             if ((string)Aanpassen_BrandstoftypeCombobox.SelectedItem == "<geen brandstofTypes>")
                 Brandstoftype = null;
             else
-                Brandstoftype = (Brandstoftype_voertuig)Aanpassen_BrandstoftypeCombobox.SelectedItem;
+                Brandstoftype = (Brandstoftype_voertuig)Enum.Parse(typeof(Brandstoftype_voertuig), (string)Aanpassen_BrandstoftypeCombobox.SelectedItem);
 
             if ((string)Aanpassen_TypewagenCombobox.SelectedItem == "<geen wagentype>")
                 wagenType = null;
             else
-                wagenType = (Typewagen)Aanpassen_TypewagenCombobox.SelectedItem;
+                wagenType = (Typewagen)Enum.Parse(typeof(Typewagen), (string)Aanpassen_TypewagenCombobox.SelectedItem);
 
             IReadOnlyList<BusinessLayer.Model.Voertuig> voertuigen = MainWindow.voertuigManager.GeefVoertuig(VoertuigId, Merk, Model, Chassisnummer, Nummerplaat, Kleur, AantalDeuren, Brandstoftype.ToString(), wagenType.ToString());
 
@@ -210,6 +214,7 @@ namespace WpfFleetManagement.Voertuig {
             wagentypes.Insert(1, "Bestelwagen");
             wagentypes.Insert(2, "Sportwagen");
             VoegToe_TypewagenCombobox.ItemsSource = wagentypes;
+            VoegToe_TypewagenCombobox.SelectedIndex = 0;
         }
 
         private void VoegToe_BrandstoftypeCombobox_Loaded(object sender, RoutedEventArgs e)
@@ -221,6 +226,8 @@ namespace WpfFleetManagement.Voertuig {
             brandstofTypes.Insert(3, "Hybride_Diesel");
             brandstofTypes.Insert(4, "Elektrisch");
             VoegToe_BrandstoftypeCombobox.ItemsSource = brandstofTypes;
+            VoegToe_BrandstoftypeCombobox.SelectedIndex = 0;
+
         }
 
         private void Aanpassen_BrandstoftypeCombobox_Loaded(object sender, RoutedEventArgs e)
@@ -252,15 +259,23 @@ namespace WpfFleetManagement.Voertuig {
             try
             {
                 BusinessLayer.Model.Voertuig voertuig = (BusinessLayer.Model.Voertuig)VoertuigDatagrid.SelectedItem;
-                MainWindow.voertuigManager.VerwijderVoertuig(voertuig);
-                MessageBox.Show("Voertuig is verwijderd", Title, MessageBoxButton.OK, MessageBoxImage.Information);
-                Application.Current.Properties["Voertuig"] = null;
-                FilterButton_Click(sender, e);
+                if (MessageBox.Show("Ben je zeker dat je dit voertuig wil verwijderen?", "Confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    MainWindow.voertuigManager.VerwijderVoertuig(voertuig);
+                    Application.Current.Properties["Voertuig"] = null;
+                    FilterButton_Click(sender, e);
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, Title, MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            bs = null;
+            TextBoxGekozenBestuurder.Text = "";
         }
     }
 }

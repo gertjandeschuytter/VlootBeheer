@@ -24,6 +24,31 @@ namespace FleetDatabase {
             SqlConnection connection = new(connectionString);
             return connection;
         }
+        public bool HeeftVoertuig(Bestuurder b)
+        {
+            SqlConnection conn = GetConnection();
+            string query = "SELECT COUNT(*) FROM [dbo].Bestuurder WHERE VoertuigId=@VoertuigId";
+            using (SqlCommand cmd = conn.CreateCommand())
+            {
+                try
+                {
+                    conn.Open();
+                    cmd.Parameters.Add(new SqlParameter("@VoertuigId", SqlDbType.Int));
+                    cmd.CommandText = query;
+                    cmd.Parameters["@VoertuigId"].Value = b.Voertuig.ID;
+                    int n = (int)cmd.ExecuteScalar();
+                    if (n > 0) return true; else return false;
+                }
+                catch (Exception ex)
+                {
+                    throw new BestuurderRepositoryADOException("HeeftVoertuig" + ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+        }
         public Bestuurder GeefBestuurder(int BestuurderId)
         {
             List<TypeRijbewijs> RijbewijzenLijst = new();
@@ -569,10 +594,12 @@ namespace FleetDatabase {
                 "Naam = @Naam, Geboortedatum = @Geboortedatum," +
                 "Rijksregisternummer = @Rijksregisternummer " +
                 "WHERE BestuurderId = @BestuurderId";
+            string deletequery = "DELETE FROM [dbo].BestuurderRijbewijs WHERE BestuurderId=@BestuurderId";
             string sql2 = "INSERT INTO [dbo].BestuurderRijbewijs (BestuurderId, TypeRijbewijs) VALUES (@BestuurderId, @TypeRijbewijs)";
 
             SqlConnection connection = GetConnection();
             using (SqlCommand command = connection.CreateCommand())
+            using (SqlCommand commandDELETE = connection.CreateCommand())
             using (SqlCommand command2 = connection.CreateCommand())
             {
                 connection.Open();
@@ -581,44 +608,38 @@ namespace FleetDatabase {
                     trans = connection.BeginTransaction();
                     command.Transaction = trans;
                     command2.Transaction = trans;
+                    commandDELETE.Transaction = trans;
                     command.Parameters.Add(new SqlParameter("@BestuurderId", SqlDbType.Int));
                     command.Parameters.Add(new SqlParameter("@Naam", SqlDbType.NVarChar));
                     command.Parameters.Add(new SqlParameter("@Voornaam", SqlDbType.NVarChar));
                     command.Parameters.Add(new SqlParameter("@Geboortedatum", SqlDbType.Date));
                     command.Parameters.Add(new SqlParameter("@Rijksregisternummer", SqlDbType.NVarChar));
                     command.CommandText = sql1;
+                    commandDELETE.CommandText = deletequery;
                     command.Parameters["@BestuurderId"].Value = nieuweBestuurder.BestuurderId;
                     command.Parameters["@Naam"].Value = nieuweBestuurder.Naam;
                     command.Parameters["@Voornaam"].Value = nieuweBestuurder.Voornaam;
                     command.Parameters["@Geboortedatum"].Value = nieuweBestuurder.Geboortedatum;
                     command.Parameters["@Rijksregisternummer"].Value = nieuweBestuurder.Rijksregisternummer;
                     command.ExecuteNonQuery();
-                    List<TypeRijbewijs> lijst = GeefTypeRijbewijzen(nieuweBestuurder.BestuurderId);
-                    foreach (var item in bestuurderdb._Types)
+                    commandDELETE.Parameters.Add(new SqlParameter("@BestuurderId", SqlDbType.Int));
+                    commandDELETE.Parameters["@BestuurderId"].Value = nieuweBestuurder.BestuurderId;
+                    commandDELETE.ExecuteNonQuery();
+                    foreach (var item in nieuweBestuurder._Types)
                     {
-                        if (!lijst.Contains(item))
-                        {
-                            command2.CommandText = sql2;
-                            command2.Parameters.AddWithValue("@BestuurderId", nieuweBestuurder.BestuurderId);
-                            command2.Parameters.AddWithValue("@TypeRijbewijs", item.ToString());
-                            command2.ExecuteNonQuery();
-                        }
+                        command2.Parameters.Clear();
+                        command2.CommandText = sql2;
+                        command2.Parameters.AddWithValue("@BestuurderId", nieuweBestuurder.BestuurderId);
+                        command2.Parameters.AddWithValue("@TypeRijbewijs", item.ToString());
+                        command2.ExecuteNonQuery();
                     }
+
                     //UPDATE ADRES
                     if (bestuurderdb.Adres != nieuweBestuurder.Adres && nieuweBestuurder.Adres != null)
                     {
                         UpdateAdresBestuurder(nieuweBestuurder);
                     }
-                    //UPDATE VOERTUIG
-                    if (bestuurderdb.Voertuig != nieuweBestuurder.Voertuig && nieuweBestuurder.Voertuig != null)
-                    {
-                        UpdateVoertuigBestuurder(nieuweBestuurder);
-                    }
                     //UPDATE TANKKAART
-                    if (bestuurderdb.TankKaart != nieuweBestuurder.TankKaart && nieuweBestuurder.TankKaart != null)
-                    {
-                        UpdateTankkaartBestuurder(nieuweBestuurder);
-                    }
                     trans.Commit();
                 }
                 catch (Exception ex)

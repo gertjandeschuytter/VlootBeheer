@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfFleetManagement.Voertuig"
         mc:Ignorable="d"
-        Title="VoertuigWindow" Height="600" Width="1300">
+        Title="VoertuigWindow" Height="600" Width="1006">
     <Grid>
         <TabControl>
             <TabItem Header="Aanpassen">
@@ -81,7 +81,21 @@
                             <RowDefinition Height="7*"/>
                             <RowDefinition/>
                         </Grid.RowDefinitions>
-                        <DataGrid x:Name="VoertuigDatagrid" Grid.Row="0" Margin="5" SelectionChanged="VoertuigDatagrid_SelectionChanged"/>
+                        <DataGrid x:Name="VoertuigDatagrid" Grid.Row="0" Margin="5"  CanUserReorderColumns="False" AutoGenerateColumns="False" SelectedItem="{Binding SelectedRow, Mode=OneWay}" 
+                  CanUserSortColumns="False" CanUserResizeRows="False"  CanUserAddRows="False" CanUserDeleteRows="False" SelectionChanged="VoertuigDatagrid_SelectionChanged">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="VoertuigId" Binding="{Binding ID, Mode=OneWay}"/>
+                                <DataGridTextColumn Header="Merk" Binding="{Binding Merk, Mode=OneWay}"/>
+                                <DataGridTextColumn Header="Model" Binding="{Binding Model, Mode=OneWay}"/>
+                                <DataGridTextColumn Header="Chassisnummer" Binding="{Binding ChassisNummer, Mode=OneWay}"/>
+                                <DataGridTextColumn Header="Nummerplaat" Binding="{Binding NummerPlaat, Mode=OneWay}"/>
+                                <DataGridTextColumn Header="Brandstof" Binding="{Binding BrandstofType, Mode=OneWay}"/>
+                                <DataGridTextColumn Header="Wagen" Binding="{Binding TypeWagen, Mode=OneWay}"/>
+                                <DataGridTextColumn Header="Kleur" Binding="{Binding Kleur, Mode=OneWay}"/>
+                                <DataGridTextColumn Header="Deuren" Binding="{Binding AantalDeuren, Mode=OneWay}"/>
+                                <DataGridTextColumn Header="Bestuurder" Binding="{Binding Bestuurder, Mode=OneWay}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
                         <Button x:Name="VerwijderButton" Grid.Row="1" Margin="5" Click="VerwijderButton_Click">Verwijder</Button>
                     </Grid>
                 </Grid>
@@ -104,8 +118,10 @@
                         </Grid.RowDefinitions>
                         <Label Content="Kies bestuurder:"/>
                         <TextBox x:Name="TextBoxGekozenBestuurder" Grid.Row="0" Grid.Column="0"  Margin="5,30,5,10" IsEnabled="false"/>
-                        <Button Content="Kies bestuurder" Grid.Column="1" Click="KiesBestuurderButton_Click" Margin="5,30,5,10" />
-
+                        <Button Content="Kies bestuurder" Grid.Column="1" Click="KiesBestuurderButton_Click" Margin="5,0,5,40" />
+                        
+                        <Button Grid.Column="1" Content="Verwijder Bestuurder" Margin="5,49,5,75" Click="Button_Click" Grid.RowSpan="2"/>
+                        
                         <Label Grid.Column="0" Grid.Row="1" Content="Merk *" Margin="5"/>
                         <TextBox x:Name="VoegToe_MerkTextbox" Grid.Row="1" Grid.Column="0"  Margin="5,30,5,10"/>
 

@@ -22,7 +22,7 @@ namespace WpfFleetManagement.Tankkaart
     {
 
         private BusinessLayer.Model.TankKaart _tankkaart = (BusinessLayer.Model.TankKaart)Application.Current.Properties["Tankkaart"];
-        private Bestuurder bestuurder = (Bestuurder)Application.Current.Properties["Bestuurder"];
+        private Bestuurder bestuurder = (Bestuurder)Application.Current.Properties["bestuurder"];
 
         public string Kaartnummer;
         public string Pincode;
@@ -39,7 +39,11 @@ namespace WpfFleetManagement.Tankkaart
             DatePickerGeldigheidsDatum.SelectedDate = _tankkaart.Geldigheidsdatum;
             if (_tankkaart.Geblokkeerd) CheckBoxGeblokkeerd.IsChecked = true;
             if (_tankkaart.Bestuurder != null) TextBoxBestuurder.Text = _tankkaart.Bestuurder.ToString();
-            if (bestuurder != null)
+            if (_tankkaart.Bestuurder != null)
+            {
+                TextBoxBestuurder.Text = _tankkaart.Bestuurder.ToString();
+            }
+            else if (bestuurder != null)
             {
                 TextBoxBestuurder.Text = bestuurder.ToString();
             }
@@ -98,7 +102,7 @@ namespace WpfFleetManagement.Tankkaart
                 break;
             }
 
-            if (_tankkaart.Bestuurder != null && bestuurder == null)
+            if (_tankkaart.Bestuurder != null && bestuurder != null)
             {
                 Bestuurder = _tankkaart.Bestuurder;
             }
@@ -113,6 +117,7 @@ namespace WpfFleetManagement.Tankkaart
                 tk = new(Kaartnummer,(DateTime)Geldigheidsdatum, Pincode,Bestuurder,Geblokkeerd,Brandstoftype);
                 tk.ZetTankkaartId((int)TankkaartId);
                 MainWindow.tankkaartManager.UpdateTankkaart(tk);
+                Bestuurder = null;
                 MessageBox.Show("De tankkaart is gewijzigd");
             }
             catch (Exception ex)
@@ -135,6 +140,12 @@ namespace WpfFleetManagement.Tankkaart
             List<string> brandstofTypes_tankkaart = Enum.GetNames(typeof(Brandstoftype_tankkaart)).ToList();
             brandstofTypes_tankkaart.Insert(0, "<geen brandstoftype>");
             ComboBoxBrandstof.ItemsSource = brandstofTypes_tankkaart;
+        }
+
+        private void VerwijderBestuurderButton_Click(object sender, RoutedEventArgs e)
+        {
+            bestuurder = null;
+            TextBoxBestuurder.Text = "";
         }
     }
 }

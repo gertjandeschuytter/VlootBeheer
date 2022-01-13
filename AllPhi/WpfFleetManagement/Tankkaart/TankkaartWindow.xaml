@@ -60,7 +60,18 @@
                             <RowDefinition Height="7*"/>
                             <RowDefinition/>
                         </Grid.RowDefinitions>
-                        <DataGrid x:Name="TankkaartDatagrid" Grid.Row="0" Margin="5" SelectionChanged="TankkaartDatagrid_SelectionChanged"/>
+                        <DataGrid x:Name="TankkaartDatagrid" Grid.Row="0" Margin="5"  CanUserReorderColumns="False" AutoGenerateColumns="False" SelectedItem="{Binding SelectedRow, Mode=OneWay}" 
+                  CanUserSortColumns="False" CanUserResizeRows="False"  CanUserAddRows="False" CanUserDeleteRows="False" SelectionChanged="TankkaartDatagrid_SelectionChanged">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="TankkaartId" Binding="{Binding TankkaartId, Mode=OneWay}"/>
+                                <DataGridTextColumn Header="Kaartnummer" Binding="{Binding KaartNr, Mode=OneWay}"/>
+                                <DataGridTextColumn Header="Geldigheidsdatum" Binding="{Binding Geldigheidsdatum, StringFormat='{}{0:dd/MM/yyyy}', Mode=OneWay}"/>
+                                <DataGridTextColumn Header="Pincode" Binding="{Binding Pincode, Mode=OneWay}"/>
+                                <DataGridTextColumn Header="Bestuurder" Binding="{Binding Bestuurder, Mode=OneWay}"/>
+                                <DataGridTextColumn Header="Geblokkeerd" Binding="{Binding Geblokkeerd, Mode=OneWay}"/>
+                                <DataGridTextColumn Header="Brandstof" Binding="{Binding Brandstoftype, Mode=OneWay}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
                         <Button x:Name="VerwijderButton" Click="VerwijderButton_Click" Grid.Row="1" Margin="5">Verwijder</Button>
                     </Grid>
                 </Grid>
@@ -100,6 +111,9 @@
                     <Label Grid.Row="3" Content="Kies bestuurder:"/>
                     <TextBox x:Name="TextBoxGekozenBestuurder" Grid.Row="3" Grid.Column="0"  Margin="5,30,5,10" IsEnabled="false"/>
                     <Button x:Name="KiesBestuurderButton" Content="Kies bestuurder" Grid.Row="3" Grid.Column="1" Click="KiesBestuurderButton_Click"  Margin="5,30,5,10" />
+
+                    <Button x:Name="ClearBestuurderButton" Grid.Column="1" Grid.Row="3" Content="Verwijder Bestuurder" Margin="5,95,5,96" Click="ClearBestuurderButton_Click" Grid.RowSpan="2"/>
+
 
                     <Button x:Name="VoegToeButton" Click="VoegToeButton_Click" Grid.ColumnSpan="2" Grid.Row="6" Margin="5,75,5,5">Voeg Toe</Button>
                     <Label Grid.ColumnSpan="2" Grid.Row="6" Margin="5,75,5,5" Width="100" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left">* = verplicht</Label>

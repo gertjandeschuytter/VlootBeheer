@@ -125,13 +125,13 @@
                             <RowDefinition/>
                         </Grid.RowDefinitions>
                         <DataGrid x:Name="DatagridBestuurder"  CanUserReorderColumns="False" AutoGenerateColumns="False" SelectedItem="{Binding SelectedRow, Mode=OneWay}" 
-                  CanUserSortColumns="False" CanUserResizeRows="False" CanUserAddRows="False" CanUserDeleteRows="False" SelectionChanged="DatagridBestuurder_SelectionChanged" Grid.Row="0" Margin="5">
+                  CanUserSortColumns="False" CanUserResizeRows="False" Loaded="DatagridBestuurder_Loaded" CanUserAddRows="False" CanUserDeleteRows="False" SelectionChanged="DatagridBestuurder_SelectionChanged" Grid.Row="0" Margin="5">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="BestuurderId" Binding="{Binding BestuurderId, Mode=OneWay}"/>
-                                <DataGridTextColumn Header="Voornaam" Binding="{Binding Voornaam, Mode=OneWay}"/>
-                                <DataGridTextColumn Header="Naam" Binding="{Binding Naam, Mode=OneWay}"/>
-                                <DataGridTextColumn Header="Geboortedatum" Binding="{Binding Geboortedatum, Mode=OneWay}"/>
-                                <DataGridTextColumn Header="Rijksregisternummer" Binding="{Binding Rijksregisternummer, Mode=OneWay}"/>
+                                <DataGridTextColumn  Header="BestuurderId" Binding="{Binding BestuurderId, Mode=OneWay}"/>
+                                <DataGridTextColumn  Header="Voornaam" Binding="{Binding Voornaam, Mode=OneWay}"/>
+                                <DataGridTextColumn  Header="Naam" Binding="{Binding Naam, Mode=OneWay}"/>
+                                <DataGridTextColumn  Header="Geboortedatum" Binding="{Binding Geboortedatum, StringFormat='{}{0:dd/MM/yyyy}' , Mode=OneWay}"/>
+                                <DataGridTextColumn Width="*" Header="Rijksregisternummer" Binding="{Binding Rijksregisternummer, Mode=OneWay}"/>
                             </DataGrid.Columns>
                         </DataGrid>
                         <Button x:Name="VerwijderButton" Click="VerwijderButton_Click" Grid.Row="1" Margin="5">Verwijder</Button>

@@ -184,20 +184,28 @@ namespace WpfFleetManagement
         {
             try {
                 BusinessLayer.Model.Bestuurder bestuurder = (BusinessLayer.Model.Bestuurder)DatagridBestuurder.SelectedItem;
-                MainWindow.bestuurderManager.VerwijderBestuurder(bestuurder);
-                MessageBox.Show("Bestuurder is verwijderd", Title, MessageBoxButton.OK, MessageBoxImage.Information);
-                DatagridBestuurder.SelectedItem = null;
-                FilterButton_Click(sender, e);
+                if (MessageBox.Show("Ben je zeker dat je deze bestuurder wil verwijderen?", "Confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    MainWindow.bestuurderManager.VerwijderBestuurder(bestuurder);
+                    Application.Current.Properties["Bestuurder"] = null;
+                    FilterButton_Click(sender, e);
+                }        
             } catch (Exception ex) {
                 MessageBox.Show(ex.Message, Title, MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         private void GaNaarWijzigScherm(object sender, RoutedEventArgs e)
         {
-            Application.Current.Properties["Bestuurder"] = (BusinessLayer.Model.Bestuurder)DatagridBestuurder.SelectedItem;
-            WijzigenBestuurderWindow window = new();
-            window.Show();
-            Close();
+            if ((BusinessLayer.Model.Bestuurder)DatagridBestuurder.SelectedItem == null)
+            {
+                MessageBox.Show("U heeft geen bestuurder gekozen");
+            }
+            else
+            {
+                Application.Current.Properties["Bestuurder"] = (BusinessLayer.Model.Bestuurder)DatagridBestuurder.SelectedItem;
+                WijzigenBestuurderWindow wtw = new();
+                wtw.ShowDialog();
+            }
         }
         private bool ZijnAlleVeldenIngevuld() {
             if (VoegToe_VoornaamTextbox.Text.Length > 0 && VoegToe_NaamTextbox.Text.Length > 0 && VoegToe_GeboortedatumDatePicker.SelectedDate.HasValue && VoegToe_RijksregisternummerTextbox.Text.Length > 0) {
@@ -211,6 +219,11 @@ namespace WpfFleetManagement
                 return false;
             }
             return false;
+        }
+
+        private void DatagridBestuurder_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
         //private void VoegToe_VoornaamTextbox_TextChanged(object sender, TextChangedEventArgs e) {
         //    if (ZijnAlleVeldenIngevuld()) VoegToeButton.IsEnabled = true;

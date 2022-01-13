@@ -168,19 +168,19 @@ INSERT INTO ADRES(Straat,Huisnummer,Gemeente,Postcode) VALUES('Provenhofstraat',
 GO
 
 INSERT INTO Tankkaart (Kaartnummer, Geldigheidsdatum, Pincode, BestuurderId, Isgeblokeerd, Brandstoftype) 
-VALUES ('0123456789111213145', '12/17/2022', '2546', NULL, 0, 'Benzine');
+VALUES ('01234567891112131', '12/17/2022', '2546', NULL, 0, 'Benzine');
 GO
 INSERT INTO Tankkaart (Kaartnummer,Geldigheidsdatum, Pincode, BestuurderId, Isgeblokeerd, Brandstoftype) 
-VALUES ('0123456349111213145', '11/16/2023', '1234', NULL, 1, 'Diesel');
+VALUES ('01244567891112131', '11/16/2023', '1234', NULL, 1, 'Diesel');
 GO
 INSERT INTO Tankkaart (Kaartnummer, Geldigheidsdatum, Pincode, BestuurderId, Isgeblokeerd, Brandstoftype) 
-VALUES ('0123456789111343145', '02/12/2022', '4321', NULL, 0, 'Elektrisch');
+VALUES ('01234767891112131', '02/12/2022', '4321', NULL, 0, 'Elektrisch');
 GO
 INSERT INTO Tankkaart (Kaartnummer, Geldigheidsdatum, Pincode, BestuurderId, Isgeblokeerd, Brandstoftype) 
-VALUES ('0343456789111213145', '07/08/2024', '1324', NULL, 1, 'Benzine_Elektrisch');
+VALUES ('01234567851112131', '07/08/2024', '1324', NULL, 1, 'Benzine_Elektrisch');
 GO
 INSERT INTO Tankkaart (Kaartnummer, Geldigheidsdatum, Pincode, BestuurderId, Isgeblokeerd, Brandstoftype) 
-VALUES ('0123456734111213145', '10/26/2022', '4213', NULL, 0, 'Diesel_Elektrisch');
+VALUES ('01234567891162131', '10/26/2022', '4213', NULL, 0, 'Diesel_Elektrisch');
 GO
 
 INSERT INTO Bestuurder (Voornaam,Naam,Geboortedatum,AdresId,Rijksregisternummer,VoertuigId,TankkaartId)

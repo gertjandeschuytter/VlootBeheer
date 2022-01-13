@@ -86,7 +86,6 @@ namespace WpfFleetManagement.Voertuig
             if (voertuig.Bestuurder != null)
             {
                 BestuurderTextBox.Text = voertuig.Bestuurder.ToString();
-                bestuurder = voertuig.Bestuurder;
             }
             else if (bestuurder != null)
             {
@@ -155,7 +154,14 @@ namespace WpfFleetManagement.Voertuig
                 v = new(Merk, Model, ChassisNummer, NummerPlaat, BrandstofType, TypeWagen);
                 v.ZetId(voertuig.ID);
                 if(Bestuurder != null) v.ZetBestuurder(Bestuurder);
-                v.ZetKleur(Kleur);
+                if (string.IsNullOrEmpty(Kleur.Trim()))
+                {
+                    Kleur = null;
+                }
+                else
+                {
+                    v.ZetKleur((string)Kleur);
+                }
                 v.ZetAantalDeuren((int)AantalDeuren);
 
                 MainWindow.voertuigManager.WijzigVoertuig(v);

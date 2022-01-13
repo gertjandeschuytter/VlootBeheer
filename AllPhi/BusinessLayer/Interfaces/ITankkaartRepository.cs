@@ -10,6 +10,7 @@ namespace BusinessLayer.Interfaces
     public interface ITankkaartRepository
     {
         void VoegTankkaartToe(TankKaart tankkaart);
+        public bool BestaatTankkaartNummer(string kaartnr);
         bool BestaatTankkaart(int tankkaartId);
         void VerwijderTankkaart(TankKaart tankkaart);
         void UpdateTankkaart(TankKaart tankkaart);
